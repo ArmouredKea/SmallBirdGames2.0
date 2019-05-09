@@ -28,6 +28,7 @@ public class PlayerControls : MonoBehaviour
   private Vector2 direction;
   private bool isMoving;
 
+
     // Start is called before the first frame update
     void Start()
     {

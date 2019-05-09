@@ -25,11 +25,11 @@ public class JoystickController : MonoBehaviour {
         Debug.Log(pointA);
         Debug.Log(initialPoint);
     }
-	
+
 	// Update is called once per frame
 	void Update () {
 
-        //multitouch schtuff
+        //multitouch stuff
         for (int i = 0; i < Input.touchCount; i++) {
             Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
             foreach (var player in Players) {
@@ -46,7 +46,7 @@ public class JoystickController : MonoBehaviour {
                         joystickInner.transform.position = pointA;
                         player.LockedFingerID = null;
                     }
-                        
+
                 }
             }
         }

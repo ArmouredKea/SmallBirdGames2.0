@@ -21,11 +21,16 @@ public class GameController : MonoBehaviour
     public int orderLength;
     public int ordered;
 
+    public bool gameEnd;
+
     public GameObject orderTiles;
     public GameObject orderSpriteOne;
     public GameObject orderSpriteTwo;
     public GameObject orderSpriteThree;
     public GameObject orderSpriteFour;
+
+    //Timer Variable
+    private float endTimer = 15f;
 
     // Start is called before the first frame update
     void Start()
@@ -41,9 +46,12 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      GameTimer();
       if (ordered >= orderLength)
       {
         ordered = 0;
+        points++;
+        Debug.Log(points);
         for (int p = orderLength - 1; p >= 0; p--)
         {
           orderList.Remove(orderList[p]);
@@ -123,7 +131,12 @@ public class GameController : MonoBehaviour
                   Destroy(child.gameObject);
                   orderList[i] = nullItem;
                   ordered += 1;
-                  UpdateScore(other);
+                  Destroy(other.gameObject);
+                  if (playerScript.pickedUpObj == other.gameObject)
+                  {
+                    playerScript.pickedUpObj = null;
+                    playerScript.inRange = false;
+                  }
                 }
                 break;
               }
@@ -136,7 +149,12 @@ public class GameController : MonoBehaviour
                   Destroy(child.gameObject);
                   orderList[i] = nullItem;
                   ordered += 1;
-                  UpdateScore(other);
+                  Destroy(other.gameObject);
+                  if (playerScript.pickedUpObj == other.gameObject)
+                  {
+                    playerScript.pickedUpObj = null;
+                    playerScript.inRange = false;
+                  }
                 }
                 break;
               }
@@ -149,7 +167,12 @@ public class GameController : MonoBehaviour
                   Destroy(child.gameObject);
                   orderList[i] = nullItem;
                   ordered += 1;
-                  UpdateScore(other);
+                  Destroy(other.gameObject);
+                  if (playerScript.pickedUpObj == other.gameObject)
+                  {
+                    playerScript.pickedUpObj = null;
+                    playerScript.inRange = false;
+                  }
                 }
                 break;
               }
@@ -162,27 +185,20 @@ public class GameController : MonoBehaviour
                   Destroy(child.gameObject);
                   orderList[i] = nullItem;
                   ordered += 1;
-                  UpdateScore(other);
+                  Destroy(other.gameObject);
+                  if (playerScript.pickedUpObj == other.gameObject)
+                  {
+                    playerScript.pickedUpObj = null;
+                    playerScript.inRange = false;
+                  }
                 }
                 break;
               }
             }
           }
-          Debug.Log(points);
         }
         //i need to check the order list and compare it to what was handed in, then either grey out the order visual for it or light it up.
 
-      }
-    }
-
-    void UpdateScore(Collider2D other)
-    {
-      points++;
-      Destroy(other.gameObject);
-      if (playerScript.pickedUpObj == other.gameObject)
-      {
-        playerScript.pickedUpObj = null;
-        playerScript.inRange = false;
       }
     }
 
@@ -213,5 +229,15 @@ public class GameController : MonoBehaviour
       {
         orderVisuals.Add(child.gameObject);
       }
+    }
+
+    void GameTimer()
+    {
+      endTimer -= Time.deltaTime;
+        if (endTimer <= 0)
+        {
+          gameEnd = true;
+          Debug.Log("Game Finsihed");
+        }
     }
 }
