@@ -40,4 +40,25 @@ public class SceneManagement : MonoBehaviour
         }
     }
 
+    public void NextMinigameDelay() {
+        StartCoroutine(CharacterSelectDelay(2));
+    }
+
+    public void QuitGame() {
+         Application.Quit();
+    }
+
+    private IEnumerator CharacterSelectDelay(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        if (scenes.Count == 0) {
+            scenes = new List<int>(Enumerable.Range(1, 3));
+            SceneManager.LoadScene("End");
+        } else {
+            int randomIndex = Random.Range(0, scenes.Count);
+            int minigame = scenes[randomIndex] + 2;
+            scenes.RemoveAt(randomIndex);
+            SceneManager.LoadScene(minigame);
+        }
+    }
+
 }
