@@ -11,18 +11,16 @@ public class OCScoreControls : MonoBehaviour
 
     public bool player1Wins;
     public bool player2Wins;
+    public bool draw;
 
-    void Update()
-    {
-      if (player1Control.gameObject.GetComponent<GameController>().gameEnd)
-      {
-        if (player1Control.gameObject.GetComponent<GameController>().points > player2Control.gameObject.GetComponent<GameController>().points)
-        {
-          player1Wins = true;
-        } else
-        {
-          player2Wins = true;
+    void Update() {
+    if (player1Control.gameObject.GetComponent<GameController>().gameEnd) {
+        if (player1Control.gameObject.GetComponent<GameController>().points > player2Control.gameObject.GetComponent<GameController>().points) {
+            player1Wins = true;
+        } else if (player1Control.gameObject.GetComponent<GameController>().points < player2Control.gameObject.GetComponent<GameController>().points) {
+            player2Wins = true;
+        } else if (player1Control.gameObject.GetComponent<GameController>().points == player2Control.gameObject.GetComponent<GameController>().points)
+            draw = true;
         }
-      }
     }
 }

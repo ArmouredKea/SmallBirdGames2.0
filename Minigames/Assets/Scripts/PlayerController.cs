@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start() {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "BumberCarsMG") {
+        if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
         } else if (scene.name == "OvercookedMG") {
@@ -166,20 +166,24 @@ public class PlayerController : MonoBehaviour {
 
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "PickUp" || other.tag == "PickUp1") {
-            if (objCarry == false) {
-                inRange = true;
-                pickedUpObj = other.gameObject;
+        if (overcooked) {
+            if (other.tag == "PickUp" || other.tag == "PickUp1") {
+                if (objCarry == false) {
+                    inRange = true;
+                    pickedUpObj = other.gameObject;
+                }
             }
         }
     }
 
     //Resetting on drop and collider exit
     void OnTriggerExit2D(Collider2D other) {
-        if (other.tag == "PickUp" || other.tag == "PickUp1") {
-            if (objCarry == false) {
-                inRange = false;
-                pickedUpObj = null;
+        if (overcooked) {
+            if (other.tag == "PickUp" || other.tag == "PickUp1") {
+                if (objCarry == false) {
+                    inRange = false;
+                    pickedUpObj = null;
+                }
             }
         }
     }

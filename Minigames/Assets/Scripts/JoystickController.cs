@@ -28,7 +28,7 @@ public class JoystickController : MonoBehaviour {
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
 
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "BumberCarsMG") {
+        if (scene.name == "BumperCarsMG") {
             bumperCars = true;
         } else if (scene.name == "OvercookedMG") {
             overcooked = true;
