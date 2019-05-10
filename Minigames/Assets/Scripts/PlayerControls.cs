@@ -80,6 +80,7 @@ public class PlayerControls : MonoBehaviour
       }
 
       //JoystickControls
+      /*
       if (Input.touchCount > 0)
       {
         //Debug.Log("Touch Detected");
@@ -120,6 +121,7 @@ public class PlayerControls : MonoBehaviour
           }
         }
       }
+      */
 
     }
 
