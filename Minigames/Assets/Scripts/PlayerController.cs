@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -15,51 +16,80 @@ public class PlayerController : MonoBehaviour {
     public JoystickController Controller;
     public int? LockedFingerID { get; set; }
 
+    public float rotationSpeed2;
+    public GameObject pickedUpObj;
+
+    //controls axis
+    private float vertMovement;
+    private float horiMovement;
+    private float pickUpC;
+    private bool puAxisInUse;
+
+    //obj picked up bool
+    public bool inRange;
+    public bool objCarry;
+
+    private Vector2 startPos;
+    private Vector2 direction;
+    private bool isMoving;
+
+    private bool bumperCars = false;
+    private bool overcooked = false;
+
     // Use this for initialization
-    void Start () {
-        currentPosition = gameObject.transform.position;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        //calculates distance travelled.
-        float distance = Vector2.Distance(currentPosition, gameObject.transform.position);        
-        totalDistance += distance;
-        currentPosition = gameObject.transform.position;
-        
-        //player boost.
-        if (totalDistance >= 50f) {
-            speed = 15.0f;
-            gameObject.GetComponent<Rigidbody2D>().mass = 2;
-
-            if (gameObject.tag == "Player1") {
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
-            } else if (gameObject.tag == "Player2") {
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
-            }
-
-            StartCoroutine(BoostDuration(5f));
+    void Start() {
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "BumberCarsMG") {
+            currentPosition = gameObject.transform.position;
+            bumperCars = true;
+        } else if (scene.name == "OvercookedMG") {
+            overcooked = true;
         }
     }
 
-    void FixedUpdate()
-    {
-        //transform.Translate(0f, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
-        //Vector2 movement = new Vector2(0, Input.GetAxis("Vertical"));
-        //GetComponent<Rigidbody2D>().freezeRotation = true;
-        //GetComponent<Rigidbody2D>().velocity = new Vector2(0, Input.GetAxis("Vertical") * speed);
+    // Update is called once per frame
+    void Update() {
 
-        //Player forward/backward movement and rotation.
-        if (gameObject.tag == "Player1") {
-            GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
-            transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
-        } else if (gameObject.tag == "Player2") {
-            GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP2") * speed);
-            transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP2") * rotationSpeed * Time.deltaTime * -1);
-        } else {
-            return;
+        if (bumperCars) {
+            //calculates distance travelled.
+            float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
+            totalDistance += distance;
+            currentPosition = gameObject.transform.position;
+
+            //player boost.
+            if (totalDistance >= 50f) {
+                speed = 15.0f;
+                gameObject.GetComponent<Rigidbody2D>().mass = 2;
+
+                if (gameObject.tag == "Player1") {
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+                } else if (gameObject.tag == "Player2") {
+                    gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
+                }
+
+                StartCoroutine(BoostDuration(5f));
+            }
+        } else if (overcooked) {
+            if (objCarry) {
+                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
+            }
         }
 
+    }
+
+    void FixedUpdate() {
+        if (bumperCars) {
+            //Player forward/backward movement and rotation.
+            if (gameObject.tag == "Player1") {
+                GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
+                transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
+            } else if (gameObject.tag == "Player2") {
+                GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP2") * speed);
+                transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP2") * rotationSpeed * Time.deltaTime * -1);
+            } else {
+                return;
+            }
+        }
     }
 
     //player boost duration.
@@ -68,8 +98,7 @@ public class PlayerController : MonoBehaviour {
 
         if (gameObject.tag == "Player1") {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        }
-        else if (gameObject.tag == "Player2") {
+        } else if (gameObject.tag == "Player2") {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.6f, 0.2f, 1);
         }
 
@@ -83,5 +112,84 @@ public class PlayerController : MonoBehaviour {
     }
     private void OnDisable() {
         Controller.Players.Remove(this);
+    }
+
+    //Splitting Controls between both players to only have 1 script
+    void Controls() {
+
+        if (gameObject.name == "Player1") {
+            vertMovement = Input.GetAxis("Vertical1");
+            horiMovement = Input.GetAxis("Horizontal1");
+            pickUpC = Input.GetAxis("PickUp1");
+        }
+        if (gameObject.name == "Player2") {
+            vertMovement = Input.GetAxis("Vertical");
+            horiMovement = Input.GetAxis("Horizontal");
+            pickUpC = Input.GetAxis("PickUp");
+        }
+
+        //single action axes rather than on loop
+        if (pickUpC != 0) {
+            if (puAxisInUse == false) {
+                PickUpObj();
+                puAxisInUse = true;
+            }
+        }
+        if (pickUpC == 0) {
+            puAxisInUse = false;
+        }
+
+    }
+
+    //Movement Function
+    public void Movement() {
+
+        Controls();
+
+        float moveY = 0f;
+        float moveX = 0f;
+
+        moveY = vertMovement * speed;
+        moveX = horiMovement * rotationSpeed;
+
+        moveX *= Time.deltaTime;
+        moveY *= Time.deltaTime;
+
+        transform.Translate(0, moveY, 0);
+        transform.Translate(moveX, 0, 0);
+        if (isMoving) {
+            transform.Translate((direction * speed * Time.deltaTime));
+        }
+
+    }
+
+
+    //Referencing gameObject (PickUp) that you are near
+    void OnTriggerStay2D(Collider2D other) {
+        if (other.tag == "PickUp" || other.tag == "PickUp1") {
+            if (objCarry == false) {
+                inRange = true;
+                pickedUpObj = other.gameObject;
+            }
+        }
+    }
+
+    //Resetting on drop and collider exit
+    void OnTriggerExit2D(Collider2D other) {
+        if (other.tag == "PickUp" || other.tag == "PickUp1") {
+            if (objCarry == false) {
+                inRange = false;
+                pickedUpObj = null;
+            }
+        }
+    }
+
+    //To Pick up and Drop Objects
+    void PickUpObj() {
+        if (pickUpC != 0 && inRange && objCarry == false) {
+            objCarry = true;
+        } else if (pickUpC != 0 && objCarry == true) {
+            objCarry = false;
+        }
     }
 }

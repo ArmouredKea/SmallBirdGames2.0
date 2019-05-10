@@ -1105,6 +1105,8 @@ GameObject:
   m_Component:
   - component: {fileID: 779622419}
   - component: {fileID: 779622420}
+  - component: {fileID: 779622422}
+  - component: {fileID: 779622421}
   m_Layer: 0
   m_Name: JS1I
   m_TagString: Untagged
@@ -1174,6 +1176,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &779622421
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779622418}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &779622422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779622418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1672038080}
+  speed: 5
+  touched: 0
+  joystickOuter: {fileID: 1273693828}
+  joystickInner: {fileID: 779622419}
+  Players: []
 --- !u!1 &785979153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1264,16 +1300,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 785979153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b9035add28b53045813d01b701fdd3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 5
+  Controller: {fileID: 1387699739}
+  rotationSpeed2: 5
   pickedUpObj: {fileID: 0}
   inRange: 0
   objCarry: 0
-  joystickRadius: 2
-  threshold: 0.3
 --- !u!1 &789267477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1809,6 +1844,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1273693828}
   - component: {fileID: 1273693829}
+  - component: {fileID: 1273693830}
   m_Layer: 0
   m_Name: JS1O
   m_TagString: Untagged
@@ -1878,6 +1914,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1273693830
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273693827}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &1274109793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1984,6 +2036,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1348717932}
   - component: {fileID: 1348717933}
+  - component: {fileID: 1348717934}
   m_Layer: 0
   m_Name: JS1O
   m_TagString: Untagged
@@ -2053,6 +2106,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1348717934
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348717931}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
 --- !u!1 &1387699735
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,6 +2132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1387699736}
   - component: {fileID: 1387699737}
+  - component: {fileID: 1387699739}
+  - component: {fileID: 1387699738}
   m_Layer: 0
   m_Name: JS1I
   m_TagString: Untagged
@@ -2132,6 +2203,40 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1387699738
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387699735}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &1387699739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1387699735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 785979153}
+  speed: 5
+  touched: 0
+  joystickOuter: {fileID: 1348717932}
+  joystickInner: {fileID: 1387699736}
+  Players: []
 --- !u!1 &1437944632
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,8 +2720,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1672038082}
   - component: {fileID: 1672038081}
-  - component: {fileID: 1672038083}
   - component: {fileID: 1672038084}
+  - component: {fileID: 1672038083}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -2674,16 +2779,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672038080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b9035add28b53045813d01b701fdd3e, type: 3}
+  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  rotationSpeed: 5
+  Controller: {fileID: 779622422}
+  rotationSpeed2: 5
   pickedUpObj: {fileID: 0}
   inRange: 0
   objCarry: 0
-  joystickRadius: 2
-  threshold: 0.3
 --- !u!50 &1672038084
 Rigidbody2D:
   serializedVersion: 4

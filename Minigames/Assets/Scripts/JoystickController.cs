@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class JoystickController : MonoBehaviour {
 
@@ -17,13 +18,21 @@ public class JoystickController : MonoBehaviour {
 
     public List<PlayerController> Players = new List<PlayerController>();
 
+    private bool bumperCars = false;
+    private bool overcooked = false;
+
     // Use this for initialization
     void Start () {
         Input.multiTouchEnabled = true;
         pointA = gameObject.transform.position;
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
-        Debug.Log(pointA);
-        Debug.Log(initialPoint);
+
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "BumberCarsMG") {
+            bumperCars = true;
+        } else if (scene.name == "OvercookedMG") {
+            overcooked = true;
+        }
     }
 
 	// Update is called once per frame
@@ -46,7 +55,6 @@ public class JoystickController : MonoBehaviour {
                         joystickInner.transform.position = pointA;
                         player.LockedFingerID = null;
                     }
-
                 }
             }
         }
@@ -57,15 +65,19 @@ public class JoystickController : MonoBehaviour {
 
         //if touched or clicked, use joystick
         if (touched) {
-            Vector2 offset = pointB - pointA;
-            Vector2 direction = Vector2.ClampMagnitude(offset, 0.5f);
-            MoveCharacter(direction);
-            joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
+            if (bumperCars) {
+                Vector2 offset = pointB - pointA;
+                Vector2 direction = Vector2.ClampMagnitude(offset, 0.5f);
+                MoveCharacter(direction);
+                joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
+            } else if (overcooked) {
+                player.GetComponent<PlayerController>().Movement();
+            }
         }
 
     }
 
-    //move character... man, this was a pain in the ass to do.
+    //move character...
     void MoveCharacter(Vector2 direction) {
         player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
