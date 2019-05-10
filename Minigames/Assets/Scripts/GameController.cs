@@ -30,12 +30,12 @@ public class GameController : MonoBehaviour
     public GameObject orderSpriteFour;
 
     //Timer Variable
-    private float endTimer = 15f;
+    private float endTimer = 60f;
 
     // Start is called before the first frame update
     void Start()
     {
-      Screen.orientation = ScreenOrientation.LandscapeLeft;
+      //Screen.orientation = ScreenOrientation.LandscapeLeft;
       OrderList();
       orderLength = 4;
       ListPickUps();
@@ -68,6 +68,7 @@ public class GameController : MonoBehaviour
     {
       for (int i = 1; i <= orderLength; i++)
       {
+
         int rI = Random.Range (0, pickUps.Count);
         orderList.Add(pickUps[rI]);
       }
