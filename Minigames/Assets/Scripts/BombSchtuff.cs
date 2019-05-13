@@ -17,7 +17,7 @@ public class BombSchtuff : MonoBehaviour {
     public GameObject p2H1;
     public GameObject p2H2;
     public GameObject p2H3;
-    public GameObject endText;
+    //public GameObject endText;
 
     // Use this for initialization
     void Start () {
@@ -44,9 +44,9 @@ public class BombSchtuff : MonoBehaviour {
             p1H2.GetComponent<Image>().color = new Color(0, 0, 0, 1);
         } else if (p1Lives <= 0) {
             p1H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-            endText.SetActive(true);
-            endText.GetComponent<Text>().text = "Player 2 Wins!";
-            Time.timeScale = 0;
+            //endText.SetActive(true);
+            //endText.GetComponent<Text>().text = "Player 2 Wins!";
+            //Time.timeScale = 0;
         }
 
         //player 2 lives
@@ -58,9 +58,9 @@ public class BombSchtuff : MonoBehaviour {
         }
         else if (p2Lives <= 0) {
             p2H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-            endText.SetActive(true);
-            endText.GetComponent<Text>().text = "Player 1 Wins!";
-            Time.timeScale = 0;
+            //endText.SetActive(true);
+            //endText.GetComponent<Text>().text = "Player 1 Wins!";
+            //Time.timeScale = 0;
         }
     }
 

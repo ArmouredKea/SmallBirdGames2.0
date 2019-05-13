@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class JoystickController : MonoBehaviour {
 
     public GameObject player;
-    public float speed = 5.0f;
+    public float speed = 3.0f;
     public bool touched = false;
     private Vector2 pointA;
     private Vector2 pointB;
@@ -18,8 +18,8 @@ public class JoystickController : MonoBehaviour {
 
     public List<PlayerController> Players = new List<PlayerController>();
 
-    private bool bumperCars = false;
-    private bool overcooked = false;
+    private bool bumperCars;
+    private bool overcooked;
 
     // Use this for initialization
     void Start () {
@@ -27,11 +27,15 @@ public class JoystickController : MonoBehaviour {
         pointA = gameObject.transform.position;
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
 
+        bumperCars = false;
+        overcooked = false;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             bumperCars = true;
+            Debug.Log("BumperCars!");
         } else if (scene.name == "OvercookedMG") {
             overcooked = true;
+            Debug.Log("Overcooked!");
         }
     }
 
@@ -59,29 +63,37 @@ public class JoystickController : MonoBehaviour {
             }
         }
 
+        if (bumperCars) {
+            if (player.GetComponent<PlayerController>().boosted == true) {
+                speed = 12f;
+            } else {
+                speed = 3f;
+            }
+        }
+
     }
 
     void FixedUpdate() {
 
         //if touched or clicked, use joystick
         if (touched) {
-            if (bumperCars) {
-                Vector2 offset = pointB - pointA;
-                Vector2 direction = Vector2.ClampMagnitude(offset, 0.5f);
-                MoveCharacter(direction);
-                joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
-            } else if (overcooked) {
-                player.GetComponent<PlayerController>().Movement();
-            }
+            Vector2 offset = pointB - pointA;
+            Vector2 direction = Vector2.ClampMagnitude(offset, 0.5f);
+            MoveCharacter(direction);
+            joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }
 
     }
 
     //move character...
     void MoveCharacter(Vector2 direction) {
-        player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
+        if (bumperCars) {
+            player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
+        } else if (overcooked) {
+            player.GetComponent<Transform>().Translate(direction * (speed+2) * Time.deltaTime, Space.World);
+            //player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
+        }
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0, 0, angle*-1);
+        player.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
     }
-
 }

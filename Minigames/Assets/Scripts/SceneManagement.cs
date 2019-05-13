@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
@@ -15,7 +16,15 @@ public class SceneManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "End") {
+            GameObject.Find("FinalScore").GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
+            Time.timeScale = 1f;
+        } else if (scene.name == "MainMenu") {
+            Time.timeScale = 1f;
+            PlayerController.p1Score = 0;
+            PlayerController.p2Score = 0;
+        }
     }
 
     // Update is called once per frame

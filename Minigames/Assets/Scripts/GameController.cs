@@ -192,7 +192,7 @@ public class GameController : MonoBehaviour {
         endTimer -= Time.deltaTime;
         if (endTimer <= 0) {
             gameEnd = true;
-            Debug.Log("Game Finsihed");
+            Debug.Log("Game Finished");
         }
     }
 }

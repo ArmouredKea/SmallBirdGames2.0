@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour {
     //Player's forward/backward speed and rotation speed variables.
     public float speed = 5.0f;
     private float rotationSpeed = 100.0f;
+    public bool boosted;
 
     private Vector2 currentPosition;
     float totalDistance = 0f;
@@ -30,20 +31,26 @@ public class PlayerController : MonoBehaviour {
     public bool objCarry;
 
     private Vector2 startPos;
-    private Vector2 direction;
-    private bool isMoving;
 
-    private bool bumperCars = false;
-    private bool overcooked = false;
+    private bool bumperCars;
+    private bool overcooked;
+
+    public static int p1Score;
+    public static int p2Score;
 
     // Use this for initialization
     void Start() {
+        bumperCars = false;
+        overcooked = false;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
         } else if (scene.name == "OvercookedMG") {
             overcooked = true;
+        } else if (scene.name == "CharacterSelect") {
+            p1Score = 0;
+            p2Score = 0;
         }
     }
 
@@ -58,6 +65,7 @@ public class PlayerController : MonoBehaviour {
 
             //player boost.
             if (totalDistance >= 50f) {
+                boosted = true;
                 speed = 15.0f;
                 gameObject.GetComponent<Rigidbody2D>().mass = 2;
 
@@ -68,10 +76,6 @@ public class PlayerController : MonoBehaviour {
                 }
 
                 StartCoroutine(BoostDuration(5f));
-            }
-        } else if (overcooked) {
-            if (objCarry) {
-                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
 
@@ -89,6 +93,11 @@ public class PlayerController : MonoBehaviour {
             } else {
                 return;
             }
+        } else if (overcooked) {
+            Movement();
+            if (objCarry) {
+                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
+            }
         }
     }
 
@@ -105,6 +114,7 @@ public class PlayerController : MonoBehaviour {
         speed = 5.0f;
         gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
+        boosted = false;
     }
 
     private void OnEnable() {
@@ -118,14 +128,14 @@ public class PlayerController : MonoBehaviour {
     void Controls() {
 
         if (gameObject.name == "Player1") {
-            vertMovement = Input.GetAxis("Vertical1");
-            horiMovement = Input.GetAxis("Horizontal1");
-            pickUpC = Input.GetAxis("PickUp1");
-        }
-        if (gameObject.name == "Player2") {
             vertMovement = Input.GetAxis("Vertical");
             horiMovement = Input.GetAxis("Horizontal");
             pickUpC = Input.GetAxis("PickUp");
+        }
+        if (gameObject.name == "Player2") {
+            vertMovement = Input.GetAxis("Vertical1");
+            horiMovement = Input.GetAxis("Horizontal1");
+            pickUpC = Input.GetAxis("PickUp1");
         }
 
         //single action axes rather than on loop
@@ -150,16 +160,13 @@ public class PlayerController : MonoBehaviour {
         float moveX = 0f;
 
         moveY = vertMovement * speed;
-        moveX = horiMovement * rotationSpeed;
+        moveX = horiMovement * speed;
 
         moveX *= Time.deltaTime;
         moveY *= Time.deltaTime;
 
         transform.Translate(0, moveY, 0);
         transform.Translate(moveX, 0, 0);
-        if (isMoving) {
-            transform.Translate((direction * speed * Time.deltaTime));
-        }
 
     }
 
@@ -189,7 +196,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //To Pick up and Drop Objects
-    void PickUpObj() {
+    public void PickUpObj() {
         if (pickUpC != 0 && inRange && objCarry == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour {
 
@@ -9,7 +10,9 @@ public class CountdownTimer : MonoBehaviour {
     public Text p1Time;
     public Text p2Time;
     public GameObject endText;
-    //public GameObject countdown;
+    public GameObject overallScore;
+    public GameObject minigameChanger;
+    private bool gameEnded =  true;
 
     // Use this for initialization
     void Start () {
@@ -24,21 +27,28 @@ public class CountdownTimer : MonoBehaviour {
         p2Time.text = "Time: " + currentTime.ToString("00");
 
         //check number of lives for each player when timer reaches 0
-        if (currentTime <= 0f) {
+        if ((currentTime <= 0f || GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives == 0 || GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives == 0) && (gameEnded == true)) {
 
-            if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives) {
-                endText.SetActive(true);
+            endText.SetActive(true);
+            overallScore.SetActive(true);
+            minigameChanger.SetActive(true);
+
+            if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
+                PlayerController.p1Score++;
                 endText.GetComponent<Text>().text = "Player 1 Wins!";
-                Time.timeScale = 0;
-            } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives) {
-                endText.SetActive(true);
+                
+            } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
+                PlayerController.p2Score++;
                 endText.GetComponent<Text>().text = "Player 2 Wins!";
-                Time.timeScale = 0;
             } else {
-                endText.SetActive(true);
+                PlayerController.p1Score++;
+                PlayerController.p2Score++;
                 endText.GetComponent<Text>().text = "Draw!";
-                Time.timeScale = 0;
             }
+
+            overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
+            gameEnded = false;
+            Time.timeScale = 0;
 
         }
 
@@ -49,7 +59,6 @@ public class CountdownTimer : MonoBehaviour {
         
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 3f;
-        //countdown.SetActive(true);
 
         while (Time.realtimeSinceStartup < pauseTime) {
             yield return 0;
