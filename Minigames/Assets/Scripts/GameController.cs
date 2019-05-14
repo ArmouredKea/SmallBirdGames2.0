@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
     public int points;
 
     List<GameObject> pickUps = new List<GameObject>();
-    List<GameObject> orderList = new List<GameObject>();
+    public List<GameObject> orderList = new List<GameObject>();
     List<GameObject> orderVisuals = new List<GameObject>();
     public int orderLength;
     public int ordered;

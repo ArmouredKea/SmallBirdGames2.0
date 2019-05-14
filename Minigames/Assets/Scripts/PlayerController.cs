@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
     private float horiMovement;
     private float pickUpC;
     private bool puAxisInUse;
+    private bool oButtonPressed;
 
     //obj picked up bool
     public bool inRange;
@@ -149,6 +150,8 @@ public class PlayerController : MonoBehaviour {
             puAxisInUse = false;
         }
 
+
+
     }
 
     //Movement Function
@@ -200,6 +203,13 @@ public class PlayerController : MonoBehaviour {
         if (pickUpC != 0 && inRange && objCarry == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {
+            objCarry = false;
+        }
+    }
+    public void PickUpObj2() {
+        if (inRange && objCarry == false) {
+            objCarry = true;
+        } else if (objCarry == true) {
             objCarry = false;
         }
     }

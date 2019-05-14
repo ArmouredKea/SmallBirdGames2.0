@@ -336,7 +336,7 @@ GameObject:
   m_Component:
   - component: {fileID: 93968442}
   m_Layer: 0
-  m_Name: P1
+  m_Name: P2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -353,10 +353,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1192379403}
-  - {fileID: 1540959394}
-  - {fileID: 1890493895}
   - {fileID: 2107661800}
+  - {fileID: 1890493895}
+  - {fileID: 1540959394}
+  - {fileID: 1192379403}
   m_Father: {fileID: 1606143212}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -370,7 +370,7 @@ GameObject:
   m_Component:
   - component: {fileID: 149251177}
   m_Layer: 0
-  m_Name: OrderTilesP2
+  m_Name: OrderTilesP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 187210102}
   - component: {fileID: 187210101}
   m_Layer: 0
-  m_Name: HandInP2
+  m_Name: HandInP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -425,10 +425,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1fb7914fb781344bb0ca35f0bf6218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1672038080}
+  player: {fileID: 785979153}
   spawn: {fileID: 1633395241}
   itemScript: {fileID: 0}
   points: 0
+  orderList: []
   orderLength: 0
   ordered: 0
   gameEnd: 0
@@ -591,8 +592,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7bd1aad8f298aa458a74f02debe613c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Control: {fileID: 436584782}
-  player2Control: {fileID: 187210100}
+  player1Control: {fileID: 187210100}
+  player2Control: {fileID: 436584782}
   endText: {fileID: 1424009023}
   overallScore: {fileID: 1642263628}
   minigameChanger: {fileID: 1818534997}
@@ -723,7 +724,7 @@ GameObject:
   - component: {fileID: 436584784}
   - component: {fileID: 436584786}
   m_Layer: 0
-  m_Name: HandInP1
+  m_Name: HandInP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -829,10 +830,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd1fb7914fb781344bb0ca35f0bf6218, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 785979153}
+  player: {fileID: 1672038080}
   spawn: {fileID: 93968441}
   itemScript: {fileID: 0}
   points: 0
+  orderList: []
   orderLength: 0
   ordered: 0
   gameEnd: 0
@@ -1033,7 +1035,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 785979157}
-        m_MethodName: PickUpObj
+        m_MethodName: PickUpObj2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1927,7 +1929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: a150fa3ad85a4f2428892e31c23e0b9c,
+  itemPrefab: {fileID: 9125017245350031382, guid: d0bfe693c4d78e54f85782c2a455f8db,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -1943,7 +1945,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93968442}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1218564162
 GameObject:
@@ -2027,7 +2029,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1672038083}
-        m_MethodName: PickUpObj
+        m_MethodName: PickUpObj2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2212,7 +2214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308988180}
   m_Layer: 0
-  m_Name: OrderTilesP1
+  m_Name: OrderTilesP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2627,7 +2629,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: 89046d3845c86b64f99a7233ff074979,
+  itemPrefab: {fileID: 9125017245350031382, guid: 37fc060487aab2541ba2b3b7925dcd33,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -2701,7 +2703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: 3026571bd7945c648a68850276120c00,
+  itemPrefab: {fileID: 9125017245350031382, guid: b3a679e3785e43a4a888b290ee03e559,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -2735,7 +2737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: d0bfe693c4d78e54f85782c2a455f8db,
+  itemPrefab: {fileID: 9125017245350031382, guid: a150fa3ad85a4f2428892e31c23e0b9c,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -2809,7 +2811,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93968442}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1540959395
 BoxCollider2D:
@@ -2849,7 +2851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: f422106943c300f4c9b707c0581e2e65,
+  itemPrefab: {fileID: 9125017245350031382, guid: a5580641d491bb547a0020bfbc438f45,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -3006,7 +3008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1633395242}
   m_Layer: 0
-  m_Name: P2
+  m_Name: P1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3414,7 +3416,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93968442}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1890493896
 BoxCollider2D:
@@ -3454,7 +3456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: b3a679e3785e43a4a888b290ee03e559,
+  itemPrefab: {fileID: 9125017245350031382, guid: 3026571bd7945c648a68850276120c00,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -3528,7 +3530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: a5580641d491bb547a0020bfbc438f45,
+  itemPrefab: {fileID: 9125017245350031382, guid: f422106943c300f4c9b707c0581e2e65,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
@@ -3733,7 +3735,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 93968442}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &2107661801
 BoxCollider2D:
@@ -3773,7 +3775,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82b15c34320d3304398d80492bd235d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 9125017245350031382, guid: 37fc060487aab2541ba2b3b7925dcd33,
+  itemPrefab: {fileID: 9125017245350031382, guid: 89046d3845c86b64f99a7233ff074979,
     type: 3}
   notTouchedItem: {fileID: 0}
   spawnedItemPos: {x: 0, y: 0, z: 0}
