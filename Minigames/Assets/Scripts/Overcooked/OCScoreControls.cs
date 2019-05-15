@@ -8,18 +8,20 @@ public class OCScoreControls : MonoBehaviour
 {
     public GameObject player1Control;
     public GameObject player2Control;
-
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
-
     private bool gameEnded = true;
 
     void Start() {
+
         Time.timeScale = 1f;
+
     }
 
+    //checks for a winner at the end of the game and displays score.
     void Update() {
+
         if (player1Control.gameObject.GetComponent<GameController>().gameEnd && gameEnded) {
 
             endText.SetActive(true);
@@ -45,4 +47,5 @@ public class OCScoreControls : MonoBehaviour
         }
 
     }
+
 }

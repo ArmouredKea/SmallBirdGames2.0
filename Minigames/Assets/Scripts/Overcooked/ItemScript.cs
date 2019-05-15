@@ -10,7 +10,6 @@ public class ItemScript : MonoBehaviour
 
     public Vector3 spawnedItemPos;
 
-    //public GameObject spawnedItemSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,16 +22,18 @@ public class ItemScript : MonoBehaviour
       SpawnItem();
     }
 
-    void SpawnItem()
-    {
-      if (notTouchedItem == null)
-      {
+    //spawns pick-ups
+    void SpawnItem() {
+
+      if (notTouchedItem == null) {
         notTouchedItem = Instantiate(itemPrefab, gameObject.transform.position, Quaternion.identity);
         spawnedItemPos = notTouchedItem.transform.position;
       }
-      if (notTouchedItem.transform.position != spawnedItemPos)
-      {
+
+      if (notTouchedItem.transform.position != spawnedItemPos) {
         notTouchedItem = null;
       }
+
     }
+
 }

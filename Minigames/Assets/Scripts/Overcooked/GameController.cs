@@ -33,21 +33,23 @@ public class GameController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
+
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
         OrderList();
         orderLength = 4;
         ListPickUps();
         playerScript = player.GetComponent<PlayerController>();
         OrderUp();
+
     }
 
     // Update is called once per frame
     void Update() {
+
         GameTimer();
         if (ordered >= orderLength) {
             ordered = 0;
             points++;
-            Debug.Log(points);
             for (int p = orderLength - 1; p >= 0; p--) {
                 orderList.Remove(orderList[p]);
             }
@@ -56,15 +58,16 @@ public class GameController : MonoBehaviour {
         if (orderList.Count <= 0) {
             OrderUp();
         }
+
     }
 
     void OrderUp() {
+
         for (int i = 1; i <= orderLength; i++) {
 
             int rI = Random.Range(0, pickUps.Count);
             orderList.Add(pickUps[rI]);
         }
-        Debug.Log(orderList.Count);
 
         //setting the visuals on the floor in relation to the order
         for (int j = 0; j <= 3; j++) {
@@ -90,22 +93,22 @@ public class GameController : MonoBehaviour {
                 orderSprite.transform.rotation = orderVisuals[j].gameObject.transform.rotation;
                 orderSprite.transform.localScale = new Vector3(1, 1, 1);
             }
+
         }
+
     }
 
-    //to spawn only one item on each spawn location
+    //Handles the hand in funcion for both player and
+    //score, and removes an item from the list of hand ins on hand in.
     void OnTriggerStay2D(Collider2D other) {
+
         if (other.tag == "PickUp" || other.tag == "PickUp1") {
             if (playerScript.objCarry == false) {
-                //HandInCorrectObject();
-                //kill me
+
                 for (int i = 0; i < orderList.Count; i++) {
                     if (orderList[i] != null) {
-                        Debug.Log("Made it to point 1");
                         if (other.name == "DrinkP1G(Clone)" && orderList[i].name == "DrinkSpawnP1G" || other.name == "DrinkP2G(Clone)" && orderList[i].name == "DrinkSpawnP2G") {
-                            Debug.Log("Made it to point 2");
                             foreach (Transform child in orderVisuals[i].transform) {
-                                Debug.Log("Made it to point 3");
                                 Destroy(child.gameObject);
                                 orderList[i] = nullItem;
                                 ordered += 1;
@@ -117,9 +120,7 @@ public class GameController : MonoBehaviour {
                             }
                             break;
                         } else if (other.name == "DrinkP1R(Clone)" && orderList[i].name == "DrinkSpawnP1R" || other.name == "DrinkP2R(Clone)" && orderList[i].name == "DrinkSpawnP2R") {
-                            Debug.Log("Made it to point 2");
                             foreach (Transform child in orderVisuals[i].transform) {
-                                Debug.Log("Made it to point 3");
                                 Destroy(child.gameObject);
                                 orderList[i] = nullItem;
                                 ordered += 1;
@@ -131,9 +132,7 @@ public class GameController : MonoBehaviour {
                             }
                             break;
                         } else if (other.name == "DrinkP1W(Clone)" && orderList[i].name == "DrinkSpawnP1W" || other.name == "DrinkP2W(Clone)" && orderList[i].name == "DrinkSpawnP2W") {
-                            Debug.Log("Made it to point 2");
                             foreach (Transform child in orderVisuals[i].transform) {
-                                Debug.Log("Made it to point 3");
                                 Destroy(child.gameObject);
                                 orderList[i] = nullItem;
                                 ordered += 1;
@@ -145,9 +144,7 @@ public class GameController : MonoBehaviour {
                             }
                             break;
                         } else if (other.name == "DrinkP1Y(Clone)" && orderList[i].name == "DrinkSpawnP1Y" || other.name == "DrinkP2Y(Clone)" && orderList[i].name == "DrinkSpawnP2Y") {
-                            Debug.Log("Made it to point 2");
                             foreach (Transform child in orderVisuals[i].transform) {
-                                Debug.Log("Made it to point 3");
                                 Destroy(child.gameObject);
                                 orderList[i] = nullItem;
                                 ordered += 1;
@@ -162,13 +159,12 @@ public class GameController : MonoBehaviour {
                     }
                 }
             }
-            //i need to check the order list and compare it to what was handed in, then either grey out the order visual for it or light it up.
-
         }
     }
 
     //Listing all possible pick ups
     void ListPickUps() {
+
         if (player.name == "Player1") {
             foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP1")) {
                 pickUps.Add(pUP);
@@ -178,21 +174,26 @@ public class GameController : MonoBehaviour {
                 pickUps.Add(pUP);
             }
         }
-        //Debug.Log(pickUps.Count);
+
     }
 
     //adding the order visual tiles to a list
     void OrderList() {
+
         foreach (Transform child in orderTiles.transform) {
             orderVisuals.Add(child.gameObject);
         }
+
     }
 
+    //Timer
     void GameTimer() {
+
         endTimer -= Time.deltaTime;
         if (endTimer <= 0) {
             gameEnd = true;
-            Debug.Log("Game Finished");
         }
+
     }
+
 }
