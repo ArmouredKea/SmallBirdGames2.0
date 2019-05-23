@@ -17,22 +17,19 @@ public class CharacterSelect : MonoBehaviour
     public GameObject sceneCanvas;
 
     // Start is called before the first frame update
-    void Start() {
-
+    void Start()
+    {
         playerClicks = 0;
-
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
 
     }
 
-    //checks for first and second character selection on click/touch
     public void CharacterSelected() {
-
         playerClicks++;
-
         if (playerClicks == 1) {
             if (gameObject.name == "Character1") {
                 c1Text.SetActive(true);
@@ -64,9 +61,6 @@ public class CharacterSelect : MonoBehaviour
                 sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
                 gameObject.SetActive(false);
             }
-
         }
-
     }
-
 }

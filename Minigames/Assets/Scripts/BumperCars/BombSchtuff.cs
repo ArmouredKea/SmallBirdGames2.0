@@ -21,11 +21,9 @@ public class BombSchtuff : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
         SpawnBomb();
-
     }
-
+	
 	// Update is called once per frame
 	void Update () {
 
@@ -46,6 +44,9 @@ public class BombSchtuff : MonoBehaviour {
             p1H2.GetComponent<Image>().color = new Color(0, 0, 0, 1);
         } else if (p1Lives <= 0) {
             p1H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            //endText.SetActive(true);
+            //endText.GetComponent<Text>().text = "Player 2 Wins!";
+            //Time.timeScale = 0;
         }
 
         //player 2 lives
@@ -57,13 +58,14 @@ public class BombSchtuff : MonoBehaviour {
         }
         else if (p2Lives <= 0) {
             p2H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            //endText.SetActive(true);
+            //endText.GetComponent<Text>().text = "Player 1 Wins!";
+            //Time.timeScale = 0;
         }
-
     }
 
     //spawns a bomb at a random position either at the top or bottom of the arena.
     public void SpawnBomb() {
-
         float j;
         float i = Random.Range(0f, 0.9f);
 
@@ -76,5 +78,4 @@ public class BombSchtuff : MonoBehaviour {
         Instantiate(bomb, new Vector2(Random.Range(-6, 6), j), Quaternion.identity);
 
     }
-
 }

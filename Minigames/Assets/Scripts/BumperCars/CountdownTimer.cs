@@ -6,30 +6,27 @@ using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour {
 
+    private float currentTime = 60f;
     public Text p1Time;
     public Text p2Time;
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
     private bool gameEnded =  true;
-    private float currentTime = 60f;
 
     // Use this for initialization
     void Start () {
-
         StartCoroutine(Countdown());
-
     }
-
+	
 	// Update is called once per frame
 	void Update () {
-
         //setting a basic two significant figures timer
         currentTime -= Time.deltaTime;
         p1Time.text = "Time: " + currentTime.ToString("00");
         p2Time.text = "Time: " + currentTime.ToString("00");
 
-        //check number of lives for each player when timer reaches 0 and displays score.
+        //check number of lives for each player when timer reaches 0
         if ((currentTime <= 0f || GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives == 0 || GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives == 0) && (gameEnded == true)) {
 
             endText.SetActive(true);
@@ -39,7 +36,7 @@ public class CountdownTimer : MonoBehaviour {
             if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
                 PlayerController.p1Score++;
                 endText.GetComponent<Text>().text = "Player 1 Wins!";
-
+                
             } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
                 PlayerController.p2Score++;
                 endText.GetComponent<Text>().text = "Player 2 Wins!";
@@ -57,9 +54,9 @@ public class CountdownTimer : MonoBehaviour {
 
     }
 
-    //countdown before game begins. 3, 2, 1, Go!
-    private IEnumerator Countdown() {
-
+    //countdown before game begins
+    private IEnumerator Countdown() {     
+        
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 3f;
 

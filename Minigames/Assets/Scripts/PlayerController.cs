@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour {
     public JoystickController Controller;
     public int? LockedFingerID { get; set; }
 
+    public float rotationSpeed2;
     public GameObject pickedUpObj;
 
     //controls axis
@@ -40,12 +41,9 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start() {
-
-        //checks for current scene.
         bumperCars = false;
         overcooked = false;
         Scene scene = SceneManager.GetActiveScene();
-
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
@@ -55,7 +53,6 @@ public class PlayerController : MonoBehaviour {
             p1Score = 0;
             p2Score = 0;
         }
-
     }
 
     // Update is called once per frame
@@ -67,7 +64,7 @@ public class PlayerController : MonoBehaviour {
             totalDistance += distance;
             currentPosition = gameObject.transform.position;
 
-            //player boost when a specific target distance has been travelled.
+            //player boost.
             if (totalDistance >= 50f) {
                 boosted = true;
                 speed = 15.0f;
@@ -80,17 +77,14 @@ public class PlayerController : MonoBehaviour {
                 }
 
                 StartCoroutine(BoostDuration(5f));
-
             }
-
         }
 
     }
 
     void FixedUpdate() {
-
         if (bumperCars) {
-            //Player forward/backward movement and rotation for keyboard.
+            //Player forward/backward movement and rotation.
             if (gameObject.tag == "Player1") {
                 GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
                 transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
@@ -102,18 +96,15 @@ public class PlayerController : MonoBehaviour {
             }
         } else if (overcooked) {
             Movement();
-            //change pickup object position depending on character's position.
             if (objCarry) {
                 pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
-
     }
 
     //player boost duration.
     private IEnumerator BoostDuration(float waitTime) {
-
         yield return new WaitForSeconds(waitTime);
 
         if (gameObject.tag == "Player1") {
@@ -126,42 +117,16 @@ public class PlayerController : MonoBehaviour {
         gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
         boosted = false;
-
     }
 
     private void OnEnable() {
-
         Controller.Players.Add(this);
-
     }
-
     private void OnDisable() {
-
         Controller.Players.Remove(this);
-
     }
 
-    //Movement function for overcooked player.
-    public void Movement() {
-
-        Controls();
-
-        float moveY = 0f;
-        float moveX = 0f;
-
-        moveY = vertMovement * speed;
-        moveX = horiMovement * speed;
-
-        moveX *= Time.deltaTime;
-        moveY *= Time.deltaTime;
-
-        transform.Translate(0, moveY, 0);
-        transform.Translate(moveX, 0, 0);
-
-    }
-
-    //Splitting Controls between both players to only have 1 script (overcooked)
-    //For keyboard
+    //Splitting Controls between both players to only have 1 script
     void Controls() {
 
         if (gameObject.name == "Player1") {
@@ -182,16 +147,36 @@ public class PlayerController : MonoBehaviour {
                 puAxisInUse = true;
             }
         }
-
         if (pickUpC == 0) {
             puAxisInUse = false;
         }
 
+
+
     }
+
+    //Movement Function
+    public void Movement() {
+
+        Controls();
+
+        float moveY = 0f;
+        float moveX = 0f;
+
+        moveY = vertMovement * speed;
+        moveX = horiMovement * speed;
+
+        moveX *= Time.deltaTime;
+        moveY *= Time.deltaTime;
+
+        transform.Translate(0, moveY, 0);
+        transform.Translate(moveX, 0, 0);
+
+    }
+
 
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
-
         if (overcooked) {
             if (other.tag == "PickUp") {
                 if (objCarry == false) {
@@ -200,12 +185,10 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
     }
 
     //Resetting on drop and collider exit
     void OnTriggerExit2D(Collider2D other) {
-
         if (overcooked) {
             if (other.tag == "PickUp") {
                 if (objCarry == false) {
@@ -214,29 +197,21 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-
     }
 
-    //To pick up and drop objects. For keyboards.
+    //To Pick up and Drop Objects
     public void PickUpObj() {
-
         if (pickUpC != 0 && inRange && objCarry == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {
             objCarry = false;
         }
-
     }
-
-    //for joystick.
     public void PickUpObj2() {
-
         if (inRange && objCarry == false) {
             objCarry = true;
         } else if (objCarry == true) {
             objCarry = false;
         }
-
     }
-
 }
