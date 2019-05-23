@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9125017245350031380}
   - component: {fileID: 9125017245350031381}
   - component: {fileID: 2434137335491959293}
+  - component: {fileID: 4388327639081393245}
   m_Layer: 8
   m_Name: DrinkP1R
   m_TagString: PickUp
@@ -70,6 +71,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4388327639081393245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9125017245350031382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41824a3bce389894fb9fad469317a9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &120180994159357831
 PrefabInstance:
   m_ObjectHideFlags: 0
