@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour {
 
     //Player's forward/backward speed and rotation speed variables.
-    public float speed = 5.0f;
+    public float speed = 7.0f;
     private float rotationSpeed = 100.0f;
     public bool boosted;
 
@@ -97,6 +97,7 @@ public class PlayerController : MonoBehaviour {
         } else if (overcooked) {
             Movement();
             if (objCarry) {
+                pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour {
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
         if (overcooked) {
-            if (other.tag == "PickUp" || other.tag == "PickUp1") {
+            if (other.tag == "PickUp") {
                 if (objCarry == false) {
                     inRange = true;
                     pickedUpObj = other.gameObject;
@@ -189,7 +190,7 @@ public class PlayerController : MonoBehaviour {
     //Resetting on drop and collider exit
     void OnTriggerExit2D(Collider2D other) {
         if (overcooked) {
-            if (other.tag == "PickUp" || other.tag == "PickUp1") {
+            if (other.tag == "PickUp") {
                 if (objCarry == false) {
                     inRange = false;
                     pickedUpObj = null;
