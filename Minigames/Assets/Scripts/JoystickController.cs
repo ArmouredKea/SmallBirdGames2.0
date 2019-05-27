@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class JoystickController : MonoBehaviour {
 
     public GameObject player;
-    public float speed = 3.0f;
+    public float speed = 5.0f;
     public bool touched = false;
     private Vector2 pointA;
     private Vector2 pointB;
@@ -65,9 +65,9 @@ public class JoystickController : MonoBehaviour {
 
         if (bumperCars) {
             if (player.GetComponent<PlayerController>().boosted == true) {
-                speed = 12f;
+                speed = 15f;
             } else {
-                speed = 3f;
+                speed = 5f;
             }
         }
 
@@ -90,7 +90,7 @@ public class JoystickController : MonoBehaviour {
         if (bumperCars) {
             player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
         } else if (overcooked) {
-            player.GetComponent<Transform>().Translate(direction * (speed+2) * Time.deltaTime, Space.World);
+            player.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
             //player.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
         }
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
