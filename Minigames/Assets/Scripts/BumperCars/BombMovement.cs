@@ -6,6 +6,8 @@ public class BombMovement : MonoBehaviour
 {
 
     private float speed = 3.0f;
+    private bool p1Invulnerable;
+    private bool p2Invulnerable;
 
     // Use this for initialization
     void Start() {
@@ -22,16 +24,16 @@ public class BombMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
 
         if (collision.gameObject.tag == "Bombs") {
-            StartCoroutine(BombDelay(1f));            
+            StartCoroutine(BombDelay(1f));
         }
 
-        if (collision.gameObject.tag == "Player1") {
-            Debug.Log("Player 1 is Hit!");
+        if ((collision.gameObject.tag == "Player1") && (p1Invulnerable == false)) {
+            p1Invulnerable = true;
             Destroy(gameObject);
             GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
             GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives--;
-        } else if (collision.gameObject.tag == "Player2") {
-            Debug.Log("Player 2 is Hit!");
+        } else if ((collision.gameObject.tag == "Player2")  && (p2Invulnerable == false)) {
+            p2Invulnerable = true;
             Destroy(gameObject);
             GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
             GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives--;
@@ -45,6 +47,11 @@ public class BombMovement : MonoBehaviour
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(waitTime);
         Destroy(gameObject);
+        GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
+    }
+
+    private IEnumerator Vulnerability(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
         GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
     }
 

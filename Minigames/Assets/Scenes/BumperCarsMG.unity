@@ -575,7 +575,6 @@ MonoBehaviour:
   endText: {fileID: 1216832985}
   overallScore: {fileID: 1301332126}
   minigameChanger: {fileID: 1755145320}
-  gameEnded: 1
 --- !u!1 &606999692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,6 +1599,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bomb: {fileID: 4951551494183600, guid: 980b933fc94a3b94e8f54905e5b8f04f, type: 3}
+  exclamation: {fileID: 1965450980696376915, guid: 977487fa16e2d6b4a89e57d59623df8f,
+    type: 3}
   p1Lives: 3
   p2Lives: 3
   p1H1: {fileID: 771637952}
