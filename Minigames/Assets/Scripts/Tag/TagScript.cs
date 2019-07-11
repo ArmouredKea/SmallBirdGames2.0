@@ -8,6 +8,7 @@ public class TagScript : MonoBehaviour
     public bool tagged = false;
     public bool it = false;
     public GameObject tagIcon;
+    public GameObject pointLight;
 
     // Start is called before the first frame update
     void Start()
@@ -21,8 +22,10 @@ public class TagScript : MonoBehaviour
 
         if (it) {
             tagIcon.SetActive(true);
+            pointLight.GetComponent<Light>().spotAngle = 60;
         } else if (it == false) {
             tagIcon.SetActive(false);
+            pointLight.GetComponent<Light>().spotAngle = 40;
         }
 
         if (tagged) {
@@ -36,6 +39,7 @@ public class TagScript : MonoBehaviour
         if ((collision.gameObject.name == "Player1" || collision.gameObject.name == "Player2") && it == false) {
             tagged = true;
             it = true;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<PlayerController>().speed = 0;
             if (gameObject.name == "Player1") {
                 GameObject.Find("LeftIJ").GetComponent<JoystickController>().speed = 0;
@@ -53,6 +57,7 @@ public class TagScript : MonoBehaviour
 
         yield return new WaitForSeconds(waitTime);
         tagged = false;
+        gameObject.GetComponent<CircleCollider2D>().enabled = true;
         gameObject.GetComponent<PlayerController>().speed = 7;
         GameObject.Find("LeftIJ").GetComponent<JoystickController>().speed = 7;
         GameObject.Find("RightIJ").GetComponent<JoystickController>().speed = 7;
