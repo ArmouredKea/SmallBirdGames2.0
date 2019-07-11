@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class JoystickController : MonoBehaviour {
 
     public GameObject player;
-    public float speed = 5.0f;
+    public float speed = 7.0f;
     public bool touched = false;
     private Vector2 pointA;
     private Vector2 pointB;
@@ -33,7 +33,7 @@ public class JoystickController : MonoBehaviour {
         if (scene.name == "BumperCarsMG") {
             bumperCars = true;
             Debug.Log("BumperCars!");
-        } else if (scene.name == "OvercookedMG") {
+        } else if (scene.name == "OvercookedMG" || scene.name == "TagMG") {
             overcooked = true;
             Debug.Log("Overcooked!");
         }

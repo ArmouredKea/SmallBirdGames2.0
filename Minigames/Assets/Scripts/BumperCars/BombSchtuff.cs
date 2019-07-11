@@ -69,9 +69,9 @@ public class BombSchtuff : MonoBehaviour {
         float k = Random.Range(-6, 6);
 
         if (i < 0.5f) {
-            j = 4.5f;
+            j = 4.76f;
         } else {
-            j = -4.5f;
+            j = -4.76f;
         }
 
         Instantiate(exclamation, new Vector2(k, j), Quaternion.identity);

@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour {
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
-        } else if (scene.name == "OvercookedMG") {
+        } else if (scene.name == "OvercookedMG" || scene.name == "TagMG") {
             overcooked = true;
         } else if (scene.name == "CharacterSelect") {
             p1Score = 0;
