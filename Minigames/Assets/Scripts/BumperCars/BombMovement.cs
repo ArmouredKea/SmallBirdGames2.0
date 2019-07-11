@@ -6,6 +6,8 @@ public class BombMovement : MonoBehaviour
 {
 
     private float speed = 3.0f;
+
+    //REMINDER for invulnerability (not yet completed)
     private bool p1Invulnerable;
     private bool p2Invulnerable;
 

@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
     public JoystickController Controller;
     public int? LockedFingerID { get; set; }
 
-    public float rotationSpeed2;
+    //public float rotationSpeed2;
     public GameObject pickedUpObj;
 
     //controls axis
