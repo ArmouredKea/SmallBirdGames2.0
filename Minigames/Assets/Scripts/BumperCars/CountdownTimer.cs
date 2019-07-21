@@ -22,34 +22,72 @@ public class CountdownTimer : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //setting a basic two significant figures timer
+        Scene scene = SceneManager.GetActiveScene();
         currentTime -= Time.deltaTime;
         p1Time.text = "Time: " + currentTime.ToString("00");
         p2Time.text = "Time: " + currentTime.ToString("00");
 
         //check number of lives for each player when timer reaches 0
-        if ((currentTime <= 0f || GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives == 0 || GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives == 0) && (gameEnded == true)) {
+        if(scene.name == "BumperCarsMG") { 
+            if ((currentTime <= 0f || GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives == 0 || GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives == 0) && (gameEnded == true)) {
 
-            endText.SetActive(true);
-            overallScore.SetActive(true);
-            minigameChanger.SetActive(true);
+                endText.SetActive(true);
+                overallScore.SetActive(true);
+                minigameChanger.SetActive(true);
 
-            if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
-                PlayerController.p1Score++;
-                endText.GetComponent<Text>().text = "Player 1 Wins!";
+                if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
+                    PlayerController.p1Score++;
+                    endText.GetComponent<Text>().text = "Player 1 Wins!";
                 
-            } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
-                PlayerController.p2Score++;
-                endText.GetComponent<Text>().text = "Player 2 Wins!";
-            } else {
-                PlayerController.p1Score++;
-                PlayerController.p2Score++;
-                endText.GetComponent<Text>().text = "Draw!";
+                } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
+                    PlayerController.p2Score++;
+                    endText.GetComponent<Text>().text = "Player 2 Wins!";
+                } else {
+                    PlayerController.p1Score++;
+                    PlayerController.p2Score++;
+                    endText.GetComponent<Text>().text = "Draw!";
+                }
+
+                overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
+                gameEnded = false;
+                Time.timeScale = 0;
+
             }
+        }
+        if(scene.name == "BulletHell")
+        {
+            BulletHellManage hellManage = GetComponent<BulletHellManage>();
 
-            overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
-            gameEnded = false;
-            Time.timeScale = 0;
+            if ((currentTime <= 0f || hellManage.p1life <= 0 || hellManage.p2life <= 0) && (gameEnded == true))
+            {
 
+                endText.SetActive(true);
+                overallScore.SetActive(true);
+                minigameChanger.SetActive(true);
+
+                if (hellManage.p1life > hellManage.p2life)
+                {
+                    PlayerController.p1Score++;
+                    endText.GetComponent<Text>().text = "Player 1 Wins!";
+
+                }
+                else if (hellManage.p1life < hellManage.p2life)
+                {
+                    PlayerController.p2Score++;
+                    endText.GetComponent<Text>().text = "Player 2 Wins!";
+                }
+                else
+                {
+                    PlayerController.p1Score++;
+                    PlayerController.p2Score++;
+                    endText.GetComponent<Text>().text = "Draw!";
+                }
+
+                overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
+                gameEnded = false;
+                Time.timeScale = 0;
+
+            }
         }
 
     }

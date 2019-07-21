@@ -35,21 +35,46 @@ public class PlayerController : MonoBehaviour {
 
     private bool bumperCars;
     private bool overcooked;
+    private bool bHell_Check;
 
     public static int p1Score;
     public static int p2Score;
+
+    #region BhellVariables
+    //bullethell specific variables. Will be cleaned once Child/Parent system is working.
+    public bool bHell_isShoot;
+    public string bHell_PosData;
+    private float bHell_rotationSpeed = 300.0f;
+    [SerializeField]
+    private BulletHellManage bHell_Manage;
+    [SerializeField]
+    private BulletHellProjectile Proj_Manage;
+
+    private Transform Barrel;
+    public GameObject Proj;
+    public float FiringRate;
+    public float TillFire;
+    #endregion
 
     // Use this for initialization
     void Start() {
         bumperCars = false;
         overcooked = false;
+        bHell_Check = false;
+        bHell_isShoot = false;
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
         } else if (scene.name == "OvercookedMG") {
             overcooked = true;
-        } else if (scene.name == "CharacterSelect") {
+        } else if (scene.name == "BulletHell") {
+            bHell_Check = true;
+            BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
+            BulletHellProjectile Proj_Manage = GetComponent(typeof(BulletHellProjectile)) as BulletHellProjectile;
+        }
+
+        else if (scene.name == "CharacterSelect") {
             p1Score = 0;
             p2Score = 0;
         }
@@ -101,6 +126,10 @@ public class PlayerController : MonoBehaviour {
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
+        else if (bHell_Check)
+        {
+            BHell_Main();
+        }
     }
 
     //player boost duration.
@@ -129,28 +158,33 @@ public class PlayerController : MonoBehaviour {
     //Splitting Controls between both players to only have 1 script
     void Controls() {
 
-        if (gameObject.name == "Player1") {
-            vertMovement = Input.GetAxis("Vertical");
-            horiMovement = Input.GetAxis("Horizontal");
-            pickUpC = Input.GetAxis("PickUp");
-        }
-        if (gameObject.name == "Player2") {
-            vertMovement = Input.GetAxis("Vertical1");
-            horiMovement = Input.GetAxis("Horizontal1");
-            pickUpC = Input.GetAxis("PickUp1");
-        }
-
-        //single action axes rather than on loop
-        if (pickUpC != 0) {
-            if (puAxisInUse == false) {
-                PickUpObj();
-                puAxisInUse = true;
+            if (gameObject.name == "Player1")
+            {
+                vertMovement = Input.GetAxis("Vertical");
+                horiMovement = Input.GetAxis("Horizontal");
+                pickUpC = Input.GetAxis("PickUp");
             }
-        }
-        if (pickUpC == 0) {
-            puAxisInUse = false;
-        }
+            if (gameObject.name == "Player2")
+            {
+                vertMovement = Input.GetAxis("Vertical1");
+                horiMovement = Input.GetAxis("Horizontal1");
+                pickUpC = Input.GetAxis("PickUp1");
+            }
 
+            //single action axes rather than on loop
+            if (pickUpC != 0)
+            {
+                if (puAxisInUse == false)
+                {
+                    PickUpObj();
+                    puAxisInUse = true;
+                }
+            }
+            if (pickUpC == 0)
+            {
+                puAxisInUse = false;
+            }
+        
 
 
     }
@@ -214,4 +248,87 @@ public class PlayerController : MonoBehaviour {
             objCarry = false;
         }
     }
+
+
+
+
+    #region BulletHell 
+    //Bullet Hell Shooter code. Will be refactored once Parent/Child is complete.
+
+        public void BHell_Main()
+         {
+        BHell_Determine_Mode();
+        BHell_Control();
+         }
+
+
+    public void BHell_Determine_Mode()
+    {
+        if(bHell_Manage.FixedSwap == true )
+        {
+            bHell_Manage.BHell_Determine_Position();
+            bHell_Manage.FixedSwap = false;
+        }
+    }
+
+
+
+    public void BHell_Control()
+    {
+        if(bHell_isShoot == true)
+        {
+            
+            transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
+            transform.position = bHell_Manage.GunnerPos.transform.position;
+           
+           
+            BHell_Fire();
+            
+          
+        }
+        else
+        {
+            Movement();
+        }
+    }
+
+    public void BHell_Fire()
+    {
+        
+
+
+        GameObject bHell_Bullet = ObjectPool.pool_Instance.GetPooledObject();
+        bHell_Bullet.GetComponent<BulletHellProjectile>().Firing_Player = this.gameObject;
+        if (bHell_Bullet != null && Time.time > TillFire)
+        {
+            TillFire = Time.time + FiringRate;
+            bHell_Bullet.transform.position = this.gameObject.transform.position;
+            bHell_Bullet.transform.rotation = this.gameObject.transform.rotation;
+            bHell_Bullet.SetActive(true);
+           
+        } 
+       
+       // Instantiate(Proj, this.gameObject.transform.position, this.gameObject.transform.rotation );
+    }
+
+    public void BHell_Hit()
+    {
+        if(gameObject.tag == "Player1" && bHell_isShoot == false)
+        { 
+            bHell_Manage.p1life--;
+            if(bHell_Manage.p1life <= 0)
+            {
+                Debug.Log("player1 lost");
+            }
+        }
+        if (gameObject.tag == "Player2" && bHell_isShoot == false)
+        {
+            bHell_Manage.p2life--;
+            if (bHell_Manage.p2life <= 0)
+            {
+                Debug.Log("player2 lost");
+            }
+        }
+    }
+    #endregion
 }

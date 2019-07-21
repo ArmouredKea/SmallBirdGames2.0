@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Player2
+  - Player1
+  - PickUp
+  - Bombs
+  - Projectile
+  - Boundary
   layers:
   - Default
   - TransparentFX
