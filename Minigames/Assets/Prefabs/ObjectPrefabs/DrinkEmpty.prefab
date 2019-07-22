@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2434137335491959293}
   - component: {fileID: -5566476215544795840}
   m_Layer: 8
-  m_Name: DrinkP1W
+  m_Name: DrinkEmpty
   m_TagString: PickUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,7 @@ PrefabInstance:
     - target: {fileID: 803385372271144305, guid: 1eb26fe5e4218b9478c3393930d00681,
         type: 3}
       propertyPath: m_Color.a
-      value: 1
+      value: 0.50980395
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
