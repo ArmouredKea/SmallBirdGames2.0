@@ -7,8 +7,10 @@ public class ItemController : MonoBehaviour
     public bool lastPlayer1;
     public bool lastPlayer2;
 
-    public void LastHeldBy (GameObject other) {
+    public bool held = false;
+    public bool filling = false;
 
+    public void LastHeldBy (GameObject other) {
       if (other.gameObject.name == "Player1") {
         lastPlayer2 = false;
         lastPlayer1 = true;

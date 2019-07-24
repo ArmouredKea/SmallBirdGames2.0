@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour {
             Movement();
             if (objCarry) {
                 pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
+                pickedUpObj.GetComponent<ItemController>().held = true;
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
@@ -201,16 +202,19 @@ public class PlayerController : MonoBehaviour {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
-        if (pickUpC != 0 && inRange && objCarry == false) {
+        if (pickUpC != 0 && inRange && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {
+            pickedUpObj.GetComponent<ItemController>().held = false;
             objCarry = false;
         }
     }
     public void PickUpObj2() {
         if (inRange && objCarry == false) {
             objCarry = true;
+            
         } else if (objCarry == true) {
+            pickedUpObj.GetComponent<ItemController>().held = false;
             objCarry = false;
         }
     }
