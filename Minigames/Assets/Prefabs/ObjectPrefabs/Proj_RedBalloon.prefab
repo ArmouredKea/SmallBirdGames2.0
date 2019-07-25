@@ -15,10 +15,14 @@ MonoBehaviour:
   currentProj: {fileID: 0}
   Speed: 5
   firingRate: 0.3
+  time_growMin: 0
+  time_growMax: 0
+  growBy: 0
   P1Cont: {fileID: 0}
   P2Cont: {fileID: 0}
   firedFrom: {fileID: 0}
   isColor: {r: 1, g: 0, b: 0, a: 1}
+  assignSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!1001 &59344214592748231
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29,7 +33,7 @@ PrefabInstance:
     - target: {fileID: 8739973843880312029, guid: 2e4bab941d6e8314cbc4fabfd5c655f0,
         type: 3}
       propertyPath: m_Name
-      value: BHell_Bullet2 Variant
+      value: Proj_RedBalloon
       objectReference: {fileID: 0}
     - target: {fileID: 5428358286146153867, guid: 2e4bab941d6e8314cbc4fabfd5c655f0,
         type: 3}

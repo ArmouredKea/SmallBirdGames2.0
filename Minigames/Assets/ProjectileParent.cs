@@ -9,13 +9,17 @@ public class ProjectileParent : MonoBehaviour
 
     public float Speed;
     public float firingRate;
+    public float time_growMin;
+    public float time_growMax;
+    public float growBy;
+
 
 
     public PlayerController P1Cont;
     public PlayerController P2Cont;
     public GameObject firedFrom;
     public Color isColor;
-
+    public Sprite assignSprite;
 
 
     void Start()
@@ -41,7 +45,7 @@ public class ProjectileParent : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collideWith)
     {
-        Debug.Log("Ok" + firedFrom + isColor);
+       
 
         if (firedFrom != collideWith.gameObject)
         {
@@ -82,7 +86,10 @@ public class ProjectileParent : MonoBehaviour
         P2Cont = GameObject.FindGameObjectWithTag("Player2").GetComponent<PlayerController>();
         currentProj = gameObject.GetComponent<Rigidbody2D>();
         gameObject.GetComponent<SpriteRenderer>().material.color = isColor;
+        gameObject.GetComponent<SpriteRenderer>().sprite = assignSprite; //Changes visual sprite to set sprite in child.
         P1Cont.Recieve_FiringRate = firingRate;
+        P2Cont.Recieve_FiringRate = firingRate;
     }
+
 }
 
