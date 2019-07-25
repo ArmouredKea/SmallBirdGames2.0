@@ -18,8 +18,8 @@ public class BulletHellManage : MonoBehaviour
     private PlayerController P2;
     public GameObject projectile;
 
-    public int p1life = 3;
-    public int p2life = 3;
+    public int p1TimesHit;
+    public int p2TimesHit;
 
 
     // Start is called before the first frame update

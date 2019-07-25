@@ -48,11 +48,11 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     private BulletHellManage bHell_Manage;
     [SerializeField]
-    private BulletHellProjectile Proj_Manage;
+    private ProjectileParent Proj_Manage;
 
     private Transform Barrel;
     public GameObject Proj;
-    public float FiringRate;
+    public float Recieve_FiringRate;
     public float TillFire;
     #endregion
 
@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour {
         } else if (scene.name == "BulletHell") {
             bHell_Check = true;
             BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
-            BulletHellProjectile Proj_Manage = GetComponent(typeof(BulletHellProjectile)) as BulletHellProjectile;
+            ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
         }
 
         else if (scene.name == "CharacterSelect") {
@@ -297,14 +297,15 @@ public class PlayerController : MonoBehaviour {
         
 
 
-        GameObject bHell_Bullet = ObjectPool.pool_Instance.GetPooledObject();
-        bHell_Bullet.GetComponent<BulletHellProjectile>().Firing_Player = this.gameObject;
-        if (bHell_Bullet != null && Time.time > TillFire)
+        GameObject pooledBullet = ObjectPool.pool_Instance.GetPooledObject();
+        // bHell_Bullet.GetComponent<BulletHellProjectile>().Firing_Player = this.gameObject;
+        pooledBullet.GetComponent<ProjectileParent>().firedFrom = this.gameObject;
+        if (pooledBullet != null && Time.time > TillFire)
         {
-            TillFire = Time.time + FiringRate;
-            bHell_Bullet.transform.position = this.gameObject.transform.position;
-            bHell_Bullet.transform.rotation = this.gameObject.transform.rotation;
-            bHell_Bullet.SetActive(true);
+            TillFire = Time.time + Recieve_FiringRate;
+            pooledBullet.transform.position = this.gameObject.transform.position;
+            pooledBullet.transform.rotation = this.gameObject.transform.rotation;
+            pooledBullet.SetActive(true);
            
         } 
        
@@ -315,19 +316,12 @@ public class PlayerController : MonoBehaviour {
     {
         if(gameObject.tag == "Player1" && bHell_isShoot == false)
         { 
-            bHell_Manage.p1life--;
-            if(bHell_Manage.p1life <= 0)
-            {
-                Debug.Log("player1 lost");
-            }
+            bHell_Manage.p1TimesHit++;
+           
         }
         if (gameObject.tag == "Player2" && bHell_isShoot == false)
         {
-            bHell_Manage.p2life--;
-            if (bHell_Manage.p2life <= 0)
-            {
-                Debug.Log("player2 lost");
-            }
+            bHell_Manage.p2TimesHit++;
         }
     }
     #endregion

@@ -58,20 +58,20 @@ public class CountdownTimer : MonoBehaviour {
         {
             BulletHellManage hellManage = GetComponent<BulletHellManage>();
 
-            if ((currentTime <= 0f || hellManage.p1life <= 0 || hellManage.p2life <= 0) && (gameEnded == true))
+            if ((currentTime <= 0f ) && (gameEnded == true))
             {
 
                 endText.SetActive(true);
                 overallScore.SetActive(true);
                 minigameChanger.SetActive(true);
 
-                if (hellManage.p1life > hellManage.p2life)
+                if (hellManage.p1TimesHit < hellManage.p2TimesHit)
                 {
                     PlayerController.p1Score++;
                     endText.GetComponent<Text>().text = "Player 1 Wins!";
 
                 }
-                else if (hellManage.p1life < hellManage.p2life)
+                else if (hellManage.p1TimesHit > hellManage.p2TimesHit)
                 {
                     PlayerController.p2Score++;
                     endText.GetComponent<Text>().text = "Player 2 Wins!";
