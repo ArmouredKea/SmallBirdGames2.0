@@ -83,8 +83,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41824a3bce389894fb9fad469317a9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  balloonName: WhiteBalloon
+  pointValue: 1
+  balloonSprite: {fileID: 803385372271144307, guid: 1eb26fe5e4218b9478c3393930d00681,
+    type: 3}
   lastPlayer1: 0
   lastPlayer2: 0
+  held: 0
+  filling: 0
 --- !u!1001 &8468069584819316392
 PrefabInstance:
   m_ObjectHideFlags: 0

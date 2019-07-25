@@ -446,14 +446,6 @@ MonoBehaviour:
   ordered: 0
   gameEnd: 0
   orderTiles: {fileID: 149251176}
-  orderSpriteOne: {fileID: 6492258418384220531, guid: 29b1e0d6cb8419f459ac662676d4dba6,
-    type: 3}
-  orderSpriteTwo: {fileID: 9153677484868871260, guid: 3c18105b0b8c82643bf3f6639f3470f1,
-    type: 3}
-  orderSpriteThree: {fileID: 803385372271144307, guid: 1eb26fe5e4218b9478c3393930d00681,
-    type: 3}
-  orderSpriteFour: {fileID: 5439775599838526418, guid: ceb5fb6b3bb86c641ab00a75fd9212e9,
-    type: 3}
 --- !u!61 &187210102
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -975,14 +967,6 @@ MonoBehaviour:
   ordered: 0
   gameEnd: 0
   orderTiles: {fileID: 1308988179}
-  orderSpriteOne: {fileID: 6492258418384220531, guid: 29b1e0d6cb8419f459ac662676d4dba6,
-    type: 3}
-  orderSpriteTwo: {fileID: 9153677484868871260, guid: 3c18105b0b8c82643bf3f6639f3470f1,
-    type: 3}
-  orderSpriteThree: {fileID: 803385372271144307, guid: 1eb26fe5e4218b9478c3393930d00681,
-    type: 3}
-  orderSpriteFour: {fileID: 5439775599838526418, guid: ceb5fb6b3bb86c641ab00a75fd9212e9,
-    type: 3}
 --- !u!1 &449934675
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,8 +3086,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1437944633}
+  - component: {fileID: 1437944634}
   m_Layer: 0
-  m_Name: DrinkSpawnY
+  m_Name: YellowDrinkS
   m_TagString: SPP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3123,6 +3108,20 @@ Transform:
   m_Father: {fileID: 1633395242}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437944634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1437944632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8b4d8561711f942a8f7c5aecfa0b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonType: {fileID: 9125017245350031382, guid: 37fc060487aab2541ba2b3b7925dcd33,
+    type: 3}
 --- !u!1 &1522955758
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,8 +3131,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522955759}
+  - component: {fileID: 1522955760}
   m_Layer: 0
-  m_Name: DrinkSpawnW
+  m_Name: WhiteDrinkS
   m_TagString: SPP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3153,6 +3153,20 @@ Transform:
   m_Father: {fileID: 1633395242}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1522955760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522955758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8b4d8561711f942a8f7c5aecfa0b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonType: {fileID: 9125017245350031382, guid: b3a679e3785e43a4a888b290ee03e559,
+    type: 3}
 --- !u!1 &1527943768
 GameObject:
   m_ObjectHideFlags: 0
@@ -3162,13 +3176,28 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1527943771}
+  - component: {fileID: 1527943769}
   m_Layer: 0
-  m_Name: DrinkSpawnG
+  m_Name: GreenDrinkS
   m_TagString: SPP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1527943769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527943768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8b4d8561711f942a8f7c5aecfa0b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonType: {fileID: 9125017245350031382, guid: a150fa3ad85a4f2428892e31c23e0b9c,
+    type: 3}
 --- !u!4 &1527943771
 Transform:
   m_ObjectHideFlags: 0
@@ -3833,8 +3862,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1999669631}
+  - component: {fileID: 1999669632}
   m_Layer: 0
-  m_Name: DrinkSpawnR
+  m_Name: RedDrinkS
   m_TagString: SPP2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3854,6 +3884,20 @@ Transform:
   m_Father: {fileID: 1633395242}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999669632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999669630}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8b4d8561711f942a8f7c5aecfa0b22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonType: {fileID: 9125017245350031382, guid: f422106943c300f4c9b707c0581e2e65,
+    type: 3}
 --- !u!1 &2029577922
 GameObject:
   m_ObjectHideFlags: 0

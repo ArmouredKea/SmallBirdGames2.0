@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemController : MonoBehaviour
+public class ItemController : PickUpParent
 {
     public bool lastPlayer1;
     public bool lastPlayer2;
 
     public bool held = false;
     public bool filling = false;
+
+    public int pointValue;
+    public GameObject balloonSprite;
 
     public void LastHeldBy (GameObject other) {
       if (other.gameObject.name == "Player1") {
