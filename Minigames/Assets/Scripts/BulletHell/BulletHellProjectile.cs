@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletHellProjectile : MonoBehaviour
-{
+public class BulletHellProjectile : MonoBehaviour { }
+/*{
 
     //   private BulletHellManage bHell_Manage;
 
@@ -79,4 +79,4 @@ public class BulletHellProjectile : MonoBehaviour
     }
 
 
-}
+} */

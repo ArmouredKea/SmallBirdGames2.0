@@ -312,16 +312,16 @@ public class PlayerController : MonoBehaviour {
        // Instantiate(Proj, this.gameObject.transform.position, this.gameObject.transform.rotation );
     }
 
-    public void BHell_Hit()
+    public void BHell_Hit(int shotvalue)
     {
         if(gameObject.tag == "Player1" && bHell_isShoot == false)
         { 
-            bHell_Manage.p1TimesHit++;
+            bHell_Manage.p1TimesHit += shotvalue;
            
         }
         if (gameObject.tag == "Player2" && bHell_isShoot == false)
         {
-            bHell_Manage.p2TimesHit++;
+            bHell_Manage.p2TimesHit += shotvalue;
         }
     }
     #endregion
