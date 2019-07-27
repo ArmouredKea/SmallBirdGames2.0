@@ -226,6 +226,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &418398996 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 3641849634706190258}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfa71270600bb14b82c242ed70b4e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,8 +3001,8 @@ MonoBehaviour:
   touched: 0
   joystickOuter: {fileID: 733760037}
   joystickInner: {fileID: 1407316436}
-  Characters: []
-  Controller: {fileID: 0}
+  Players: []
+  Controller: {fileID: 1973130184}
 --- !u!114 &1973130184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3008,7 +3020,7 @@ MonoBehaviour:
   touched: 0
   joystickOuter: {fileID: 0}
   joystickInner: {fileID: 0}
-  Characters: []
+  Players: []
   Controller: {fileID: 0}
   currentPosition: {x: 0, y: 0}
   totalDistance: 0
@@ -3169,5 +3181,10 @@ PrefabInstance:
       propertyPath: joystickOuter
       value: 
       objectReference: {fileID: 1819179686}
+    - target: {fileID: 8909918253994363751, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: Controller
+      value: 
+      objectReference: {fileID: 418398996}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3, type: 3}
