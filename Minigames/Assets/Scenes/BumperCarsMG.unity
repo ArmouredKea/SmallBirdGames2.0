@@ -309,12 +309,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &535730938 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3641849634904798536, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
-    type: 3}
-  m_PrefabInstance: {fileID: 3641849634706190258}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &590999996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,7 +1087,6 @@ GameObject:
   - component: {fileID: 1046177577}
   - component: {fileID: 1046177576}
   - component: {fileID: 1046177575}
-  - component: {fileID: 1046177574}
   m_Layer: 0
   m_Name: JoystickLeftInner
   m_TagString: Untagged
@@ -1101,24 +1094,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1046177574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1046177573}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 535730938}
-  speed: 5
-  touched: 0
-  joystickOuter: {fileID: 1819179686}
-  joystickInner: {fileID: 1046177577}
-  Players: []
 --- !u!58 &1046177575
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1965,7 +1940,6 @@ GameObject:
   - component: {fileID: 1407316436}
   - component: {fileID: 1407316435}
   - component: {fileID: 1407316434}
-  - component: {fileID: 1407316437}
   m_Layer: 0
   m_Name: JoystickRightInner
   m_TagString: Untagged
@@ -2051,24 +2025,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1407316437
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1407316433}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 1973130178}
-  speed: 5
-  touched: 0
-  joystickOuter: {fileID: 733760037}
-  joystickInner: {fileID: 1407316436}
-  Players: []
 --- !u!1 &1531028550
 GameObject:
   m_ObjectHideFlags: 0
@@ -2907,8 +2863,9 @@ GameObject:
   - component: {fileID: 1973130180}
   - component: {fileID: 1973130179}
   - component: {fileID: 1973130181}
-  - component: {fileID: 1973130183}
   - component: {fileID: 1973130182}
+  - component: {fileID: 1973130184}
+  - component: {fileID: 1973130183}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -3024,16 +2981,38 @@ MonoBehaviour:
   m_GameObject: {fileID: 1973130178}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ecb8e79877cd74193e8a589f765ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
+  rotationSpeed: 100
+  touched: 0
+  joystickOuter: {fileID: 733760037}
+  joystickInner: {fileID: 1407316436}
+  Characters: []
+  Controller: {fileID: 0}
+--- !u!114 &1973130184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973130178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcfa71270600bb14b82c242ed70b4e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  rotationSpeed: 0
+  touched: 0
+  joystickOuter: {fileID: 0}
+  joystickInner: {fileID: 0}
+  Characters: []
+  Controller: {fileID: 0}
+  currentPosition: {x: 0, y: 0}
+  totalDistance: 0
   boosted: 0
-  Controller: {fileID: 1407316437}
-  rotationSpeed2: 0
-  pickedUpObj: {fileID: 0}
-  inRange: 0
-  objCarry: 0
 --- !u!1 &2123590445
 GameObject:
   m_ObjectHideFlags: 0
@@ -3180,10 +3159,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3641849634904798543, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+    - target: {fileID: 8909918253994363751, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
         type: 3}
-      propertyPath: Controller
+      propertyPath: joystickInner
       value: 
-      objectReference: {fileID: 1046177574}
+      objectReference: {fileID: 1046177577}
+    - target: {fileID: 8909918253994363751, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: joystickOuter
+      value: 
+      objectReference: {fileID: 1819179686}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3, type: 3}

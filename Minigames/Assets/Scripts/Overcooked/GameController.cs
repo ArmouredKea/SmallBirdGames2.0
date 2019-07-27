@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour {
     //needed an item that was null
     private GameObject nullItem;
 
-    private PlayerController playerScript;
+    private CC_Overcooked playerScript;
     public ItemScript itemScript;
 
     public int points;
@@ -37,7 +37,7 @@ public class GameController : MonoBehaviour {
         OrderList();
         orderLength = 4;
         ListPickUps();
-        playerScript = player.GetComponent<PlayerController>();
+        playerScript = player.GetComponent<CC_Overcooked>();
         OrderUp();
     }
 

@@ -27,18 +27,18 @@ public class OCScoreControls : MonoBehaviour
             minigameChanger.SetActive(true);
 
             if (player1Control.gameObject.GetComponent<GameController>().points > player2Control.gameObject.GetComponent<GameController>().points) {
-                PlayerController.p1Score++;
+                CharacterController.p1Score++;
                 endText.GetComponent<Text>().text = "Player 1 Wins!";
             } else if (player1Control.gameObject.GetComponent<GameController>().points < player2Control.gameObject.GetComponent<GameController>().points) {
-                PlayerController.p2Score++;
+                CharacterController.p2Score++;
                 endText.GetComponent<Text>().text = "Player 2 Wins!";
             } else if (player1Control.gameObject.GetComponent<GameController>().points == player2Control.gameObject.GetComponent<GameController>().points) {
-                PlayerController.p1Score++;
-                PlayerController.p2Score++;
+                CharacterController.p1Score++;
+                CharacterController.p2Score++;
                 endText.GetComponent<Text>().text = "Draw!";
             }
 
-            overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
+            overallScore.GetComponent<Text>().text = "[P1] " + CharacterController.p1Score + " - " + CharacterController.p2Score + " [P2]";
             gameEnded = false;
             Time.timeScale = 0;
 
