@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
     
     public float speed;
     public float rotationSpeed;    
@@ -14,8 +14,8 @@ public class CharacterController : MonoBehaviour {
     public Transform joystickOuter;
     public Transform joystickInner;
 
-    public List<CharacterController> Characters = new List<CharacterController>();
-    public CharacterController Controller;
+    public List<PlayerController> Players = new List<PlayerController>();
+    public PlayerController Controller;
     public int? LockedFingerID { get; set; }   
 
     private Vector2 startPos;
@@ -35,19 +35,19 @@ public class CharacterController : MonoBehaviour {
         //multitouch stuff
         for (int i = 0; i < Input.touchCount; i++) {
             Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
-            foreach (var character in Characters) {
-                if (character.LockedFingerID == null) {
+            foreach (var player in Players) {
+                if (player.LockedFingerID == null) {
                     if (Input.GetTouch(i).phase == TouchPhase.Began && joystickInner.GetComponent<Collider2D>().OverlapPoint(touchWorldPos)) {
-                        character.LockedFingerID = Input.GetTouch(i).fingerId;
+                        player.LockedFingerID = Input.GetTouch(i).fingerId;
                     }
-                } else if (character.LockedFingerID == Input.GetTouch(i).fingerId) {
+                } else if (player.LockedFingerID == Input.GetTouch(i).fingerId) {
                     touched = true;
                     pointB = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y, 1));
                     //player.MoveToPosition(touchWorldPos);
                     if (Input.GetTouch(i).phase == TouchPhase.Ended || Input.GetTouch(i).phase == TouchPhase.Canceled) {
                         touched = false;
                         joystickInner.transform.position = pointA;
-                        character.LockedFingerID = null;
+                        player.LockedFingerID = null;
                     }
                 }
             }
@@ -71,9 +71,9 @@ public class CharacterController : MonoBehaviour {
     }
 
     public void OnEnable() {
-        Controller.Characters.Add(this);
+        Controller.Players.Add(this);
     }
     public void OnDisable() {
-        Controller.Characters.Remove(this);
+        Controller.Players.Remove(this);
     }
 }

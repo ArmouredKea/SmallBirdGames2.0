@@ -40,11 +40,11 @@ public class TagScript : MonoBehaviour
             tagged = true;
             it = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            gameObject.GetComponent<CharacterController>().speed = 0;
+            gameObject.GetComponent<PlayerController>().speed = 0;
             if (gameObject.name == "Player1") {
-                GameObject.Find("LeftIJ").GetComponent<CharacterController>().speed = 0;
+                GameObject.Find("LeftIJ").GetComponent<PlayerController>().speed = 0;
             } else if (gameObject.name == "Player2") {
-                GameObject.Find("RightIJ").GetComponent<CharacterController>().speed = 0;
+                GameObject.Find("RightIJ").GetComponent<PlayerController>().speed = 0;
             }
                 StartCoroutine(TagDelay(2f));
         } else if ((collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2") && it == true) {
@@ -58,9 +58,9 @@ public class TagScript : MonoBehaviour
         yield return new WaitForSeconds(waitTime);
         tagged = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        gameObject.GetComponent<CharacterController>().speed = 7;
-        GameObject.Find("LeftIJ").GetComponent<CharacterController>().speed = 7;
-        GameObject.Find("RightIJ").GetComponent<CharacterController>().speed = 7;
+        gameObject.GetComponent<PlayerController>().speed = 7;
+        GameObject.Find("LeftIJ").GetComponent<PlayerController>().speed = 7;
+        GameObject.Find("RightIJ").GetComponent<PlayerController>().speed = 7;
 
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CC_BumperCars : CharacterController {
+public class PC_BumperCars : PlayerController {
 
     public Vector2 currentPosition;
     public float totalDistance;

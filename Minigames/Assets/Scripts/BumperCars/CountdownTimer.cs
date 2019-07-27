@@ -34,19 +34,19 @@ public class CountdownTimer : MonoBehaviour {
             minigameChanger.SetActive(true);
 
             if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
-                CharacterController.p1Score++;
+                PlayerController.p1Score++;
                 endText.GetComponent<Text>().text = "Player 1 Wins!";
                 
             } else if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives < GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
-                CharacterController.p2Score++;
+                PlayerController.p2Score++;
                 endText.GetComponent<Text>().text = "Player 2 Wins!";
             } else {
-                CharacterController.p1Score++;
-                CharacterController.p2Score++;
+                PlayerController.p1Score++;
+                PlayerController.p2Score++;
                 endText.GetComponent<Text>().text = "Draw!";
             }
 
-            overallScore.GetComponent<Text>().text = "[P1] " + CharacterController.p1Score + " - " + CharacterController.p2Score + " [P2]";
+            overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
             gameEnded = false;
             Time.timeScale = 0;
 

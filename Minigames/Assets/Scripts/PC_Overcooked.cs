@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CC_Overcooked : CharacterController {
+public class PC_Overcooked : PlayerController {
 
     public GameObject pickedUpObj;
 
