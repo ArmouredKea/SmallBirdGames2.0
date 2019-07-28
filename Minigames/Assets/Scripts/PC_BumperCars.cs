@@ -26,8 +26,8 @@ public class PC_BumperCars : PlayerController {
         //player boost.
         if (totalDistance >= 50f) {
             boosted = true;
-            speed = 15.0f;
-            gameObject.GetComponent<Rigidbody2D>().mass = 2;
+            speed = 15f;
+            //gameObject.GetComponent<Rigidbody2D>().mass = 1.5f;
 
             if (gameObject.tag == "Player1") {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
@@ -36,12 +36,6 @@ public class PC_BumperCars : PlayerController {
             }
 
             StartCoroutine(BoostDuration(5f));
-        }
-
-        if (boosted) {
-            speed = 15f;
-        } else {
-            speed = 5f;
         }
 
     }
@@ -60,8 +54,9 @@ public class PC_BumperCars : PlayerController {
     }
 
     public override void MoveCharacter(Vector2 direction) {
-        //base.MoveCharacter(direction);
+        base.MoveCharacter(direction);
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
+        Debug.Log("Please");
     }
 
     //player boost duration.
@@ -74,8 +69,8 @@ public class PC_BumperCars : PlayerController {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.6f, 0.2f, 1);
         }
 
-        speed = 5.0f;
-        gameObject.GetComponent<Rigidbody2D>().mass = 1;
+        speed = 7f;
+        //gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
         boosted = false;
     }

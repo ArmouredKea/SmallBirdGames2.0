@@ -37,7 +37,7 @@ public class PC_Overcooked : PlayerController {
     }
 
     public override void MoveCharacter(Vector2 direction) {
-        //base.MoveCharacter(direction);
+        base.MoveCharacter(direction);
         gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
     }
 

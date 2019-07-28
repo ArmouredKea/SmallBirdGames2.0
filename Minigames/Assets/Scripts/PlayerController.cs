@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     public Transform joystickInner;
 
     public List<PlayerController> Players = new List<PlayerController>();
-    public PlayerController Controller;
+    //public PlayerController Controller;
     public int? LockedFingerID { get; set; }   
 
     private Vector2 startPos;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Input.multiTouchEnabled = true;
-        pointA = gameObject.transform.position;
+        pointA = joystickInner.transform.position;
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
     }
 
@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
+        speed = gameObject.GetComponent<PC_BumperCars>().speed;
     }
 
     void FixedUpdate() {
@@ -68,12 +69,13 @@ public class PlayerController : MonoBehaviour {
     public virtual void MoveCharacter(Vector2 direction) {        
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
+        gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
     }
 
-    public void OnEnable() {
-        Controller.Players.Add(this);
+    private void OnEnable() {
+        Players.Add(this);
     }
-    public void OnDisable() {
-        Controller.Players.Remove(this);
+    private void OnDisable() {
+        Players.Remove(this);
     }
 }
