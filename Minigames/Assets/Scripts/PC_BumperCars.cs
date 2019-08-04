@@ -9,7 +9,8 @@ public class PC_BumperCars : PlayerController {
     public bool boosted;
 
     // Start is called before the first frame update
-    void Start() {
+    protected override void Start() {
+        base.Start();
         speed = 7f;
         rotationSpeed = 100.0f;
         totalDistance = 0f;
@@ -17,7 +18,8 @@ public class PC_BumperCars : PlayerController {
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void Update() {
+        base.Update();
         //calculates distance travelled.
         float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
         totalDistance += distance;
@@ -40,7 +42,8 @@ public class PC_BumperCars : PlayerController {
 
     }
 
-    void FixedUpdate() {
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
         //Player forward/backward movement and rotation.
         if (gameObject.tag == "Player1") {
             GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
@@ -53,10 +56,9 @@ public class PC_BumperCars : PlayerController {
         }
     }
 
-    public override void MoveCharacter(Vector2 direction) {
+    protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
-        Debug.Log("Please");
     }
 
     //player boost duration.
@@ -73,5 +75,13 @@ public class PC_BumperCars : PlayerController {
         //gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
         boosted = false;
+    }
+
+    public void PauseCharacter() {
+
+    }
+
+    public void UnpauseCharacter() {
+
     }
 }

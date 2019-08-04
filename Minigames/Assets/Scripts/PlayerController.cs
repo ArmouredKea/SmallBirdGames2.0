@@ -24,14 +24,14 @@ public class PlayerController : MonoBehaviour {
     public static int p2Score;
 
     // Start is called before the first frame update
-    void Start() {
+    protected virtual void Start() {
         Input.multiTouchEnabled = true;
         pointA = joystickInner.transform.position;
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
     }
 
     // Update is called once per frame
-    void Update() {
+    protected virtual void Update() {
         //multitouch stuff
         for (int i = 0; i < Input.touchCount; i++) {
             Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour {
         speed = gameObject.GetComponent<PC_BumperCars>().speed;
     }
 
-    void FixedUpdate() {
+    protected virtual void FixedUpdate() {
         //if touched or clicked, use joystick
         if (touched) {
             Vector2 offset = pointB - pointA;
@@ -66,16 +66,15 @@ public class PlayerController : MonoBehaviour {
     }
 
     //move character...
-    public virtual void MoveCharacter(Vector2 direction) {        
+    protected virtual void MoveCharacter(Vector2 direction) {        
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
-        gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
     }
 
-    private void OnEnable() {
+    protected virtual void OnEnable() {
         Players.Add(this);
     }
-    private void OnDisable() {
+    protected virtual void OnDisable() {
         Players.Remove(this);
     }
 }

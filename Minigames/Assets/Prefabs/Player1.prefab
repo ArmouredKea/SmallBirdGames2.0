@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 3641849634904798540}
   - component: {fileID: 3641849634904798541}
   - component: {fileID: 7997255816999478402}
-  - component: {fileID: 8909918253994363751}
   m_Layer: 9
   m_Name: Player1
   m_TagString: Player1
@@ -141,21 +140,3 @@ MonoBehaviour:
   currentPosition: {x: 0, y: 0}
   totalDistance: 0
   boosted: 0
---- !u!114 &8909918253994363751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3641849634904798536}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ecb8e79877cd74193e8a589f765ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 0}
-  joystickInner: {fileID: 0}
-  Players: []

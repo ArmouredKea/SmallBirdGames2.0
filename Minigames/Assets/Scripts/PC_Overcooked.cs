@@ -18,17 +18,17 @@ public class PC_Overcooked : PlayerController {
     public bool objCarry;
 
     // Start is called before the first frame update
-    void Start() {
+    protected override void Start() {
         speed = 7f;
         rotationSpeed = 100.0f;
     }
 
     // Update is called once per frame
-    void Update() {
+    protected override void Update() {
         
     }
 
-    void FixedUpdate() {
+    protected override void FixedUpdate() {
         Movement();
         if (objCarry) {
             pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
@@ -36,7 +36,7 @@ public class PC_Overcooked : PlayerController {
         }
     }
 
-    public override void MoveCharacter(Vector2 direction) {
+    protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
     }

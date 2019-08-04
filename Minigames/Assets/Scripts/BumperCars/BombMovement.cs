@@ -24,11 +24,9 @@ public class BombMovement : MonoBehaviour
         if (p1Invulnerable) {
             Physics2D.IgnoreLayerCollision(8, 9, true);
             StartCoroutine(Vulnerability1(2));
-            Debug.Log("P1 Invulnerable!");
         } else if (p2Invulnerable) {
             Physics2D.IgnoreLayerCollision(8, 10, true);
             StartCoroutine(Vulnerability2(2));
-            Debug.Log("P2 Invulnerable!");
         }
     }
 
@@ -71,13 +69,11 @@ public class BombMovement : MonoBehaviour
     private IEnumerator Vulnerability1(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         Physics2D.IgnoreLayerCollision(8, 9, false);
-        Debug.Log("P1 Vulnerable!");
     }
 
     private IEnumerator Vulnerability2(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         Physics2D.IgnoreLayerCollision(8, 10, false);
-        Debug.Log("P2 Vulnerable!");
     }
 
 }

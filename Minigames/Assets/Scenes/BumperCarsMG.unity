@@ -2865,7 +2865,6 @@ GameObject:
   - component: {fileID: 1973130181}
   - component: {fileID: 1973130182}
   - component: {fileID: 1973130184}
-  - component: {fileID: 1973130183}
   m_Layer: 10
   m_Name: Player2
   m_TagString: Player2
@@ -2972,24 +2971,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.56
---- !u!114 &1973130183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1973130178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ecb8e79877cd74193e8a589f765ffb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  rotationSpeed: 100
-  touched: 0
-  joystickOuter: {fileID: 733760037}
-  joystickInner: {fileID: 1407316436}
-  Players: []
 --- !u!114 &1973130184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3167,15 +3148,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8909918253994363751, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
-        type: 3}
-      propertyPath: joystickOuter
-      value: 
-      objectReference: {fileID: 1819179686}
-    - target: {fileID: 8909918253994363751, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
-        type: 3}
-      propertyPath: joystickInner
-      value: 
-      objectReference: {fileID: 1046177577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3, type: 3}
