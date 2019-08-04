@@ -10,6 +10,7 @@ TagManager:
   - Bombs
   - Projectile
   - Boundary
+  - ShooterPowerup
   layers:
   - Default
   - TransparentFX

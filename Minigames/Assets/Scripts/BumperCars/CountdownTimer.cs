@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class CountdownTimer : MonoBehaviour {
 
-    private float currentTime = 60f;
+    public float currentTime = 60f;
     public Text p1Time;
     public Text p2Time;
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
     private bool gameEnded =  true;
+    private bool timeswap = true;
 
     // Use this for initialization
     void Start () {
@@ -57,6 +58,15 @@ public class CountdownTimer : MonoBehaviour {
         if(scene.name == "BulletHell")
         {
             BulletHellManage hellManage = GetComponent<BulletHellManage>();
+
+            if(currentTime <= 30 && timeswap == true)
+            {
+                hellManage.Bhell_Swap();
+                //StartCoroutine(Countdown());
+                timeswap = false;
+                
+            }
+
 
             if ((currentTime <= 0f ) && (gameEnded == true))
             {

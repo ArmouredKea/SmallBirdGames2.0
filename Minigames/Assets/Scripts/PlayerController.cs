@@ -40,28 +40,13 @@ public class PlayerController : MonoBehaviour {
     public static int p1Score;
     public static int p2Score;
 
-    #region BhellVariables
-    //bullethell specific variables. Will be cleaned once Child/Parent system is working.
-    public bool bHell_isShoot;
-    public string bHell_PosData;
-    private float bHell_rotationSpeed = 300.0f;
-    [SerializeField]
-    private BulletHellManage bHell_Manage;
-    [SerializeField]
-    private ProjectileParent Proj_Manage;
-
-    private Transform Barrel;
-    public GameObject Proj;
-    public float Recieve_FiringRate;
-    public float TillFire;
-    #endregion
-
+    private BHell_Player BMod;
     // Use this for initialization
     void Start() {
         bumperCars = false;
         overcooked = false;
         bHell_Check = false;
-        bHell_isShoot = false;
+        
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
@@ -70,8 +55,9 @@ public class PlayerController : MonoBehaviour {
             overcooked = true;
         } else if (scene.name == "BulletHell") {
             bHell_Check = true;
-            BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
-            ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
+
+            BMod = gameObject.GetComponent<BHell_Player>();
+
         }
 
         else if (scene.name == "CharacterSelect") {
@@ -128,7 +114,7 @@ public class PlayerController : MonoBehaviour {
         }
         else if (bHell_Check)
         {
-            BHell_Main();
+            BMod.BHell_Main();
         }
     }
 
@@ -252,77 +238,5 @@ public class PlayerController : MonoBehaviour {
 
 
 
-    #region BulletHell 
-    //Bullet Hell Shooter code. Will be refactored once Parent/Child is complete.
 
-        public void BHell_Main()
-         {
-        BHell_Determine_Mode();
-        BHell_Control();
-         }
-
-
-    public void BHell_Determine_Mode()
-    {
-        if(bHell_Manage.FixedSwap == true )
-        {
-            bHell_Manage.BHell_Determine_Position();
-            bHell_Manage.FixedSwap = false;
-        }
-    }
-
-
-
-    public void BHell_Control()
-    {
-        if(bHell_isShoot == true)
-        {
-            
-            transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
-            transform.position = bHell_Manage.GunnerPos.transform.position;
-           
-           
-            BHell_Fire();
-            
-          
-        }
-        else
-        {
-            Movement();
-        }
-    }
-
-    public void BHell_Fire()
-    {
-        
-
-
-        GameObject pooledBullet = ObjectPool.pool_Instance.GetPooledObject();
-        // bHell_Bullet.GetComponent<BulletHellProjectile>().Firing_Player = this.gameObject;
-        pooledBullet.GetComponent<ProjectileParent>().firedFrom = this.gameObject;
-        if (pooledBullet != null && Time.time > TillFire)
-        {
-            TillFire = Time.time + Recieve_FiringRate;
-            pooledBullet.transform.position = this.gameObject.transform.position;
-            pooledBullet.transform.rotation = this.gameObject.transform.rotation;
-            pooledBullet.SetActive(true);
-           
-        } 
-       
-       // Instantiate(Proj, this.gameObject.transform.position, this.gameObject.transform.rotation );
-    }
-
-    public void BHell_Hit(int shotvalue)
-    {
-        if(gameObject.tag == "Player1" && bHell_isShoot == false)
-        { 
-            bHell_Manage.p1TimesHit += shotvalue;
-           
-        }
-        if (gameObject.tag == "Player2" && bHell_isShoot == false)
-        {
-            bHell_Manage.p2TimesHit += shotvalue;
-        }
-    }
-    #endregion
 }

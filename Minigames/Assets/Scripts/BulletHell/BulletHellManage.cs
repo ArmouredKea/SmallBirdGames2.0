@@ -11,15 +11,21 @@ public class BulletHellManage : MonoBehaviour
     public bool TimedSwap;
     public GameObject GunnerPos;
     public int firingPlayer;
+    public ProjectileParent ProjScript;
     [SerializeField]
-    private PlayerController P1;
+    private BHell_Player P1;
 
     [SerializeField]
-    private PlayerController P2;
-    public GameObject projectile;
+    private BHell_Player P2;
+    //public GameObject projectile;
 
     public int p1TimesHit;
     public int p2TimesHit;
+
+    [SerializeField]
+    private GameObject P1Spawn;
+    [SerializeField]
+    private GameObject P2Spawn;
 
 
     // Start is called before the first frame update
@@ -37,7 +43,7 @@ public class BulletHellManage : MonoBehaviour
 
     public void BHell_Init()
     {
-        //bHell specific initialization for code sanitiation.
+        //bHell specific initialization for code sanitiation. Need to refactor how 
         firingPlayer = Random.Range(1, 3); //Decide starting P randomly. R.R's MAX is not inclusive, it is exclusive. So it will only ever generate below 3, not 3.
                                            //Send P to shooting location, if shooter.
        
@@ -60,6 +66,29 @@ public class BulletHellManage : MonoBehaviour
             P2.bHell_isShoot = true;
             P2.bHell_PosData = "HorizontalP2";
            
+        }
+    }
+
+    public void Bhell_Swap()
+    {
+        ObjectPool.pool_Instance.StopAll();
+        if (firingPlayer == 2)
+        {
+            P1.bHell_isShoot = true;
+            P2.bHell_isShoot = false;
+            firingPlayer = 1;
+            P2.gameObject.transform.position = P2Spawn.transform.position;
+            P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
+            Debug.Log("p1 should be shooting");
+        }
+         else if(firingPlayer == 1)
+        {
+            P2.bHell_isShoot = true;
+            P1.bHell_isShoot = false;
+            firingPlayer = 2;
+            P1.gameObject.transform.position = P1Spawn.transform.position;
+            P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
+            Debug.Log("p2 should be shooting");
         }
     }
 }
