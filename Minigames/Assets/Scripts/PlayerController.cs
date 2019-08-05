@@ -3,20 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
-    
+
     public float speed;
-    public float rotationSpeed;    
-    
+    public float rotationSpeed;
+
     public bool touched;
     private Vector2 pointA;
     private Vector2 pointB;
     private Vector2 initialPoint;
     public Transform joystickOuter;
     public Transform joystickInner;
-
     public List<PlayerController> Players = new List<PlayerController>();
     //public PlayerController Controller;
-    public int? LockedFingerID { get; set; }   
+    public int? LockedFingerID { get; set; }
 
     private Vector2 startPos;
 
@@ -66,7 +65,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //move character...
-    protected virtual void MoveCharacter(Vector2 direction) {        
+    protected virtual void MoveCharacter(Vector2 direction) {
         float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
     }
