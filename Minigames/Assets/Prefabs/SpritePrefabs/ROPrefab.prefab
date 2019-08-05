@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9153677484868871261}
   - component: {fileID: 9153677484868871262}
+  - component: {fileID: 8046988604489295556}
   m_Layer: 8
   m_Name: ROPrefab
   m_TagString: Untagged
@@ -79,3 +80,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8046988604489295556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9153677484868871260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe24f29bee682f3408d07fdaddfbdb98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  balloonName: RedBalloon

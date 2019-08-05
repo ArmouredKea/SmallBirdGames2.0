@@ -5,8 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player2
+<<<<<<< HEAD
   - Bombs
   - Player1
+=======
+  - Player1
+  - PickUp
+  - Bombs
+  - Projectile
+  - Boundary
+  - ShooterPowerup
+>>>>>>> Test1-(S2OC)
   layers:
   - Default
   - TransparentFX
