@@ -25,13 +25,14 @@ public class PC_Overcooked : PlayerController {
 
     // Update is called once per frame
     protected override void Update() {
-        
+
     }
 
     protected override void FixedUpdate() {
         Movement();
         if (objCarry) {
             pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
+            pickedUpObj.GetComponent<ItemController>().held = true;
             pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
         }
     }
@@ -88,28 +89,26 @@ public class PC_Overcooked : PlayerController {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
-
-        if (pickUpC != 0 && inRange && objCarry == false) {
+        if (pickUpC != 0 && inRange && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {
+            pickedUpObj.GetComponent<ItemController>().held = false;
             objCarry = false;
         }
-
     }
-
     public void PickUpObj2() {
-
         if (inRange && objCarry == false) {
             objCarry = true;
+
         } else if (objCarry == true) {
+            pickedUpObj.GetComponent<ItemController>().held = false;
             objCarry = false;
         }
-
     }
 
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
-        
+
         if (other.tag == "PickUp") {
             if (objCarry == false) {
                 inRange = true;
@@ -121,7 +120,7 @@ public class PC_Overcooked : PlayerController {
 
     //Resetting on drop and collider exit
     void OnTriggerExit2D(Collider2D other) {
-        
+
         if (other.tag == "PickUp") {
             if (objCarry == false) {
                 inRange = false;

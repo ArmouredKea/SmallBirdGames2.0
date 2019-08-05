@@ -38,11 +38,11 @@ public class BHell_Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
-    #region BulletHell 
+    #region BulletHell
     //Bullet Hell Shooter code. Will be refactored once Parent/Child is complete.
 
     public void BHell_Main()
@@ -85,7 +85,7 @@ public class BHell_Player : MonoBehaviour
         else
         {
 
-            GetPlayer.Movement();
+            //GetPlayer.Movement();
         }
     }
 
@@ -123,7 +123,7 @@ public class BHell_Player : MonoBehaviour
 
     public void BHell_FireMode()
     {
-        
+
         if(ObjectPool.pool_Instance.pool_RedProjTime == true)
         {
             Recieve_FiringRate = Red_FiringRate;

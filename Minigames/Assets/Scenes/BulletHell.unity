@@ -245,16 +245,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 108829729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ecb8e79877cd74193e8a589f765ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  boosted: 0
-  Controller: {fileID: 663315026}
-  rotationSpeed2: 0
-  pickedUpObj: {fileID: 0}
-  inRange: 0
-  objCarry: 0
 --- !u!50 &108829732
 Rigidbody2D:
   serializedVersion: 4
@@ -3190,16 +3183,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1984662994}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: 41ecb8e79877cd74193e8a589f765ffb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  boosted: 0
-  Controller: {fileID: 841691786}
-  rotationSpeed2: 0
-  pickedUpObj: {fileID: 0}
-  inRange: 0
-  objCarry: 0
 --- !u!50 &1984662997
 Rigidbody2D:
   serializedVersion: 4
@@ -3372,11 +3358,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 931942925000478706, guid: 16b35ffe91d84da4ba55b3a137a70bc6,
-        type: 3}
-      propertyPath: powerupSpawn
-      value: 
-      objectReference: {fileID: 293852717}
     - target: {fileID: 668861607025778027, guid: 16b35ffe91d84da4ba55b3a137a70bc6,
         type: 3}
       propertyPath: m_Name
@@ -3387,6 +3368,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 931942925000478706, guid: 16b35ffe91d84da4ba55b3a137a70bc6,
+        type: 3}
+      propertyPath: powerupSpawn
+      value: 
+      objectReference: {fileID: 293852717}
     - target: {fileID: 668861607025778029, guid: 16b35ffe91d84da4ba55b3a137a70bc6,
         type: 3}
       propertyPath: m_LocalPosition.x
