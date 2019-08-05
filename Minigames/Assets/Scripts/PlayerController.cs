@@ -35,21 +35,32 @@ public class PlayerController : MonoBehaviour {
 
     private bool bumperCars;
     private bool overcooked;
+    private bool bHell_Check;
 
     public static int p1Score;
     public static int p2Score;
 
+    private BHell_Player BMod;
     // Use this for initialization
     void Start() {
         bumperCars = false;
         overcooked = false;
+        bHell_Check = false;
+        
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             currentPosition = gameObject.transform.position;
             bumperCars = true;
         } else if (scene.name == "OvercookedMG" || scene.name == "TagMG") {
             overcooked = true;
-        } else if (scene.name == "CharacterSelect") {
+        } else if (scene.name == "BulletHell") {
+            bHell_Check = true;
+
+            BMod = gameObject.GetComponent<BHell_Player>();
+
+        }
+
+        else if (scene.name == "CharacterSelect") {
             p1Score = 0;
             p2Score = 0;
         }
@@ -102,6 +113,10 @@ public class PlayerController : MonoBehaviour {
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
+        else if (bHell_Check)
+        {
+            BMod.BHell_Main();
+        }
     }
 
     //player boost duration.
@@ -130,28 +145,33 @@ public class PlayerController : MonoBehaviour {
     //Splitting Controls between both players to only have 1 script
     void Controls() {
 
-        if (gameObject.name == "Player1") {
-            vertMovement = Input.GetAxis("Vertical");
-            horiMovement = Input.GetAxis("Horizontal");
-            pickUpC = Input.GetAxis("PickUp");
-        }
-        if (gameObject.name == "Player2") {
-            vertMovement = Input.GetAxis("Vertical1");
-            horiMovement = Input.GetAxis("Horizontal1");
-            pickUpC = Input.GetAxis("PickUp1");
-        }
-
-        //single action axes rather than on loop
-        if (pickUpC != 0) {
-            if (puAxisInUse == false) {
-                PickUpObj();
-                puAxisInUse = true;
+            if (gameObject.name == "Player1")
+            {
+                vertMovement = Input.GetAxis("Vertical");
+                horiMovement = Input.GetAxis("Horizontal");
+                pickUpC = Input.GetAxis("PickUp");
             }
-        }
-        if (pickUpC == 0) {
-            puAxisInUse = false;
-        }
+            if (gameObject.name == "Player2")
+            {
+                vertMovement = Input.GetAxis("Vertical1");
+                horiMovement = Input.GetAxis("Horizontal1");
+                pickUpC = Input.GetAxis("PickUp1");
+            }
 
+            //single action axes rather than on loop
+            if (pickUpC != 0)
+            {
+                if (puAxisInUse == false)
+                {
+                    PickUpObj();
+                    puAxisInUse = true;
+                }
+            }
+            if (pickUpC == 0)
+            {
+                puAxisInUse = false;
+            }
+        
 
 
     }
@@ -218,4 +238,9 @@ public class PlayerController : MonoBehaviour {
             objCarry = false;
         }
     }
+
+
+
+
+
 }
