@@ -1278,7 +1278,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 785979157}
+      - m_Target: {fileID: 0}
         m_MethodName: PickUpObj2
         m_Mode: 1
         m_Arguments:
@@ -1812,12 +1812,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1672038080}
-  speed: 5
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 779622419}
-  Players: []
 --- !u!1 &785979153
 GameObject:
   m_ObjectHideFlags: 0
@@ -1908,13 +1902,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 785979153}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  boosted: 0
-  Controller: {fileID: 1387699739}
+  speed: 0
+  rotationSpeed: 0
+  touched: 0
+  joystickOuter: {fileID: 1348717932}
+  joystickInner: {fileID: 1387699736}
+  Players: []
   pickedUpObj: {fileID: 0}
+  vertMovement: 0
+  horiMovement: 0
+  pickUpC: 0
+  puAxisInUse: 0
+  oButtonPressed: 0
   inRange: 0
   objCarry: 0
 --- !u!1 &789267477
@@ -2422,7 +2424,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1672038083}
+      - m_Target: {fileID: 0}
         m_MethodName: PickUpObj2
         m_Mode: 1
         m_Arguments:
@@ -2992,12 +2994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86712dbea9d8926428d10f9a99a37147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 785979153}
-  speed: 5
-  touched: 0
-  joystickOuter: {fileID: 1348717932}
-  joystickInner: {fileID: 1387699736}
-  Players: []
 --- !u!1 &1424009023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3537,13 +3533,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1672038080}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 770dc4c42b5f5f0478eab4c26caf5eb0, type: 3}
+  m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  boosted: 0
-  Controller: {fileID: 779622422}
+  speed: 0
+  rotationSpeed: 0
+  touched: 0
+  joystickOuter: {fileID: 1273693828}
+  joystickInner: {fileID: 779622419}
+  Players: []
   pickedUpObj: {fileID: 0}
+  vertMovement: 0
+  horiMovement: 0
+  pickUpC: 0
+  puAxisInUse: 0
+  oButtonPressed: 0
   inRange: 0
   objCarry: 0
 --- !u!50 &1672038084
