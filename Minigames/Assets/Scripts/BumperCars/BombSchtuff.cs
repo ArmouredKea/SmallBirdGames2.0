@@ -19,8 +19,12 @@ public class BombSchtuff : MonoBehaviour {
     public GameObject p2H2;
     public GameObject p2H3;
 
+    public Transform spawn;
+    private GameObject pauseParent;
+
     // Use this for initialization
     void Start () {
+        pauseParent = GameObject.Find("Pause");
         SpawnBomb();
     }
 
@@ -78,7 +82,8 @@ public class BombSchtuff : MonoBehaviour {
 
         yield return new WaitForSeconds(waitTime);
 
-        Instantiate(bomb, new Vector2(k, j), Quaternion.identity);
+        spawn = Instantiate(bomb, new Vector2(k, j), Quaternion.identity);
+        spawn.transform.SetParent(pauseParent.transform, true);
     }
 
 }

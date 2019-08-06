@@ -8,6 +8,8 @@ public class PC_BumperCars : PlayerController {
     public float totalDistance;
     public bool boosted;
 
+    public Vector3 pauseVelocity;
+
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
@@ -39,20 +41,30 @@ public class PC_BumperCars : PlayerController {
 
             StartCoroutine(BoostDuration(5f));
         }
+        
+        if (Input.GetKeyDown(KeyCode.P)) {
+            PauseCharacter();
+        } else if (Input.GetKeyDown(KeyCode.U)) {
+            UnpauseCharacter();
+        }
 
     }
 
     protected override void FixedUpdate() {
         base.FixedUpdate();
         //Player forward/backward movement and rotation.
-        if (gameObject.tag == "Player1") {
-            GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
-            transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
-        } else if (gameObject.tag == "Player2") {
-            GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP2") * speed);
-            transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP2") * rotationSpeed * Time.deltaTime * -1);
-        } else {
+        if (paused) {
             return;
+        } else {
+            if (gameObject.tag == "Player1") {
+                GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
+                transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
+            } else if (gameObject.tag == "Player2") {
+                GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP2") * speed);
+                transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP2") * rotationSpeed * Time.deltaTime * -1);
+            } else {
+                return;
+            }
         }
     }
 
@@ -78,10 +90,14 @@ public class PC_BumperCars : PlayerController {
     }
 
     public void PauseCharacter() {
-
+        //pauseForce = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+        paused = true;
+        pauseVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
     public void UnpauseCharacter() {
-
+        gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
+        paused = false;
     }
 }

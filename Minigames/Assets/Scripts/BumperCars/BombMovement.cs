@@ -11,6 +11,8 @@ public class BombMovement : MonoBehaviour
     private bool p1Invulnerable;
     private bool p2Invulnerable;
 
+    public Vector2 pauseVelocity;
+
     // Use this for initialization
     void Start() {
         //gives bomb a random velocity.
@@ -74,6 +76,15 @@ public class BombMovement : MonoBehaviour
     private IEnumerator Vulnerability2(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         Physics2D.IgnoreLayerCollision(8, 10, false);
+    }
+
+    public void PauseBomb() {
+        pauseVelocity = GetComponent<Rigidbody2D>().velocity;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    }
+
+    public void UnpauseBomb() {
+        GetComponent<Rigidbody2D>().velocity = pauseVelocity;
     }
 
 }

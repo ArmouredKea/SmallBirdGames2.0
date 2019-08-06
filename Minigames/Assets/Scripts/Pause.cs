@@ -21,30 +21,44 @@ public class Pause : MonoBehaviour
 
     public void PauseButton() {
 
-        if (paused) {
-            Component[] childrenActorScripts;
-            childrenActorScripts = GetComponentsInChildren(typeof(PC_BumperCars));
+        if (paused == false) {
+            Component[] childrenCharacterScripts;
+            childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BumperCars));
 
-            if (childrenActorScripts != null) {
-                foreach (PC_BumperCars actor in childrenActorScripts) {
-                    actor.PauseCharacter();
+            if (childrenCharacterScripts != null) {
+                foreach (PC_BumperCars character in childrenCharacterScripts) {
+                    character.PauseCharacter();
                 }
             }
 
-            paused = false;
+            Component[] childrenBombScripts;
+            childrenBombScripts = GetComponentsInChildren(typeof(BombMovement));
 
-        } else {
-            Component[] childrenActorScripts;
-            childrenActorScripts = GetComponentsInChildren(typeof(PC_BumperCars));
-
-            if (childrenActorScripts != null) {
-                foreach (PC_BumperCars actor in childrenActorScripts) {
-                    actor.UnpauseCharacter();
+            if (childrenBombScripts != null) {
+                foreach (BombMovement bomb in childrenBombScripts) {
+                    bomb.PauseBomb();
                 }
             }
-
             paused = true;
+        } else {
+            Component[] childrenCharacterScripts;
+            childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BumperCars));
 
+            if (childrenCharacterScripts != null) {
+                foreach (PC_BumperCars character in childrenCharacterScripts) {
+                    character.UnpauseCharacter();
+                }
+            }
+
+            Component[] childrenBombScripts;
+            childrenBombScripts = GetComponentsInChildren(typeof(BombMovement));
+
+            if (childrenBombScripts != null) {
+                foreach (BombMovement bomb in childrenBombScripts) {
+                    bomb.UnpauseBomb();
+                }
+            }
+            paused = false;
         }
 
     }

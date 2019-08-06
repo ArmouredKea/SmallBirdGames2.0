@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour {
     public static int p1Score;
     public static int p2Score;
 
+    public bool paused;
+
     // Start is called before the first frame update
     protected virtual void Start() {
         Input.multiTouchEnabled = true;
@@ -33,21 +35,25 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         //multitouch stuff
-        for (int i = 0; i < Input.touchCount; i++) {
-            Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
-            foreach (var player in Players) {
-                if (player.LockedFingerID == null) {
-                    if (Input.GetTouch(i).phase == TouchPhase.Began && joystickInner.GetComponent<Collider2D>().OverlapPoint(touchWorldPos)) {
-                        player.LockedFingerID = Input.GetTouch(i).fingerId;
-                    }
-                } else if (player.LockedFingerID == Input.GetTouch(i).fingerId) {
-                    touched = true;
-                    pointB = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y, 1));
-                    //player.MoveToPosition(touchWorldPos);
-                    if (Input.GetTouch(i).phase == TouchPhase.Ended || Input.GetTouch(i).phase == TouchPhase.Canceled) {
-                        touched = false;
-                        joystickInner.transform.position = pointA;
-                        player.LockedFingerID = null;
+        if (paused) {
+            return;
+        } else {
+            for (int i = 0; i < Input.touchCount; i++) {
+                Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
+                foreach (var player in Players) {
+                    if (player.LockedFingerID == null) {
+                        if (Input.GetTouch(i).phase == TouchPhase.Began && joystickInner.GetComponent<Collider2D>().OverlapPoint(touchWorldPos)) {
+                            player.LockedFingerID = Input.GetTouch(i).fingerId;
+                        }
+                    } else if (player.LockedFingerID == Input.GetTouch(i).fingerId) {
+                        touched = true;
+                        pointB = Camera.main.ScreenToWorldPoint(new Vector3(Input.GetTouch(i).position.x, Input.GetTouch(i).position.y, 1));
+                        //player.MoveToPosition(touchWorldPos);
+                        if (Input.GetTouch(i).phase == TouchPhase.Ended || Input.GetTouch(i).phase == TouchPhase.Canceled) {
+                            touched = false;
+                            joystickInner.transform.position = pointA;
+                            player.LockedFingerID = null;
+                        }
                     }
                 }
             }
