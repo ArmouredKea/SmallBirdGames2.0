@@ -30,13 +30,29 @@ public class Dispenser : MonoBehaviour
     IEnumerator FillingBalloon (GameObject other) {
         Destroy(other.gameObject);
         yield return new WaitForSeconds(dispenseTime);
-        Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
+        other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
+        other.gameObject.GetComponent<ItemController>().filling = true;
+        for (int i = 0; i <= 4; i++) {
+            Debug.Log("0.5s Passed");
+            if (other.gameObject.GetComponent<ItemController>().filling == false) {
+                Debug.Log("Break");
+                break;
+            } else {
+                yield return new WaitForSeconds(0.5f);
+            }
+        }
+        ExplodeBalloon(other);
     }
 
     void OnTriggerExit2D(Collider2D other) {
         if (other.gameObject.tag == "PickUp" && other.gameObject.name != "DrinkEmpty(Clone)" && dispensing == true) {
             dispensing = false;
         }
+    }
+
+    private void ExplodeBalloon(GameObject other) {
+        Destroy(other.gameObject);
+        dispensing = false;
     }
 
 }

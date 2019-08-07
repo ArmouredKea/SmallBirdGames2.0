@@ -13,6 +13,12 @@ public class ItemController : PickUpParent
     public int pointValue;
     public GameObject balloonSprite;
 
+    public void Update() {
+        if (held) {
+            filling = false;
+        }
+    }
+
     public void LastHeldBy (GameObject other) {
       if (other.gameObject.name == "Player1") {
         lastPlayer2 = false;
