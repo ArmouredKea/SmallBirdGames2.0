@@ -31,17 +31,28 @@ public class Dispenser : MonoBehaviour
         Destroy(other.gameObject);
         yield return new WaitForSeconds(dispenseTime);
         other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
-        other.gameObject.GetComponent<ItemController>().filling = true;
-        for (int i = 0; i <= 4; i++) {
+        other.gameObject.GetComponent<ItemController>().overfill = true;
+        StartCoroutine(Overfill(other.gameObject));
+        /*for (int i = 0; i <= 4; i++) {
             Debug.Log("0.5s Passed");
-            if (other.gameObject.GetComponent<ItemController>().filling == false) {
+            if (other.gameObject.GetComponent<ItemController>().overfill == false) {
                 Debug.Log("Break");
                 break;
             } else {
                 yield return new WaitForSeconds(0.5f);
             }
         }
-        ExplodeBalloon(other);
+        if (other.gameObject.GetComponent<ItemController>().overfill) {
+            ExplodeBalloon(other);
+        }*/
+    }
+
+    IEnumerator Overfill (GameObject other) {
+        yield return new WaitForSeconds(2.5f);
+        if (other.gameObject.GetComponent<ItemController>().overfill) {
+            Destroy(other.gameObject);
+            dispensing = false;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {

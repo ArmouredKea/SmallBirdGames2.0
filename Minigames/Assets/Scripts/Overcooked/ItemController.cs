@@ -9,14 +9,13 @@ public class ItemController : PickUpParent
 
     public bool held = false;
     public bool filling = false;
+    public bool overfill = false;
 
     public int pointValue;
     public GameObject balloonSprite;
 
     public void Update() {
-        if (held) {
-            filling = false;
-        }
+
     }
 
     public void LastHeldBy (GameObject other) {
