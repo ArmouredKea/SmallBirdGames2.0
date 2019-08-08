@@ -20,6 +20,7 @@ public class BombSchtuff : MonoBehaviour {
     public GameObject p2H3;
 
     public Transform spawn;
+    public bool paused;
     private GameObject pauseParent;
 
     // Use this for initialization
@@ -32,7 +33,10 @@ public class BombSchtuff : MonoBehaviour {
 	void Update () {
 
         //timer countdown for spawning bombs.
-        timer -= Time.deltaTime;
+        if (paused == false) {
+            timer -= Time.deltaTime;
+        }
+        
         if (timer <= 0f) {
             if (k <= 5) {
                 SpawnBomb();
@@ -78,9 +82,12 @@ public class BombSchtuff : MonoBehaviour {
             j = -4.76f;
         }
 
+        yield return new WaitUntil(() => !paused);
+
         Instantiate(exclamation, new Vector2(k, j), Quaternion.identity);
 
         yield return new WaitForSeconds(waitTime);
+        yield return new WaitUntil(() => !paused);
 
         spawn = Instantiate(bomb, new Vector2(k, j), Quaternion.identity);
         spawn.transform.SetParent(pauseParent.transform, true);

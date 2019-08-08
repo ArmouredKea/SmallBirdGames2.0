@@ -393,6 +393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  timer: {fileID: 590999996}
+  bombSchtuff: {fileID: 1144503035}
 --- !u!4 &485851923
 Transform:
   m_ObjectHideFlags: 0
@@ -622,6 +624,7 @@ MonoBehaviour:
   endText: {fileID: 1216832985}
   overallScore: {fileID: 1301332126}
   minigameChanger: {fileID: 1755145320}
+  paused: 0
 --- !u!1 &606999692
 GameObject:
   m_ObjectHideFlags: 0
@@ -1638,6 +1641,7 @@ MonoBehaviour:
   p2H2: {fileID: 1965468387}
   p2H3: {fileID: 1283805829}
   spawn: {fileID: 0}
+  paused: 0
 --- !u!1 &1216832985
 GameObject:
   m_ObjectHideFlags: 0
@@ -3271,16 +3275,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player1
       objectReference: {fileID: 0}
-    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
-        type: 3}
-      propertyPath: joystickOuter
-      value: 
-      objectReference: {fileID: 1819179686}
-    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
-        type: 3}
-      propertyPath: joystickInner
-      value: 
-      objectReference: {fileID: 1046177577}
     - target: {fileID: 3641849634904798542, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3336,5 +3330,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: joystickOuter
+      value: 
+      objectReference: {fileID: 1819179686}
+    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: joystickInner
+      value: 
+      objectReference: {fileID: 1046177577}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3, type: 3}

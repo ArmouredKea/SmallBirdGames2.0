@@ -12,6 +12,7 @@ public class BombMovement : MonoBehaviour
     private bool p2Invulnerable;
 
     public Vector2 pauseVelocity;
+    public bool paused;
 
     // Use this for initialization
     void Start() {
@@ -59,32 +60,40 @@ public class BombMovement : MonoBehaviour
 
     //bomb explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {
+        yield return new WaitUntil(() => !paused);
         gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         yield return new WaitForSeconds(waitTime);
-        //Destroy(gameObject);
-        gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        yield return new WaitUntil(() => !paused);
+        Destroy(gameObject);
+        //gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        //gameObject.GetComponent<CircleCollider2D>().enabled = false;
         GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
     }
 
     private IEnumerator Vulnerability1(float waitTime) {
+        yield return new WaitUntil(() => !paused);
         yield return new WaitForSeconds(waitTime);
+        yield return new WaitUntil(() => !paused);
         Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
     private IEnumerator Vulnerability2(float waitTime) {
+        yield return new WaitUntil(() => !paused);
         yield return new WaitForSeconds(waitTime);
+        yield return new WaitUntil(() => !paused);
         Physics2D.IgnoreLayerCollision(8, 10, false);
     }
 
     public void PauseBomb() {
         pauseVelocity = GetComponent<Rigidbody2D>().velocity;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        paused = true;
     }
 
     public void UnpauseBomb() {
         GetComponent<Rigidbody2D>().velocity = pauseVelocity;
+        paused = false;
     }
 
 }

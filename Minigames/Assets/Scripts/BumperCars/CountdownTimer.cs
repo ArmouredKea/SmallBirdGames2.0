@@ -14,6 +14,7 @@ public class CountdownTimer : MonoBehaviour {
     public GameObject minigameChanger;
     private bool gameEnded =  true;
     private bool timeswap = true;
+    public bool paused;
 
     // Use this for initialization
     void Start () {
@@ -24,7 +25,9 @@ public class CountdownTimer : MonoBehaviour {
 	void Update () {
         //setting a basic two significant figures timer
         Scene scene = SceneManager.GetActiveScene();
-        currentTime -= Time.deltaTime;
+        if (paused == false) {
+            currentTime -= Time.deltaTime;
+        }
         p1Time.text = "Time: " + currentTime.ToString("00");
         p2Time.text = "Time: " + currentTime.ToString("00");
 

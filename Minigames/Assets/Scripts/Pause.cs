@@ -6,6 +6,8 @@ public class Pause : MonoBehaviour
 {
 
     public bool paused;
+    public GameObject timer;
+    public GameObject bombSchtuff;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +41,8 @@ public class Pause : MonoBehaviour
                     bomb.PauseBomb();
                 }
             }
+            timer.GetComponent<CountdownTimer>().paused = true;
+            bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
         } else {
             Component[] childrenCharacterScripts;
@@ -58,6 +62,8 @@ public class Pause : MonoBehaviour
                     bomb.UnpauseBomb();
                 }
             }
+            timer.GetComponent<CountdownTimer>().paused = false;
+            bombSchtuff.GetComponent<BombSchtuff>().paused = false;
             paused = false;
         }
 

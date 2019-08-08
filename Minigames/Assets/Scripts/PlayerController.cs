@@ -35,9 +35,7 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     protected virtual void Update() {
         //multitouch stuff
-        if (paused) {
-            return;
-        } else {
+        if (paused == false) {
             for (int i = 0; i < Input.touchCount; i++) {
                 Vector2 touchWorldPos = Camera.main.ScreenToWorldPoint(Input.GetTouch(i).position);
                 foreach (var player in Players) {
