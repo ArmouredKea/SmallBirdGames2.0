@@ -30,31 +30,24 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
+        playerScript = player.GetComponent<PC_Overcooked>();
         OrderList();
         orderLength = 4;
         ListPickUps();
-        playerScript = player.GetComponent<PC_Overcooked>();
         OrderUp();
     }
 
     // Update is called once per frame
     void Update() {
         GameTimer();
-        if (ordered >= orderLength) {
-            ordered = 0;
-            
-            for (int p = orderLength - 1; p >= 0; p--) {
-                orderList.Remove(orderList[p]);
-            }
-        }
 
-        if (orderList.Count <= 0) {
+        if (orderList.Count <= (orderLength - 1)) {
             OrderUp();
         }
     }
 
     void OrderUp() {
-        for (int i = 1; i <= orderLength; i++) {
+        while (orderList.Count < orderLength) {
 
             int rI = Random.Range(0, pickUps.Count);
             orderList.Add(pickUps[rI]);
@@ -88,24 +81,21 @@ public class GameController : MonoBehaviour {
         {
             if (orderList[i] != null)
             {
-                Debug.Log("Made it to point 1");
+               // Debug.Log("Made it to point 1");
                 if (handInItem.GetComponent<ItemController>().balloonName == orderList[i].GetComponent<ItemController>().balloonName)
                 {
-                    Debug.Log("Made it to point 2");
-                    foreach (Transform child in orderVisuals[i].transform)
-                    {
-                        Debug.Log("Made it to point 3");
-                        Destroy(child.gameObject);
-                        orderList[i] = nullItem;
-                        ordered += 1;
-                        
-                    }
+                    //Debug.Log("Made it to point 2");
+                        orderList.Remove(orderList[i]);
+                        points += (pIncrease * 2);
+                        Debug.Log("Ordered Points: " + points);
                     break;
-                }
+                } 
+            } else {
+                points += pIncrease;
+                Debug.Log("Non-Ordered Points: " + points);
             }
         }
-        points += pIncrease;
-        Debug.Log(points);
+        
         Destroy(handInItem.gameObject);
         if (playerScript.pickedUpObj == handInItem.gameObject)
         {
@@ -124,7 +114,6 @@ public class GameController : MonoBehaviour {
                 pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
             }
         }
-        //Debug.Log(pickUps.Count);
     }
 
     //adding the order visual tiles to a list
