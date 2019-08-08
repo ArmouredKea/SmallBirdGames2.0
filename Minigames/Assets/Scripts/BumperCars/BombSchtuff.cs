@@ -82,15 +82,22 @@ public class BombSchtuff : MonoBehaviour {
             j = -4.76f;
         }
 
+        float l = 0;
         yield return new WaitUntil(() => !paused);
+        /*while (l < waitTime) {
+            if (!paused) {
+                l += Time.deltaTime;
+            }
+        }*/
+        l = 0;
 
         Instantiate(exclamation, new Vector2(k, j), Quaternion.identity);
 
         yield return new WaitForSeconds(waitTime);
         yield return new WaitUntil(() => !paused);
 
-        spawn = Instantiate(bomb, new Vector2(k, j), Quaternion.identity);
-        spawn.transform.SetParent(pauseParent.transform, true);
+        Instantiate(bomb, new Vector2(k, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
+        //spawn.transform.SetParent(pauseParent.transform, true);
     }
 
 }

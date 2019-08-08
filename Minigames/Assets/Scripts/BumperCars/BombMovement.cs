@@ -6,8 +6,7 @@ public class BombMovement : MonoBehaviour
 {
 
     private float speed = 3.0f;
-
-    //REMINDER for invulnerability (not yet completed)
+    
     private bool p1Invulnerable;
     private bool p2Invulnerable;
 
@@ -59,15 +58,22 @@ public class BombMovement : MonoBehaviour
     }
 
     //bomb explosion and replacement.
-    private IEnumerator BombDelay(float waitTime) {
-        yield return new WaitUntil(() => !paused);
+    private IEnumerator BombDelay(float waitTime) {        
         gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        yield return new WaitUntil(() => !paused);
         yield return new WaitForSeconds(waitTime);
         yield return new WaitUntil(() => !paused);
-        Destroy(gameObject);
-        //gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        //gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        float i = 0;        
+        /*while (i < waitTime) {
+            if (!paused) {
+                i += Time.deltaTime;
+            }
+        }*/
+        i = 0;        
+        //Destroy(gameObject);
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
         GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
     }
 
