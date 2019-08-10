@@ -10,6 +10,8 @@ TagManager:
   - Bombs
   - PickUp
   - Player1
+  - Player2
+  - ExclamationMark
   layers:
   - Default
   - TransparentFX

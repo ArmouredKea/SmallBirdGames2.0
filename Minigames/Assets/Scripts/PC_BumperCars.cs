@@ -75,7 +75,15 @@ public class PC_BumperCars : PlayerController {
 
     //player boost duration.
     private IEnumerator BoostDuration(float waitTime) {
-        yield return new WaitForSeconds(waitTime);
+        float l = 0;
+        while (l < waitTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
 
         if (gameObject.tag == "Player1") {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);

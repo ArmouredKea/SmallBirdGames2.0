@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour {
                     }
                 }
             }
+        } else if (paused) {
+            touched = false;
+            joystickInner.transform.position = pointA;
         }
         speed = gameObject.GetComponent<PC_BumperCars>().speed;
     }

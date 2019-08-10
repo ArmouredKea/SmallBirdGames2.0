@@ -23,10 +23,13 @@ public class BombSchtuff : MonoBehaviour {
     public bool paused;
     private GameObject pauseParent;
 
+    //public bool spawningBomb;
+
     // Use this for initialization
     void Start () {
         pauseParent = GameObject.Find("Pause");
-        SpawnBomb();
+        StartCoroutine(SpawnBomb(1.5f));
+        //spawningBomb = true;
     }
 
 	// Update is called once per frame
@@ -39,7 +42,8 @@ public class BombSchtuff : MonoBehaviour {
         
         if (timer <= 0f) {
             if (k <= 5) {
-                SpawnBomb();
+                StartCoroutine(SpawnBomb(1.5f));
+                //spawningBomb = true;
                 k++;
                 timer = 10.0f - k;
             }
@@ -65,39 +69,41 @@ public class BombSchtuff : MonoBehaviour {
             p2H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
         }
     }
-
+    
     //spawns a bomb at a random position either at the top or bottom of the arena.
-    public void SpawnBomb() {
-        StartCoroutine(SpawnBombDelay(1.5f));
-    }
-
-    private IEnumerator SpawnBombDelay(float waitTime) {
+    public IEnumerator SpawnBomb(float waitTime) {
         float i = Random.Range(0f, 0.9f);
         float j;
-        float k = Random.Range(-6, 6);
+        float m = Random.Range(-6, 6);
 
         if (i < 0.5f) {
             j = 4.76f;
         } else {
             j = -4.76f;
-        }
+        }        
+        
+        Instantiate(exclamation, new Vector2(m, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
 
         float l = 0;
-        yield return new WaitUntil(() => !paused);
-        /*while (l < waitTime) {
-            if (!paused) {
+        while (l < waitTime) {
+            if (paused) {
+                yield return null;
+            } else {
                 l += Time.deltaTime;
+                yield return null;
+            }
+        }
+
+        /*for (float l = 0; l < waitTime; l += Time.deltaTime) {
+            if (paused) {
+                //yield return new WaitUntil(() => !paused);
+                yield return null;
             }
         }*/
-        l = 0;
 
-        Instantiate(exclamation, new Vector2(k, j), Quaternion.identity);
+        //yield return new WaitForSeconds(waitTime);        
 
-        yield return new WaitForSeconds(waitTime);
-        yield return new WaitUntil(() => !paused);
-
-        Instantiate(bomb, new Vector2(k, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
-        //spawn.transform.SetParent(pauseParent.transform, true);
+        Instantiate(bomb, new Vector2(m, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
     }
 
 }

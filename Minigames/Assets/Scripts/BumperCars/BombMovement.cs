@@ -44,14 +44,14 @@ public class BombMovement : MonoBehaviour
             //Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
+            StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives--;
         } else if ((collision.gameObject.tag == "Player2")  && (p2Invulnerable == false)) {
             p2Invulnerable = true;
             //Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
+            StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives--;
         }
 
@@ -61,33 +61,47 @@ public class BombMovement : MonoBehaviour
     private IEnumerator BombDelay(float waitTime) {        
         gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        yield return new WaitUntil(() => !paused);
-        yield return new WaitForSeconds(waitTime);
-        yield return new WaitUntil(() => !paused);
-        float i = 0;        
-        /*while (i < waitTime) {
-            if (!paused) {
-                i += Time.deltaTime;
+        //yield return new WaitForSeconds(waitTime);
+        float l = 0;
+        while (l < waitTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
             }
-        }*/
-        i = 0;        
+        }
         //Destroy(gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb();
+        StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
     }
 
     private IEnumerator Vulnerability1(float waitTime) {
-        yield return new WaitUntil(() => !paused);
-        yield return new WaitForSeconds(waitTime);
-        yield return new WaitUntil(() => !paused);
+        //yield return new WaitForSeconds(waitTime);
+        float l = 0;
+        while (l < waitTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
         Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
     private IEnumerator Vulnerability2(float waitTime) {
-        yield return new WaitUntil(() => !paused);
-        yield return new WaitForSeconds(waitTime);
-        yield return new WaitUntil(() => !paused);
+        //yield return new WaitForSeconds(waitTime);
+        float l = 0;
+        while (l < waitTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
         Physics2D.IgnoreLayerCollision(8, 10, false);
     }
 

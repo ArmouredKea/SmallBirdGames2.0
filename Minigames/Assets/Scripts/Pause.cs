@@ -41,6 +41,12 @@ public class Pause : MonoBehaviour
                     bomb.PauseBomb();
                 }
             }
+
+            foreach (Transform child in transform) {
+                if (child.tag == "ExclamationMark")
+                    child.gameObject.GetComponent<Animator>().speed = 0;
+            }
+
             timer.GetComponent<CountdownTimer>().paused = true;
             bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
@@ -62,6 +68,12 @@ public class Pause : MonoBehaviour
                     bomb.UnpauseBomb();
                 }
             }
+
+            foreach (Transform child in transform) {
+                if (child.tag == "ExclamationMark")
+                    child.gameObject.GetComponent<Animator>().speed = 1;
+            }
+
             timer.GetComponent<CountdownTimer>().paused = false;
             bombSchtuff.GetComponent<BombSchtuff>().paused = false;
             paused = false;
