@@ -12,6 +12,7 @@ public class BombMovement : MonoBehaviour
 
     public Vector2 pauseVelocity;
     public bool paused;
+    public bool bombExplosion;
 
     // Use this for initialization
     void Start() {
@@ -36,7 +37,10 @@ public class BombMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
 
         if (collision.gameObject.tag == "Bombs") {
-            StartCoroutine(BombDelay(1f));
+            if (bombExplosion == false) {
+                StartCoroutine(BombDelay(1f));
+            }
+            bombExplosion = true;
         }
 
         if ((collision.gameObject.tag == "Player1") && (p1Invulnerable == false)) {
@@ -74,6 +78,7 @@ public class BombMovement : MonoBehaviour
         //Destroy(gameObject);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        bombExplosion = false;
         StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
     }
 
