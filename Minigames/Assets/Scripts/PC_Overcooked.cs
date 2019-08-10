@@ -17,6 +17,8 @@ public class PC_Overcooked : PlayerController {
     public bool inRange;
     public bool objCarry;
 
+    public bool paused;
+
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
@@ -30,14 +32,16 @@ public class PC_Overcooked : PlayerController {
     }
 
     protected override void FixedUpdate() {
-        base.FixedUpdate();
-        Movement();
-        if (objCarry) {
-            pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
-            pickedUpObj.GetComponent<ItemController>().held = true;
-            pickedUpObj.GetComponent<ItemController>().overfill = false;
-            pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
-        }
+        if (!paused) {
+            base.FixedUpdate();
+            Movement();
+            if (objCarry) {
+                pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
+                pickedUpObj.GetComponent<ItemController>().held = true;
+                pickedUpObj.GetComponent<ItemController>().overfill = false;
+                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
+            }
+        }        
     }
 
     protected override void MoveCharacter(Vector2 direction) {
