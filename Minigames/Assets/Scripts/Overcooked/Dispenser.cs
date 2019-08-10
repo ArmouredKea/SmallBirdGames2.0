@@ -16,7 +16,6 @@ public class Dispenser : MonoBehaviour
 
     //calling colour change spritesheet.
     void OnTriggerStay2D(Collider2D other) {
-        Debug.Log(other);
         if (other.gameObject.name == "DrinkEmpty(Clone)" && dispensing == false) {
             if (other.gameObject.GetComponent<ItemController>().held == false) {
                 dispensing = true;
@@ -27,10 +26,24 @@ public class Dispenser : MonoBehaviour
       }
     }
 
+    //handles "filling" the balloon
     IEnumerator FillingBalloon (GameObject other) {
         Destroy(other.gameObject);
         yield return new WaitForSeconds(dispenseTime);
-        Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
+        other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
+        other.gameObject.GetComponent<ItemController>().overfill = true;
+        StartCoroutine(Overfill(other.gameObject));
+    }
+
+    //checks if the balloon is being overfilled, and then makes it explode
+    IEnumerator Overfill (GameObject other) {
+        yield return new WaitForSeconds(2.5f);
+        if (other.gameObject.GetComponent<ItemController>().overfill) {
+            Destroy(other.gameObject);
+            dispensing = false;
+        } else {
+            other = null;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other) {
@@ -38,5 +51,4 @@ public class Dispenser : MonoBehaviour
             dispensing = false;
         }
     }
-
 }
