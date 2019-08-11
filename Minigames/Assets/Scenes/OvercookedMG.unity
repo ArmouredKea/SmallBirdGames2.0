@@ -1470,12 +1470,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 600194407}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 382a3a9863af8074e8e0062e77639a45, type: 3}
+  m_Script: {fileID: 11500000, guid: d12e7e7a59716834b95a4f28879cc7a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  timer: {fileID: 0}
-  bombSchtuff: {fileID: 0}
 --- !u!4 &600194409
 Transform:
   m_ObjectHideFlags: 0
@@ -1956,7 +1954,6 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
-  paused: 0
 --- !u!1 &789267477
 GameObject:
   m_ObjectHideFlags: 0
@@ -3576,7 +3573,6 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
-  paused: 0
 --- !u!50 &1672038084
 Rigidbody2D:
   serializedVersion: 4

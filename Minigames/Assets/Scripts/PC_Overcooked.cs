@@ -15,9 +15,7 @@ public class PC_Overcooked : PlayerController {
 
     //obj picked up bool
     public bool inRange;
-    public bool objCarry;
-
-    public bool paused;
+    public bool objCarry;    
 
     // Start is called before the first frame update
     protected override void Start() {

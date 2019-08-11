@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour {
             touched = false;
             joystickInner.transform.position = pointA;
         }
-        speed = gameObject.GetComponent<PC_BumperCars>().speed;
+        //speed = gameObject.GetComponent<PC_BumperCars>().speed;
     }
 
     protected virtual void FixedUpdate() {
