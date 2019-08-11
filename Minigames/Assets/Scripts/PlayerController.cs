@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour {
     public static int p2Score;
 
     public bool paused;
+    public float angle;
 
     // Start is called before the first frame update
     protected virtual void Start() {
@@ -74,8 +75,9 @@ public class PlayerController : MonoBehaviour {
 
     //move character...
     protected virtual void MoveCharacter(Vector2 direction) {        
-        float angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
+        angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
+        //Debug.Log(angle);
     }
 
     protected virtual void OnEnable() {

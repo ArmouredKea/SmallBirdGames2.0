@@ -27,6 +27,12 @@ public class PC_Overcooked : PlayerController {
     // Update is called once per frame
     protected override void Update() {
         base.Update();
+        if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0) {
+            GetComponent<Animator>().SetBool("WalkingLeft", false);
+            GetComponent<Animator>().SetBool("WalkingRight", false);
+            GetComponent<Animator>().SetBool("WalkingForward", false);
+            GetComponent<Animator>().SetBool("WalkingBackward", false);
+        }
     }
 
     protected override void FixedUpdate() {
@@ -45,6 +51,62 @@ public class PC_Overcooked : PlayerController {
     protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
+
+        if (gameObject.tag == "Player1") {
+            if (angle >= -45 && angle < 45) {
+                GetComponent<Animator>().SetBool("WalkingLeft", true);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else if (angle >= 45 && angle < 135) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", true);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", true);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else if (angle >= -135 && angle < -45) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", true);
+            } else {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            }
+        } else if (gameObject.tag == "Player2") {
+            if (angle >= -45 && angle < 45) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", true);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else if (angle >= 45 && angle < 135) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", true);
+            } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
+                GetComponent<Animator>().SetBool("WalkingLeft", true);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else if (angle >= -135 && angle < -45) {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", true);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            } else {
+                GetComponent<Animator>().SetBool("WalkingLeft", false);
+                GetComponent<Animator>().SetBool("WalkingRight", false);
+                GetComponent<Animator>().SetBool("WalkingForward", false);
+                GetComponent<Animator>().SetBool("WalkingBackward", false);
+            }
+        }
     }
 
     //Movement Function

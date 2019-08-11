@@ -3055,6 +3055,7 @@ GameObject:
   - component: {fileID: 1973130181}
   - component: {fileID: 1973130182}
   - component: {fileID: 1973130184}
+  - component: {fileID: 1973130183}
   m_Layer: 10
   m_Name: Player2
   m_TagString: Player2
@@ -3161,6 +3162,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.56
+--- !u!95 &1973130183
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1973130178}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c17767549bddb74fb2a79003ea4ff4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1973130184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3180,6 +3200,7 @@ MonoBehaviour:
   joystickInner: {fileID: 1407316436}
   Players: []
   paused: 0
+  angle: 0
   currentPosition: {x: 0, y: 0}
   totalDistance: 0
   boosted: 0

@@ -1957,6 +1957,7 @@ MonoBehaviour:
   joystickInner: {fileID: 1387699736}
   Players: []
   paused: 0
+  angle: 0
   pickedUpObj: {fileID: 0}
   vertMovement: 0
   horiMovement: 0
@@ -3577,6 +3578,7 @@ MonoBehaviour:
   joystickInner: {fileID: 779622419}
   Players: []
   paused: 0
+  angle: 0
   pickedUpObj: {fileID: 0}
   vertMovement: 0
   horiMovement: 0
