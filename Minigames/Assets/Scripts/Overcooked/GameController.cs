@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
     public int ordered;
 
     public bool gameEnd;
+    public bool paused;
 
     public GameObject orderTiles;
 
@@ -39,8 +40,10 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        GameTimer();
-
+        if (!paused) {
+            GameTimer();
+        }
+        
         if (orderList.Count <= (orderLength - 1)) {
             OrderUp();
         }

@@ -25,7 +25,27 @@ public class Pause_Overcooked : Pause
                     character.paused = true;
                 }
             }
+
+            Component[] childrenTimerScripts;
+            childrenTimerScripts = GetComponentsInChildren(typeof(GameController));
+
+            if (childrenTimerScripts != null) {
+                foreach (GameController timer in childrenTimerScripts) {
+                    timer.paused = true;
+                }
+            }
+
+            Component[] childrenDispenserScripts;
+            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
+
+            if (childrenDispenserScripts != null) {
+                foreach (Dispenser dispenser in childrenDispenserScripts) {
+                    dispenser.paused = true;
+                }
+            }
+
             paused = true;
+
         } else {
             Component[] childrenCharacterScripts;
             childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
@@ -35,7 +55,27 @@ public class Pause_Overcooked : Pause
                     character.paused = false;
                 }
             }
+
+            Component[] childrenTimerScripts;
+            childrenTimerScripts = GetComponentsInChildren(typeof(GameController));
+
+            if (childrenTimerScripts != null) {
+                foreach (GameController timer in childrenTimerScripts) {
+                    timer.paused = false;
+                }
+            }
+
+            Component[] childrenDispenserScripts;
+            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
+
+            if (childrenDispenserScripts != null) {
+                foreach (Dispenser dispenser in childrenDispenserScripts) {
+                    dispenser.paused = false;
+                }
+            }
+
             paused = false;
+
         }
 
     }

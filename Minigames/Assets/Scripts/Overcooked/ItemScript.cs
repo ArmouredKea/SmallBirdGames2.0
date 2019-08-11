@@ -12,27 +12,24 @@ public class ItemScript : MonoBehaviour
 
     //public GameObject spawnedItemSprite;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
 
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      SpawnItem();
+    void Update() {
+        SpawnItem();
     }
 
-    void SpawnItem()
-    {
-      if (notTouchedItem == null)
-      {
+    void SpawnItem() {
+        if (notTouchedItem == null)
+        {
         notTouchedItem = Instantiate(itemPrefab, gameObject.transform.position, Quaternion.identity);
         spawnedItemPos = notTouchedItem.transform.position;
-      }
-      if (notTouchedItem.transform.position != spawnedItemPos)
-      {
+        }
+        if (notTouchedItem.transform.position != spawnedItemPos)
+        {
         notTouchedItem = null;
-      }
+        }
     }
 }

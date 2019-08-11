@@ -9,9 +9,10 @@ public class Dispenser : MonoBehaviour
     public bool dispensing;
 
     public Color dColor;
+    public bool paused;
 
-    private void Update()
-    {
+    void Update() {
+
     }
 
     //calling colour change spritesheet.
@@ -29,7 +30,15 @@ public class Dispenser : MonoBehaviour
     //handles "filling" the balloon
     IEnumerator FillingBalloon (GameObject other) {
         Destroy(other.gameObject);
-        yield return new WaitForSeconds(dispenseTime);
+        float l = 0;
+        while (l < dispenseTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
         other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
         other.gameObject.GetComponent<ItemController>().overfill = true;
         StartCoroutine(Overfill(other.gameObject));
@@ -37,7 +46,15 @@ public class Dispenser : MonoBehaviour
 
     //checks if the balloon is being overfilled, and then makes it explode
     IEnumerator Overfill (GameObject other) {
-        yield return new WaitForSeconds(2.5f);
+        float l = 0;
+        while (l < 2.5f) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
         if (other.gameObject.GetComponent<ItemController>().overfill) {
             Destroy(other.gameObject);
             dispensing = false;
