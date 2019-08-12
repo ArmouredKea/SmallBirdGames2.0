@@ -10,6 +10,8 @@ public class SceneManagement : MonoBehaviour
 
     [SerializeField]
     private string nextScene = "";
+    public GameObject SettingMen;
+    public AudioSource music;
 
     private static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
 
@@ -59,6 +61,29 @@ public class SceneManagement : MonoBehaviour
     public void QuitGame() {
          Application.Quit();
     }
+
+    public void OpenSettings()
+    {
+        SettingMen.SetActive(true);
+    }
+
+    public void CloseSettings()
+    {
+        SettingMen.SetActive(false);
+    }
+
+    public void UnMute()
+    {
+        music = GetComponent<AudioSource>();
+        music.Play(1);
+    }
+
+    public void Mute()
+    {
+        music = GetComponent<AudioSource>();
+        music.stop;
+    }
+
 
     private IEnumerator CharacterSelectDelay(float waitTime) {
         yield return new WaitForSeconds(waitTime);
