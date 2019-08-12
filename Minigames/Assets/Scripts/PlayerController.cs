@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour {
                 }
             }
         }
-        speed = gameObject.GetComponent<PC_BumperCars>().speed;
+        //speed = gameObject.GetComponent<PC_BumperCars>().speed; This breaks child scripts.
     }
 
     protected virtual void FixedUpdate() {

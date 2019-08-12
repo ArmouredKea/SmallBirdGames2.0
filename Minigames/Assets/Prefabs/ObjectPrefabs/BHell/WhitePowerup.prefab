@@ -131,7 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b643fe5ec4bc0644b8d93b6210d6d60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawn: {fileID: 0}
+  gunnerSpawn: {fileID: 0}
+  runnerSpawn: {fileID: 0}
+  forShooter: 0
+  forRunner: 0
+  getRunner: {fileID: 0}
   r: 0
   y: 0
   g: 0

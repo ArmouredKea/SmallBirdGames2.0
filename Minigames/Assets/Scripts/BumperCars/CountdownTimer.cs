@@ -62,7 +62,8 @@ public class CountdownTimer : MonoBehaviour {
             if(currentTime <= 30 && timeswap == true)
             {
                 hellManage.Bhell_Swap();
-                //StartCoroutine(Countdown());
+                StartCoroutine(Countdown());
+                
                 timeswap = false;
                 
             }

@@ -5,7 +5,16 @@ using UnityEngine;
 public class PowerupCheck : MonoBehaviour
 {
  
-    public GunnerPowerups powerupSpawn;
+    public GunnerPowerups gunnerSpawn;
+    public RunnerPowerups runnerSpawn;
+
+    [SerializeField]
+    private bool forShooter;
+
+    [SerializeField]
+    private bool forRunner;
+
+    public PC_BulletHell getRunner;
 
     [SerializeField]
     private bool r;
@@ -36,19 +45,45 @@ public class PowerupCheck : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Projectile")
-        {
-            //"Use" effect here.
+    {   
+        if(forShooter == true)
+        { 
+            if (collision.tag == "Projectile")
+            {
+                //"Use" effect here.
             
-            powerupSpawn.Deactivate();
-            powerupSpawn.ExecutePowerup(r, y, g, w);
-            gameObject.SetActive(false);
+                gunnerSpawn.Deactivate();
+                gunnerSpawn.ExecutePowerup(r, y, g, w);
+                gameObject.SetActive(false);
+            }
+            else if (collision.tag == "Player1" || collision.tag == "Player2")
+            {
+                //"Pop" effect here.
+                gameObject.SetActive(false);
+            }
         }
-        else if (collision.tag == "Player1" || collision.tag == "Player2")
+        else if (forRunner == true)
         {
-            //"Pop" effect here.
-            gameObject.SetActive(false);
+            if (collision.tag == "Projectile")
+            {
+                //"Use" effect here.
+
+                //runnerSpawn.Deactivate(); ? Do we want the shooter to be able to hit the powerups?!
+               
+                gameObject.SetActive(false);
+            }
+            else if (collision.tag == "Player1" || collision.tag == "Player2")
+            {
+                //"Pop" effect here.
+                getRunner = collision.gameObject.GetComponent<PC_BulletHell>();
+                runnerSpawn.GetRunner(runner: getRunner);
+                gameObject.SetActive(false);
+
+              
+                runnerSpawn.ExecutePowerup(r, y, g, w);
+                
+                
+            }
         }
     }
 
