@@ -46,7 +46,12 @@ public class PC_BumperCars : PlayerController {
             StartCoroutine(BoostDuration(5f));
         }
 
-        if (GetComponent<Animator>().GetBool("TakeDamage") == true) {
+        if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0) {
+            animator.SetBool("Moving", false);
+        } else {
+            animator.SetBool("Moving", true);
+        }
+        /*if (GetComponent<Animator>().GetBool("TakeDamage") == true) {
             GetComponent<Animator>().SetBool("WalkingLeft", false);
             GetComponent<Animator>().SetBool("WalkingRight", false);
             GetComponent<Animator>().SetBool("WalkingForward", false);
@@ -56,7 +61,7 @@ public class PC_BumperCars : PlayerController {
             GetComponent<Animator>().SetBool("WalkingRight", false);
             GetComponent<Animator>().SetBool("WalkingForward", false);
             GetComponent<Animator>().SetBool("WalkingBackward", false);
-        }
+        } */
 
 
 
@@ -74,6 +79,7 @@ public class PC_BumperCars : PlayerController {
         if (paused) {
             return;
         } else {
+            
             if (gameObject.tag == "Player1") {
                 GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
                 transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
@@ -90,7 +96,7 @@ public class PC_BumperCars : PlayerController {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
         
-        if (GetComponent<Animator>().GetBool("TakeDamage") == false) {
+        /*if (GetComponent<Animator>().GetBool("TakeDamage") == false) {
             if (gameObject.tag == "Player1") {
                 if (angle >= -45 && angle < 45) {
                     GetComponent<Animator>().SetBool("WalkingLeft", true);
@@ -146,7 +152,7 @@ public class PC_BumperCars : PlayerController {
                     GetComponent<Animator>().SetBool("WalkingBackward", false);
                 }
             }
-        }
+        } */
     }
 
     //player boost duration.
