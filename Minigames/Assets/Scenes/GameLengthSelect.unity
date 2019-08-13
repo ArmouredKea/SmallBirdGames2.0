@@ -469,6 +469,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
+  SettingMen: {fileID: 0}
+  SplashScreen: {fileID: 0}
+  MainMenu: {fileID: 0}
+  CharSelect: {fileID: 0}
 --- !u!1 &610838359
 GameObject:
   m_ObjectHideFlags: 0

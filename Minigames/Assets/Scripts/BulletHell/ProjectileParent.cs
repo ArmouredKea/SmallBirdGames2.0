@@ -7,8 +7,8 @@ public class ProjectileParent : MonoBehaviour
     // Start is called before the first frame update
     [Header("Generic Variables")]
     public Rigidbody2D currentProj;
-    public PC_BulletHell P1Cont; //could maybe turn this into a single check when it hits something?Though needs to know firingPlayer so it doesn't injure self.
-    public PC_BulletHell P2Cont;
+    public BHell_Player P1Cont; //could maybe turn this into a single check when it hits something?Though needs to know firingPlayer so it doesn't injure self.
+    public BHell_Player P2Cont;
     public GameObject firedFrom;
     [Header("Visual Variables")]
     public Color isColor;
@@ -120,8 +120,8 @@ public class ProjectileParent : MonoBehaviour
 
     public virtual void Initialize()
     {
-        P1Cont = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
-        P2Cont = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
+        P1Cont = GameObject.FindGameObjectWithTag("Player1").GetComponent<BHell_Player>();
+        P2Cont = GameObject.FindGameObjectWithTag("Player2").GetComponent<BHell_Player>();
         currentProj = gameObject.GetComponent<Rigidbody2D>();
         gameObject.GetComponent<SpriteRenderer>().material.color = isColor;
         gameObject.GetComponent<SpriteRenderer>().sprite = assignSprite; //Changes visual sprite to set sprite in child.

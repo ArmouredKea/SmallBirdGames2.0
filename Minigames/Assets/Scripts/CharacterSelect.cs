@@ -15,6 +15,7 @@ public class CharacterSelect : MonoBehaviour
     public GameObject c2Text;
     public GameObject c3Text;
     public GameObject sceneCanvas;
+    public GameObject LengCanvas;
 
     // Start is called before the first frame update
     void Start()
@@ -48,17 +49,20 @@ public class CharacterSelect : MonoBehaviour
             if (gameObject.name == "Character1") {
                 c1Text.SetActive(true);
                 c1Text.GetComponent<Text>().text = "P2";
-                sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
+                sceneCanvas.GetComponent<SceneManagement>().NextMinigame();
+                sceneCanvas.SetActive(false);
                 gameObject.SetActive(false);
             } else if (gameObject.name == "Character2") {
                 c2Text.SetActive(true);
                 c2Text.GetComponent<Text>().text = "P2";
-                sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
+                sceneCanvas.GetComponent<SceneManagement>().NextMinigame();
+                sceneCanvas.SetActive(false);
                 gameObject.SetActive(false);
             } else if (gameObject.name == "Character3") {
                 c3Text.SetActive(true);
                 c3Text.GetComponent<Text>().text = "P2";
-                sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
+                sceneCanvas.GetComponent<SceneManagement>().NextMinigame();
+                sceneCanvas.SetActive(false);
                 gameObject.SetActive(false);
             }
         }

@@ -34,6 +34,7 @@ public class PowerupParent : MonoBehaviour
    
     public int Powerup_Duration;
 
+    private bool redBool;
 
     /// <summary>
     /// Requirements:
