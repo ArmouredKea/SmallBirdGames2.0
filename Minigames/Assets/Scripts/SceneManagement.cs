@@ -11,13 +11,19 @@ public class SceneManagement : MonoBehaviour
     [SerializeField]
     private string nextScene = "";
     public GameObject SettingMen;
-    public AudioSource music;
+    public GameObject SplashScreen;
+    public GameObject MainMenu;
+    public GameObject CharSelect;
+    private string CurrentScene;
 
     private static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
 
     // Start is called before the first frame update
     void Start()
     {
+        CurrentScene = "StartScreen";
+        SplashScreen.SetActive(true);
+
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "End") {
             GameObject.Find("FinalScore").GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
@@ -38,8 +44,10 @@ public class SceneManagement : MonoBehaviour
 
     }
 
-    public void NextScene() {
-        SceneManager.LoadScene(nextScene);
+    public void NextScene()
+    {
+        // }
+        //SceneManager.LoadScene(nextScene);
     }
 
     public void NextMinigame() {
@@ -72,18 +80,17 @@ public class SceneManagement : MonoBehaviour
         SettingMen.SetActive(false);
     }
 
-    public void UnMute()
+    public void ScreenFade()
     {
-        music = GetComponent<AudioSource>();
-        music.Play(1);
+        CurrentScene = "MainMenu";
+        SplashScreen.SetActive(false);
     }
 
-    public void Mute()
+    public void Play()
     {
-        music = GetComponent<AudioSource>();
-        music.stop;
+        MainMenu.SetActive(false);
+        CharSelect.SetActive(true);
     }
-
 
     private IEnumerator CharacterSelectDelay(float waitTime) {
         yield return new WaitForSeconds(waitTime);
