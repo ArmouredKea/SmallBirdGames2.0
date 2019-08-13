@@ -53,10 +53,17 @@ public class PC_BulletHell : PlayerController
   // Update is called once per frame
   protected override void Update() {
       base.Update();
+      if (!touched)
+      {
+          animator.SetBool("Moving", false);
+      }
+      else
+      {
+          animator.SetBool("Moving", true);
+      }
 
 
-
-  }
+    }
 
   protected override void FixedUpdate() {
       base.FixedUpdate();
@@ -64,7 +71,9 @@ public class PC_BulletHell : PlayerController
   }
 
   protected override void MoveCharacter(Vector2 direction) {
-      gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
+        base.MoveCharacter(direction);
+         gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
+        
   }
 
 
@@ -157,7 +166,7 @@ public class PC_BulletHell : PlayerController
     {
         if (bHell_isShoot == true)
         {
-
+            animator.SetBool("Tank", true);
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
             transform.position = bHell_Manage.GunnerPos.transform.position;
 
@@ -169,7 +178,7 @@ public class PC_BulletHell : PlayerController
         }
         else
         {
-
+            animator.SetBool("Tank", false);
             Movement();
         }
     }

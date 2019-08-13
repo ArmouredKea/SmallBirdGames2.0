@@ -72,8 +72,8 @@ public class PlayerController : MonoBehaviour {
         Vector2 offset = pointB - pointA;
         direction = Vector2.ClampMagnitude(offset, 0.5f);
         if (touched) {
-            //animator.SetFloat("Horizontal", direction.x);
-           // animator.SetFloat("Vertical", direction.y);
+            animator.SetFloat("Horizontal", direction.x);
+            animator.SetFloat("Vertical", direction.y);
             MoveCharacter(direction);
             joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }
