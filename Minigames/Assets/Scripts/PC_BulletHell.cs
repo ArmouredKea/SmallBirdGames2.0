@@ -53,14 +53,19 @@ public class PC_BulletHell : PlayerController
   // Update is called once per frame
   protected override void Update() {
       base.Update();
-      
+
 
 
   }
 
   protected override void FixedUpdate() {
-        BHell_Main();
-    }
+      base.FixedUpdate();
+      BHell_Main();
+  }
+
+  protected override void MoveCharacter(Vector2 direction) {
+      gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
+  }
 
 
 
@@ -109,8 +114,8 @@ public class PC_BulletHell : PlayerController
             ShieldDestroy();
 
         }
-        
-        else { 
+
+        else {
             if (gameObject.tag == "Player1" && bHell_isShoot == false)
             {
                 bHell_Manage.p1TimesHit += shotvalue;
@@ -197,13 +202,13 @@ public class PC_BulletHell : PlayerController
         {
             Runner_vertMovement = Input.GetAxis("Vertical");
             Runner_horiMovement = Input.GetAxis("Horizontal");
-            
+
         }
         if (gameObject.name == "Player2")
         {
             Runner_vertMovement = Input.GetAxis("Vertical1");
             Runner_horiMovement = Input.GetAxis("Horizontal1");
-           
+
         }
 
     }
