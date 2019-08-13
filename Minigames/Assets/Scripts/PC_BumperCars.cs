@@ -8,6 +8,8 @@ public class PC_BumperCars : PlayerController {
     public float totalDistance;
     public bool boosted;
 
+    public GameObject floatie;
+
     public Vector3 pauseVelocity;
 
     // Start is called before the first frame update
@@ -35,6 +37,7 @@ public class PC_BumperCars : PlayerController {
         if (totalDistance >= 50f) {
             boosted = true;
             speed = 15f;
+            floatie.GetComponent<Animator>().SetBool("Boosted", true);
             //gameObject.GetComponent<Rigidbody2D>().mass = 1.5f;
 
             if (gameObject.tag == "Player1") {
@@ -48,8 +51,10 @@ public class PC_BumperCars : PlayerController {
 
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0) {
             animator.SetBool("Moving", false);
+            floatie.GetComponent<Animator>().SetBool("Moving", false);
         } else {
             animator.SetBool("Moving", true);
+            floatie.GetComponent<Animator>().SetBool("Moving", true);
         }
         /*if (GetComponent<Animator>().GetBool("TakeDamage") == true) {
             GetComponent<Animator>().SetBool("WalkingLeft", false);
@@ -177,6 +182,7 @@ public class PC_BumperCars : PlayerController {
         //gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
         boosted = false;
+        floatie.GetComponent<Animator>().SetBool("Boosted", false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
