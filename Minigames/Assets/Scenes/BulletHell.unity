@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 108829732}
   - component: {fileID: 108829730}
   - component: {fileID: 108829731}
+  - component: {fileID: 108829735}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player2
@@ -252,7 +253,11 @@ MonoBehaviour:
   touched: 0
   joystickOuter: {fileID: 1420426654}
   joystickInner: {fileID: 663315029}
+  direction: {x: 0, y: 0}
+  animator: {fileID: 0}
   Players: []
+  paused: 0
+  angle: 0
   currentPosition: {x: 0, y: 0}
   totalDistance: 0
   boosted: 0
@@ -354,6 +359,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &108829735
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 108829729}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c17767549bddb74fb2a79003ea4ff4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &147365381
 GameObject:
   m_ObjectHideFlags: 0
@@ -812,6 +836,7 @@ MonoBehaviour:
   endText: {fileID: 1329502179}
   overallScore: {fileID: 1751661}
   minigameChanger: {fileID: 1726162053}
+  paused: 0
 --- !u!114 &293852717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,26 +879,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aafe8b7e4321aa4fa6d59a077a1a07c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawn_ListPoints:
-  - {fileID: 1966535046}
-  - {fileID: 2014065603}
-  - {fileID: 2063342358}
-  - {fileID: 1737857029}
-  RedPowerup: {fileID: 468173025}
-  WhitePowerup: {fileID: 0}
-  GreenPowerup: {fileID: 0}
-  YellowPowerup: {fileID: 2127011643}
-  RedPowerupChance: 0.5
-  WhitePowerupChance: 0
-  GreenPowerupChance: 0
-  YellowPowerupChance: 0.5
-  Spawn_ToPoint: {fileID: 0}
-  Spawn_currentTime: 0
-  Spawn_maxTime: 8
-  Powerup_Activated: 0
-  Powerup_Duration: 5
-  declareRunner: {fileID: 0}
-  powerupSpeed: 10
 --- !u!1 &321476625
 GameObject:
   m_ObjectHideFlags: 0
@@ -904,12 +909,6 @@ Transform:
   m_Father: {fileID: 223722870}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &468173025 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8580267941205234806, guid: fe5f54d77dd507f49902015c5c2cc95e,
-    type: 3}
-  m_PrefabInstance: {fileID: 8580267940829598871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &487282097
 GameObject:
   m_ObjectHideFlags: 0
@@ -2920,6 +2919,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
+  SettingMen: {fileID: 0}
+  SplashScreen: {fileID: 0}
+  MainMenu: {fileID: 0}
+  CharSelect: {fileID: 0}
 --- !u!114 &1726162056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3225,6 +3228,7 @@ GameObject:
   - component: {fileID: 1984662997}
   - component: {fileID: 1984662995}
   - component: {fileID: 1984662996}
+  - component: {fileID: 1984663000}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player1
@@ -3265,7 +3269,11 @@ MonoBehaviour:
   touched: 0
   joystickOuter: {fileID: 1341663316}
   joystickInner: {fileID: 841691789}
+  direction: {x: 0, y: 0}
+  animator: {fileID: 0}
   Players: []
+  paused: 0
+  angle: 0
   currentPosition: {x: 0, y: 0}
   totalDistance: 0
   boosted: 0
@@ -3367,6 +3375,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1984663000
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984662994}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0c17767549bddb74fb2a79003ea4ff4d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2014065602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,12 +3460,6 @@ Transform:
   m_Father: {fileID: 223722870}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2127011643 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6927232846310525184, guid: 627f0d40b4b59ba49aa1326d3b30e418,
-    type: 3}
-  m_PrefabInstance: {fileID: 6927232845459379771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2136672371
 GameObject:
   m_ObjectHideFlags: 0
