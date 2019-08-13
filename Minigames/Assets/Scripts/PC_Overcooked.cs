@@ -27,7 +27,7 @@ public class PC_Overcooked : PlayerController {
     // Update is called once per frame
     protected override void Update() {
         base.Update();
-        if (!touched) {
+        if (!touched && !paused) {
             animator.SetBool("Moving", false);
         } else {
             animator.SetBool("Moving", true);

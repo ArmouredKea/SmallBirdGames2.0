@@ -20,9 +20,9 @@ public class PC_BumperCars : PlayerController {
         totalDistance = 0f;
         currentPosition = gameObject.transform.position;
 
-        GetComponent<Animator>().SetLayerWeight(0, 1);
+        /*GetComponent<Animator>().SetLayerWeight(0, 1);
         GetComponent<Animator>().SetLayerWeight(1, 0);
-        GetComponent<Animator>().SetLayerWeight(2, 0);
+        GetComponent<Animator>().SetLayerWeight(2, 0);*/
     }
 
     // Update is called once per frame
@@ -38,37 +38,23 @@ public class PC_BumperCars : PlayerController {
             boosted = true;
             speed = 15f;
             floatie.GetComponent<Animator>().SetBool("Boosted", true);
-            //gameObject.GetComponent<Rigidbody2D>().mass = 1.5f;
 
-            if (gameObject.tag == "Player1") {
+            /*if (gameObject.tag == "Player1") {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
             } else if (gameObject.tag == "Player2") {
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
-            }
+            }*/
 
             StartCoroutine(BoostDuration(5f));
         }
 
-        if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0) {
+        if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0 && !paused) {
             animator.SetBool("Moving", false);
             floatie.GetComponent<Animator>().SetBool("Moving", false);
         } else {
             animator.SetBool("Moving", true);
             floatie.GetComponent<Animator>().SetBool("Moving", true);
         }
-        /*if (GetComponent<Animator>().GetBool("TakeDamage") == true) {
-            GetComponent<Animator>().SetBool("WalkingLeft", false);
-            GetComponent<Animator>().SetBool("WalkingRight", false);
-            GetComponent<Animator>().SetBool("WalkingForward", false);
-            GetComponent<Animator>().SetBool("WalkingBackward", false);
-        } else if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0) {
-            GetComponent<Animator>().SetBool("WalkingLeft", false);
-            GetComponent<Animator>().SetBool("WalkingRight", false);
-            GetComponent<Animator>().SetBool("WalkingForward", false);
-            GetComponent<Animator>().SetBool("WalkingBackward", false);
-        } */
-
-
 
         if (Input.GetKeyDown(KeyCode.P)) {
             PauseCharacter();
@@ -76,6 +62,13 @@ public class PC_BumperCars : PlayerController {
             UnpauseCharacter();
         }
 
+        if (paused) {
+            GetComponent<Animator>().speed = 0;
+            floatie.GetComponent<Animator>().speed = 0;
+        } else {
+            GetComponent<Animator>().speed = 1;
+            floatie.GetComponent<Animator>().speed = 1;
+        }
     }
 
     protected override void FixedUpdate() {
@@ -83,8 +76,7 @@ public class PC_BumperCars : PlayerController {
         //Player forward/backward movement and rotation.
         if (paused) {
             return;
-        } else {
-            
+        } else {            
             if (gameObject.tag == "Player1") {
                 GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
                 transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
@@ -100,64 +92,6 @@ public class PC_BumperCars : PlayerController {
     protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
-        
-        /*if (GetComponent<Animator>().GetBool("TakeDamage") == false) {
-            if (gameObject.tag == "Player1") {
-                if (angle >= -45 && angle < 45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", true);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= 45 && angle < 135) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", true);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", true);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= -135 && angle < -45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", true);
-                } else {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                }
-            } else if (gameObject.tag == "Player2") {
-                if (angle >= -45 && angle < 45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", true);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= 45 && angle < 135) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", true);
-                } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", true);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= -135 && angle < -45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", true);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                }
-            }
-        } */
     }
 
     //player boost duration.
@@ -172,14 +106,13 @@ public class PC_BumperCars : PlayerController {
             }
         }
 
-        if (gameObject.tag == "Player1") {
+        /*if (gameObject.tag == "Player1") {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         } else if (gameObject.tag == "Player2") {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.6f, 0.2f, 1);
-        }
+        }*/
 
         speed = 7f;
-        //gameObject.GetComponent<Rigidbody2D>().mass = 1;
         totalDistance = 0f;
         boosted = false;
         floatie.GetComponent<Animator>().SetBool("Boosted", false);
@@ -188,7 +121,9 @@ public class PC_BumperCars : PlayerController {
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Bombs") {
             GetComponent<Animator>().SetBool("TakeDamage", true);
+            floatie.GetComponent<Animator>().SetBool("Hit", true);
             StartCoroutine(InvulnerableDuration(2f));
+            //StartCoroutine(TakeDamage(1f, 0f, 0.5f));
         }
     }
 
@@ -203,6 +138,63 @@ public class PC_BumperCars : PlayerController {
             }
         }
         GetComponent<Animator>().SetBool("TakeDamage", false);
+        floatie.GetComponent<Animator>().SetBool("Hit", false);
+    }
+
+    private IEnumerator TakeDamage(float startAlpha, float endAlpha, float duration) {        
+        float t = 0;
+        yield return null;
+        /*while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = endAlpha;
+        t = 0;
+
+        while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(endAlpha, startAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = startAlpha;
+        t = 0;
+
+        while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = endAlpha;
+        t = 0;
+
+        while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(endAlpha, startAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = startAlpha;
+        t = 0;*/
     }
 
     public void PauseCharacter() {
