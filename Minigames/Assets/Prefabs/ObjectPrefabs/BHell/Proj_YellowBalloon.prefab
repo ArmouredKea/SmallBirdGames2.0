@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 1394172873617227647}
   - component: {fileID: 7103190914141860390}
   - component: {fileID: 1138284520779102607}
-  - component: {fileID: 1351776889412622499}
+  - component: {fileID: 4539019700080815842}
   m_Layer: 0
-  m_Name: Proj_RedBalloon
+  m_Name: Proj_YellowBalloon
   m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0.04654569, b: 0, a: 1}
+  m_Color: {r: 0.96055627, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,7 +119,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &1351776889412622499
+--- !u!114 &4539019700080815842
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -128,27 +128,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 8665399650197777155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e74f92a8777b8864b8f39f91e358d2eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4e219623312b7ea4b8e8181e0108085d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentProj: {fileID: 0}
   P1Cont: {fileID: 0}
   P2Cont: {fileID: 0}
   firedFrom: {fileID: 0}
-  isColor: {r: 1, g: 0, b: 0, a: 1}
+  isColor: {r: 0.9606243, g: 1, b: 0.0990566, a: 1}
   assignSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   collidedSprite: {fileID: 0}
   KnockBack: 0
   KnockBackMag: 0
   Speed: 5
-  firingRate: 0.3
+  firingRate: 0.2
   damageScore: 1
   growBy: 0
   growRate: 0
-  frequencySine: 0
-  base_magnitudeSine: 0
+  frequencySine: 3
+  base_magnitudeSine: 5
   magnitudeSine: 0
-  rateSine: 0
+  rateSine: 0.4
   explode_Min: 0
   explode_Max: 0
   explode_Radius: 0
