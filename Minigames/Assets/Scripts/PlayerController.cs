@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour {
     private Vector2 initialPoint;
     public Transform joystickOuter;
     public Transform joystickInner;
-    public Vector2 direction;
-    public Animator animator;
 
     public List<PlayerController> Players = new List<PlayerController>();
     //public PlayerController Controller;
@@ -33,7 +31,6 @@ public class PlayerController : MonoBehaviour {
         Input.multiTouchEnabled = true;
         pointA = joystickInner.transform.position;
         initialPoint = Camera.main.ScreenToWorldPoint(new Vector3(pointA.x, pointA.y, Camera.main.transform.position.z));
-        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,7 +51,6 @@ public class PlayerController : MonoBehaviour {
                         if (Input.GetTouch(i).phase == TouchPhase.Ended || Input.GetTouch(i).phase == TouchPhase.Canceled) {
                             touched = false;
                             joystickInner.transform.position = pointA;
-                            
                             player.LockedFingerID = null;
                         }
                     }
@@ -69,11 +65,9 @@ public class PlayerController : MonoBehaviour {
 
     protected virtual void FixedUpdate() {
         //if touched or clicked, use joystick
-        Vector2 offset = pointB - pointA;
-        direction = Vector2.ClampMagnitude(offset, 0.5f);
         if (touched) {
-            animator.SetFloat("Horizontal", direction.x);
-            animator.SetFloat("Vertical", direction.y);
+            Vector2 offset = pointB - pointA;
+            Vector2 direction = Vector2.ClampMagnitude(offset, 0.5f);
             MoveCharacter(direction);
             joystickInner.transform.position = new Vector2(pointA.x + direction.x, pointA.y + direction.y);
         }
@@ -81,7 +75,6 @@ public class PlayerController : MonoBehaviour {
 
     //move character...
     protected virtual void MoveCharacter(Vector2 direction) {
-        
         angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
         //Debug.Log(angle);
