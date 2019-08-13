@@ -28,6 +28,11 @@ public class PC_Overcooked : PlayerController {
     protected override void Update() {
         base.Update();
         if (!touched) {
+            animator.SetBool("Moving", false);
+        } else {
+            animator.SetBool("Moving", true);
+        }
+        /*if (!touched) {
             GetComponent<Animator>().SetBool("WalkingLeft", false);
             GetComponent<Animator>().SetBool("WalkingRight", false);
             GetComponent<Animator>().SetBool("WalkingForward", false);
@@ -88,7 +93,7 @@ public class PC_Overcooked : PlayerController {
                     GetComponent<Animator>().SetBool("WalkingBackward", false);
                 }
             }
-        }        
+        }  */
     }
 
 
