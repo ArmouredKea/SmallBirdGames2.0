@@ -14,7 +14,6 @@ public class SceneManagement : MonoBehaviour
     public GameObject SplashScreen;
     public GameObject MainMenu;
     public GameObject CharSelect;
-    public GameObject GameLeng;
     private string CurrentScene;
 
     private static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
@@ -22,6 +21,9 @@ public class SceneManagement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CurrentScene = "StartScreen";
+        SplashScreen.SetActive(true);
+
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "End") {
             GameObject.Find("FinalScore").GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
@@ -49,7 +51,6 @@ public class SceneManagement : MonoBehaviour
     }
 
     public void NextMinigame() {
-        StartCoroutine(CharacterSelectDelay(2));
         if (scenes.Count == 0) {
             scenes = new List<int>(Enumerable.Range(1, 3));
             SceneManager.LoadScene("End");
@@ -88,25 +89,7 @@ public class SceneManagement : MonoBehaviour
     public void Play()
     {
         MainMenu.SetActive(false);
-        GameLeng.SetActive(true);
-    }
-
-    public void CharaScreen()
-    {
         CharSelect.SetActive(true);
-        GameLeng.SetActive(false);
-    }
-
-    public void BackToMenu()
-    {
-        MainMenu.SetActive(true);
-        GameLeng.SetActive(false);
-    }
-
-    public void BackToleng()
-    {
-        GameLeng.SetActive(true);
-        CharSelect.SetActive(false);
     }
 
     private IEnumerator CharacterSelectDelay(float waitTime) {
