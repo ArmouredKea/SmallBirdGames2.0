@@ -513,7 +513,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 196497782}
-        m_MethodName: BackToChar
+        m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -575,8 +575,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
-  SettingMen: {fileID: 0}
-  SplashScreen: {fileID: 0}
+  SettingMen: {fileID: 1564779822}
+  SplashScreen: {fileID: 1553206187}
   MainMenu: {fileID: 1718117985}
   CharSelect: {fileID: 1660110019}
   GameLeng: {fileID: 1692736549}
@@ -1529,6 +1529,7 @@ GameObject:
   - component: {fileID: 899925633}
   - component: {fileID: 899925632}
   - component: {fileID: 899925631}
+  - component: {fileID: 899925634}
   m_Layer: 5
   m_Name: Short
   m_TagString: Untagged
@@ -1599,8 +1600,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692736550}
-        m_MethodName: NextMinigame
+      - m_Target: {fileID: 899925634}
+        m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1649,6 +1650,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899925629}
   m_CullTransparentMesh: 0
+--- !u!114 &899925634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899925629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
+  SettingMen: {fileID: 1564779822}
+  SplashScreen: {fileID: 1553206187}
+  MainMenu: {fileID: 1718117985}
+  CharSelect: {fileID: 1660110019}
+  GameLeng: {fileID: 1692736549}
 --- !u!224 &904156767 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3124173768292385794, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
@@ -1904,7 +1923,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1219011446}
-        m_MethodName: BackToMenu
+        m_MethodName: BackToleng
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1966,8 +1985,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
-  SettingMen: {fileID: 0}
-  SplashScreen: {fileID: 0}
+  SettingMen: {fileID: 1564779822}
+  SplashScreen: {fileID: 1553206187}
   MainMenu: {fileID: 1718117985}
   CharSelect: {fileID: 1660110019}
   GameLeng: {fileID: 1692736549}
@@ -1983,6 +2002,7 @@ GameObject:
   - component: {fileID: 1240076999}
   - component: {fileID: 1240076998}
   - component: {fileID: 1240076997}
+  - component: {fileID: 1240077000}
   m_Layer: 5
   m_Name: Medium
   m_TagString: Untagged
@@ -2053,8 +2073,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692736550}
-        m_MethodName: NextMinigame
+      - m_Target: {fileID: 1240077000}
+        m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2103,6 +2123,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240076995}
   m_CullTransparentMesh: 0
+--- !u!114 &1240077000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1240076995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
+  SettingMen: {fileID: 1564779822}
+  SplashScreen: {fileID: 1553206187}
+  MainMenu: {fileID: 1718117985}
+  CharSelect: {fileID: 1660110019}
+  GameLeng: {fileID: 1692736549}
 --- !u!1 &1414731715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2253,7 +2291,7 @@ MonoBehaviour:
   SplashScreen: {fileID: 1553206187}
   MainMenu: {fileID: 1718117985}
   CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 0}
+  GameLeng: {fileID: 1692736549}
 --- !u!1 &1423544416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2815,7 +2853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1660110020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2833,7 +2871,7 @@ MonoBehaviour:
   SplashScreen: {fileID: 1553206187}
   MainMenu: {fileID: 1718117985}
   CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 0}
+  GameLeng: {fileID: 1692736549}
 --- !u!114 &1660110021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2933,6 +2971,7 @@ GameObject:
   - component: {fileID: 1675330573}
   - component: {fileID: 1675330572}
   - component: {fileID: 1675330571}
+  - component: {fileID: 1675330574}
   m_Layer: 5
   m_Name: Long
   m_TagString: Untagged
@@ -3003,8 +3042,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1692736550}
-        m_MethodName: NextMinigame
+      - m_Target: {fileID: 1675330574}
+        m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3053,6 +3092,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675330569}
   m_CullTransparentMesh: 0
+--- !u!114 &1675330574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1675330569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
+  SettingMen: {fileID: 1564779822}
+  SplashScreen: {fileID: 1553206187}
+  MainMenu: {fileID: 1718117985}
+  CharSelect: {fileID: 1660110019}
+  GameLeng: {fileID: 1692736549}
 --- !u!1 &1692736549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3194,7 +3251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1718117986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3857,6 +3914,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: SplashScreen
+      value: 
+      objectReference: {fileID: 1553206187}
+    - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 1718117985}
+    - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: CharSelect
+      value: 
+      objectReference: {fileID: 1660110019}
+    - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: GameLeng
+      value: 
+      objectReference: {fileID: 1692736549}
     - target: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: m_IsActive
@@ -3893,6 +3970,46 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1718117985}
     - target: {fileID: 3124173768292385853, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: CharSelect
+      value: 
+      objectReference: {fileID: 1660110019}
+    - target: {fileID: 3124173768292385853, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: GameLeng
+      value: 
+      objectReference: {fileID: 1692736549}
+    - target: {fileID: 3124173766906055877, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: SplashScreen
+      value: 
+      objectReference: {fileID: 1553206187}
+    - target: {fileID: 3124173766906055877, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 1718117985}
+    - target: {fileID: 3124173766906055877, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: CharSelect
+      value: 
+      objectReference: {fileID: 1660110019}
+    - target: {fileID: 3124173766906055877, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: GameLeng
+      value: 
+      objectReference: {fileID: 1692736549}
+    - target: {fileID: 3124173768146894869, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: SplashScreen
+      value: 
+      objectReference: {fileID: 1553206187}
+    - target: {fileID: 3124173768146894869, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: MainMenu
+      value: 
+      objectReference: {fileID: 1718117985}
+    - target: {fileID: 3124173768146894869, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: CharSelect
       value: 
