@@ -123,7 +123,7 @@ public class PC_Overcooked : PlayerController {
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
 
-        if (other.gameObject.name == "DrinkEmpty(Clone)" || other.gameObject.GetComponent<ItemController>().lastPlayerObj == this.gameObject/*.tag == "PickUp"*/) {
+        if (other.gameObject.name == "DrinkEmpty(Clone)" || other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().lastPlayerObj == this.gameObject) {
             if (objCarry == false) {
                 inRange = true;
                 pickedUpObj = other.gameObject;

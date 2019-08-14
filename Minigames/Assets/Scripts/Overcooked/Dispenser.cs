@@ -20,12 +20,11 @@ public class Dispenser : MonoBehaviour
 
     //calling colour change spritesheet.
     void OnTriggerStay2D(Collider2D other) {
-        if (other.gameObject.GetComponent<ItemController>().held == false && other.gameObject.GetComponent<ItemController>().lastPlayer1 == true) {
-            if (other.gameObject.GetComponent<ItemController>().held == false) {
+        if (other.gameObject.name == "DrinkEmpty(Clone)" && dispensingP1 == false) {
+            if (other.gameObject.GetComponent<ItemController>().held == false && other.gameObject.GetComponent<ItemController>().lastPlayer1 == true) {
                 dispensingP1 = true;
                 other.gameObject.GetComponent<ItemController>().filling = true;
                 StartCoroutine(FillingBalloon(other.gameObject, true, false));
-               //other.gameObject.GetComponentInChildren<SpriteRenderer>().color = dColor;
             }
       }
         if (other.gameObject.name == "DrinkEmpty(Clone)" && dispensingP2 == false)
@@ -35,7 +34,6 @@ public class Dispenser : MonoBehaviour
                 dispensingP2 = true;
                 other.gameObject.GetComponent<ItemController>().filling = true;
                 StartCoroutine(FillingBalloon(other.gameObject, false, true));
-                //other.gameObject.GetComponentInChildren<SpriteRenderer>().color = dColor;
             }
         }
     }
