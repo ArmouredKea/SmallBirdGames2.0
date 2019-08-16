@@ -64,7 +64,6 @@ public class PlayerController : MonoBehaviour {
             touched = false;
             joystickInner.transform.position = pointA;
         }
-        //speed = gameObject.GetComponent<PC_BumperCars>().speed;
     }
 
     protected virtual void FixedUpdate() {
@@ -80,11 +79,9 @@ public class PlayerController : MonoBehaviour {
     }
 
     //move character...
-    protected virtual void MoveCharacter(Vector2 direction) {
-        
+    protected virtual void MoveCharacter(Vector2 direction) {        
         angle = Mathf.Atan2(direction.x, direction.y) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.Euler(0, 0, angle * -1);
-        //Debug.Log(angle);
     }
 
     protected virtual void OnEnable() {

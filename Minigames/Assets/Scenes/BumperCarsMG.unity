@@ -795,7 +795,7 @@ GameObject:
   - component: {fileID: 560045238}
   - component: {fileID: 560045237}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2529,7 +2529,7 @@ GameObject:
   - component: {fileID: 1331165034}
   - component: {fileID: 1331165033}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundFill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4023,6 +4023,8 @@ MonoBehaviour:
   totalDistance: 0
   boosted: 0
   floatie: {fileID: 17484626}
+  boostBar: {fileID: 1357418945}
+  boostText: {fileID: 395388527}
   pauseVelocity: {x: 0, y: 0, z: 0}
 --- !u!1 &2123590445
 GameObject:
@@ -4180,5 +4182,15 @@ PrefabInstance:
       propertyPath: joystickInner
       value: 
       objectReference: {fileID: 1046177577}
+    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: boostBar
+      value: 
+      objectReference: {fileID: 854954710}
+    - target: {fileID: 7997255816999478402, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
+        type: 3}
+      propertyPath: boostText
+      value: 
+      objectReference: {fileID: 1455577912}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3, type: 3}

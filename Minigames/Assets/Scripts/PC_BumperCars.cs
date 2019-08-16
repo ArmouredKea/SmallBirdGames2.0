@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PC_BumperCars : PlayerController {
 
@@ -9,6 +10,8 @@ public class PC_BumperCars : PlayerController {
     public bool boosted;
 
     public GameObject floatie;
+    public Slider boostBar;
+    public GameObject boostText;
 
     public Vector3 pauseVelocity;
 
@@ -19,6 +22,7 @@ public class PC_BumperCars : PlayerController {
         rotationSpeed = 100.0f;
         totalDistance = 0f;
         currentPosition = gameObject.transform.position;
+        boostBar.value = totalDistance / 50;
 
         /*GetComponent<Animator>().SetLayerWeight(0, 1);
         GetComponent<Animator>().SetLayerWeight(1, 0);
@@ -28,6 +32,7 @@ public class PC_BumperCars : PlayerController {
     // Update is called once per frame
     protected override void Update() {
         base.Update();
+
         //calculates distance travelled.
         float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
         totalDistance += distance;
@@ -35,19 +40,22 @@ public class PC_BumperCars : PlayerController {
 
         //player boost.
         if (totalDistance >= 50f) {
+            totalDistance = 50f;
             boosted = true;
+            boostText.SetActive(true);
             speed = 15f;
             floatie.GetComponent<Animator>().SetBool("Boosted", true);
-
-            /*if (gameObject.tag == "Player1") {
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
-            } else if (gameObject.tag == "Player2") {
-                gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
-            }*/
-
             StartCoroutine(BoostDuration(5f));
         }
 
+        //calculates the value for the boostBar slider and makes sure that it doesn't go below 0.
+        if (boosted && boostBar.value <= 0) {
+            boostBar.value = 0;
+        } else if (!boosted) {
+            boostBar.value = totalDistance / 50;
+        }
+
+        //checks whether the character is moving or not to activate idle animation.
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0 && !paused) {
             animator.SetBool("Moving", false);
             floatie.GetComponent<Animator>().SetBool("Moving", false);
@@ -56,12 +64,14 @@ public class PC_BumperCars : PlayerController {
             floatie.GetComponent<Animator>().SetBool("Moving", true);
         }
 
+        //pause/unpause for keyboard.
         if (Input.GetKeyDown(KeyCode.P)) {
             PauseCharacter();
         } else if (Input.GetKeyDown(KeyCode.U)) {
             UnpauseCharacter();
         }
 
+        //animation pausing and resuming.
         if (paused) {
             GetComponent<Animator>().speed = 0;
             floatie.GetComponent<Animator>().speed = 0;
@@ -73,6 +83,7 @@ public class PC_BumperCars : PlayerController {
 
     protected override void FixedUpdate() {
         base.FixedUpdate();
+
         //Player forward/backward movement and rotation.
         if (paused) {
             return;
@@ -89,6 +100,7 @@ public class PC_BumperCars : PlayerController {
         }
     }
 
+    //move character based on joystick directions.
     protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
@@ -102,23 +114,20 @@ public class PC_BumperCars : PlayerController {
                 yield return null;
             } else {
                 l += Time.deltaTime;
+                boostBar.value = (5 - l) / 5;
                 yield return null;
             }
         }
 
-        /*if (gameObject.tag == "Player1") {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-        } else if (gameObject.tag == "Player2") {
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0.8f, 0.6f, 0.2f, 1);
-        }*/
-
         speed = 7f;
         totalDistance = 0f;
         boosted = false;
+        boostText.SetActive(false);
         floatie.GetComponent<Animator>().SetBool("Boosted", false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
+        //if player is colliding with a bomb, take damage and play the take damage animation.
         if (collision.gameObject.tag == "Bombs") {
             GetComponent<Animator>().SetBool("TakeDamage", true);
             floatie.GetComponent<Animator>().SetBool("Hit", true);
@@ -127,6 +136,7 @@ public class PC_BumperCars : PlayerController {
         }
     }
 
+    //how long invulnerability lasts.
     private IEnumerator InvulnerableDuration (float waitTime) {
         float l = 0;
         while (l < waitTime) {
@@ -141,35 +151,10 @@ public class PC_BumperCars : PlayerController {
         floatie.GetComponent<Animator>().SetBool("Hit", false);
     }
 
-    private IEnumerator TakeDamage(float startAlpha, float endAlpha, float duration) {        
+    //this is before I found out that you cannot alter the SpriteRenderer if you have animations for the sprite...
+    /*private IEnumerator TakeDamage(float startAlpha, float endAlpha, float duration) {        
         float t = 0;
         yield return null;
-        /*while (t < duration) {
-            float normalizedTime = t / duration;
-            if (paused) {
-                yield return null;
-            } else {
-                t += Time.deltaTime;
-                floatieColor.a = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-                yield return null;
-            }
-        }
-        floatieColor.a = endAlpha;
-        t = 0;
-
-        while (t < duration) {
-            float normalizedTime = t / duration;
-            if (paused) {
-                yield return null;
-            } else {
-                t += Time.deltaTime;
-                floatieColor.a = Mathf.Lerp(endAlpha, startAlpha, normalizedTime);
-                yield return null;
-            }
-        }
-        floatieColor.a = startAlpha;
-        t = 0;
-
         while (t < duration) {
             float normalizedTime = t / duration;
             if (paused) {
@@ -194,16 +179,43 @@ public class PC_BumperCars : PlayerController {
             }
         }
         floatieColor.a = startAlpha;
-        t = 0;*/
-    }
+        t = 0;
 
+        while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = endAlpha;
+        t = 0;
+
+        while (t < duration) {
+            float normalizedTime = t / duration;
+            if (paused) {
+                yield return null;
+            } else {
+                t += Time.deltaTime;
+                floatieColor.a = Mathf.Lerp(endAlpha, startAlpha, normalizedTime);
+                yield return null;
+            }
+        }
+        floatieColor.a = startAlpha;
+        t = 0;
+    }*/
+
+    //pauses character by giving it a velocity of 0.
     public void PauseCharacter() {
-        //pauseForce = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
         paused = true;
         pauseVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
         gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
     }
 
+    //unpauses character by giving it the velocity prior to pausing.
     public void UnpauseCharacter() {
         gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
         paused = false;
