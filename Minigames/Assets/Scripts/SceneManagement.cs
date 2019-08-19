@@ -10,13 +10,7 @@ public class SceneManagement : MonoBehaviour
 
     [SerializeField]
     private string nextScene = "";
-    public GameObject SettingMen;
-    public GameObject SplashScreen;
-    public GameObject MainMenu;
-    public GameObject CharSelect;
-    public GameObject GameLeng;
     private string CurrentScene;
-
     private static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
 
     // Start is called before the first frame update
@@ -49,8 +43,7 @@ public class SceneManagement : MonoBehaviour
 
     public void NextScene()
     {
-        // }
-        //SceneManager.LoadScene(nextScene);
+        SceneManager.LoadScene(nextScene);
     }
 
     public void NextMinigame()
@@ -75,55 +68,10 @@ public class SceneManagement : MonoBehaviour
         StartCoroutine(CharacterSelectDelay(2));
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
-
-    public void OpenSettings()
-    {
-        SettingMen.SetActive(true);
-    }
-
-    public void CloseSettings()
-    {
-        SettingMen.SetActive(false);
-    }
-
-    public void ScreenFade()
-    {
-        CurrentScene = "MainMenu";
-        SplashScreen.SetActive(false);
-    }
-
-    public void Play()
-    {
-        MainMenu.SetActive(false);
-        GameLeng.SetActive(true);
-    }
-
-    public void CharaScreen()
-    {
-        CharSelect.SetActive(true);
-        GameLeng.SetActive(false);
-    }
-
-    public void BackToMenu()
-    {
-        MainMenu.SetActive(true);
-        GameLeng.SetActive(false);
-    }
-
-    public void BackToleng()
-    {
-        GameLeng.SetActive(true);
-        CharSelect.SetActive(false);
-    }
-
     private IEnumerator CharacterSelectDelay(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);
-        //NextScene();
+        NextScene();
         NextMinigame();
     }
 
