@@ -3755,6 +3755,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: SplashScreen
@@ -3775,11 +3780,6 @@ PrefabInstance:
       propertyPath: GameLeng
       value: 
       objectReference: {fileID: 1692736549}
-    - target: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3124173766954882128, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
