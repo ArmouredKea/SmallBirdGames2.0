@@ -19,5 +19,16 @@ public class WhiteProjectile : ProjectileParent
     }
 
     // Update is called once per frame
-  
+    public void PauseProj()
+    {
+        pauseVelocity = GetComponent<Rigidbody2D>().velocity;
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        paused = true;
+    }
+
+    public void UnpauseProj()
+    {
+        GetComponent<Rigidbody2D>().velocity = pauseVelocity;
+        paused = false;
+    }
 }

@@ -135,6 +135,8 @@ MonoBehaviour:
   P1Cont: {fileID: 0}
   P2Cont: {fileID: 0}
   firedFrom: {fileID: 0}
+  paused: 0
+  pauseVelocity: {x: 0, y: 0, z: 0}
   isColor: {r: 0, g: 0.48307657, b: 1, a: 1}
   assignSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   collidedSprite: {fileID: 0}

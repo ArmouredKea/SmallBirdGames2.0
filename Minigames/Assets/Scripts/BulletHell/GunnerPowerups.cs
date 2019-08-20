@@ -17,7 +17,10 @@ public class GunnerPowerups : PowerupParent
     }
     private void FixedUpdate()
     {
-        base.Spawn_Timer();
+        if (paused == false)
+        {
+            base.Spawn_Timer();
+        }
     }
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
     {

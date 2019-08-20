@@ -15,6 +15,11 @@ public class CountdownTimer : MonoBehaviour {
     private bool gameEnded =  true;
     private bool timeswap = true;
     public bool paused;
+    public float TimeRatio;
+    public float TotalTime = 60f;
+
+    public Image ProgressBar;
+    public Image ProgressBar2;
 
     // Use this for initialization
     void Start () {
@@ -27,6 +32,10 @@ public class CountdownTimer : MonoBehaviour {
         Scene scene = SceneManager.GetActiveScene();
         if (paused == false) {
             currentTime -= Time.deltaTime;
+           
+            TimeRatio = currentTime / TotalTime;
+            ProgressBar.fillAmount = TimeRatio;
+            ProgressBar2.fillAmount = TimeRatio;
         }
         p1Time.text = "Time: " + currentTime.ToString("00");
         p2Time.text = "Time: " + currentTime.ToString("00");

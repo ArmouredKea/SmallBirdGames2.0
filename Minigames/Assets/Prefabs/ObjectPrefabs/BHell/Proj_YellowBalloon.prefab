@@ -27,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8665399650197777155}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.006}
+  m_LocalRotation: {x: 0.55125976, y: 0.8101637, z: 0.112155005, w: 0.16482958}
+  m_LocalPosition: {x: -4.743992, y: 1.8720467, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -135,20 +135,22 @@ MonoBehaviour:
   P1Cont: {fileID: 0}
   P2Cont: {fileID: 0}
   firedFrom: {fileID: 0}
+  paused: 0
+  pauseVelocity: {x: 0, y: 0, z: 0}
   isColor: {r: 0.9606243, g: 1, b: 0.0990566, a: 1}
   assignSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   collidedSprite: {fileID: 0}
   KnockBack: 0
   KnockBackMag: 0
-  Speed: 5
-  firingRate: 0.2
+  Speed: 3
+  firingRate: 0.4
   damageScore: 1
   growBy: 0
   growRate: 0
   frequencySine: 3
-  base_magnitudeSine: 5
-  magnitudeSine: 0
-  rateSine: 0.4
+  base_magnitudeSine: 10
+  magnitudeSine: 1
+  rateSine: 2
   explode_Min: 0
   explode_Max: 0
   explode_Radius: 0

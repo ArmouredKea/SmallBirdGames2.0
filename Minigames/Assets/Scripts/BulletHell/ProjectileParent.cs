@@ -10,6 +10,8 @@ public class ProjectileParent : MonoBehaviour
     public PC_BulletHell P1Cont; //could maybe turn this into a single check when it hits something?Though needs to know firingPlayer so it doesn't injure self.
     public PC_BulletHell P2Cont;
     public GameObject firedFrom;
+    public bool paused;
+    public Vector3 pauseVelocity;
     [Header("Visual Variables")]
     public Color isColor;
     public Sprite assignSprite;
@@ -75,27 +77,35 @@ public class ProjectileParent : MonoBehaviour
 
     public virtual void OnTriggerEnter2D(Collider2D collideWith)
     {
-       
 
-        if (firedFrom != collideWith.gameObject)
+
+        
+
+         if (firedFrom != collideWith.gameObject)
         {
-            if (collideWith.gameObject.tag == "Boundary")
+            if (collideWith.gameObject.tag == "Projectile")
             {
+                //donothing
+            }
+
+           else if (collideWith.gameObject.tag == "Boundary")
+            {   
                 if (gameObject.tag == "Projectile")
                 {
                     gameObject.SetActive(false);
                   
-                }
-                else
+                } 
+                /*
+                else if ()
                 {
                     Destroy(gameObject);
-                }
+                }*/
             }
             else if (gameObject.tag == "ShooterPowerup")
             {
                 gameObject.SetActive(false);
             }
-            else
+            else if (collideWith.tag == "Player1" || collideWith.tag == "Player2")
             {
                 gameObject.SetActive(false);
                
@@ -137,8 +147,13 @@ public class ProjectileParent : MonoBehaviour
 
     public virtual void SineMovement()
     {
-        posSine += currentProj.transform.up * Time.deltaTime * Speed;
-        currentProj.transform.position = posSine + axisSine * Mathf.Sin(Time.time * frequencySine) * magnitudeSine;
+        if (paused == false)
+        {
+            posSine += currentProj.transform.up * Time.deltaTime * Speed;
+            currentProj.transform.position = posSine + axisSine * Mathf.Sin(Time.deltaTime * frequencySine) * magnitudeSine;
+        }
+
+
     }
 
     public virtual void GrowReset()
@@ -150,22 +165,38 @@ public class ProjectileParent : MonoBehaviour
 
     public IEnumerator GrowTime()
     {
-      
+      while(paused == true)
+        {
+            yield return null;
+        }
+
         currentProj.transform.localScale = Vector3.Lerp(currentProj.transform.localScale, new Vector3(growBy, growBy, 0), Time.deltaTime * growRate);
         yield return new WaitForSeconds(0.5f);
     }
-
+    
     public IEnumerator TempNormalMove()
     {
+
+        while (paused == true)
+        {
+            yield return null;
+        }
         magnitudeSine = Mathf.Lerp(magnitudeSine, base_magnitudeSine, Time.deltaTime * rateSine);
-        yield return new WaitForSeconds(1f);
+
+        yield return null;
 
 
-    }
+
+
+    } 
+
     public virtual void Clear()
     {
         gameObject.SetActive(false);
+        //Put visual effect on hit here.
     }
+
+
 
 }
 

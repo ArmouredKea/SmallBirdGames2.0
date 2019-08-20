@@ -12,6 +12,7 @@ public class ObjectPool : MonoBehaviour
     public GameObject pool_RedProj; //Put different projectiles in their relevant slots. The pool switches and changes depending on current active.
     public GameObject pool_BlueProj; //add rest if this works.
     public GameObject pool_YellowProj;
+    //public GameObject pool_YellowChildProj;
     public GameObject pool_WhiteProj;
     public GameObject pool_GreenProj;
 
@@ -29,6 +30,7 @@ public class ObjectPool : MonoBehaviour
     public List<GameObject> pool_ListB;
     public List<GameObject> pool_ListG;
     public List<GameObject> pool_ListY;
+    public List<GameObject> pool_ListYC;
     public List<GameObject> pool_ListW;
 
 
@@ -125,14 +127,16 @@ public class ObjectPool : MonoBehaviour
         pool_ListR = new List<GameObject>();
         pool_ListB = new List<GameObject>();
         pool_ListY = new List<GameObject>();
+       // pool_ListYC = new List<GameObject>();
         pool_ListW = new List<GameObject>();
         pool_ListG = new List<GameObject>();
 
         for (int i = 0; i < pool_NumToPool; i++)
         {
-            GameObject pool_objRed = (GameObject)Instantiate(pool_RedProj);
             GameObject pool_objBlue = (GameObject)Instantiate(pool_BlueProj);
+            GameObject pool_objRed = (GameObject)Instantiate(pool_RedProj);
             GameObject pool_objYellow = (GameObject)Instantiate(pool_YellowProj);
+           // GameObject pool_objYellowChild = (GameObject)Instantiate(pool_YellowChildProj);
             GameObject pool_objWhite = (GameObject)Instantiate(pool_WhiteProj);
             GameObject pool_objGreen = (GameObject)Instantiate(pool_GreenProj);
             pool_ListR.Add(pool_objRed);
@@ -153,6 +157,56 @@ public class ObjectPool : MonoBehaviour
           
         }
 
+
+    public void PausePool(bool isPause)
+    {
+        if(isPause == true) { 
+                foreach(GameObject blueStop in pool_ListB)
+             {
+                blueStop.GetComponent<BlueProjectile>().PauseProj();
+             }
+            foreach (GameObject redStop in pool_ListR)
+            {
+                redStop.GetComponent<RedProjectile>().PauseProj();
+            }
+            foreach (GameObject yellowStop in pool_ListY)
+            {
+                yellowStop.GetComponent<YellowProjectile>().PauseProj();
+            }
+            foreach (GameObject greenStop in pool_ListG)
+            {
+                greenStop.GetComponent<GreenProjectile>().PauseProj();
+            }
+            foreach (GameObject whiteStop in pool_ListW)
+            {
+                whiteStop.GetComponent<WhiteProjectile>().PauseProj();
+            }
+        }
+
+        if (isPause == false)
+        {
+            foreach (GameObject blueStop in pool_ListB)
+            {
+                blueStop.GetComponent<BlueProjectile>().UnpauseProj();
+            }
+            foreach (GameObject redStop in pool_ListR)
+            {
+                redStop.GetComponent<RedProjectile>().UnpauseProj();
+            }
+            foreach (GameObject yellowStop in pool_ListY)
+            {
+                yellowStop.GetComponent<YellowProjectile>().UnpauseProj();
+            }
+            foreach (GameObject greenStop in pool_ListG)
+            {
+                greenStop.GetComponent<GreenProjectile>().UnpauseProj();
+            }
+            foreach (GameObject whiteStop in pool_ListW)
+            {
+                whiteStop.GetComponent<WhiteProjectile>().UnpauseProj();
+            }
+        }
+    }
 
     }
 

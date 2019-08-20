@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerupParent : MonoBehaviour
-{//This is actually a Manager not a parent'
+{
+    public bool paused;
     public Transform[] Spawn_ListPoints;
 
     [SerializeField]
@@ -111,13 +112,19 @@ public class PowerupParent : MonoBehaviour
     {
         float counter = seconds;
         Powerup_Activated = true;
-        while (counter > 0.0f)
+        while (paused == true)
         {
-
-            counter -= Time.deltaTime;
             yield return null;
         }
-        Powerup_Activated = false;
+
+            while (counter > 0.0f)
+            {
+
+                counter -= Time.deltaTime;
+                yield return null;
+            }
+            Powerup_Activated = false;
+        }
     }
 
-}
+

@@ -18,11 +18,26 @@ public class GreenProjectile : ProjectileParent
 
     public override void Update()
     {
-        base.Update();
-        StartCoroutine(GrowTime());
+        if (paused == false)
+        {
+            base.Update();
+            StartCoroutine(GrowTime());
+        }
 
 
     }
+    public void PauseProj()
+    {
+        pauseVelocity = GetComponent<Rigidbody2D>().velocity;
+        
+        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        paused = true;
+    }
 
+    public void UnpauseProj()
+    {
+        GetComponent<Rigidbody2D>().velocity = pauseVelocity;
+        paused = false;
+    }
 
 }

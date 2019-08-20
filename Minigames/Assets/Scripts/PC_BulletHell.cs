@@ -32,6 +32,13 @@ public class PC_BulletHell : PlayerController
     public bool Shielded;
     [SerializeField]
     private GameObject shieldAppearance;
+    public Vector3 pauseVelocity;
+
+    public float moistMeter;
+    public Color moistTinting;
+    public float moistMax;
+    public Color moistMin;
+    public float moistRate;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -46,6 +53,8 @@ public class PC_BulletHell : PlayerController
         BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
         ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
 
+        moistTinting = GetComponent<SpriteRenderer>().material.color;
+        
 
 
     }
@@ -125,16 +134,41 @@ public class PC_BulletHell : PlayerController
         }
 
         else {
+            moistMeter = shotvalue * moistRate;
             if (gameObject.tag == "Player1" && bHell_isShoot == false)
             {
                 bHell_Manage.p1TimesHit += shotvalue;
+                ApplyMoisture();
+
+
 
             }
             if (gameObject.tag == "Player2" && bHell_isShoot == false)
             {
                 bHell_Manage.p2TimesHit += shotvalue;
+                ApplyMoisture();
+
             }
         }
+    }
+
+    void ApplyMoisture()
+    {
+
+        
+
+        Debug.Log(moistMeter);
+        Debug.Log(gameObject.GetComponent<SpriteRenderer>().material.color);
+        moistTinting.g -= moistMeter;
+        moistTinting.r -= moistMeter;
+        moistTinting.b += moistMeter;
+
+        moistTinting.g = Mathf.Clamp(moistTinting.g, moistMin.g, 1);
+        moistTinting.r = Mathf.Clamp(moistTinting.r, moistMin.r, 1);
+        moistTinting.b = Mathf.Clamp(moistTinting.b, moistMin.b, 1);
+
+        this.gameObject.GetComponent<SpriteRenderer>().material.color = new Color(moistTinting.r, moistTinting.g, moistTinting.b);
+
     }
 
     public void BHell_FireMode()
@@ -164,7 +198,7 @@ public class PC_BulletHell : PlayerController
 
     public void BHell_Control()
     {
-        if (bHell_isShoot == true)
+        if (bHell_isShoot == true && paused == false)
         {
             animator.SetBool("Tank", true);
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
@@ -176,7 +210,7 @@ public class PC_BulletHell : PlayerController
 
 
         }
-        else
+        else if (paused == false)
         {
             animator.SetBool("Tank", false);
             Movement();
@@ -234,5 +268,19 @@ public class PC_BulletHell : PlayerController
     {
         shieldAppearance.SetActive(false);
         Shielded = false;
+    }
+
+    public void PauseCharacter()
+    {
+        //pauseForce = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
+        paused = true;
+        pauseVelocity = gameObject.GetComponent<Rigidbody2D>().velocity;
+        gameObject.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+    }
+
+    public void UnpauseCharacter()
+    {
+        gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
+        paused = false;
     }
 }
