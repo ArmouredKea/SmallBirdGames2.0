@@ -20,80 +20,21 @@ public class PC_Overcooked : PlayerController {
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
-        speed = 7f;
+        speed = 9f;
         rotationSpeed = 100.0f;
     }
 
     // Update is called once per frame
     protected override void Update() {
         base.Update();
-        if (!touched) {
+        if (!touched && !paused) {
             animator.SetBool("Moving", false);
+            GetComponent<Animator>().speed = 0;
         } else {
             animator.SetBool("Moving", true);
+            GetComponent<Animator>().speed = 1;
         }
-        /*if (!touched) {
-            GetComponent<Animator>().SetBool("WalkingLeft", false);
-            GetComponent<Animator>().SetBool("WalkingRight", false);
-            GetComponent<Animator>().SetBool("WalkingForward", false);
-            GetComponent<Animator>().SetBool("WalkingBackward", false);
-        } else {
-            if (gameObject.name == "Player1") {
-                if (angle >= -45 && angle < 45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", true);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= 45 && angle < 135) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", true);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", true);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= -135 && angle < -45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", true);
-                } else {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                }
-            } else if (gameObject.name == "Player2") {
-                if (angle >= -45 && angle < 45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", true);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= 45 && angle < 135) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", true);
-                } else if ((angle >= 135 && angle <= 180) || (angle >= -180 && angle < -135)) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", true);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else if (angle >= -135 && angle < -45) {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", true);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                } else {
-                    GetComponent<Animator>().SetBool("WalkingLeft", false);
-                    GetComponent<Animator>().SetBool("WalkingRight", false);
-                    GetComponent<Animator>().SetBool("WalkingForward", false);
-                    GetComponent<Animator>().SetBool("WalkingBackward", false);
-                }
-            }
-        }  */
+        
     }
 
 
@@ -182,7 +123,7 @@ public class PC_Overcooked : PlayerController {
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
 
-        if (other.tag == "PickUp") {
+        if (other.gameObject.name == "DrinkEmpty(Clone)" || other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().lastPlayerObj == this.gameObject) {
             if (objCarry == false) {
                 inRange = true;
                 pickedUpObj = other.gameObject;

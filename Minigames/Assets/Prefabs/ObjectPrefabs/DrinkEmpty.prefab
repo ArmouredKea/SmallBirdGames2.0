@@ -49,7 +49,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.65
+  m_Radius: 1.25
 --- !u!50 &2434137335491959293
 Rigidbody2D:
   serializedVersion: 4
@@ -84,12 +84,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonName: EmptyBalloon
-  pointValue: 0
-  balloonSprite: {fileID: 0}
   lastPlayer1: 0
   lastPlayer2: 0
+  lastPlayerObj: {fileID: 0}
   held: 0
   filling: 0
+  overfill: 0
+  pointValue: 0
+  balloonSprite: {fileID: 0}
 --- !u!1001 &8468069584819316392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -162,7 +164,8 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.50980395
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7531399732312522148, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
 --- !u!4 &9125017245570206682 stripped
 Transform:
