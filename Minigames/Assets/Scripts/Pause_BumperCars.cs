@@ -7,6 +7,7 @@ public class Pause_BumperCars : Pause
 
     public GameObject timer;
     public GameObject bombSchtuff;
+    public GameObject PauseMenuRef;
 
     // Start is called before the first frame update
     void Start() {
@@ -47,6 +48,9 @@ public class Pause_BumperCars : Pause
             timer.GetComponent<CountdownTimer>().paused = true;
             bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
+            //line Luke added to show the pause menu
+            PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            //------------
         } else {
             Component[] childrenCharacterScripts;
             childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BumperCars));
