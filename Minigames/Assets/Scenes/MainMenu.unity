@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 38482187}
   - component: {fileID: 38482186}
   - component: {fileID: 38482185}
-  - component: {fileID: 38482184}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -160,24 +159,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -109}
   m_SizeDelta: {x: 200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &38482184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 38482182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!114 &38482185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,7 +202,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 38482184}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -441,7 +422,6 @@ GameObject:
   - component: {fileID: 196497781}
   - component: {fileID: 196497780}
   - component: {fileID: 196497779}
-  - component: {fileID: 196497782}
   m_Layer: 5
   m_Name: Back (1)
   m_TagString: Untagged
@@ -512,7 +492,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 196497782}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -562,24 +542,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196497777}
   m_CullTransparentMesh: 0
---- !u!114 &196497782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 196497777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!1 &221834860
 GameObject:
   m_ObjectHideFlags: 0
@@ -1338,11 +1300,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
-  SettingMen: {fileID: 0}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 0}
-  CharSelect: {fileID: 0}
-  GameLeng: {fileID: 0}
 --- !u!114 &571607829
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1386,7 +1343,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 571607828}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: ScreenFade
         m_Mode: 1
         m_Arguments:
@@ -1527,7 +1484,6 @@ GameObject:
   - component: {fileID: 899925633}
   - component: {fileID: 899925632}
   - component: {fileID: 899925631}
-  - component: {fileID: 899925634}
   m_Layer: 5
   m_Name: Short
   m_TagString: Untagged
@@ -1598,7 +1554,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 899925634}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
@@ -1648,42 +1604,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 899925629}
   m_CullTransparentMesh: 0
---- !u!114 &899925634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 899925629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!224 &904156767 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3124173768292385794, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
     type: 3}
   m_PrefabInstance: {fileID: 3124173768605110877}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1069522668 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3124173768605110877}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1140903640
 GameObject:
   m_ObjectHideFlags: 0
@@ -1849,7 +1775,6 @@ GameObject:
   - component: {fileID: 1219011445}
   - component: {fileID: 1219011444}
   - component: {fileID: 1219011443}
-  - component: {fileID: 1219011446}
   m_Layer: 5
   m_Name: Back
   m_TagString: Untagged
@@ -1920,7 +1845,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1219011446}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: BackToleng
         m_Mode: 1
         m_Arguments:
@@ -1970,24 +1895,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219011441}
   m_CullTransparentMesh: 0
---- !u!114 &1219011446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219011441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!1 &1240076995
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,7 +1907,6 @@ GameObject:
   - component: {fileID: 1240076999}
   - component: {fileID: 1240076998}
   - component: {fileID: 1240076997}
-  - component: {fileID: 1240077000}
   m_Layer: 5
   m_Name: Medium
   m_TagString: Untagged
@@ -2071,7 +1977,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1240077000}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
@@ -2121,24 +2027,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240076995}
   m_CullTransparentMesh: 0
---- !u!114 &1240077000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1240076995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!1 &1414731715
 GameObject:
   m_ObjectHideFlags: 0
@@ -2151,7 +2039,6 @@ GameObject:
   - component: {fileID: 1414731719}
   - component: {fileID: 1414731718}
   - component: {fileID: 1414731717}
-  - component: {fileID: 1414731720}
   m_Layer: 5
   m_Name: PlayButton
   m_TagString: Untagged
@@ -2222,7 +2109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1414731720}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: Play
         m_Mode: 1
         m_Arguments:
@@ -2272,24 +2159,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1414731715}
   m_CullTransparentMesh: 0
---- !u!114 &1414731720
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414731715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: CharacterSelect
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!1 &1423544416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2459,6 +2328,7 @@ GameObject:
   - component: {fileID: 1439988693}
   - component: {fileID: 1439988692}
   - component: {fileID: 1439988691}
+  - component: {fileID: 1439988694}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2514,6 +2384,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1439988694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1439988690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f499a4a4f8e90424fa44b05b7e5b1904, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SettingMen: {fileID: 1523013774}
+  SplashScreen: {fileID: 1553206187}
+  MainMenu: {fileID: 1718117985}
+  CharSelect: {fileID: 1660110019}
+  GameLeng: {fileID: 1692736549}
 --- !u!1 &1475261081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2593,6 +2480,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475261081}
   m_CullTransparentMesh: 0
+--- !u!1 &1523013774 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3124173768605110877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1553206187
 GameObject:
   m_ObjectHideFlags: 0
@@ -2668,12 +2561,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553206187}
   m_CullTransparentMesh: 0
---- !u!1 &1564779822 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
-    type: 3}
-  m_PrefabInstance: {fileID: 3124173768605110877}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613958219
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,12 +2751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: GameLengthSelect
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
+  nextScene: 
 --- !u!114 &1660110021
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2969,7 +2851,6 @@ GameObject:
   - component: {fileID: 1675330573}
   - component: {fileID: 1675330572}
   - component: {fileID: 1675330571}
-  - component: {fileID: 1675330574}
   m_Layer: 5
   m_Name: Long
   m_TagString: Untagged
@@ -3040,7 +2921,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1675330574}
+      - m_Target: {fileID: 1439988694}
         m_MethodName: CharaScreen
         m_Mode: 1
         m_Arguments:
@@ -3090,24 +2971,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675330569}
   m_CullTransparentMesh: 0
---- !u!114 &1675330574
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1675330569}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!1 &1692736549
 GameObject:
   m_ObjectHideFlags: 0
@@ -3120,7 +2983,6 @@ GameObject:
   - component: {fileID: 1692736553}
   - component: {fileID: 1692736552}
   - component: {fileID: 1692736551}
-  - component: {fileID: 1692736550}
   m_Layer: 5
   m_Name: Game Length
   m_TagString: Untagged
@@ -3128,24 +2990,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &1692736550
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692736549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextScene: 
-  SettingMen: {fileID: 1564779822}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 1660110019}
-  GameLeng: {fileID: 1692736549}
 --- !u!114 &1692736551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3911,6 +3755,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3124173766954882129, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: SplashScreen
@@ -3931,11 +3780,6 @@ PrefabInstance:
       propertyPath: GameLeng
       value: 
       objectReference: {fileID: 1692736549}
-    - target: {fileID: 3124173767903645516, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3124173766954882128, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3950,7 +3794,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1069522668}
+      objectReference: {fileID: 1439988694}
     - target: {fileID: 3124173766954882128, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -4016,5 +3860,36 @@ PrefabInstance:
       propertyPath: GameLeng
       value: 
       objectReference: {fileID: 1692736549}
-    m_RemovedComponents: []
+    - target: {fileID: 3124173768292385852, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1439988694}
+    - target: {fileID: 3124173768292385852, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenSettings
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124173766906055876, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1439988690}
+    - target: {fileID: 3124173766906055876, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3124173768146894868, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1439988694}
+    - target: {fileID: 3124173768146894868, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSettings
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3124173768292385853, guid: 0ebc6f3105c1cce48859d7ff83d54a4a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0ebc6f3105c1cce48859d7ff83d54a4a, type: 3}

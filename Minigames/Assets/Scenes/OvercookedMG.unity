@@ -1602,6 +1602,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
+  PauseMenuRef: {fileID: 0}
 --- !u!4 &600194409
 Transform:
   m_ObjectHideFlags: 0
@@ -4051,11 +4052,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextScene: 
-  SettingMen: {fileID: 0}
-  SplashScreen: {fileID: 0}
-  MainMenu: {fileID: 0}
-  CharSelect: {fileID: 0}
-  GameLeng: {fileID: 0}
 --- !u!1 &1846355527
 GameObject:
   m_ObjectHideFlags: 0

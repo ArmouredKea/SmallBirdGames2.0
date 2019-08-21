@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Pause_Overcooked : Pause
 {
+    public GameObject PauseMenuRef;
+
     // Start is called before the first frame update
     void Start() {
         
@@ -46,8 +48,12 @@ public class Pause_Overcooked : Pause
             }
 
             paused = true;
+            //line Luke added to show the pause menu
+            PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            //------------
 
-        } else {
+        }
+        else {
             Component[] childrenCharacterScripts;
             childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
 
