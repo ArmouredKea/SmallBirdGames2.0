@@ -23,8 +23,6 @@ public class BombSchtuff : MonoBehaviour {
     public bool paused;
     private GameObject pauseParent;
 
-    //public bool spawningBomb;
-
     // Use this for initialization
     void Start () {
         pauseParent = GameObject.Find("Pause");
@@ -43,7 +41,6 @@ public class BombSchtuff : MonoBehaviour {
         if (timer <= 0f) {
             if (k <= 5) {
                 StartCoroutine(SpawnBomb(1.5f));
-                //spawningBomb = true;
                 k++;
                 timer = 10.0f - k;
             }
@@ -94,16 +91,8 @@ public class BombSchtuff : MonoBehaviour {
             }
         }
 
-        /*for (float l = 0; l < waitTime; l += Time.deltaTime) {
-            if (paused) {
-                //yield return new WaitUntil(() => !paused);
-                yield return null;
-            }
-        }*/
-
-        //yield return new WaitForSeconds(waitTime);        
-
         Instantiate(bomb, new Vector2(m, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
+
     }
 
 }

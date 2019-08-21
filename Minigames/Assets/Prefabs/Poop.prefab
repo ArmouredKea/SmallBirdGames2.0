@@ -131,3 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a581041246141da4cbc91b5f0b30167f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseVelocity: {x: 0, y: 0}
+  paused: 0
+  bombExplosion: 0

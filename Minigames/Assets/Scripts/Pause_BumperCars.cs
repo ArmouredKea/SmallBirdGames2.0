@@ -18,6 +18,7 @@ public class Pause_BumperCars : Pause
         
     }
 
+    //pause and unpause for BumperCars.
     public override void PauseButton() {
 
         if (!paused) {
