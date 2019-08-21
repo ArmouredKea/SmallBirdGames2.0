@@ -9,6 +9,8 @@ public class Pause_BulletHell : Pause
     public ObjectPool poolManage;
     public GunnerPowerups gPowerup;
     public RunnerPowerups rPowerup;
+    public GameObject PauseMenuRef;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,13 +39,16 @@ public class Pause_BulletHell : Pause
                     character.PauseCharacter();
                 }
             }
-           
+
             poolManage.PausePool(true); //This calls the ObjectPool, which already has access to all active proj.
             countTimer.GetComponent<CountdownTimer>().paused = true;
             gPowerup.paused = true;
             //rPowerup.paused = true;
             rPowerup.PauseEffect();
             paused = true;
+            //line Luke added to show the pause menu
+            PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            //------------
         }
         else
         {

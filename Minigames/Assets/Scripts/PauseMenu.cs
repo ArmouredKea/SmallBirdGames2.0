@@ -31,7 +31,7 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void togglePauseMenu()
@@ -46,7 +46,7 @@ public class PauseMenu : MonoBehaviour
             PausedMenu.SetActive(false);
             Paused = false;
         }
-        
+
     }
 
     public void UnPause()
@@ -61,11 +61,11 @@ public class PauseMenu : MonoBehaviour
             PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
             togglePauseMenu();
         }
-        //else if (CurrentScene == "BulletHell")
-        //{
-        //PauseManagerRef.GetComponent<----insertpausescripthere---->().PauseButton();
-        //togglePauseMenu();
-        //}
+        else if (CurrentScene == "BulletHell")
+        {
+          PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
+          togglePauseMenu();
+        }
 
     }
 }

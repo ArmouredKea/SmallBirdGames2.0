@@ -54,7 +54,7 @@ public class PC_BulletHell : PlayerController
         ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
 
         moistTinting = GetComponent<SpriteRenderer>().material.color;
-        
+
 
 
     }
@@ -62,17 +62,14 @@ public class PC_BulletHell : PlayerController
   // Update is called once per frame
   protected override void Update() {
       base.Update();
-      if (!touched)
-      {
+      if (!touched && !paused) {
           animator.SetBool("Moving", false);
-      }
-      else
-      {
+          GetComponent<Animator>().speed = 0;
+      } else {
           animator.SetBool("Moving", true);
+          GetComponent<Animator>().speed = 1;
       }
-
-
-    }
+  }
 
   protected override void FixedUpdate() {
       base.FixedUpdate();
@@ -82,7 +79,7 @@ public class PC_BulletHell : PlayerController
   protected override void MoveCharacter(Vector2 direction) {
         base.MoveCharacter(direction);
          gameObject.GetComponent<Transform>().Translate(direction * speed * Time.deltaTime, Space.World);
-        
+
   }
 
 
@@ -155,7 +152,7 @@ public class PC_BulletHell : PlayerController
     void ApplyMoisture()
     {
 
-        
+
 
         Debug.Log(moistMeter);
         Debug.Log(gameObject.GetComponent<SpriteRenderer>().material.color);
