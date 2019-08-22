@@ -52,7 +52,7 @@ public class SceneManagement : MonoBehaviour
         else
         {
             int randomIndex = Random.Range(0, scenes.Count);
-            int minigame = scenes[randomIndex] + 2;
+            int minigame = scenes[randomIndex] + 1;
             scenes.RemoveAt(randomIndex);
             SceneManager.LoadScene(minigame);
         }
