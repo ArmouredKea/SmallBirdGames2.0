@@ -28,11 +28,6 @@ public class SceneManagement : MonoBehaviour
             PlayerController.p1Score = 0;
             PlayerController.p2Score = 0;
         }
-        else if (scene.name == "CharacterSelect")
-        {
-            PlayerController.p1Score = 0;
-            PlayerController.p2Score = 0;
-        }
     }
 
     // Update is called once per frame

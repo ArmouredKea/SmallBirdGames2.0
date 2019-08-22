@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject PausedMenu;
     public GameObject PauseManagerRef;
+    public GameObject AreYouSure;
     public bool Paused;
     private string CurrentScene;
 
@@ -46,6 +47,23 @@ public class PauseMenu : MonoBehaviour
             PausedMenu.SetActive(false);
             Paused = false;
         }
+
+    }
+
+    public void BackToMainCheck()
+    {
+        AreYouSure.SetActive(true);
+    }
+
+    public void CloseAlert()
+    {
+        AreYouSure.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        AreYouSure.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
 
     }
 
