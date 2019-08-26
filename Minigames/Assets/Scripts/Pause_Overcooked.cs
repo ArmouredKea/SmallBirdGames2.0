@@ -8,12 +8,12 @@ public class Pause_Overcooked : Pause
 
     // Start is called before the first frame update
     void Start() {
-        
+
     }
 
     // Update is called once per frame
     void Update() {
-        
+
     }
 
     //pause and unpause for Overcooked.
@@ -52,8 +52,7 @@ public class Pause_Overcooked : Pause
             PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             //------------
 
-        }
-        else {
+        } else {
             Component[] childrenCharacterScripts;
             childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
 
