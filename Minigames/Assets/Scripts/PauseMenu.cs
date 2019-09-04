@@ -71,18 +71,18 @@ public class PauseMenu : MonoBehaviour
     {
         if (CurrentScene == "BumperCars")
         {
-            PauseManagerRef.GetComponent<Pause_BumperCars>().PauseButton();
             togglePauseMenu();
+            PauseManagerRef.GetComponent<Pause_BumperCars>().PauseButton();
         }
         else if (CurrentScene == "OverCooked")
         {
-            PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
             togglePauseMenu();
+            PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
         }
         else if (CurrentScene == "BulletHell")
         {
-          PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
           togglePauseMenu();
+          PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
         }
 
     }
