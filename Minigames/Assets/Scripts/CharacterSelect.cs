@@ -30,9 +30,7 @@ public class CharacterSelect : MonoBehaviour
         playerClicks++;
         if (playerClicks == 1) {
             if (gameObject.name == "Character1") {
-                c1Text.SetActive(true);
-                c1Text.GetComponent<Text>().text = "P1";
-                gameObject.SetActive(false);
+                
             } else if (gameObject.name == "Character2") {
                 c2Text.SetActive(true);
                 c2Text.GetComponent<Text>().text = "P1";
@@ -44,9 +42,7 @@ public class CharacterSelect : MonoBehaviour
             }
         } else if (playerClicks == 2) {
             if (gameObject.name == "Character1") {
-                c1Text.SetActive(true);
-                c1Text.GetComponent<Text>().text = "P2";
-                sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
+                
                 gameObject.SetActive(false);
             } else if (gameObject.name == "Character2") {
                 c2Text.SetActive(true);
@@ -59,6 +55,19 @@ public class CharacterSelect : MonoBehaviour
                 sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
                 gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void BoSelected() {
+        playerClicks++;
+        if (playerClicks == 1) {
+            c1Text.SetActive(true);
+            c1Text.GetComponent<Text>().text = "P1";
+            gameObject.SetActive(false);
+        } else if (playerClicks == 2) {
+            c1Text.SetActive(true);
+            c1Text.GetComponent<Text>().text = "P2";
+            sceneCanvas.GetComponent<SceneManagement>().NextMinigameDelay();
         }
     }
 }
