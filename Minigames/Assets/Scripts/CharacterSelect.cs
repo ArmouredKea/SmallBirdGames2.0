@@ -113,4 +113,25 @@ public class CharacterSelect : MonoBehaviour
             playerClicks--;
         }
     }
+
+    //confirms the characters selected and carries it over to the minigames
+    public void ConfirmCharacters() {
+        if (c1Text.GetComponent<Text>().text == "P1") {
+            CharacterCarryOver.player1 = "Bo";
+        } else if (c2Text.GetComponent<Text>().text == "P1") {
+            CharacterCarryOver.player1 = "Hiro";
+        } else if (c3Text.GetComponent<Text>().text == "P1") {
+            CharacterCarryOver.player1 = "Mika";
+        }
+
+        if (c1Text.GetComponent<Text>().text == "P2") {
+            CharacterCarryOver.player2 = "Bo";
+        } else if (c2Text.GetComponent<Text>().text == "P2") {
+            CharacterCarryOver.player2 = "Hiro";
+        } else if (c3Text.GetComponent<Text>().text == "P2") {
+            CharacterCarryOver.player2 = "Mika";
+        }
+
+        gameObject.GetComponent<SceneManagement>().NextMinigame();
+    }
 }

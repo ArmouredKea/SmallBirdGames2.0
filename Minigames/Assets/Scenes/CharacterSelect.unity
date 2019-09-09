@@ -497,8 +497,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1718117990}
-        m_MethodName: NextMinigame
+      - m_Target: {fileID: 1718117991}
+        m_MethodName: ConfirmCharacters
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1283,6 +1283,7 @@ GameObject:
   - component: {fileID: 1718117986}
   - component: {fileID: 1718117990}
   - component: {fileID: 1718117991}
+  - component: {fileID: 1718117992}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1405,6 +1406,18 @@ MonoBehaviour:
   c3Text: {fileID: 1565928475}
   confirmButton: {fileID: 833032879}
   heading: {fileID: 2036636512}
+--- !u!114 &1718117992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1718117985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2cb3d0fe4ea8084e85c0bea7394104b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1807822661
 GameObject:
   m_ObjectHideFlags: 0
