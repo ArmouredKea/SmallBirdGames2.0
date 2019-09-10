@@ -13603,6 +13603,11 @@ PrefabInstance:
       propertyPath: ProgressBar2
       value: 
       objectReference: {fileID: 916205793}
+    - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
+        type: 3}
+      propertyPath: PauseButton
+      value: 
+      objectReference: {fileID: 2057849231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a8c36e3a310514d8bac976815fb96e, type: 3}
 --- !u!1001 &8815341561985113792

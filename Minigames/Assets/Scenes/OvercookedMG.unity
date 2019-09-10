@@ -975,6 +975,7 @@ MonoBehaviour:
   endText: {fileID: 1424009023}
   overallScore: {fileID: 1642263628}
   minigameChanger: {fileID: 1818534997}
+  PauseButton: {fileID: 1846355527}
 --- !u!114 &286971696
 MonoBehaviour:
   m_ObjectHideFlags: 0
