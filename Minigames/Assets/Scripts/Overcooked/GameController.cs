@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public GameObject player;
     //public GameObject spawn;
+
+    public GameObject timerBar;
 
     //needed an item that was null
     private GameObject nullItem;
@@ -43,7 +46,7 @@ public class GameController : MonoBehaviour {
         if (!paused) {
             GameTimer();
         }
-        
+
         if (orderList.Count <= (orderLength - 1)) {
             OrderUp();
         }
@@ -92,13 +95,13 @@ public class GameController : MonoBehaviour {
                         points += (pIncrease * 2);
                         Debug.Log("Ordered Points: " + points);
                     break;
-                } 
+                }
             } else {
                 points += pIncrease;
                 Debug.Log("Non-Ordered Points: " + points);
             }
         }
-        
+
         Destroy(handInItem.gameObject);
         if (playerScript.pickedUpObj == handInItem.gameObject)
         {
@@ -131,6 +134,9 @@ public class GameController : MonoBehaviour {
         if (endTimer <= 0) {
             gameEnd = true;
             Debug.Log("Game Finished");
+        }
+        if (timerBar != null) {
+          timerBar.GetComponentInChildren<Image>().fillAmount = (endTimer / 60);
         }
     }
 }
