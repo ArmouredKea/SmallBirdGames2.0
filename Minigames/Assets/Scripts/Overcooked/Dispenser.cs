@@ -24,7 +24,7 @@ public class Dispenser : MonoBehaviour
             if (other.gameObject.GetComponent<ItemController>().held == false && other.gameObject.GetComponent<ItemController>().lastPlayer1 == true) {
                 dispensingP1 = true;
                 other.gameObject.GetComponent<ItemController>().filling = true;
-                StartCoroutine(FillingBalloon(other.gameObject, true, false));
+                StartCoroutine(FillingBalloon1(other.gameObject, true, false));
             }
       }
         if (other.gameObject.name == "DrinkEmpty(Clone)" && dispensingP2 == false)
@@ -33,14 +33,14 @@ public class Dispenser : MonoBehaviour
             {
                 dispensingP2 = true;
                 other.gameObject.GetComponent<ItemController>().filling = true;
-                StartCoroutine(FillingBalloon(other.gameObject, false, true));
+                StartCoroutine(FillingBalloon2(other.gameObject, false, true));
             }
         }
     }
 
     //handles "filling" the balloon
-    IEnumerator FillingBalloon (GameObject other, bool p1, bool p2) {
-        tempLastHeld = other.gameObject.GetComponent<ItemController>().lastPlayerObj;
+    IEnumerator FillingBalloon1 (GameObject other, bool p1, bool p2) {
+        tempLastHeld1 = other.gameObject.GetComponent<ItemController>().lastPlayerObj;
         Destroy(other.gameObject);
         float l = 0;
         while (l < dispenseTime) {
@@ -53,7 +53,25 @@ public class Dispenser : MonoBehaviour
         }
         other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
         other.gameObject.GetComponent<ItemController>().overfill = true;
-        other.gameObject.GetComponent<ItemController>().lastPlayerObj = tempLastHeld;
+        other.gameObject.GetComponent<ItemController>().lastPlayerObj = tempLastHeld1;
+        StartCoroutine(Overfill(other.gameObject, p1, p2));
+    }
+
+    IEnumerator FillingBalloon2 (GameObject other, bool p1, bool p2) {
+        tempLastHeld2 = other.gameObject.GetComponent<ItemController>().lastPlayerObj;
+        Destroy(other.gameObject);
+        float l = 0;
+        while (l < dispenseTime) {
+            if (paused) {
+                yield return null;
+            } else {
+                l += Time.deltaTime;
+                yield return null;
+            }
+        }
+        other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
+        other.gameObject.GetComponent<ItemController>().overfill = true;
+        other.gameObject.GetComponent<ItemController>().lastPlayerObj = tempLastHeld2;
         StartCoroutine(Overfill(other.gameObject, p1, p2));
     }
 
