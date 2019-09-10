@@ -12,6 +12,8 @@ public class Dispenser : MonoBehaviour
     //private GameObject tempLastHeld;
 
     public Color dColor;
+    public string dBalloonName;
+    public int points;
     /*public bool paused;
 
     void Update() {

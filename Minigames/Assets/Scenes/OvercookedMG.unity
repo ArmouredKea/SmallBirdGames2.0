@@ -475,7 +475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109795097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3, y: 4.4, z: -5}
+  m_LocalPosition: {x: 3.3, y: 4.14, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1930240462}
@@ -754,7 +754,7 @@ GameObject:
   - component: {fileID: 203233443}
   m_Layer: 0
   m_Name: DispenserY
-  m_TagString: Untagged
+  m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -845,7 +845,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.67, y: 2.18}
+  m_Size: {x: 5, y: 2.18}
   m_EdgeRadius: 0
 --- !u!114 &203233443
 MonoBehaviour:
@@ -859,13 +859,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispensedB: {fileID: 9125017245350031382, guid: 37fc060487aab2541ba2b3b7925dcd33,
-    type: 3}
   dispenseTime: 3
-  dispensingP1: 0
-  dispensingP2: 0
   dColor: {r: 1, g: 0.9194475, b: 0, a: 1}
-  paused: 0
+  dBalloonName: YellowBalloon
+  points: 2
 --- !u!1 &253497234 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3641849634904798536, guid: e8dc0b1c0ab5c464e8eb0d3f7b3e99d3,
@@ -908,6 +905,22 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+--- !u!58 &253497241
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 253497234}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1 &258332380
 GameObject:
   m_ObjectHideFlags: 0
@@ -1241,7 +1254,7 @@ GameObject:
   - component: {fileID: 449934679}
   m_Layer: 0
   m_Name: DispenserW
-  m_TagString: Untagged
+  m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1332,7 +1345,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.67, y: 2.18}
+  m_Size: {x: 5, y: 2.18}
   m_EdgeRadius: 0
 --- !u!114 &449934679
 MonoBehaviour:
@@ -1346,13 +1359,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispensedB: {fileID: 9125017245350031382, guid: b3a679e3785e43a4a888b290ee03e559,
-    type: 3}
   dispenseTime: 2
-  dispensingP1: 0
-  dispensingP2: 0
   dColor: {r: 1, g: 1, b: 1, a: 1}
-  paused: 0
+  dBalloonName: WhiteBalloon
+  points: 1
 --- !u!1 &493787704
 GameObject:
   m_ObjectHideFlags: 0
@@ -1754,6 +1764,7 @@ Transform:
   - {fileID: 449934677}
   - {fileID: 1228287340}
   - {fileID: 203233441}
+  - {fileID: 650087747}
   - {fileID: 253497235}
   - {fileID: 1346273793}
   m_Father: {fileID: 0}
@@ -1773,7 +1784,7 @@ GameObject:
   - component: {fileID: 650087749}
   m_Layer: 0
   m_Name: DispenserR
-  m_TagString: Untagged
+  m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1837,8 +1848,8 @@ Transform:
   m_LocalPosition: {x: 4, y: -2.73, z: -5}
   m_LocalScale: {x: 0.25, y: -1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2094228090}
-  m_RootOrder: 4
+  m_Father: {fileID: 600194409}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &650087748
 BoxCollider2D:
@@ -1864,7 +1875,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.67, y: 2.18}
+  m_Size: {x: 5, y: 2.18}
   m_EdgeRadius: 0
 --- !u!114 &650087749
 MonoBehaviour:
@@ -1878,13 +1889,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispensedB: {fileID: 9125017245350031382, guid: f422106943c300f4c9b707c0581e2e65,
-    type: 3}
   dispenseTime: 4
-  dispensingP1: 0
-  dispensingP2: 0
   dColor: {r: 1, g: 0, b: 0, a: 1}
-  paused: 0
+  dBalloonName: RedBalloon
+  points: 3
 --- !u!1 &689910803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2285,7 +2293,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801595954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: 4.4, z: -5}
+  m_LocalPosition: {x: -3.31, y: 4.16, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1930240462}
@@ -3021,7 +3029,7 @@ GameObject:
   - component: {fileID: 1228287342}
   m_Layer: 0
   m_Name: DispenserG
-  m_TagString: Untagged
+  m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3112,7 +3120,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 7.67, y: 2.18}
+  m_Size: {x: 5, y: 2.18}
   m_EdgeRadius: 0
 --- !u!114 &1228287342
 MonoBehaviour:
@@ -3126,13 +3134,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispensedB: {fileID: 9125017245350031382, guid: a150fa3ad85a4f2428892e31c23e0b9c,
-    type: 3}
   dispenseTime: 5
-  dispensingP1: 0
-  dispensingP2: 0
   dColor: {r: 0.07811856, g: 1, b: 0, a: 1}
-  paused: 0
+  dBalloonName: GreenBalloon
+  points: 0
 --- !u!1 &1273693827
 GameObject:
   m_ObjectHideFlags: 0
@@ -3378,6 +3383,22 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+--- !u!58 &1346273799
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346273792}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 4
 --- !u!1 &1348717931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4750,7 +4771,6 @@ Transform:
   - {fileID: 493787705}
   - {fileID: 836291622}
   - {fileID: 2029577923}
-  - {fileID: 650087747}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
