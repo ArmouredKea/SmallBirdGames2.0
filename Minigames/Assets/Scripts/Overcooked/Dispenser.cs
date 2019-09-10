@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class Dispenser : MonoBehaviour
 {
-    public GameObject dispensedB;
+    //public GameObject dispensedB;
     public int dispenseTime;
-    public bool dispensingP1;
-    public bool dispensingP2;
+    //public bool dispensingP1;
+    //public bool dispensingP2;
 
-    private GameObject tempLastHeld;
+    //private GameObject tempLastHeld;
 
     public Color dColor;
-    public bool paused;
+    /*public bool paused;
 
     void Update() {
 
@@ -106,5 +106,5 @@ public class Dispenser : MonoBehaviour
         {
             dispensingP2 = false;
         }
-    }
+    } */
 }
