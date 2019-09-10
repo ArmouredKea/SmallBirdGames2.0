@@ -14,7 +14,7 @@ public class RunnerPowerups : PowerupParent
 
     void Start()
     {
-        base.Spawn_Control();
+
     }
 
     // Update is called once per frame
@@ -22,11 +22,12 @@ public class RunnerPowerups : PowerupParent
     {
         Deactivate();
     }
-
-
     private void FixedUpdate()
     {
-        base.Spawn_Timer();
+        if (paused == false)
+        {
+            base.Spawn_Timer();
+        }
     }
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
     {
@@ -49,6 +50,7 @@ public class RunnerPowerups : PowerupParent
     {
         base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration));
         declareRunner.speed = powerupSpeed;
+        declareRunner.GetComponentInChildren<ParticleSystem>().Play(true);
 
 
     }
@@ -88,13 +90,35 @@ public class RunnerPowerups : PowerupParent
            //stop powerup.
             ExecutePowerup(false, false, false, false);
             if(declareRunner != null)
-                declareRunner.speed = declareRunner.baseSpeed;
-            
-
+            { 
+                    declareRunner.speed = declareRunner.baseSpeed;
+                    declareRunner.GetComponentInChildren<ParticleSystem>().Stop();
+                declareRunner.GetComponentInChildren<ParticleSystem>().Clear();
+            }
 
         }
     }
+
+    public void PauseEffect()
+    {
+        if (declareRunner != null)
+        {
+            declareRunner.GetComponentInChildren<ParticleSystem>().Pause(true);
+            declareRunner.GetComponentInChildren<ParticleSystem>().Stop(true);
+            paused = true;
+        }
+    }
    
+    public void UnpauseEffect()
+    {
+        if (declareRunner != null)
+        {
+            declareRunner.GetComponentInChildren<ParticleSystem>().Pause(false);
+            declareRunner.GetComponentInChildren<ParticleSystem>().Play(true);
+            paused = false;
+        }
+    }
+
 }
 
 
