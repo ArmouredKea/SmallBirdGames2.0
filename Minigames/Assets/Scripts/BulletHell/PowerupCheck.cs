@@ -25,6 +25,9 @@ public class PowerupCheck : MonoBehaviour
     [SerializeField]
     private bool w;
 
+    public Transform Position_current;
+
+
 
 
     // Start is called before the first frame update
@@ -39,9 +42,12 @@ public class PowerupCheck : MonoBehaviour
         
     }
 
-    private void OnEnable()
+    public void OnEnable()
     {
         //Powerup Spawn Effect here.
+        
+
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -51,15 +57,24 @@ public class PowerupCheck : MonoBehaviour
             if (collision.tag == "Projectile")
             {
                 //"Use" effect here.
-            
-                gunnerSpawn.Deactivate();
-                gunnerSpawn.ExecutePowerup(r, y, g, w);
-                gameObject.SetActive(false);
+                if (gunnerSpawn.Powerup_Activated == false)
+                { 
+                    gunnerSpawn.Deactivate();
+                    gunnerSpawn.ExecutePowerup(r, y, g, w);
+                    gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    gameObject.SetActive(false);
+                    }
+                else
+                {
+                    //do nothing there is already a powerup.
+                }
             }
             else if (collision.tag == "Player1" || collision.tag == "Player2")
             {
                 //"Pop" effect here.
+                gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
                 gameObject.SetActive(false);
+                
             }
         }
         else if (forRunner == true)
@@ -70,16 +85,18 @@ public class PowerupCheck : MonoBehaviour
 
                 //runnerSpawn.Deactivate(); ? Do we want the shooter to be able to hit the powerups?!
                
-                gameObject.SetActive(false);
+                //gameObject.SetActive(false);
             }
             else if (collision.tag == "Player1" || collision.tag == "Player2")
             {
                 //"Pop" effect here.
                 getRunner = collision.gameObject.GetComponent<PC_BulletHell>();
                 runnerSpawn.GetRunner(runner: getRunner);
+                runnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
                 gameObject.SetActive(false);
 
-              
+
+
                 runnerSpawn.ExecutePowerup(r, y, g, w);
                 
                 

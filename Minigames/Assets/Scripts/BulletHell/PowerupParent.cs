@@ -3,9 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerupParent : MonoBehaviour
+<<<<<<< Updated upstream
+{//This is actually a Manager not a parent'
+    public Transform[] Spawn_ListPoints;
+=======
 {
     public bool paused;
-    public Transform[] Spawn_ListPoints;
+    public List<Transform> Spawn_ListPoints;
+
+    public List<Transform> Spawn_SpawnedObj = new List<Transform>();
+>>>>>>> Stashed changes
 
     [SerializeField]
     private GameObject RedPowerup;
@@ -35,13 +42,11 @@ public class PowerupParent : MonoBehaviour
    
     public int Powerup_Duration;
 
-
     /// <summary>
     /// Requirements:
-    /// Use an Array of Empty GameObjects as the spawning location for each powerup.
-    /// Spawn from Array every X seconds.
-    /// Set location and powerup types in children.
-    /// Use this to determine firing mode?!
+    /// Get list of positions
+    /// Figure out if a position is already filled by a powerup
+    /// Probably easier to just do a 1234 check
     /// </summary>
 
     // Start is called before the first frame update
@@ -53,7 +58,6 @@ public class PowerupParent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void FixedUpdate()
@@ -77,29 +81,79 @@ public class PowerupParent : MonoBehaviour
 
     public virtual void Randomize_Powerup()
     {
-        Spawn_ToPoint = Spawn_ListPoints[Random.Range(0, Spawn_ListPoints.Length)];
-        if(Random.value <= RedPowerupChance && RedPowerup.activeInHierarchy == false)
+
+      
+
+        if (Random.value <= RedPowerupChance && RedPowerup.activeInHierarchy == false )
         {   // Need to create a way for powerups to cease spawning if the slot is taken up.
-            RedPowerup.SetActive(true);
-            RedPowerup.transform.position = Spawn_ToPoint.position;
+            if (!Spawn_SpawnedObj.Contains(Spawn_ToPoint))
+            {
+                RedPowerup.SetActive(true);
+                RedPowerup.transform.position = Spawn_ToPoint.position;
+                RedPowerup.GetComponent<PowerupCheck>().Position_current = Spawn_ToPoint;
+                Spawn_SpawnedObj.Add(Spawn_ToPoint);
+            }
+            else
+            {
+                Spawn_Control();
+            }
         }
+
+            
+
+
         else if (Random.value <= YellowPowerupChance && YellowPowerup.activeInHierarchy == false)
         {
-            YellowPowerup.SetActive(true);
-            YellowPowerup.transform.position = Spawn_ToPoint.position;
+            if (!Spawn_SpawnedObj.Contains(Spawn_ToPoint))
+            {
+                YellowPowerup.SetActive(true);
+                YellowPowerup.transform.position = Spawn_ToPoint.position;
+                YellowPowerup.GetComponent<PowerupCheck>().Position_current = Spawn_ToPoint;
+                Spawn_SpawnedObj.Add(Spawn_ToPoint);
+            }
+            else
+            {
+                Spawn_Control();
+            }
         }
+
+        
+         
+      
         else if (Random.value <= WhitePowerupChance && WhitePowerup.activeInHierarchy == false)
         {
-            WhitePowerup.SetActive(true);
-            WhitePowerup.transform.position = Spawn_ToPoint.position;
+            if (!Spawn_SpawnedObj.Contains(Spawn_ToPoint))
+            {
+                WhitePowerup.SetActive(true);
+                WhitePowerup.transform.position = Spawn_ToPoint.position;
+                Spawn_SpawnedObj.Add(Spawn_ToPoint);
+                WhitePowerup.GetComponent<PowerupCheck>().Position_current = Spawn_ToPoint;
+            }
+            else
+            {
+                Spawn_Control();
+            }
         }
-         else if (Random.value <= GreenPowerupChance && GreenPowerup.activeInHierarchy == false)
+        else if (Random.value <= GreenPowerupChance && GreenPowerup.activeInHierarchy == false )
         {
-            GreenPowerup.SetActive(true);
-            GreenPowerup.transform.position = Spawn_ToPoint.position;
+            if (!Spawn_SpawnedObj.Contains(Spawn_ToPoint))
+            {
+                GreenPowerup.SetActive(true);
+                GreenPowerup.transform.position = Spawn_ToPoint.position;
+                Spawn_SpawnedObj.Add(Spawn_ToPoint);
+                GreenPowerup.GetComponent<PowerupCheck>().Position_current = Spawn_ToPoint;
+            }
+            else
+            {
+                Spawn_Control();
+            }
         }
 
+    }
 
+    public virtual void Spawn_Control()
+    {
+        Spawn_ToPoint = Spawn_ListPoints[Random.Range(0, Spawn_ListPoints.Count)];
     }
 
     virtual public void ExecutePowerup(bool red, bool yellow, bool green, bool white)
@@ -112,19 +166,13 @@ public class PowerupParent : MonoBehaviour
     {
         float counter = seconds;
         Powerup_Activated = true;
-        while (paused == true)
+        while (counter > 0.0f)
         {
+
+            counter -= Time.deltaTime;
             yield return null;
         }
-
-            while (counter > 0.0f)
-            {
-
-                counter -= Time.deltaTime;
-                yield return null;
-            }
-            Powerup_Activated = false;
-        }
+        Powerup_Activated = false;
     }
 
-
+}
