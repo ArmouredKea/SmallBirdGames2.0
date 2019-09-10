@@ -44,7 +44,7 @@ public class Pause_BulletHell : Pause
             countTimer.GetComponent<CountdownTimer>().paused = true;
             gPowerup.paused = true;
             //rPowerup.paused = true;
-            rPowerup.PauseEffect();
+            rPowerup.paused = true;
             paused = true;
             //line Luke added to show the pause menu
             PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
@@ -70,7 +70,7 @@ public class Pause_BulletHell : Pause
 
             paused = false;
             gPowerup.paused = false;
-            rPowerup.UnpauseEffect();
+            rPowerup.paused = false;
             poolManage.PausePool(false);
         }
 

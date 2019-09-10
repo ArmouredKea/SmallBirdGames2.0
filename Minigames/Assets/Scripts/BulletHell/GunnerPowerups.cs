@@ -7,7 +7,7 @@ public class GunnerPowerups : PowerupParent
     // Start is called before the first frame update
     void Start()
     {
-        
+        base.Spawn_Control();
     }
 
     // Update is called once per frame
@@ -17,10 +17,7 @@ public class GunnerPowerups : PowerupParent
     }
     private void FixedUpdate()
     {
-        if (paused == false)
-        {
-            base.Spawn_Timer();
-        }
+        base.Spawn_Timer();
     }
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
     {

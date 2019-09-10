@@ -13456,27 +13456,32 @@ PrefabInstance:
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: RedPowerupChance
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: WhitePowerupChance
-      value: 0
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: GreenPowerupChance
-      value: 0
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: YellowPowerupChance
-      value: 1
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: Powerup_Duration
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
+        type: 3}
+      propertyPath: Spawn_maxTime
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311650, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
