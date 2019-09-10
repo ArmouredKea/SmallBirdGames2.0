@@ -38,12 +38,12 @@ public class Pause_Overcooked : Pause
                 }
             }
 
-            Component[] childrenItemControllerScripts;
-            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
+            Component[] childrenDispenserScripts;
+            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
 
-            if (childrenItemControllerScripts != null) {
-                foreach (ItemController itemController in childrenItemControllerScripts) {
-                    itemController.paused = true;
+            if (childrenDispenserScripts != null) {
+                foreach (Dispenser dispenser in childrenDispenserScripts) {
+                    dispenser.paused = true;
                 }
             }
 
@@ -71,12 +71,12 @@ public class Pause_Overcooked : Pause
                 }
             }
 
-            Component[] childrenItemControllerScripts;
-            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
+            Component[] childrenDispenserScripts;
+            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
 
-            if (childrenItemControllerScripts != null) {
-                foreach (ItemController itemController in childrenItemControllerScripts) {
-                    itemController.paused = false;
+            if (childrenDispenserScripts != null) {
+                foreach (Dispenser dispenser in childrenDispenserScripts) {
+                    dispenser.paused = false;
                 }
             }
 
