@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 253497234}
-  audiotest: {fileID: 2027722097}
+  audiotest: {fileID: 0}
   timerBar: {fileID: 1314904223}
   points: 0
   orderList: []
@@ -909,7 +909,7 @@ PrefabInstance:
     - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1346273792}
-  audiotest: {fileID: 2027722097}
+  audiotest: {fileID: 0}
   timerBar: {fileID: 0}
   points: 0
   orderList: []
@@ -1999,6 +1999,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P1_Mika
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421555, guid: 710d067c2a7213f4281ff729e859b7fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 710d067c2a7213f4281ff729e859b7fa,
         type: 3}
@@ -2886,6 +2891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Mika
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: 92e0411ac32bfff49985e5343913bee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3050,7 +3060,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
@@ -3137,6 +3147,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P2_Bo
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: 72787442e2e76fc428af900930582486,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 72787442e2e76fc428af900930582486,
         type: 3}
@@ -4878,6 +4893,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1_Hiro
       objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5483,12 +5503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   balloonType: {fileID: 9125017245350031382, guid: f422106943c300f4c9b707c0581e2e65,
     type: 3}
---- !u!82 &2027722097 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4292089385119888726, guid: d85afd7374994864dbd268dbabb2ccc2,
-    type: 3}
-  m_PrefabInstance: {fileID: 4292089385795919911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029577922
 GameObject:
   m_ObjectHideFlags: 0
