@@ -103,7 +103,7 @@ public class PC_Overcooked : PlayerController {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
-        if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && pickUpC != 0 && inRange && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+        if (inRange && pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && pickUpC != 0 && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
             objCarry = true;
         } else if (pickUpC != 0 && objCarry == true) {
             pickedUpObj.GetComponent<ItemController>().held = false;
@@ -111,7 +111,7 @@ public class PC_Overcooked : PlayerController {
         }
     }
     public void PickUpObj2() {
-        if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && inRange && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+        if (inRange && pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
             objCarry = true;
 
         } else if (objCarry == true) {
