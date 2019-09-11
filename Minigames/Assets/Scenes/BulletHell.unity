@@ -13476,7 +13476,7 @@ PrefabInstance:
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: Powerup_Duration
-      value: 20
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
