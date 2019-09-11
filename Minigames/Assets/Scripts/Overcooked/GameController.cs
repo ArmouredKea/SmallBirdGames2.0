@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     private GameObject nullItem;
 
     private PC_Overcooked playerScript;
-    public ItemScript itemScript;
+    //public ItemScript itemScript;
 
     public int points;
 
@@ -34,6 +34,13 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        if (gameObject.name == "HandInP1") {
+          player = GameObject.FindGameObjectWithTag("Player1");
+        }
+        else if (gameObject.name == "HandInP2") {
+          player = GameObject.FindGameObjectWithTag("Player2");
+        }
         playerScript = player.GetComponent<PC_Overcooked>();
         OrderList();
         orderLength = 4;
@@ -111,11 +118,11 @@ public class GameController : MonoBehaviour {
     }
     //Listing all possible pick ups
     void ListPickUps() {
-        if (player.name == "Player1") {
+        if (player.tag == "Player1") {
             foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
                 pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
             }
-        } else if (player.name == "Player2") {
+        } else if (player.tag == "Player2") {
             foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
                 pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
             }
