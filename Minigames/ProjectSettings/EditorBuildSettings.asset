@@ -8,27 +8,30 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 62468a6ae3859244cbdf1512132dec8f
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/BumperCarsTutorial.unity
-    guid: df507cb617bc2574099e1a52163e995e
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    path: Assets/Scenes/End.unity
+    guid: b1d9019bc99247c42bf0c1202c8fea71
   - enabled: 1
     path: Assets/Scenes/BumperCarsMG.unity
     guid: dcefdbc23ceed2a4fbc1b18b29b7666e
@@ -36,6 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/OvercookedMG.unity
     guid: 23439afb2c9c5e145bee8cadd41fd4e6
   - enabled: 1
-    path: Assets/Scenes/End.unity
-    guid: b1d9019bc99247c42bf0c1202c8fea71
+    path: Assets/Scenes/BulletHell.unity
+    guid: 9eefc7cb071045c4d9e1de95b557dfd0
   m_configObjects: {}

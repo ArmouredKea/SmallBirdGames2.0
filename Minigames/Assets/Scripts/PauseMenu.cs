@@ -7,6 +7,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject PausedMenu;
     public GameObject PauseManagerRef;
+    public GameObject AreYouSure;
     public bool Paused;
     private string CurrentScene;
 
@@ -49,6 +50,23 @@ public class PauseMenu : MonoBehaviour
 
     }
 
+    public void BackToMainCheck()
+    {
+        AreYouSure.SetActive(true);
+    }
+
+    public void CloseAlert()
+    {
+        AreYouSure.SetActive(false);
+    }
+
+    public void BackToMenu()
+    {
+        AreYouSure.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
+
+    }
+
     public void UnPause()
     {
         if (CurrentScene == "BumperCars")
@@ -63,8 +81,8 @@ public class PauseMenu : MonoBehaviour
         }
         else if (CurrentScene == "BulletHell")
         {
-          PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
-          togglePauseMenu();
+            PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
+            togglePauseMenu();
         }
 
     }

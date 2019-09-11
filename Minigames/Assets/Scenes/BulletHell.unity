@@ -881,6 +881,11 @@ PrefabInstance:
       propertyPath: PauseManagerRef
       value: 
       objectReference: {fileID: 1831626653}
+    - target: {fileID: 6135274138372058533, guid: ade4fb76ea3cb964ebd72bf0f591d209,
+        type: 3}
+      propertyPath: AreYouSure
+      value: 
+      objectReference: {fileID: 1311483047}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
 --- !u!1 &487282097
@@ -6588,6 +6593,12 @@ Transform:
   m_Father: {fileID: 223722870}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1311483047 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5072004128381829905, guid: ade4fb76ea3cb964ebd72bf0f591d209,
+    type: 3}
+  m_PrefabInstance: {fileID: 466743710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329502179
 GameObject:
   m_ObjectHideFlags: 0

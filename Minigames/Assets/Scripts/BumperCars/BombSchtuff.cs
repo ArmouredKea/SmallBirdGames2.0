@@ -37,7 +37,7 @@ public class BombSchtuff : MonoBehaviour {
         if (paused == false) {
             timer -= Time.deltaTime;
         }
-        
+
         if (timer <= 0f) {
             if (k <= 5) {
                 StartCoroutine(SpawnBomb(1.5f));
@@ -66,19 +66,19 @@ public class BombSchtuff : MonoBehaviour {
             p2H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
         }
     }
-    
+
     //spawns a bomb at a random position either at the top or bottom of the arena.
     public IEnumerator SpawnBomb(float waitTime) {
         float i = Random.Range(0f, 0.9f);
         float j;
-        float m = Random.Range(-6, 6);
+        float m = Random.Range(-4.15f, 4.15f);
 
         if (i < 0.5f) {
-            j = 4.76f;
+            j = 4.65f;
         } else {
-            j = -4.76f;
-        }        
-        
+            j = -4.65f;
+        }
+
         Instantiate(exclamation, new Vector2(m, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
 
         float l = 0;

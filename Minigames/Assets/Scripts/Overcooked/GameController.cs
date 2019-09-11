@@ -7,6 +7,8 @@ public class GameController : MonoBehaviour {
     public GameObject player;
     //public GameObject spawn;
 
+    public AudioSource audiotest;
+
     public GameObject timerBar;
 
     //needed an item that was null
@@ -101,6 +103,7 @@ public class GameController : MonoBehaviour {
                         orderList.Remove(orderList[i]);
                         points += (pIncrease * 2);
                         Debug.Log("Ordered Points: " + points);
+                        audiotest.Play(0);
                     break;
                 }
             } else {
