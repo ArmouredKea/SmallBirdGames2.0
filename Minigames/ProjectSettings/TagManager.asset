@@ -12,6 +12,8 @@ TagManager:
   - Player1
   - Player2
   - ExclamationMark
+  - SPP2
+  - Dispenser
   layers:
   - Default
   - TransparentFX
