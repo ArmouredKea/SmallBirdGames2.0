@@ -894,11 +894,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Hiro
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -954,18 +949,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169517, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
-        type: 3}
-      propertyPath: joystickInner
-      value: 
-      objectReference: {fileID: 779622419}
-    - target: {fileID: 5347735802049169517, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
-        type: 3}
+    - target: {fileID: 1250061076, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
       propertyPath: joystickOuter
       value: 
       objectReference: {fileID: 1273693828}
-    m_RemovedComponents:
-    - {fileID: 5347735802049169517, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
+    - target: {fileID: 1250061076, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
+      propertyPath: joystickInner
+      value: 
+      objectReference: {fileID: 779622419}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
 --- !u!1 &253497234 stripped
 GameObject:
@@ -1067,11 +1059,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1079743302}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &284998236
+--- !u!114 &284998236 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+    type: 3}
+  m_PrefabInstance: {fileID: 1079743302}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284998234}
   m_Enabled: 1
@@ -1079,40 +1071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 1387699736}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &284998237
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 284998234}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1 &286971694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,11 +1207,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 989712248}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &342009483
+--- !u!114 &342009483 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 342009483, guid: 92e0411ac32bfff49985e5343913bee1,
+    type: 3}
+  m_PrefabInstance: {fileID: 989712248}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342009481}
   m_Enabled: 1
@@ -1261,40 +1219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 779622419}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &342009484
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342009481}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1 &363137880 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
@@ -1307,11 +1231,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1695549347}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &363137882
+--- !u!114 &363137882 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 363137882, guid: fbb3a5b153636014cbb853bf700235d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1695549347}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 363137880}
   m_Enabled: 1
@@ -1319,40 +1243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 1387699736}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &363137883
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 363137880}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1 &402652142 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6135274138372058542, guid: ade4fb76ea3cb964ebd72bf0f591d209,
@@ -2087,11 +1977,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1_Mika
       objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421555, guid: 710d067c2a7213f4281ff729e859b7fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 710d067c2a7213f4281ff729e859b7fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2147,18 +2032,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550052244537780345, guid: 710d067c2a7213f4281ff729e859b7fa,
-        type: 3}
+    - target: {fileID: 839095691, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
+      propertyPath: joystickOuter
+      value: 
+      objectReference: {fileID: 1273693828}
+    - target: {fileID: 839095691, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
       propertyPath: joystickInner
       value: 
       objectReference: {fileID: 1387699736}
-    - target: {fileID: 2550052244537780345, guid: 710d067c2a7213f4281ff729e859b7fa,
-        type: 3}
-      propertyPath: joystickOuter
-      value: 
-      objectReference: {fileID: 1348717932}
-    m_RemovedComponents:
-    - {fileID: 2550052244537780345, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
 --- !u!1 &650087745
 GameObject:
@@ -2952,11 +2834,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 626842459}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &839095691
+--- !u!114 &839095691 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 839095691, guid: 710d067c2a7213f4281ff729e859b7fa,
+    type: 3}
+  m_PrefabInstance: {fileID: 626842459}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 839095689}
   m_Enabled: 1
@@ -2964,40 +2846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 1387699736}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &839095692
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 839095689}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1001 &989712248
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3009,11 +2857,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P2_Mika
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169511, guid: 92e0411ac32bfff49985e5343913bee1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
@@ -3070,18 +2913,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169517, guid: 92e0411ac32bfff49985e5343913bee1,
-        type: 3}
-      propertyPath: joystickInner
-      value: 
-      objectReference: {fileID: 779622419}
-    - target: {fileID: 5347735802049169517, guid: 92e0411ac32bfff49985e5343913bee1,
-        type: 3}
+    - target: {fileID: 342009483, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
       propertyPath: joystickOuter
       value: 
       objectReference: {fileID: 1273693828}
-    m_RemovedComponents:
-    - {fileID: 5347735802049169517, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
+    - target: {fileID: 342009483, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
+      propertyPath: joystickInner
+      value: 
+      objectReference: {fileID: 779622419}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
 --- !u!1 &1036848810
 GameObject:
@@ -3229,18 +3069,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550052244537780345, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
+    - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
+      propertyPath: joystickOuter
+      value: 
+      objectReference: {fileID: 1273693828}
+    - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: joystickInner
       value: 
       objectReference: {fileID: 1387699736}
-    - target: {fileID: 2550052244537780345, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: joystickOuter
-      value: 
-      objectReference: {fileID: 1348717932}
-    m_RemovedComponents:
-    - {fileID: 2550052244537780345, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
 --- !u!1001 &1102828697
 PrefabInstance:
@@ -3253,11 +3090,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P2_Bo
-      objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169511, guid: 72787442e2e76fc428af900930582486,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 72787442e2e76fc428af900930582486,
         type: 3}
@@ -3314,18 +3146,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169517, guid: 72787442e2e76fc428af900930582486,
-        type: 3}
-      propertyPath: joystickInner
-      value: 
-      objectReference: {fileID: 779622419}
-    - target: {fileID: 5347735802049169517, guid: 72787442e2e76fc428af900930582486,
-        type: 3}
+    - target: {fileID: 1690662640, guid: 72787442e2e76fc428af900930582486, type: 3}
       propertyPath: joystickOuter
       value: 
       objectReference: {fileID: 1273693828}
-    m_RemovedComponents:
-    - {fileID: 5347735802049169517, guid: 72787442e2e76fc428af900930582486, type: 3}
+    - target: {fileID: 1690662640, guid: 72787442e2e76fc428af900930582486, type: 3}
+      propertyPath: joystickInner
+      value: 
+      objectReference: {fileID: 779622419}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72787442e2e76fc428af900930582486, type: 3}
 --- !u!1 &1156088509
 GameObject:
@@ -3885,11 +3714,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 220062950}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1250061076
+--- !u!114 &1250061076 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1250061076, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+    type: 3}
+  m_PrefabInstance: {fileID: 220062950}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250061074}
   m_Enabled: 1
@@ -3897,40 +3726,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 779622419}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &1250061077
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250061074}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1 &1273693827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5007,11 +4802,11 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1102828697}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1690662640
+--- !u!114 &1690662640 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1690662640, guid: 72787442e2e76fc428af900930582486,
+    type: 3}
+  m_PrefabInstance: {fileID: 1102828697}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690662638}
   m_Enabled: 1
@@ -5019,40 +4814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  rotationSpeed: 0
-  touched: 0
-  joystickOuter: {fileID: 1273693828}
-  joystickInner: {fileID: 779622419}
-  direction: {x: 0, y: 0}
-  animator: {fileID: 0}
-  Players: []
-  paused: 0
-  angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
---- !u!58 &1690662641
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1690662638}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 4
 --- !u!1001 &1695549347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5064,11 +4825,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P1_Hiro
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
@@ -5125,18 +4881,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2550052244537780345, guid: fbb3a5b153636014cbb853bf700235d8,
-        type: 3}
+    - target: {fileID: 363137882, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
+      propertyPath: joystickOuter
+      value: 
+      objectReference: {fileID: 1273693828}
+    - target: {fileID: 363137882, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
       propertyPath: joystickInner
       value: 
       objectReference: {fileID: 1387699736}
-    - target: {fileID: 2550052244537780345, guid: fbb3a5b153636014cbb853bf700235d8,
-        type: 3}
-      propertyPath: joystickOuter
-      value: 
-      objectReference: {fileID: 1348717932}
-    m_RemovedComponents:
-    - {fileID: 2550052244537780345, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
 --- !u!1001 &1755500521
 PrefabInstance:
