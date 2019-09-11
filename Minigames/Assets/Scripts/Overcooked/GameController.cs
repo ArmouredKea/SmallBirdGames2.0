@@ -66,6 +66,7 @@ public class GameController : MonoBehaviour {
 
             int rI = Random.Range(0, pickUps.Count);
             orderList.Add(pickUps[rI]);
+            audiotest.Play(0);
         }
         Debug.Log(orderList.Count);
 
@@ -103,16 +104,18 @@ public class GameController : MonoBehaviour {
                         orderList.Remove(orderList[i]);
                         points += (pIncrease * 2);
                         Debug.Log("Ordered Points: " + points);
-                        audiotest.Play(0);
+
                     break;
                 }
             } else {
                 points += pIncrease;
                 Debug.Log("Non-Ordered Points: " + points);
+
             }
         }
 
         Destroy(handInItem.gameObject);
+        audiotest.Play(0);
         if (playerScript.pickedUpObj == handInItem.gameObject)
         {
             playerScript.pickedUpObj = null;
