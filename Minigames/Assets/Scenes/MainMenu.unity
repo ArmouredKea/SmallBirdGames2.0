@@ -478,7 +478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &231296305
 RectTransform:
   m_ObjectHideFlags: 0
@@ -705,7 +705,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &345483231
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1087,7 +1087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &811466543
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1675,11 +1675,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb02e84e9be088e4ba625ca9328cf33a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  c1Text: {fileID: 277411399}
-  c2Text: {fileID: 875893565}
-  c3Text: {fileID: 1169352313}
+  boP1: {fileID: 1033437007}
+  boP2: {fileID: 345483230}
+  hiroP1: {fileID: 1121254920}
+  hiroP2: {fileID: 1938202890}
+  mikaP1: {fileID: 811466542}
+  mikaP2: {fileID: 231296304}
   confirmButton: {fileID: 1629145236}
-  heading: {fileID: 187561293}
+  headingP1: {fileID: 237688984}
+  headingP2: {fileID: 853808340}
+  headingReady: {fileID: 2142720221}
 --- !u!114 &946851416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,7 +1804,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1033437008
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2141,7 +2146,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1121254921
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3925,7 +3930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1938202891
 RectTransform:
   m_ObjectHideFlags: 0

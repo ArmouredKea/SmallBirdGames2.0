@@ -103,20 +103,23 @@ public class PC_Overcooked : PlayerController {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
-        if (inRange && pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && pickUpC != 0 && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
-            objCarry = true;
-        } else if (pickUpC != 0 && objCarry == true) {
-            pickedUpObj.GetComponent<ItemController>().held = false;
-            objCarry = false;
+        if (inRange && pickUpC != 0) {
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+                objCarry = true;
+            } else if (pickUpC != 0 && objCarry == true) {
+                pickedUpObj.GetComponent<ItemController>().held = false;
+                objCarry = false;
+            }
         }
     }
     public void PickUpObj2() {
-        if (inRange && pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
-            objCarry = true;
-
-        } else if (objCarry == true) {
-            pickedUpObj.GetComponent<ItemController>().held = false;
-            objCarry = false;
+        if (inRange) {
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+                objCarry = true;
+            } else if (objCarry == true) {
+                pickedUpObj.GetComponent<ItemController>().held = false;
+                objCarry = false;
+            }
         }
     }
 

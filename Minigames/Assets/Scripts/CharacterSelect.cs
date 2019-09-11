@@ -8,11 +8,16 @@ public class CharacterSelect : MonoBehaviour
 {
 
     private static int playerClicks;
-    public GameObject c1Text;
-    public GameObject c2Text;
-    public GameObject c3Text;
+    public GameObject boP1;
+    public GameObject boP2;
+    public GameObject hiroP1;
+    public GameObject hiroP2;
+    public GameObject mikaP1;
+    public GameObject mikaP2;
     public GameObject confirmButton;
-    public GameObject heading;
+    public GameObject headingP1;
+    public GameObject headingP2;
+    public GameObject headingReady;
 
     private bool boPicked;
     private bool hiroPicked;
@@ -28,13 +33,19 @@ public class CharacterSelect : MonoBehaviour
     void Update() {
         //checks whose turn it is to pick a character, and whether both players have already picked
         if (playerClicks == 2) {
-            heading.GetComponent<Text>().text = "Are you ready?";
+            headingReady.SetActive(true);
+            headingP1.SetActive(false);
+            headingP2.SetActive(false);
             confirmButton.SetActive(true);
         } else if (playerClicks == 1) {
-            heading.GetComponent<Text>().text = "Player 2's turn to pick!";
+            headingReady.SetActive(false);
+            headingP1.SetActive(false);
+            headingP2.SetActive(true);
             confirmButton.SetActive(false);
         } else {
-            heading.GetComponent<Text>().text = "Player 1's turn to pick!";
+            headingReady.SetActive(false);
+            headingP1.SetActive(true);
+            headingP2.SetActive(false);
             confirmButton.SetActive(false);
         }
     }
@@ -42,23 +53,21 @@ public class CharacterSelect : MonoBehaviour
     //selecting and deselecting Bo
     public void BoSelected() {
         if (playerClicks == 0) {
-            c1Text.SetActive(true);
-            c1Text.GetComponent<Text>().text = "P1";
+            boP1.SetActive(true);
             boPicked = true;
             playerClicks++;
         } else if (playerClicks == 1) {
             if (boPicked) {
-                c1Text.SetActive(false);
+                boP1.SetActive(false);
                 boPicked = false;
                 playerClicks--;
             } else if (!boPicked) {
-                c1Text.SetActive(true);
-                c1Text.GetComponent<Text>().text = "P2";
+                boP2.SetActive(true);
                 boPicked = true;
                 playerClicks++;
             }
-        } else if (playerClicks == 2 && boPicked && c1Text.GetComponent<Text>().text == "P2") {
-            c1Text.SetActive(false);
+        } else if (playerClicks == 2 && boPicked && boP2.activeSelf == true) {
+            boP2.SetActive(false);
             boPicked = false;
             playerClicks--;
         }
@@ -67,23 +76,21 @@ public class CharacterSelect : MonoBehaviour
     //selecting and deselecting Hiro
     public void HiroSelected() {
         if (playerClicks == 0) {
-            c2Text.SetActive(true);
-            c2Text.GetComponent<Text>().text = "P1";
+            hiroP1.SetActive(true);
             hiroPicked = true;
             playerClicks++;
         } else if (playerClicks == 1) {
             if (hiroPicked) {
-                c2Text.SetActive(false);
+                hiroP1.SetActive(false);
                 hiroPicked = false;
                 playerClicks--;
             } else if (!hiroPicked) {
-                c2Text.SetActive(true);
-                c2Text.GetComponent<Text>().text = "P2";
+                hiroP2.SetActive(true);
                 hiroPicked = true;
                 playerClicks++;
             }
-        } else if (playerClicks == 2 && hiroPicked && c2Text.GetComponent<Text>().text == "P2") {
-            c2Text.SetActive(false);
+        } else if (playerClicks == 2 && hiroPicked && hiroP2.activeSelf == true) {
+            hiroP2.SetActive(false);
             hiroPicked = false;
             playerClicks--;
         }
@@ -92,23 +99,21 @@ public class CharacterSelect : MonoBehaviour
     //selecting and deselecting Mika
     public void MikaSelected() {
         if (playerClicks == 0) {
-            c3Text.SetActive(true);
-            c3Text.GetComponent<Text>().text = "P1";
+            mikaP1.SetActive(true);
             mikaPicked = true;
             playerClicks++;
         } else if (playerClicks == 1) {
             if (mikaPicked) {
-                c3Text.SetActive(false);
+                mikaP1.SetActive(false);
                 mikaPicked = false;
                 playerClicks--;
             } else if (!mikaPicked) {
-                c3Text.SetActive(true);
-                c3Text.GetComponent<Text>().text = "P2";
+                mikaP2.SetActive(true);
                 mikaPicked = true;
                 playerClicks++;
             }
-        } else if (playerClicks == 2 && mikaPicked && c3Text.GetComponent<Text>().text == "P2") {
-            c3Text.SetActive(false);
+        } else if (playerClicks == 2 && mikaPicked && mikaP2.activeSelf == true) {
+            mikaP2.SetActive(false);
             mikaPicked = false;
             playerClicks--;
         }
@@ -116,19 +121,19 @@ public class CharacterSelect : MonoBehaviour
 
     //confirms the characters selected and carries it over to the minigames
     public void ConfirmCharacters() {
-        if (c1Text.GetComponent<Text>().text == "P1") {
+        if (boP1.activeSelf == true) {
             CharacterCarryOver.player1 = "Bo";
-        } else if (c2Text.GetComponent<Text>().text == "P1") {
+        } else if (hiroP1.activeSelf == true) {
             CharacterCarryOver.player1 = "Hiro";
-        } else if (c3Text.GetComponent<Text>().text == "P1") {
+        } else if (mikaP1.activeSelf == true) {
             CharacterCarryOver.player1 = "Mika";
         }
 
-        if (c1Text.GetComponent<Text>().text == "P2") {
+        if (boP2.activeSelf == true) {
             CharacterCarryOver.player2 = "Bo";
-        } else if (c2Text.GetComponent<Text>().text == "P2") {
+        } else if (hiroP2.activeSelf == true) {
             CharacterCarryOver.player2 = "Hiro";
-        } else if (c3Text.GetComponent<Text>().text == "P2") {
+        } else if (mikaP2.activeSelf == true) {
             CharacterCarryOver.player2 = "Mika";
         }
 
