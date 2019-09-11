@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public GameObject player;
     //public GameObject spawn;
 
+    public GameObject timerBar;
+
     //needed an item that was null
     private GameObject nullItem;
 
     private PC_Overcooked playerScript;
-    public ItemScript itemScript;
+    //public ItemScript itemScript;
 
     public int points;
 
@@ -31,6 +34,13 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
+
+        if (gameObject.name == "HandInP1") {
+          player = GameObject.FindGameObjectWithTag("Player1");
+        }
+        else if (gameObject.name == "HandInP2") {
+          player = GameObject.FindGameObjectWithTag("Player2");
+        }
         playerScript = player.GetComponent<PC_Overcooked>();
         OrderList();
         orderLength = 4;
@@ -43,7 +53,7 @@ public class GameController : MonoBehaviour {
         if (!paused) {
             GameTimer();
         }
-        
+
         if (orderList.Count <= (orderLength - 1)) {
             OrderUp();
         }
@@ -69,7 +79,7 @@ public class GameController : MonoBehaviour {
 
     //to spawn only one item on each spawn location
     void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().balloonName != null) {
+        if (other.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().balloonName != "") {
            if (other.gameObject.GetComponent<ItemController>().lastPlayer1 && gameObject.name == "HandInP1" || other.gameObject.GetComponent<ItemController>().lastPlayer2 && gameObject.name == "HandInP2") {
               if (playerScript.objCarry == false) {
                   HandleHandIn(other.gameObject, other.gameObject.GetComponent<ItemController>().pointValue);
@@ -92,13 +102,13 @@ public class GameController : MonoBehaviour {
                         points += (pIncrease * 2);
                         Debug.Log("Ordered Points: " + points);
                     break;
-                } 
+                }
             } else {
                 points += pIncrease;
                 Debug.Log("Non-Ordered Points: " + points);
             }
         }
-        
+
         Destroy(handInItem.gameObject);
         if (playerScript.pickedUpObj == handInItem.gameObject)
         {
@@ -108,11 +118,11 @@ public class GameController : MonoBehaviour {
     }
     //Listing all possible pick ups
     void ListPickUps() {
-        if (player.name == "Player1") {
+        if (player.tag == "Player1") {
             foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
                 pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
             }
-        } else if (player.name == "Player2") {
+        } else if (player.tag == "Player2") {
             foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
                 pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
             }
@@ -131,6 +141,9 @@ public class GameController : MonoBehaviour {
         if (endTimer <= 0) {
             gameEnd = true;
             Debug.Log("Game Finished");
+        }
+        if (timerBar != null) {
+          timerBar.GetComponentInChildren<Image>().fillAmount = (endTimer / 60);
         }
     }
 }

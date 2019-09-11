@@ -45,7 +45,7 @@ public class PC_Overcooked : PlayerController {
             if (objCarry) {
                 pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
                 pickedUpObj.GetComponent<ItemController>().held = true;
-                pickedUpObj.GetComponent<ItemController>().overfill = false;
+                pickedUpObj.GetComponent<ItemController>().overfilling = false;
                 pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
             }
         }
