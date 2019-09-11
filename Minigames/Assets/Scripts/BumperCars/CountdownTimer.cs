@@ -17,7 +17,6 @@ public class CountdownTimer : MonoBehaviour {
     public bool paused;
     public float TimeRatio;
     public float TotalTime = 60f;
-    public GameObject PauseButton;
 
     public Image ProgressBar;
     public Image ProgressBar2;
@@ -48,7 +47,6 @@ public class CountdownTimer : MonoBehaviour {
                 endText.SetActive(true);
                 overallScore.SetActive(true);
                 minigameChanger.SetActive(true);
-                PauseButton.SetActive(false);
 
                 if (GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives > GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives) {
                     PlayerController.p1Score++;
@@ -88,7 +86,6 @@ public class CountdownTimer : MonoBehaviour {
                 endText.SetActive(true);
                 overallScore.SetActive(true);
                 minigameChanger.SetActive(true);
-                PauseButton.SetActive(false);
 
                 if (hellManage.p1TimesHit < hellManage.p2TimesHit)
                 {
@@ -121,7 +118,6 @@ public class CountdownTimer : MonoBehaviour {
     private IEnumerator Countdown() {     
         
         Time.timeScale = 0;
-        PauseButton.SetActive(false);
         float pauseTime = Time.realtimeSinceStartup + 3f;
 
         while (Time.realtimeSinceStartup < pauseTime) {
@@ -129,6 +125,5 @@ public class CountdownTimer : MonoBehaviour {
         }
 
         Time.timeScale = 1;
-        PauseButton.SetActive(true);
     }
 }

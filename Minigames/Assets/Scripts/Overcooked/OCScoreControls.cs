@@ -12,7 +12,6 @@ public class OCScoreControls : MonoBehaviour
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
-    public GameObject PauseButton;
 
     private bool gameEnded = true;
 
@@ -26,7 +25,6 @@ public class OCScoreControls : MonoBehaviour
             endText.SetActive(true);
             overallScore.SetActive(true);
             minigameChanger.SetActive(true);
-            PauseButton.SetActive(false);
 
             if (player1Control.gameObject.GetComponent<GameController>().points > player2Control.gameObject.GetComponent<GameController>().points) {
                 PlayerController.p1Score++;

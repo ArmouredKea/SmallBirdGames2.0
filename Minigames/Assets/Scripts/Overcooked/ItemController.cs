@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class ItemController : PickUpParent
 {
-
-    public bool paused;
-
     public bool lastPlayer1;
     public bool lastPlayer2;
     public GameObject lastPlayerObj;
 
     public bool held = false;
     public bool filling = false;
-    public bool overfilling = false;
+    public bool overfill = false;
 
     public int pointValue;
     public GameObject balloonSprite;

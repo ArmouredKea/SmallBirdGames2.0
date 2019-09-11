@@ -34,16 +34,9 @@ public class PC_BumperCars : PlayerController {
         base.Update();
 
         //calculates distance travelled.
-        float distance = Vector2.Distance(currentPosition, gameObject.transform.position);        
+        float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
+        totalDistance += distance;
         currentPosition = gameObject.transform.position;
-
-        //calculates the value for the boostBar slider and makes sure that it doesn't go below 0.
-        if (boosted && boostBar.value < 0) {
-            boostBar.value = 0;
-        } else if (!boosted) {
-            totalDistance += distance;
-            boostBar.value = totalDistance / 50;
-        }
 
         //player boost.
         if (totalDistance >= 50f) {
@@ -53,7 +46,14 @@ public class PC_BumperCars : PlayerController {
             speed = 15f;
             floatie.GetComponent<Animator>().SetBool("Boosted", true);
             StartCoroutine(BoostDuration(5f));
-        }        
+        }
+
+        //calculates the value for the boostBar slider and makes sure that it doesn't go below 0.
+        if (boosted && boostBar.value <= 0) {
+            boostBar.value = 0;
+        } else if (!boosted) {
+            boostBar.value = totalDistance / 50;
+        }
 
         //checks whether the character is moving or not to activate idle animation.
         if (GetComponent<Rigidbody2D>().velocity.y == 0 && GetComponent<Rigidbody2D>().velocity.x == 0 && !paused) {
@@ -119,7 +119,6 @@ public class PC_BumperCars : PlayerController {
             }
         }
 
-        boostBar.value = 0;
         speed = 7f;
         totalDistance = 0f;
         boosted = false;
