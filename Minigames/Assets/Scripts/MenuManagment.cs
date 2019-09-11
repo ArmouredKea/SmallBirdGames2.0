@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuManagment : MonoBehaviour
 {
@@ -10,6 +12,8 @@ public class MenuManagment : MonoBehaviour
     public GameObject MainMenu;
     public GameObject CharSelect;
     public GameObject GameLeng;
+    public Image MoveTo;
+    public Image TopSplash;
 
     //Quits the Game
     public void QuitGame()
@@ -39,7 +43,8 @@ public class MenuManagment : MonoBehaviour
     //Transitions the tap to start screen
     public void ScreenFade()
     {
-        SplashScreen.SetActive(false);
+      SplashScreen.SetActive(false);
+
     }
 
     //loads the character select screen
