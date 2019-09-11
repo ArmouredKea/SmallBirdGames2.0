@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour {
 
     //to spawn only one item on each spawn location
     void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "PickUp" && other.name != "DrinkEmpty(Clone)") {
+        if (other.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().balloonName != null) {
            if (other.gameObject.GetComponent<ItemController>().lastPlayer1 && gameObject.name == "HandInP1" || other.gameObject.GetComponent<ItemController>().lastPlayer2 && gameObject.name == "HandInP2") {
               if (playerScript.objCarry == false) {
                   HandleHandIn(other.gameObject, other.gameObject.GetComponent<ItemController>().pointValue);

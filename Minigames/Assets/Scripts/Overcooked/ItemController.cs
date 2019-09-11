@@ -18,6 +18,12 @@ public class ItemController : PickUpParent
     public int pointValue;
     public GameObject balloonSprite;
 
+    public Vector4 startColor;
+
+    private void Awake() {
+      startColor = gameObject.GetComponentInChildren<SpriteRenderer>().color;
+    }
+
     public void LastHeldBy (GameObject other) {
       if (other.gameObject.name == "Player1") {
         lastPlayer2 = false;
@@ -35,41 +41,51 @@ public class ItemController : PickUpParent
     public bool dInRange;
     public bool dispensing;
     public int dispenseTime;
+    public bool filled;
+
+    public GameObject currentDispenser;
 
     void OnTriggerEnter2D(Collider2D other) {
       if (other.tag == "Dispenser") {
+        currentDispenser = other.gameObject;
         dispenseTime = other.gameObject.GetComponent<Dispenser>().dispenseTime;
         dInRange = true;
       }
-      while (dInRange) {
-        if (dispensing == false && held == false) {
-          dispensing = true;
-          filling = true;
-          StartCoroutine(FillingBalloon(other.gameObject));
-        }
-      }
+
     }
 
     void Update() {
-
-    }
+        if (dInRange) {
+          if (dispensing == false && held == false && filled != true) {
+            dispensing = true;
+            filling = true;
+            StartCoroutine(FillingBalloon(currentDispenser));
+          } else if (held) {
+            dispensing = false;
+          }
+        }
+      }
 
     //handles "filling" the balloon
     IEnumerator FillingBalloon (GameObject other) {
         //tempLastHeld = lastPlayerObj;
         //Destroy(other.gameObject);
+        balloonName = other.gameObject.GetComponent<Dispenser>().dBalloonName;
+        pointValue = other.gameObject.GetComponent<Dispenser>().points;
         float l = 0;
         while (l < dispenseTime) {
             if (paused) {
                 yield return null;
             } else {
                 l += Time.deltaTime;
-              //  Vector4.Lerp(Vector4 other  , Vector4  , (l/4));
+                gameObject.GetComponentInChildren<SpriteRenderer>().color = Vector4.Lerp(gameObject.GetComponentInChildren<SpriteRenderer>().color, other.gameObject.GetComponent<Dispenser>().dColor, (l/dispenseTime));
                 yield return null;
             }
         }
+        filled = true;
+        filling = false;
         //other = Instantiate(dispensedB, this.gameObject.transform.position, Quaternion.identity);
-        overfilling = true;
+        //overfilling = true;
         //other.gameObject.GetComponent<ItemController>().lastPlayerObj = tempLastHeld;
         StartCoroutine(Overfill());
     }
@@ -77,23 +93,26 @@ public class ItemController : PickUpParent
     //checks if the balloon is being overfilled, and then makes it explode
     IEnumerator Overfill () {
         float l = 0;
-        while (l < 2.5f) {
+        while (l < 2.5f && dispensing) {
             if (paused) {
                 yield return null;
             } else {
                 l += Time.deltaTime;
+                gameObject.transform.localScale += new Vector3 (l/30, l/30, l/30);
                 yield return null;
             }
         }
-        if (overfilling) {
+        if (dispensing) {
             Destroy(gameObject);
             dispensing = false;
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
-        if (gameObject.tag == "PickUp" && dispensing == true) {
+        if (other.gameObject.tag == "Dispenser") {
             dispensing = false;
+            dInRange = false;
+            currentDispenser = null;
         }
     }
     /*public GameObject dispensedB;
