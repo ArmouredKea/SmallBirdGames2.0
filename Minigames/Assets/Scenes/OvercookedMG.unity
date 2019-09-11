@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 253497234}
-  audiotest: {fileID: 1390733325}
+  audiotest: {fileID: 4292089385795919912}
   timerBar: {fileID: 1314904223}
   points: 0
   orderList: []
@@ -1421,7 +1421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1346273792}
-  audiotest: {fileID: 1390733325}
+  audiotest: {fileID: 4292089385795919912}
   timerBar: {fileID: 0}
   points: 0
   orderList: []
@@ -4246,12 +4246,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!82 &1390733325 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4292089385119888726, guid: d85afd7374994864dbd268dbabb2ccc2,
-    type: 3}
-  m_PrefabInstance: {fileID: 4292089385795919911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424009023
 GameObject:
   m_ObjectHideFlags: 0
@@ -5803,3 +5797,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d85afd7374994864dbd268dbabb2ccc2, type: 3}
+--- !u!82 &4292089385795919912 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8625239114338000780, guid: d85afd7374994864dbd268dbabb2ccc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4292089385795919911}
+  m_PrefabAsset: {fileID: 0}
