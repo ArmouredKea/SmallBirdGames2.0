@@ -338,19 +338,8 @@ PrefabInstance:
       propertyPath: PauseManagerRef
       value: 
       objectReference: {fileID: 600194407}
-    - target: {fileID: 6135274138372058533, guid: ade4fb76ea3cb964ebd72bf0f591d209,
-        type: 3}
-      propertyPath: AreYouSure
-      value: 
-      objectReference: {fileID: 84395271}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
---- !u!1 &84395271 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5072004128381829905, guid: ade4fb76ea3cb964ebd72bf0f591d209,
-    type: 3}
-  m_PrefabInstance: {fileID: 84395270}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &84606095
 GameObject:
   m_ObjectHideFlags: 0

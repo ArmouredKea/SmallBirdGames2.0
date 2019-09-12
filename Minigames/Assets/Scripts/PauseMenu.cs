@@ -10,6 +10,8 @@ public class PauseMenu : MonoBehaviour
     public GameObject AreYouSure;
     public GameObject mutebutton;
     public GameObject unmutebutton;
+    public GameObject threeSecPause;
+    public GameObject countdownRef;
     public bool Paused;
     private string CurrentScene;
 
@@ -70,6 +72,8 @@ public class PauseMenu : MonoBehaviour
     public void UnPause() {
         if (CurrentScene == "BumperCars") {
             PauseManagerRef.GetComponent<Pause_BumperCars>().PauseButton();
+            countdownRef.SetActive(true);
+            threeSecPause.GetComponent<CountdownTimer>().Start();
             togglePauseMenu();
         }
         else if (CurrentScene == "OverCooked") {
@@ -78,6 +82,8 @@ public class PauseMenu : MonoBehaviour
         }
         else if (CurrentScene == "BulletHell") {
             PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
+            countdownRef.SetActive(true);
+            threeSecPause.GetComponent<CountdownTimer>().Start();
             togglePauseMenu();
         }
 

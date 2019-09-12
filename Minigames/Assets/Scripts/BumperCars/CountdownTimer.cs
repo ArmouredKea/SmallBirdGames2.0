@@ -17,12 +17,13 @@ public class CountdownTimer : MonoBehaviour {
     public bool paused;
     public float TimeRatio;
     public float TotalTime = 60f;
+    public GameObject countDownref;
 
     public Image ProgressBar;
     public Image ProgressBar2;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         StartCoroutine(Countdown());
     }
 	
@@ -118,12 +119,13 @@ public class CountdownTimer : MonoBehaviour {
     private IEnumerator Countdown() {     
         
         Time.timeScale = 0;
-        float pauseTime = Time.realtimeSinceStartup + 3f;
+        float pauseTime = Time.realtimeSinceStartup + 4f;
 
         while (Time.realtimeSinceStartup < pauseTime) {
             yield return 0;
         }
 
         Time.timeScale = 1;
+        countDownref.SetActive(false);
     }
 }
