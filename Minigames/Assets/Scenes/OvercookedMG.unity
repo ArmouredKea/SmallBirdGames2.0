@@ -486,7 +486,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 109795097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.3, y: 4.14, z: -5}
+  m_LocalPosition: {x: 3.3, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1930240462}
@@ -642,6 +642,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &151614156 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8625239114338000780, guid: d85afd7374994864dbd268dbabb2ccc2,
+    type: 3}
+  m_PrefabInstance: {fileID: 4292089385795919911}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &187210100
 GameObject:
   m_ObjectHideFlags: 0
@@ -674,7 +680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 253497234}
-  audiotest: {fileID: 1390733325}
+  audiotest: {fileID: 151614156}
   timerBar: {fileID: 1314904223}
   points: 0
   orderList: []
@@ -890,10 +896,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseTime: 3
+  dispenseTime: 5
+  dispensingP1: 0
+  dispensingP2: 0
   dColor: {r: 1, g: 0.9194475, b: 0, a: 1}
   dBalloonName: YellowBalloon
-  points: 2
+  points: 3
 --- !u!1001 &220062950
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -909,7 +917,7 @@ PrefabInstance:
     - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
@@ -979,6 +987,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1250061077, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
 --- !u!1 &253497234 stripped
@@ -1023,6 +1035,8 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+  bcEnter: 0
+  tempObj: {fileID: 0}
 --- !u!58 &253497241
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1421,7 +1435,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1346273792}
-  audiotest: {fileID: 1390733325}
+  audiotest: {fileID: 151614156}
   timerBar: {fileID: 0}
   points: 0
   orderList: []
@@ -1443,7 +1457,7 @@ GameObject:
   - component: {fileID: 449934678}
   - component: {fileID: 449934679}
   m_Layer: 0
-  m_Name: DispenserW
+  m_Name: DispenserB
   m_TagString: Dispenser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,7 +1501,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a590a81f77841054aa06edf48d668990, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 0, g: 0.15686275, b: 1, a: 0.39215687}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1549,10 +1563,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseTime: 2
-  dColor: {r: 1, g: 1, b: 1, a: 1}
-  dBalloonName: WhiteBalloon
-  points: 1
+  dispenseTime: 3
+  dispensingP1: 0
+  dispensingP2: 0
+  dColor: {r: 0, g: 0.15686275, b: 1, a: 1}
+  dBalloonName: BlueBalloon
+  points: 2
 --- !u!1 &493787704
 GameObject:
   m_ObjectHideFlags: 0
@@ -2073,6 +2089,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 839095692, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
 --- !u!1 &650087745
@@ -2194,10 +2214,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseTime: 4
+  dispenseTime: 5
+  dispensingP1: 0
+  dispensingP2: 0
   dColor: {r: 1, g: 0, b: 0, a: 1}
   dBalloonName: RedBalloon
-  points: 3
+  points: 4
 --- !u!1 &689910803
 GameObject:
   m_ObjectHideFlags: 0
@@ -2541,6 +2563,8 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+  bcEnter: 0
+  tempObj: {fileID: 0}
 --- !u!1 &789267477
 GameObject:
   m_ObjectHideFlags: 0
@@ -2598,7 +2622,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801595954}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.31, y: 4.16, z: -5}
+  m_LocalPosition: {x: -3.31, y: 3.5, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1930240462}
@@ -2964,6 +2988,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 342009484, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
 --- !u!1 &1036848810
@@ -3060,7 +3088,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
@@ -3133,6 +3161,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 284998237, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
@@ -3220,6 +3252,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690662641, guid: 72787442e2e76fc428af900930582486, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72787442e2e76fc428af900930582486, type: 3}
@@ -3765,10 +3801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dispenseTime: 5
+  dispenseTime: 2
+  dispensingP1: 0
+  dispensingP2: 0
   dColor: {r: 0.07811856, g: 1, b: 0, a: 1}
   dBalloonName: GreenBalloon
-  points: 0
+  points: 1
 --- !u!1 &1250061074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
@@ -4038,6 +4076,8 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+  bcEnter: 0
+  tempObj: {fileID: 0}
 --- !u!58 &1346273799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4246,12 +4286,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
---- !u!82 &1390733325 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 4292089385119888726, guid: d85afd7374994864dbd268dbabb2ccc2,
-    type: 3}
-  m_PrefabInstance: {fileID: 4292089385795919911}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1424009023
 GameObject:
   m_ObjectHideFlags: 0
@@ -4812,6 +4846,8 @@ MonoBehaviour:
   oButtonPressed: 0
   inRange: 0
   objCarry: 0
+  bcEnter: 0
+  tempObj: {fileID: 0}
 --- !u!50 &1672038084
 Rigidbody2D:
   serializedVersion: 4
@@ -4975,6 +5011,10 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 363137883, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}

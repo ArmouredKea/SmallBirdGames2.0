@@ -16,6 +16,8 @@ public class PC_Overcooked : PlayerController {
     //obj picked up bool
     public bool inRange;
     public bool objCarry;
+    public bool bcEnter;
+    public GameObject tempObj;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -27,6 +29,14 @@ public class PC_Overcooked : PlayerController {
     // Update is called once per frame
     protected override void Update() {
         base.Update();
+        if (bcEnter) {
+            if (objCarry == false) {
+                inRange = true;
+                pickedUpObj = tempObj;
+
+            }
+        }
+
         if (!touched && !paused) {
             animator.SetBool("Moving", false);
             GetComponent<Animator>().speed = 0;
@@ -46,7 +56,7 @@ public class PC_Overcooked : PlayerController {
                 pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
                 pickedUpObj.GetComponent<ItemController>().held = true;
                 pickedUpObj.GetComponent<ItemController>().overfilling = false;
-                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
+                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, (gameObject.transform.position.y + 0.2f), pickedUpObj.transform.position.z);
             }
         }
     }
@@ -103,8 +113,14 @@ public class PC_Overcooked : PlayerController {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
+      if (bcEnter == false && pickedUpObj == null) {
+        pickedUpObj = tempObj;
+        inRange = true;
+      }
         if (inRange && pickUpC != 0) {
-            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false ||
+                pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
                 objCarry = true;
             } else if (pickUpC != 0 && objCarry == true) {
                 pickedUpObj.GetComponent<ItemController>().held = false;
@@ -113,8 +129,13 @@ public class PC_Overcooked : PlayerController {
         }
     }
     public void PickUpObj2() {
+      if (bcEnter == false && pickedUpObj == null) {
+        pickedUpObj = tempObj;
+        inRange = true;
+      }
         if (inRange) {
-            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false ||
+                pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
                 objCarry = true;
             } else if (objCarry == true) {
                 pickedUpObj.GetComponent<ItemController>().held = false;
@@ -124,15 +145,12 @@ public class PC_Overcooked : PlayerController {
     }
 
     //Referencing gameObject (PickUp) that you are near
-    void OnTriggerStay2D(Collider2D other) {
-
-        if (other.gameObject.tag == "PickUp") {
-            if (objCarry == false) {
-                inRange = true;
-                pickedUpObj = other.gameObject;
-            }
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().lastPlayerObj == null ||
+            other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().lastPlayerObj == this.gameObject) {
+            tempObj = other.gameObject;
+            bcEnter = true;
         }
-
     }
 
     //Resetting on drop and collider exit
@@ -143,6 +161,9 @@ public class PC_Overcooked : PlayerController {
                 inRange = false;
                 pickedUpObj = null;
             }
+        }
+        if (tempObj != null) {
+          bcEnter = false;
         }
 
     }

@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b3843a32573bc940b2d6be77eb6fba5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7dca21e52f387aa4db2537f860c6b293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -131,8 +131,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b643fe5ec4bc0644b8d93b6210d6d60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawn: {fileID: 0}
+  gunnerSpawn: {fileID: 0}
+  runnerSpawn: {fileID: 0}
+  forShooter: 0
+  forRunner: 0
+  getRunner: {fileID: 0}
   r: 0
   y: 0
   g: 0
   w: 1
+  Position_current: {fileID: 0}
