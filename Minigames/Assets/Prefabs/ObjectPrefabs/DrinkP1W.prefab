@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5566476215544795840}
   m_Layer: 8
   m_Name: DrinkP1W
-  m_TagString: PickUp
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -84,13 +84,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonName: WhiteBalloon
+  paused: 0
+  lastPlayer1: 0
+  lastPlayer2: 0
+  lastPlayerObj: {fileID: 0}
+  held: 0
+  filling: 0
+  overfilling: 0
   pointValue: 1
   balloonSprite: {fileID: 803385372271144307, guid: 1eb26fe5e4218b9478c3393930d00681,
     type: 3}
-  lastPlayer1: 0
-  lastPlayer2: 0
-  held: 0
-  filling: 0
+  startColor: {x: 0, y: 0, z: 0, w: 0}
+  dInRange: 0
+  dispensing: 0
+  dispenseTime: 0
+  filled: 0
+  currentDispenser: {fileID: 0}
 --- !u!1001 &8468069584819316392
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -163,7 +172,8 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7531399732312522148, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
 --- !u!4 &9125017245570206682 stripped
 Transform:

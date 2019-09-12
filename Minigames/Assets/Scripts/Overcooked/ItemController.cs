@@ -5,6 +5,8 @@ using UnityEngine;
 public class ItemController : PickUpParent
 {
 
+    //public AudioSource audiotestI;
+
     public bool paused;
 
     public bool lastPlayer1;
@@ -70,6 +72,7 @@ public class ItemController : PickUpParent
     IEnumerator FillingBalloon (GameObject other) {
         //tempLastHeld = lastPlayerObj;
         //Destroy(other.gameObject);
+        //audiotestI.Play(0);
         balloonName = other.gameObject.GetComponent<Dispenser>().dBalloonName;
         pointValue = other.gameObject.GetComponent<Dispenser>().points;
         float l = 0;
@@ -103,6 +106,7 @@ public class ItemController : PickUpParent
             }
         }
         if (dispensing) {
+            //audiotestI.Play(0);
             Destroy(gameObject);
             dispensing = false;
         }

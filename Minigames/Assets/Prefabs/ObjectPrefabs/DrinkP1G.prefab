@@ -84,13 +84,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   balloonName: GreenBalloon
+  paused: 0
+  lastPlayer1: 0
+  lastPlayer2: 0
+  lastPlayerObj: {fileID: 0}
+  held: 0
+  filling: 0
+  overfilling: 0
   pointValue: 4
   balloonSprite: {fileID: 6492258418384220531, guid: 29b1e0d6cb8419f459ac662676d4dba6,
     type: 3}
-  lastPlayer1: 0
-  lastPlayer2: 0
-  held: 0
-  filling: 0
+  startColor: {x: 0, y: 0, z: 0, w: 0}
+  dInRange: 0
+  dispensing: 0
+  dispenseTime: 0
+  filled: 0
+  currentDispenser: {fileID: 0}
 --- !u!1001 &2646903222338468520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -173,7 +182,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3200648205922030666, guid: 29b1e0d6cb8419f459ac662676d4dba6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 29b1e0d6cb8419f459ac662676d4dba6, type: 3}
 --- !u!4 &9125017245570206682 stripped
 Transform:

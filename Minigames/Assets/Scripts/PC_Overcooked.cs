@@ -77,12 +77,12 @@ public class PC_Overcooked : PlayerController {
 
     void Controls() {
 
-        if (gameObject.name == "Player1") {
+        if (gameObject.tag == "Player1") {
             vertMovement = Input.GetAxis("Vertical");
             horiMovement = Input.GetAxis("Horizontal");
             pickUpC = Input.GetAxis("PickUp");
         }
-        if (gameObject.name == "Player2") {
+        if (gameObject.tag == "Player2") {
             vertMovement = Input.GetAxis("Vertical1");
             horiMovement = Input.GetAxis("Horizontal1");
             pickUpC = Input.GetAxis("PickUp1");
@@ -103,27 +103,30 @@ public class PC_Overcooked : PlayerController {
 
     //To Pick up and Drop Objects
     public void PickUpObj() {
-        if (pickUpC != 0 && inRange && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
-            objCarry = true;
-        } else if (pickUpC != 0 && objCarry == true) {
-            pickedUpObj.GetComponent<ItemController>().held = false;
-            objCarry = false;
+        if (inRange && pickUpC != 0) {
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+                objCarry = true;
+            } else if (pickUpC != 0 && objCarry == true) {
+                pickedUpObj.GetComponent<ItemController>().held = false;
+                objCarry = false;
+            }
         }
     }
     public void PickUpObj2() {
-        if (inRange && objCarry == false) {
-            objCarry = true;
-
-        } else if (objCarry == true) {
-            pickedUpObj.GetComponent<ItemController>().held = false;
-            objCarry = false;
+        if (inRange) {
+            if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
+                objCarry = true;
+            } else if (objCarry == true) {
+                pickedUpObj.GetComponent<ItemController>().held = false;
+                objCarry = false;
+            }
         }
     }
 
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerStay2D(Collider2D other) {
 
-        if (other.gameObject.name == "DrinkEmpty(Clone)" || other.gameObject.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().lastPlayerObj == this.gameObject) {
+        if (other.gameObject.tag == "PickUp") {
             if (objCarry == false) {
                 inRange = true;
                 pickedUpObj = other.gameObject;

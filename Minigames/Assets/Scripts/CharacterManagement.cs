@@ -13,7 +13,7 @@ public class CharacterManagement : MonoBehaviour
     public GameObject p2Mika;
 
     // Start is called before the first frame update
-    void Start() {
+    void Awake() {
         if (CharacterCarryOver.player1 == "Bo") {
             p1Bo.SetActive(true);
         } else if (CharacterCarryOver.player1 == "Hiro") {
