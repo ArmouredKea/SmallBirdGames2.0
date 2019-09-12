@@ -881,6 +881,7 @@ MonoBehaviour:
   timer: {fileID: 590999996}
   bombSchtuff: {fileID: 1144503035}
   PauseMenuRef: {fileID: 1624485327}
+  canvaspausebutton: {fileID: 571297}
 --- !u!4 &485851923
 Transform:
   m_ObjectHideFlags: 0
@@ -1205,8 +1206,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentTime: 60
-  p1Time: {fileID: 2123590447}
-  p2Time: {fileID: 1746703580}
   endText: {fileID: 1216832985}
   overallScore: {fileID: 1301332126}
   minigameChanger: {fileID: 1755145320}
@@ -1214,6 +1213,7 @@ MonoBehaviour:
   TimeRatio: 0
   TotalTime: 60
   countDownref: {fileID: 1386029564}
+  canvaspausebutton: {fileID: 571297}
   ProgressBar: {fileID: 175318629}
   ProgressBar2: {fileID: 578186164}
 --- !u!1 &606999692
@@ -1721,7 +1721,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &822084443
 MonoBehaviour:
@@ -2498,7 +2498,7 @@ PrefabInstance:
     - target: {fileID: 6135274138372058538, guid: ade4fb76ea3cb964ebd72bf0f591d209,
         type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 6135274138372058538, guid: ade4fb76ea3cb964ebd72bf0f591d209,
         type: 3}
@@ -2812,6 +2812,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9202020939823398071, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
+        type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2918,11 +2923,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911241, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
-        type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9202020939823398071, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_FillAmount
       value: 1

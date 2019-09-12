@@ -12,6 +12,7 @@ public class OCScoreControls : MonoBehaviour
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
+    public GameObject CanvasPauseButton;
 
     private bool gameEnded = true;
 
@@ -41,6 +42,7 @@ public class OCScoreControls : MonoBehaviour
             overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
             gameEnded = false;
             Time.timeScale = 0;
+            CanvasPauseButton.SetActive(false);
 
         }
 

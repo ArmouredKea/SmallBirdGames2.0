@@ -12,8 +12,8 @@ public class MenuManagment : MonoBehaviour
     public GameObject mainmenu;
     public GameObject charselect;
     public GameObject gameleng;
-    public Image moveto;
-    public Image topsplash;
+    public GameObject unmutebutton;
+    public GameObject mutebutton;
 
     //Quits the Game
     public void QuitGame() {
@@ -58,5 +58,17 @@ public class MenuManagment : MonoBehaviour
     public void BackToleng() {
         gameleng.SetActive(true);
         charselect.SetActive(false);
+    }
+
+    //activates the unmute button
+    public void Mute() {
+        mutebutton.SetActive(false);
+        unmutebutton.SetActive(true);
+    }
+
+    //activates the mute button
+    public void unMute() {
+        mutebutton.SetActive(true);
+        unmutebutton.SetActive(false);
     }
 }

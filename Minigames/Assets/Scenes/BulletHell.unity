@@ -1174,14 +1174,14 @@ PrefabInstance:
       objectReference: {fileID: 1831626653}
     - target: {fileID: 6135274138372058533, guid: ade4fb76ea3cb964ebd72bf0f591d209,
         type: 3}
-      propertyPath: AreYouSure
+      propertyPath: threeSecPause
       value: 
-      objectReference: {fileID: 1311483047}
-    - target: {fileID: 6135274138372058536, guid: ade4fb76ea3cb964ebd72bf0f591d209,
+      objectReference: {fileID: 2046366693}
+    - target: {fileID: 6135274138372058533, guid: ade4fb76ea3cb964ebd72bf0f591d209,
         type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
+      propertyPath: countdownRef
+      value: 
+      objectReference: {fileID: 684499763}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
 --- !u!1 &487282097
@@ -6793,12 +6793,6 @@ Transform:
   m_Father: {fileID: 223722870}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1311483047 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5072004128381829905, guid: ade4fb76ea3cb964ebd72bf0f591d209,
-    type: 3}
-  m_PrefabInstance: {fileID: 466743710}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1329502179
 GameObject:
   m_ObjectHideFlags: 0
@@ -13569,36 +13563,6 @@ PrefabInstance:
       propertyPath: YellowPowerup
       value: 
       objectReference: {fileID: 7630684893015946895}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: RedPowerupChance
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: WhitePowerupChance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: GreenPowerupChance
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: YellowPowerupChance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: Powerup_Duration
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8767444331286311649, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: Spawn_maxTime
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311650, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: Spawn_ListPoints.Array.data[0]
@@ -13629,11 +13593,6 @@ PrefabInstance:
       propertyPath: YellowPowerup
       value: 
       objectReference: {fileID: 772255623}
-    - target: {fileID: 8767444331286311655, guid: 12a8c36e3a310514d8bac976815fb96e,
-        type: 3}
-      propertyPath: pool_ListR.Array.size
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311654, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13716,6 +13675,11 @@ PrefabInstance:
       objectReference: {fileID: 1726162053}
     - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
+      propertyPath: countDownref
+      value: 
+      objectReference: {fileID: 684499763}
+    - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
+        type: 3}
       propertyPath: ProgressBar
       value: 
       objectReference: {fileID: 1203581546}
@@ -13724,6 +13688,11 @@ PrefabInstance:
       propertyPath: ProgressBar2
       value: 
       objectReference: {fileID: 916205793}
+    - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
+        type: 3}
+      propertyPath: canvaspausebutton
+      value: 
+      objectReference: {fileID: 2057849231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a8c36e3a310514d8bac976815fb96e, type: 3}
 --- !u!1001 &8815341561985113792

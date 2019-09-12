@@ -78,6 +78,8 @@ public class PauseMenu : MonoBehaviour
         }
         else if (CurrentScene == "OverCooked") {
             PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
+            countdownRef.SetActive(true);
+            threeSecPause.GetComponent<Pause_Overcooked>().Start();
             togglePauseMenu();
         }
         else if (CurrentScene == "BulletHell") {

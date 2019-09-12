@@ -89,10 +89,31 @@ MonoBehaviour:
   pool_WhiteProjTime: 0
   pool_BlueProjTime: 1
   pool_NumToPool: 8
-  pool_ListR: []
+  pool_ListR:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   pool_ListB: []
   pool_ListG: []
   pool_ListY: []
+  pool_ListYC: []
   pool_ListW: []
 --- !u!114 &8767444331286311649
 MonoBehaviour:
@@ -106,22 +127,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 660bf405f01ddf54d9105960f9e233af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
   Spawn_ListPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Spawn_SpawnedObj: []
   RedPowerup: {fileID: 0}
   WhitePowerup: {fileID: 0}
   GreenPowerup: {fileID: 0}
   YellowPowerup: {fileID: 0}
-  RedPowerupChance: 0
-  WhitePowerupChance: 0.3
-  GreenPowerupChance: 0.4
-  YellowPowerupChance: 0.3
+  RedPowerupChance: 0.3
+  WhitePowerupChance: 0.2
+  GreenPowerupChance: 0.3
+  YellowPowerupChance: 0.2
   Spawn_ToPoint: {fileID: 0}
   Spawn_currentTime: 0
-  Spawn_maxTime: 3
+  Spawn_maxTime: 4
   Powerup_Activated: 0
   Powerup_Duration: 5
 --- !u!114 &8767444331286311650
@@ -136,11 +159,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935a87a1cb5556a4ebb5c076c76ccafb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  paused: 0
   Spawn_ListPoints:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  Spawn_SpawnedObj: []
   RedPowerup: {fileID: 0}
   WhitePowerup: {fileID: 0}
   GreenPowerup: {fileID: 0}
@@ -175,3 +200,8 @@ MonoBehaviour:
   overallScore: {fileID: 0}
   minigameChanger: {fileID: 0}
   paused: 0
+  TimeRatio: 0
+  TotalTime: 60
+  countDownref: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  ProgressBar2: {fileID: 0}

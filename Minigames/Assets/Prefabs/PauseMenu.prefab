@@ -824,6 +824,8 @@ MonoBehaviour:
   AreYouSure: {fileID: 5072004128381829905}
   mutebutton: {fileID: 6135274137928496290}
   unmutebutton: {fileID: 897003930018526564}
+  threeSecPause: {fileID: 0}
+  countdownRef: {fileID: 0}
   Paused: 0
 --- !u!1 &6135274139071118311
 GameObject:

@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class CountdownTimer : MonoBehaviour {
 
     public float currentTime = 60f;
-    public Text p1Time;
-    public Text p2Time;
     public GameObject endText;
     public GameObject overallScore;
     public GameObject minigameChanger;
@@ -18,6 +16,7 @@ public class CountdownTimer : MonoBehaviour {
     public float TimeRatio;
     public float TotalTime = 60f;
     public GameObject countDownref;
+    public GameObject canvaspausebutton;
 
     public Image ProgressBar;
     public Image ProgressBar2;
@@ -25,6 +24,7 @@ public class CountdownTimer : MonoBehaviour {
     // Use this for initialization
     public void Start () {
         StartCoroutine(Countdown());
+        canvaspausebutton.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -38,8 +38,6 @@ public class CountdownTimer : MonoBehaviour {
             ProgressBar.fillAmount = TimeRatio;
             ProgressBar2.fillAmount = TimeRatio;
         }
-        p1Time.text = "Time: " + currentTime.ToString("00");
-        p2Time.text = "Time: " + currentTime.ToString("00");
 
         //check number of lives for each player when timer reaches 0
         if(scene.name == "BumperCarsMG") { 
@@ -65,7 +63,7 @@ public class CountdownTimer : MonoBehaviour {
                 overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
                 gameEnded = false;
                 Time.timeScale = 0;
-
+                canvaspausebutton.SetActive(false);
             }
         }
         if(scene.name == "BulletHell")
@@ -109,10 +107,9 @@ public class CountdownTimer : MonoBehaviour {
                 overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
                 gameEnded = false;
                 Time.timeScale = 0;
-
+                canvaspausebutton.SetActive(false);
             }
         }
-
     }
 
     //countdown before game begins
@@ -127,5 +124,6 @@ public class CountdownTimer : MonoBehaviour {
 
         Time.timeScale = 1;
         countDownref.SetActive(false);
+        canvaspausebutton.SetActive(true);
     }
 }

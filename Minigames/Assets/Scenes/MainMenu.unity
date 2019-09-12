@@ -2203,6 +2203,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1121254920}
   m_CullTransparentMesh: 0
+--- !u!1 &1124213013 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4106286009242031428, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3124173768605110877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1140903640
 GameObject:
   m_ObjectHideFlags: 0
@@ -3047,13 +3053,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f499a4a4f8e90424fa44b05b7e5b1904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SettingMen: {fileID: 1523013774}
-  SplashScreen: {fileID: 1553206187}
-  MainMenu: {fileID: 1718117985}
-  CharSelect: {fileID: 946851413}
-  GameLeng: {fileID: 1692736549}
-  MoveTo: {fileID: 0}
-  TopSplash: {fileID: 0}
+  settingmen: {fileID: 1523013774}
+  splashscreen: {fileID: 1553206187}
+  mainmenu: {fileID: 1718117985}
+  charselect: {fileID: 946851413}
+  gameleng: {fileID: 1692736549}
+  unmutebutton: {fileID: 1124213013}
+  mutebutton: {fileID: 1593378688}
 --- !u!1 &1475261081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3215,6 +3221,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553206187}
   m_CullTransparentMesh: 0
+--- !u!1 &1593378688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3124173766906055883, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3124173768605110877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1613958219
 GameObject:
   m_ObjectHideFlags: 0
@@ -4381,11 +4393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1439988690}
+      objectReference: {fileID: 1439988694}
     - target: {fileID: 3124173766906055876, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: 
+      value: Mute
       objectReference: {fileID: 0}
     - target: {fileID: 3124173768146894868, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
@@ -4539,6 +4551,52 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728971799169065200, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2728971799169065200, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 126
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502420399875419727, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ef32cda5449755444b7b3afacce813aa,
+        type: 3}
+    - target: {fileID: 3502420399875419727, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502420399875419727, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502420399875419727, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502420399875419727, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 413913881455721871, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1439988694}
+    - target: {fileID: 413913881455721871, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: unMute
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3124173768292385853, guid: 0ebc6f3105c1cce48859d7ff83d54a4a, type: 3}
