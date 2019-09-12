@@ -7,64 +7,56 @@ using UnityEngine.EventSystems;
 public class MenuManagment : MonoBehaviour
 {
 
-    public GameObject SettingMen;
-    public GameObject SplashScreen;
-    public GameObject MainMenu;
-    public GameObject CharSelect;
-    public GameObject GameLeng;
-    public Image MoveTo;
-    public Image TopSplash;
+    public GameObject settingmen;
+    public GameObject splashscreen;
+    public GameObject mainmenu;
+    public GameObject charselect;
+    public GameObject gameleng;
+    public Image moveto;
+    public Image topsplash;
 
     //Quits the Game
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
     }
 
     //Activates the settings canvas
-    public void OpenSettings()
-    {
-        SettingMen.SetActive(true);
+    public void OpenSettings() {
+        settingmen.SetActive(true);
     }
 
     //Deactivates the settings Canvas
-    public void CloseSettings()
-    {
-        SettingMen.SetActive(false);
+    public void CloseSettings() {
+        settingmen.SetActive(false);
     }
 
     //Changes you to the game length screen
-    public void Play()
-    {
-        MainMenu.SetActive(false);
-        GameLeng.SetActive(true);
+    public void Play() {
+        mainmenu.SetActive(false);
+        gameleng.SetActive(true);
     }
 
     //Transitions the tap to start screen
-    public void ScreenFade()
-    {
-      SplashScreen.SetActive(false);
+    public void ScreenFade() {
+      splashscreen.SetActive(false);
 
     }
 
     //loads the character select screen
-    public void CharaScreen()
-    {
-        CharSelect.SetActive(true);
-        GameLeng.SetActive(false);
+    public void CharaScreen() {
+        charselect.SetActive(true);
+        gameleng.SetActive(false);
     }
 
     //takes you back to the main menu from the game length screen
-    public void BackToMenu()
-    {
-        MainMenu.SetActive(true);
-        GameLeng.SetActive(false);
+    public void BackToMenu() {
+        mainmenu.SetActive(true);
+        gameleng.SetActive(false);
     }
 
     //takes you back to the game length screen
-    public void BackToleng()
-    {
-        GameLeng.SetActive(true);
-        CharSelect.SetActive(false);
+    public void BackToleng() {
+        gameleng.SetActive(true);
+        charselect.SetActive(false);
     }
 }
