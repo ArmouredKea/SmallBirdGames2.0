@@ -44,6 +44,7 @@ public class ItemController : PickUpParent
     public bool dispensing;
     public int dispenseTime;
     public bool filled;
+    public bool canD;
 
     public GameObject currentDispenser;
 
@@ -58,13 +59,35 @@ public class ItemController : PickUpParent
 
     void Update() {
         if (dInRange) {
-          if (dispensing == false && held == false && filled != true) {
-            dispensing = true;
-            filling = true;
-            StartCoroutine(FillingBalloon(currentDispenser));
-          } else if (held) {
-            dispensing = false;
+          if (currentDispenser.GetComponent<Dispenser>().dispensingP1 == true && lastPlayer1 ||
+              currentDispenser.GetComponent<Dispenser>().dispensingP2 == true && lastPlayer2 ||
+              filled) {
+            canD = false;
+          } else {
+            canD = true;
           }
+          if (held == false && filled != true && canD) {
+            filling = true;
+            dispensing = true;
+            if (lastPlayer1) {
+              currentDispenser.GetComponent<Dispenser>().dispensingP1 = true;
+            } else {
+              currentDispenser.GetComponent<Dispenser>().dispensingP2 = true;
+            }
+            StartCoroutine(FillingBalloon(currentDispenser));
+          } else if (held == false && canD == false && lastPlayerObj != null && dispensing == false) {
+            Debug.Log("if it reaches this something iswrong");
+            Destroy(gameObject);
+          } else if (held) {
+              dispensing = false;
+            if (currentDispenser.GetComponent<Dispenser>().dispensingP1 && this.filled) {
+              currentDispenser.GetComponent<Dispenser>().dispensingP1 = false;
+            } else if (currentDispenser.GetComponent<Dispenser>().dispensingP2 && this.filled) {
+              currentDispenser.GetComponent<Dispenser>().dispensingP2 = false;
+            }
+          }
+        } else if (held == false && lastPlayerObj != null && canD == false) {
+          Destroy(gameObject);
         }
       }
 
@@ -101,14 +124,21 @@ public class ItemController : PickUpParent
                 yield return null;
             } else {
                 l += Time.deltaTime;
-                gameObject.transform.localScale += new Vector3 (l/30, l/30, l/30);
+                gameObject.transform.localScale += new Vector3 (l/200, l/200, l/200);
                 yield return null;
             }
         }
         if (dispensing) {
             //audiotestI.Play(0);
+            if (currentDispenser.GetComponent<Dispenser>().dispensingP1) {
+              currentDispenser.GetComponent<Dispenser>().dispensingP1 = false;
+              dispensing = false;
+            } else {
+              currentDispenser.GetComponent<Dispenser>().dispensingP2 = false;
+              dispensing = false;
+            }
             Destroy(gameObject);
-            dispensing = false;
+
         }
     }
 

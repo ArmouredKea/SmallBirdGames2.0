@@ -93,24 +93,26 @@ public class GameController : MonoBehaviour {
     //handles the handin proccess, checking if the item is in the order
     void HandleHandIn(GameObject handInItem, int pIncrease)
     {
+      Debug.Log("Hand in Obj" + handInItem.GetComponent<ItemController>().balloonName);
         for (int i = 0; i < orderList.Count; i++)
         {
+          Debug.Log("balloon Name in Array" + orderList[i].GetComponent<ItemController>().balloonName);
             if (orderList[i] != null)
             {
-               // Debug.Log("Made it to point 1");
+                Debug.Log("Made it to point 1");
                 if (handInItem.GetComponent<ItemController>().balloonName == orderList[i].GetComponent<ItemController>().balloonName)
                 {
-                    //Debug.Log("Made it to point 2");
+                    Debug.Log("Made it to point 2");
                         orderList.Remove(orderList[i]);
                         points += (pIncrease * 2);
                         Debug.Log("Ordered Points: " + points);
 
                     break;
+                } else {
+                    points += pIncrease;
+                    Debug.Log("Non-Ordered Points: " + points);
+                    break;
                 }
-            } else {
-                points += pIncrease;
-                Debug.Log("Non-Ordered Points: " + points);
-
             }
         }
 
