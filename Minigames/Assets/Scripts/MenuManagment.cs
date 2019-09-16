@@ -13,6 +13,8 @@ public class MenuManagment : MonoBehaviour
     public GameObject CharSelect;
     public GameObject GameLeng;
     public GameObject MenuButtons;
+    public GameObject MuteBTN;
+    public GameObject UnMuteBTN;
     public Image MoveTo;
     public Image TopSplash;
 
@@ -69,5 +71,15 @@ public class MenuManagment : MonoBehaviour
     {
         GameLeng.SetActive(true);
         CharSelect.SetActive(false);
+    }
+
+    public void mute(){
+        MuteBTN.SetActive(false);
+        UnMuteBTN.SetActive(true);
+    }
+
+    public void Unmute(){
+      MuteBTN.SetActive(true);
+      UnMuteBTN.SetActive(false);
     }
 }
