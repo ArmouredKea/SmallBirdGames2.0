@@ -17,14 +17,21 @@ public class CountdownTimer : MonoBehaviour {
     public float TotalTime = 60f;
     public GameObject countDownref;
     public GameObject canvaspausebutton;
+    public GameObject tutorialRefrence;
 
     public Image ProgressBar;
     public Image ProgressBar2;
 
     // Use this for initialization
-    public void Start () {
-        StartCoroutine(Countdown());
+    void Start () {
+        Time.timeScale = 0;
         canvaspausebutton.SetActive(false);
+    }
+
+    public void closeTutorial () {
+        tutorialRefrence.SetActive(false);
+        countDownref.SetActive(true);
+        StartCoroutine(Countdown());
     }
 	
 	// Update is called once per frame

@@ -12,8 +12,7 @@ public class Pause_BumperCars : Pause
 
     // Start is called before the first frame update
     void Start() {
-        canvaspausebutton.SetActive(false);
-        StartCoroutine(Countdown());
+        
     }
 
     // Update is called once per frame
@@ -85,18 +84,4 @@ public class Pause_BumperCars : Pause
 
     }
 
-    //countdown before game begins
-    private IEnumerator Countdown() {
-
-        Time.timeScale = 0;
-        float pauseTime = Time.realtimeSinceStartup + 4f;
-
-        while (Time.realtimeSinceStartup < pauseTime)
-        {
-            yield return 0;
-        }
-
-        Time.timeScale = 1;
-        canvaspausebutton.SetActive(true);
-    }
 }

@@ -7,17 +7,24 @@ public class Pause_Overcooked : Pause
     public GameObject PauseMenuRef;
     public GameObject countDownref;
     public GameObject canvaspausebutton;
+    public GameObject countdown;
+    public GameObject tutorial;
 
     // Start is called before the first frame update
     public void Start() {
-        paused = true;
         canvaspausebutton.SetActive(false);
-        StartCoroutine(Countdown());
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update() {
 
+    }
+
+    public void closeTutorial() {
+        tutorial.SetActive(false);
+        countdown.SetActive(true);
+        StartCoroutine(Countdown());
     }
 
     //pause and unpause for Overcooked.

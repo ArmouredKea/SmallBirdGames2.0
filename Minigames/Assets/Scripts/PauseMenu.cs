@@ -73,19 +73,19 @@ public class PauseMenu : MonoBehaviour
         if (CurrentScene == "BumperCars") {
             PauseManagerRef.GetComponent<Pause_BumperCars>().PauseButton();
             countdownRef.SetActive(true);
-            threeSecPause.GetComponent<CountdownTimer>().Start();
+            threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
             togglePauseMenu();
         }
         else if (CurrentScene == "OverCooked") {
             PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
             countdownRef.SetActive(true);
-            threeSecPause.GetComponent<Pause_Overcooked>().Start();
+            threeSecPause.GetComponent<Pause_Overcooked>().closeTutorial();
             togglePauseMenu();
         }
         else if (CurrentScene == "BulletHell") {
             PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
             countdownRef.SetActive(true);
-            threeSecPause.GetComponent<CountdownTimer>().Start();
+            threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
             togglePauseMenu();
         }
 
