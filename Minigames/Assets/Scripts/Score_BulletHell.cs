@@ -1,17 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Score_BumperCars : Score
+public class Score_BulletHell : Score
 {
-
-    public GameObject bombSchtuff;
-    public GameObject pauseBumperCars;
+    public GameObject bulletHellManage;
+    public GameObject pauseBulletHell;
 
     // Start is called before the first frame update
     protected override void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -20,11 +18,10 @@ public class Score_BumperCars : Score
             currentTime -= Time.deltaTime;
         }
 
-        //checks number of lives for each player or when the timer reaches 0 to display score
-        if (currentTime <= 0f || bombSchtuff.GetComponent<BombSchtuff>().p1Lives == 0 || bombSchtuff.GetComponent<BombSchtuff>().p2Lives == 0 && gameCanEnd) {
+        if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);
 
-            if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+            if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player1 == "Bo") {
                     winBo.SetActive(true);
                     p1Bo.SetActive(true);
@@ -46,7 +43,7 @@ public class Score_BumperCars : Score
 
                 PlayerController.p1Score++;
 
-            } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
                     winBo.SetActive(true);
                     p2Bo.SetActive(true);
@@ -114,8 +111,8 @@ public class Score_BumperCars : Score
             Debug.Log(PlayerController.p2Score);
 
             pauseButton.SetActive(false);
-            pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;
-            pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
+            pauseBulletHell.GetComponent<Pause_BulletHell>().paused = false;
+            pauseBulletHell.GetComponent<Pause_BulletHell>().PauseButton();
 
             gameCanEnd = false;
 

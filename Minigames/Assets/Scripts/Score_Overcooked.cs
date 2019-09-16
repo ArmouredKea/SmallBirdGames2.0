@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Score_BumperCars : Score
+public class Score_Overcooked : Score
 {
 
-    public GameObject bombSchtuff;
-    public GameObject pauseBumperCars;
+    public GameObject player1;
+    public GameObject player2;
+    public GameObject pauseOvercooked;
 
     // Start is called before the first frame update
     protected override void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -21,10 +22,10 @@ public class Score_BumperCars : Score
         }
 
         //checks number of lives for each player or when the timer reaches 0 to display score
-        if (currentTime <= 0f || bombSchtuff.GetComponent<BombSchtuff>().p1Lives == 0 || bombSchtuff.GetComponent<BombSchtuff>().p2Lives == 0 && gameCanEnd) {
+        if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);
 
-            if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+            if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
                 if (CharacterCarryOver.player1 == "Bo") {
                     winBo.SetActive(true);
                     p1Bo.SetActive(true);
@@ -46,7 +47,7 @@ public class Score_BumperCars : Score
 
                 PlayerController.p1Score++;
 
-            } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+            } else if (player1.GetComponent<GameController>().points < player2.GetComponent<GameController>().points) {
                 if (CharacterCarryOver.player2 == "Bo") {
                     winBo.SetActive(true);
                     p2Bo.SetActive(true);
@@ -114,8 +115,8 @@ public class Score_BumperCars : Score
             Debug.Log(PlayerController.p2Score);
 
             pauseButton.SetActive(false);
-            pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;
-            pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
+            pauseOvercooked.GetComponent<Pause_Overcooked>().paused = false;
+            pauseOvercooked.GetComponent<Pause_Overcooked>().PauseButton();
 
             gameCanEnd = false;
 

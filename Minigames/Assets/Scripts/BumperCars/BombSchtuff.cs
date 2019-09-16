@@ -12,14 +12,25 @@ public class BombSchtuff : MonoBehaviour {
 
     public int p1Lives = 3;
     public int p2Lives = 3;
-    public GameObject p1H1;
-    public GameObject p1H2;
-    public GameObject p1H3;
-    public GameObject p2H1;
-    public GameObject p2H2;
-    public GameObject p2H3;
-
-    public Transform spawn;
+    public GameObject p1H1Bo;
+    public GameObject p1H2Bo;
+    public GameObject p1H3Bo;
+    public GameObject p1H1Hiro;
+    public GameObject p1H2Hiro;
+    public GameObject p1H3Hiro;
+    public GameObject p1H1Mika;
+    public GameObject p1H2Mika;
+    public GameObject p1H3Mika;
+    public GameObject p2H1Bo;
+    public GameObject p2H2Bo;
+    public GameObject p2H3Bo;
+    public GameObject p2H1Hiro;
+    public GameObject p2H2Hiro;
+    public GameObject p2H3Hiro;
+    public GameObject p2H1Mika;
+    public GameObject p2H2Mika;
+    public GameObject p2H3Mika;
+    
     public bool paused;
     private GameObject pauseParent;
 
@@ -28,6 +39,35 @@ public class BombSchtuff : MonoBehaviour {
         pauseParent = GameObject.Find("Pause");
         StartCoroutine(SpawnBomb(1.5f));
         //spawningBomb = true;
+
+        if (CharacterCarryOver.player1 == "Bo") {
+            p1H1Bo.SetActive(true);
+            p1H2Bo.SetActive(true);
+            p1H3Bo.SetActive(true);
+        } else if (CharacterCarryOver.player1 == "Hiro") {
+            p1H1Hiro.SetActive(true);
+            p1H2Hiro.SetActive(true);
+            p1H3Hiro.SetActive(true);
+        } else if (CharacterCarryOver.player1 == "Mika") {
+            p1H1Mika.SetActive(true);
+            p1H2Mika.SetActive(true);
+            p1H3Mika.SetActive(true);
+        }
+
+        if (CharacterCarryOver.player2 == "Bo") {
+            p2H1Bo.SetActive(true);
+            p2H2Bo.SetActive(true);
+            p2H3Bo.SetActive(true);
+        } else if (CharacterCarryOver.player2 == "Hiro") {
+            p2H1Hiro.SetActive(true);
+            p2H2Hiro.SetActive(true);
+            p2H3Hiro.SetActive(true);
+        } else if (CharacterCarryOver.player2 == "Mika") {
+            p2H1Mika.SetActive(true);
+            p2H2Mika.SetActive(true);
+            p2H3Mika.SetActive(true);
+        }
+
     }
 
 	// Update is called once per frame
@@ -47,23 +87,58 @@ public class BombSchtuff : MonoBehaviour {
         }
 
         //player 1 lives
-        if (p1Lives == 2) {
-            p1H3.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        } else if (p1Lives == 1) {
-            p1H2.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        } else if (p1Lives <= 0) {
-            p1H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+        if (CharacterCarryOver.player1 == "Bo") {
+            if (p1Lives == 2) {
+                p1H3Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives == 1) {
+                p1H2Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives <= 0) {
+                p1H1Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
+        } else if (CharacterCarryOver.player1 == "Hiro") {
+            if (p1Lives == 2) {
+                p1H3Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives == 1) {
+                p1H2Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives <= 0) {
+                p1H1Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
+        } else if (CharacterCarryOver.player1 == "Mika") {
+            if (p1Lives == 2) {
+                p1H3Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives == 1) {
+                p1H2Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p1Lives <= 0) {
+                p1H1Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
         }
 
+
         //player 2 lives
-        if (p2Lives == 2) {
-            p2H3.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        }
-        else if (p2Lives == 1) {
-            p2H2.GetComponent<Image>().color = new Color(0, 0, 0, 1);
-        }
-        else if (p2Lives <= 0) {
-            p2H1.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+        if (CharacterCarryOver.player2 == "Bo") {
+            if (p2Lives == 2) {
+                p2H3Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives == 1) {
+                p2H2Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives <= 0) {
+                p2H1Bo.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
+        } else if (CharacterCarryOver.player2 == "Hiro") {
+            if (p2Lives == 2) {
+                p2H3Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives == 1) {
+                p2H2Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives <= 0) {
+                p2H1Hiro.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
+        } else if (CharacterCarryOver.player2 == "Mika") {
+            if (p2Lives == 2) {
+                p2H3Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives == 1) {
+                p2H2Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            } else if (p2Lives <= 0) {
+                p2H1Mika.GetComponent<Image>().color = new Color(0, 0, 0, 1);
+            }
         }
     }
 
