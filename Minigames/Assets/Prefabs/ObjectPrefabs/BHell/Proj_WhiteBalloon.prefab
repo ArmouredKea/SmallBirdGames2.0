@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8665399650197777155}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.006}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 693f0e0e705412b4e9e713bc5d57b8d6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.08
+  m_Radius: 0.4
 --- !u!50 &1138284520779102607
 Rigidbody2D:
   serializedVersion: 4
@@ -135,8 +135,10 @@ MonoBehaviour:
   P1Cont: {fileID: 0}
   P2Cont: {fileID: 0}
   firedFrom: {fileID: 0}
+  paused: 0
+  pauseVelocity: {x: 0, y: 0, z: 0}
   isColor: {r: 1, g: 1, b: 1, a: 1}
-  assignSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  assignSprite: {fileID: 21300000, guid: 693f0e0e705412b4e9e713bc5d57b8d6, type: 3}
   collidedSprite: {fileID: 0}
   KnockBack: 9
   KnockBackMag: 0

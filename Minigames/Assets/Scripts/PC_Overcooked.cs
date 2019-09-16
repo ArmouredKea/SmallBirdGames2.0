@@ -20,7 +20,7 @@ public class PC_Overcooked : PlayerController {
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
-        speed = 9f;
+        speed = 7.5f;
         rotationSpeed = 100.0f;
     }
 
@@ -46,7 +46,7 @@ public class PC_Overcooked : PlayerController {
                 pickedUpObj.GetComponent<ItemController>().LastHeldBy(gameObject);
                 pickedUpObj.GetComponent<ItemController>().held = true;
                 pickedUpObj.GetComponent<ItemController>().overfilling = false;
-                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, pickedUpObj.transform.position.z);
+                pickedUpObj.transform.position = new Vector3(gameObject.transform.position.x, (gameObject.transform.position.y + 0.5f), pickedUpObj.transform.position.z);
             }
         }
     }

@@ -98,6 +98,8 @@ MonoBehaviour:
   dispensing: 0
   dispenseTime: 0
   filled: 0
+  canD: 0
+  handInInRange: 0
   currentDispenser: {fileID: 0}
 --- !u!1001 &8468069584819316392
 PrefabInstance:
@@ -170,6 +172,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0.50980395
+      objectReference: {fileID: 0}
+    - target: {fileID: 803385372271144305, guid: 1eb26fe5e4218b9478c3393930d00681,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 803385372271144305, guid: 1eb26fe5e4218b9478c3393930d00681,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 803385372271144305, guid: 1eb26fe5e4218b9478c3393930d00681,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -7531399732312522148, guid: 1eb26fe5e4218b9478c3393930d00681, type: 3}
