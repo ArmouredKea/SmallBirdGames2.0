@@ -9,6 +9,7 @@ public class Pause_Overcooked : Pause
     public GameObject canvaspausebutton;
     public GameObject countdown;
     public GameObject tutorial;
+    public GameObject timer;
 
     // Start is called before the first frame update
     public void Start() {
@@ -59,6 +60,7 @@ public class Pause_Overcooked : Pause
             }
 
             paused = true;
+            timer.GetComponent<Score_Overcooked>().paused = true;
             //line Luke added to show the pause menu
             PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             //------------
@@ -92,6 +94,7 @@ public class Pause_Overcooked : Pause
             }
 
             paused = false;
+            timer.GetComponent<Score_Overcooked>().paused = false;
 
         }
 

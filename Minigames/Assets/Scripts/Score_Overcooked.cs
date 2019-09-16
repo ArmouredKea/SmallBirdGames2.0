@@ -72,18 +72,24 @@ public class Score_Overcooked : Score
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
                     drawP1Bo.SetActive(true);
+                    p1Bo.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Hiro") {
                     drawP1Hiro.SetActive(true);
+                    p1Hiro.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Mika") {
                     drawP1Mika.SetActive(true);
+                    p1Mika.SetActive(true);
                 }
 
                 if (CharacterCarryOver.player2 == "Bo") {
                     drawP2Bo.SetActive(true);
+                    p2Bo.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Hiro") {
                     drawP2Hiro.SetActive(true);
+                    p2Hiro.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Mika") {
                     drawP2Mika.SetActive(true);
+                    p2Mika.SetActive(true);
                 }
 
                 PlayerController.p1Score++;

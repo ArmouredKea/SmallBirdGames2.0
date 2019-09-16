@@ -6,6 +6,7 @@ public class Pause_BulletHell : Pause
 {
 
     public GameObject countTimer;
+    public GameObject timer;
     public ObjectPool poolManage;
     public GunnerPowerups gPowerup;
     public RunnerPowerups rPowerup;
@@ -41,6 +42,7 @@ public class Pause_BulletHell : Pause
             }
 
             poolManage.PausePool(true); //This calls the ObjectPool, which already has access to all active proj.
+            timer.GetComponent<Score_BulletHell>().paused = true;
             countTimer.GetComponent<CountdownTimer>().paused = true;
             gPowerup.paused = true;
             //rPowerup.paused = true;
@@ -64,7 +66,7 @@ public class Pause_BulletHell : Pause
             }
 
 
-
+            timer.GetComponent<Score_BulletHell>().paused = false;
             countTimer.GetComponent<CountdownTimer>().paused = false;
             //projManage_B.GetComponent<BombSchtuff>().paused = false;
 

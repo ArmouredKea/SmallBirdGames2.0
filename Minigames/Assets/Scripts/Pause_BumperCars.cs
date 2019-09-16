@@ -46,7 +46,7 @@ public class Pause_BumperCars : Pause
                     child.gameObject.GetComponent<Animator>().speed = 0;
             }
 
-            timer.GetComponent<CountdownTimer>().paused = true;
+            timer.GetComponent<Score_BumperCars>().paused = true;
             bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
             //line Luke added to show the pause menu
@@ -76,7 +76,7 @@ public class Pause_BumperCars : Pause
                     child.gameObject.GetComponent<Animator>().speed = 1;
             }
 
-            timer.GetComponent<CountdownTimer>().paused = false;
+            timer.GetComponent<Score_BumperCars>().paused = false;
             bombSchtuff.GetComponent<BombSchtuff>().paused = false;
             paused = false;
         }

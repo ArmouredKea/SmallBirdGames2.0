@@ -21,7 +21,7 @@ public class Score_BumperCars : Score
         }
 
         //checks number of lives for each player or when the timer reaches 0 to display score
-        if (currentTime <= 0f || bombSchtuff.GetComponent<BombSchtuff>().p1Lives == 0 || bombSchtuff.GetComponent<BombSchtuff>().p2Lives == 0 && gameCanEnd) {
+        if ((currentTime <= 0f || bombSchtuff.GetComponent<BombSchtuff>().p1Lives == 0 || bombSchtuff.GetComponent<BombSchtuff>().p2Lives == 0) && gameCanEnd) {
             scoreTextbox.SetActive(true);
 
             if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
@@ -71,18 +71,24 @@ public class Score_BumperCars : Score
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
                     drawP1Bo.SetActive(true);
+                    p1Bo.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Hiro") {
                     drawP1Hiro.SetActive(true);
+                    p1Hiro.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Mika") {
                     drawP1Mika.SetActive(true);
+                    p1Mika.SetActive(true);
                 }
 
                 if (CharacterCarryOver.player2 == "Bo") {
                     drawP2Bo.SetActive(true);
+                    p2Bo.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Hiro") {
                     drawP2Hiro.SetActive(true);
+                    p2Hiro.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Mika") {
                     drawP2Mika.SetActive(true);
+                    p2Mika.SetActive(true);
                 }
 
                 PlayerController.p1Score++;

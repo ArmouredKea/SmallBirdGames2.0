@@ -139,7 +139,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 055c03f42128d1d4d9fec4071b81f9e7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 26431040e95ac5342a35a811454462cf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1428,7 +1428,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6706057176454779797}
-        m_MethodName: NextMinigame
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1452,7 +1452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextScene: 
+  nextScene: MainMenu
 --- !u!1 &6706057176470659358
 GameObject:
   m_ObjectHideFlags: 0
@@ -1464,6 +1464,8 @@ GameObject:
   - component: {fileID: 6706057176470659359}
   - component: {fileID: 6706057176470659352}
   - component: {fileID: 620576154}
+  - component: {fileID: 517335970}
+  - component: {fileID: 890169369}
   m_Layer: 5
   m_Name: Score
   m_TagString: Untagged
@@ -1540,7 +1542,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6706057176470659358}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47499892c59cfed4693f21f7abf69a72, type: 3}
   m_Name: 
@@ -1576,6 +1578,88 @@ MonoBehaviour:
   player1: {fileID: 0}
   player2: {fileID: 0}
   pauseOvercooked: {fileID: 0}
+--- !u!114 &517335970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706057176470659358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09fadecfd2123244290165533b77e4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Bo: {fileID: 6706057175866345188}
+  p1Hiro: {fileID: 6706057176271821641}
+  p1Mika: {fileID: 6706057176211486135}
+  p2Bo: {fileID: 6706057175903248977}
+  p2Hiro: {fileID: 6706057175656795466}
+  p2Mika: {fileID: 6706057177060890271}
+  p1Score0: {fileID: 6706057177213204578}
+  p1Score1: {fileID: 6706057176633624505}
+  p1Score2: {fileID: 6706057176095751154}
+  p1Score3: {fileID: 6706057175752380530}
+  p2Score0: {fileID: 6706057177311318678}
+  p2Score1: {fileID: 6706057175310550311}
+  p2Score2: {fileID: 6706057176280260785}
+  p2Score3: {fileID: 6706057177195497418}
+  winBo: {fileID: 6706057175730611846}
+  winHiro: {fileID: 6706057176977076253}
+  winMika: {fileID: 6706057175637282755}
+  drawP1Bo: {fileID: 6706057175618771570}
+  drawP1Hiro: {fileID: 6706057176558071282}
+  drawP1Mika: {fileID: 6706057176257964650}
+  drawP2Bo: {fileID: 6706057176030334927}
+  drawP2Hiro: {fileID: 6706057176360900261}
+  drawP2Mika: {fileID: 6706057176662254393}
+  scoreTextbox: {fileID: 6706057177050467206}
+  pauseButton: {fileID: 0}
+  currentTime: 60
+  paused: 0
+  gameCanEnd: 1
+  bulletHellManage: {fileID: 0}
+  pauseBulletHell: {fileID: 0}
+--- !u!114 &890169369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706057176470659358}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0655fac77c59184d9406da14a5ea533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Bo: {fileID: 6706057175866345188}
+  p1Hiro: {fileID: 6706057176271821641}
+  p1Mika: {fileID: 6706057176211486135}
+  p2Bo: {fileID: 6706057175903248977}
+  p2Hiro: {fileID: 6706057175656795466}
+  p2Mika: {fileID: 6706057177060890271}
+  p1Score0: {fileID: 6706057177213204578}
+  p1Score1: {fileID: 6706057176633624505}
+  p1Score2: {fileID: 6706057176095751154}
+  p1Score3: {fileID: 6706057175752380530}
+  p2Score0: {fileID: 6706057177311318678}
+  p2Score1: {fileID: 6706057175310550311}
+  p2Score2: {fileID: 6706057176280260785}
+  p2Score3: {fileID: 6706057177195497418}
+  winBo: {fileID: 6706057175730611846}
+  winHiro: {fileID: 6706057176977076253}
+  winMika: {fileID: 6706057175637282755}
+  drawP1Bo: {fileID: 6706057175618771570}
+  drawP1Hiro: {fileID: 6706057176558071282}
+  drawP1Mika: {fileID: 6706057176257964650}
+  drawP2Bo: {fileID: 6706057176030334927}
+  drawP2Hiro: {fileID: 6706057176360900261}
+  drawP2Mika: {fileID: 6706057176662254393}
+  scoreTextbox: {fileID: 6706057177050467206}
+  pauseButton: {fileID: 0}
+  currentTime: 60
+  paused: 0
+  gameCanEnd: 1
 --- !u!1 &6706057176558071282
 GameObject:
   m_ObjectHideFlags: 0

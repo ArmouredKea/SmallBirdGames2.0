@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1_Hiro
       objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -440,6 +445,11 @@ PrefabInstance:
     - target: {fileID: 363137882, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591340752118366956, guid: fbb3a5b153636014cbb853bf700235d8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5591340752118366947, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
@@ -909,6 +919,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &230283609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6706057176470659358, guid: 98ab5064dece1ea48a99aa578b582128,
+    type: 3}
+  m_PrefabInstance: {fileID: 6706057176485642556}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &243204684
 GameObject:
   m_ObjectHideFlags: 0
@@ -1354,6 +1370,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1_Mika
       objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421555, guid: 710d067c2a7213f4281ff729e859b7fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5591340752118366956, guid: 710d067c2a7213f4281ff729e859b7fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 710d067c2a7213f4281ff729e859b7fa,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1496,7 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  timer: {fileID: 590999996}
+  timer: {fileID: 230283609}
   bombSchtuff: {fileID: 1144503035}
   PauseMenuRef: {fileID: 1624485327}
 --- !u!4 &485851923
@@ -4176,6 +4202,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Bo
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: 72787442e2e76fc428af900930582486,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 72787442e2e76fc428af900930582486,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4234,6 +4265,11 @@ PrefabInstance:
     - target: {fileID: 1690662640, guid: 72787442e2e76fc428af900930582486, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: 72787442e2e76fc428af900930582486,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5347735800766714102, guid: 72787442e2e76fc428af900930582486,
         type: 3}
@@ -4686,6 +4722,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Mika
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: 92e0411ac32bfff49985e5343913bee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4744,6 +4785,11 @@ PrefabInstance:
     - target: {fileID: 342009483, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: 92e0411ac32bfff49985e5343913bee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5347735800766714102, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
@@ -5363,6 +5409,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: P2_Hiro
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
@@ -6978,8 +7034,41 @@ PrefabInstance:
       propertyPath: pauseBumperCars
       value: 
       objectReference: {fileID: 485851921}
+    - target: {fileID: 6706057176470659352, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706057175488438470, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 055c03f42128d1d4d9fec4071b81f9e7,
+        type: 3}
+    - target: {fileID: 6706057176454779798, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6706057176485642557}
+    - target: {fileID: 6706057176454779798, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextMinigame
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
+--- !u!114 &6706057176485642557 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6706057176454779797, guid: 98ab5064dece1ea48a99aa578b582128,
+    type: 3}
+  m_PrefabInstance: {fileID: 6706057176485642556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7103543209354727212
 PrefabInstance:
   m_ObjectHideFlags: 0
