@@ -32,10 +32,12 @@ public class GameController : MonoBehaviour {
     //Timer Variable
     private float endTimer = 60f;
 
+    public GameObject txtObject;
+
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
-
+        txtObject.GetComponent<Text>().text = ("Points : " + points);
         if (gameObject.name == "HandInP1") {
           player = GameObject.FindGameObjectWithTag("Player1");
         }
@@ -124,6 +126,7 @@ public class GameController : MonoBehaviour {
             playerScript.pickedUpObj = null;
             playerScript.inRange = false;
         }
+        txtObject.GetComponent<Text>().text = ("Points : " + points);
     }
     //Listing all possible pick ups
     void ListPickUps() {
