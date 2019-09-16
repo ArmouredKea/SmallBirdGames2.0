@@ -137,6 +137,8 @@ public class CharacterSelect : MonoBehaviour
             CharacterCarryOver.player2 = "Mika";
         }
 
+        PlayerController.p1Score = 0;
+        PlayerController.p2Score = 0;
         gameObject.GetComponent<SceneManagement>().NextMinigame();
     }
 }

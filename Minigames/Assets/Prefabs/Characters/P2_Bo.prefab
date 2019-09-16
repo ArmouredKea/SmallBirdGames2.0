@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 5347735802049169507}
   - component: {fileID: 5347735802049169506}
   - component: {fileID: 1690662641}
-  - component: {fileID: 1690662640}
+  - component: {fileID: 1309667824}
   m_Layer: 10
   m_Name: P2_Bo
   m_TagString: Player2
@@ -174,8 +174,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 7de29d6d15681be48998bb31f1085369, type: 3}
-  m_Color: {r: 0.8, g: 0.6, b: 0.2, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a105ca67a5dbec0429d67c45d47eb04b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -221,7 +221,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 3
 --- !u!95 &5347735802049169506
 Animator:
   serializedVersion: 3
@@ -257,7 +257,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
---- !u!114 &1690662640
+--- !u!114 &1309667824
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5347735802049169511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfa71270600bb14b82c242ed70b4e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -279,11 +279,10 @@ MonoBehaviour:
   Players: []
   paused: 0
   angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
+  currentPosition: {x: 0, y: 0}
+  totalDistance: 0
+  boosted: 0
+  floatie: {fileID: 5347735800766714103}
+  boostBar: {fileID: 0}
+  boostText: {fileID: 0}
+  pauseVelocity: {x: 0, y: 0, z: 0}

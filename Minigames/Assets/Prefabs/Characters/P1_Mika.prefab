@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 9156412022220421558}
   - component: {fileID: 5591340751631300098}
   - component: {fileID: 839095692}
-  - component: {fileID: 839095691}
+  - component: {fileID: 457109366}
   m_Layer: 9
   m_Name: P1_Mika
   m_TagString: Player1
@@ -174,7 +174,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 7de29d6d15681be48998bb31f1085369, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 53cca9ba6143bd04fa135ca1d7bb1994, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -221,7 +221,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 2.56
+  m_Radius: 3
 --- !u!95 &5591340751631300098
 Animator:
   serializedVersion: 3
@@ -257,7 +257,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 4
---- !u!114 &839095691
+--- !u!114 &457109366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 9156412022220421555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5044655be9fbd54d8273f9d8227f65a, type: 3}
+  m_Script: {fileID: 11500000, guid: dcfa71270600bb14b82c242ed70b4e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
@@ -279,11 +279,10 @@ MonoBehaviour:
   Players: []
   paused: 0
   angle: 0
-  pickedUpObj: {fileID: 0}
-  vertMovement: 0
-  horiMovement: 0
-  pickUpC: 0
-  puAxisInUse: 0
-  oButtonPressed: 0
-  inRange: 0
-  objCarry: 0
+  currentPosition: {x: 0, y: 0}
+  totalDistance: 0
+  boosted: 0
+  floatie: {fileID: 5591340752118366956}
+  boostBar: {fileID: 0}
+  boostText: {fileID: 0}
+  pauseVelocity: {x: 0, y: 0, z: 0}

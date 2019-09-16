@@ -16,6 +16,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject SubPauseMenu;
     public bool Paused;
     private string CurrentScene;
+    public GameObject scoreTextbox;
 
     // Start is called before the first frame update
     void Start() {
@@ -37,11 +38,11 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void togglePauseMenu() {
-        if (Paused == false) {
+        if (Paused == false && scoreTextbox.activeSelf == false) {
             PausedMenu.SetActive(true);
             Paused = true;
         }
-        else if (Paused == true) {
+        else if (Paused == true && scoreTextbox.activeSelf == false) {
             PausedMenu.SetActive(false);
             Paused = false;
         }

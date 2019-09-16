@@ -59,7 +59,7 @@ public class BombMovement : MonoBehaviour
 
     //bomb explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {        
-        gameObject.transform.localScale = new Vector3(0.25f, 0.25f, 1f);
+        gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         float l = 0;
         while (l < waitTime) {
