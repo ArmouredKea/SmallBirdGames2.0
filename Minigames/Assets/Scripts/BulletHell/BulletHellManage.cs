@@ -31,22 +31,25 @@ public class BulletHellManage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        P1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
+        P2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
         BHell_Init();
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     public void BHell_Init()
     {
         //bHell specific initialization for code sanitiation. Need to refactor how 
         firingPlayer = Random.Range(1, 3); //Decide starting P randomly. R.R's MAX is not inclusive, it is exclusive. So it will only ever generate below 3, not 3.
-        BHell_Determine_Mode();                                   //Send P to shooting location, if shooter.
-       
+        BHell_Determine_Mode();             
+        //Send P to shooting location, if shooter.
+
     }
 
     public void BHell_Determine_Position()
