@@ -19,6 +19,8 @@ public class CountdownTimer : MonoBehaviour {
     public GameObject canvaspausebutton;
     public GameObject tutorialRefrence;
 
+    public GameObject minigameBackground;
+
     public Image ProgressBar;
     public Image ProgressBar2;
 
@@ -64,43 +66,11 @@ public class CountdownTimer : MonoBehaviour {
                 countDownref.SetActive(false);
 
             }
-
-
-            if ((currentTime <= 0f ) && (gameEnded == true))
-            {
-
-                endText.SetActive(true);
-                overallScore.SetActive(true);
-                minigameChanger.SetActive(true);
-
-                if (hellManage.p1TimesHit < hellManage.p2TimesHit)
-                {
-                    PlayerController.p1Score++;
-                    endText.GetComponent<Text>().text = "Player 1 Wins!";
-
-                }
-                else if (hellManage.p1TimesHit > hellManage.p2TimesHit)
-                {
-                    PlayerController.p2Score++;
-                    endText.GetComponent<Text>().text = "Player 2 Wins!";
-                }
-                else
-                {
-                    PlayerController.p1Score++;
-                    PlayerController.p2Score++;
-                    endText.GetComponent<Text>().text = "Draw!";
-                }
-
-                overallScore.GetComponent<Text>().text = "[P1] " + PlayerController.p1Score + " - " + PlayerController.p2Score + " [P2]";
-                gameEnded = false;
-                Time.timeScale = 0;
-                canvaspausebutton.SetActive(false);
-            }
         }
     }
 
     //countdown before game begins
-    private IEnumerator Countdown() {
+    public IEnumerator Countdown() {
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 4f;

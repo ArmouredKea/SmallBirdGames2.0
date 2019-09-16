@@ -146,12 +146,12 @@ public class BombSchtuff : MonoBehaviour {
     public IEnumerator SpawnBomb(float waitTime) {
         float i = Random.Range(0f, 0.9f);
         float j;
-        float m = Random.Range(-4.15f, 4.15f);
+        float m = Random.Range(-3.5f, 3.5f);
 
         if (i < 0.5f) {
-            j = 4.65f;
+            j = 3.5f;
         } else {
-            j = -4.65f;
+            j = -4.1f;
         }
 
         Instantiate(exclamation, new Vector2(m, j), Quaternion.identity).transform.SetParent(pauseParent.transform, true);
