@@ -19,6 +19,7 @@ public class PC_BulletHell : PlayerController
     public float Recieve_FiringRate;
     public float TillFire;
     private int ProjMode;
+    private float nuTime = 2;
 
     public float Blue_FiringRate;
     public float Red_FiringRate;
@@ -31,7 +32,7 @@ public class PC_BulletHell : PlayerController
     public float baseSpeed;
     public bool Shielded;
     [SerializeField]
-    private GameObject shieldAppearance;
+    private Transform shieldAppearance;
     public Vector3 pauseVelocity;
 
     public float moistMeter;
@@ -109,10 +110,11 @@ public class PC_BulletHell : PlayerController
 
     public void BHell_Fire()
     {
+       nuTime = Time.time;
         GameObject pooledBullet = ObjectPool.pool_Instance.GetPooledObject();
 
         BHell_FireMode();
-        if (pooledBullet != null && Time.time > TillFire)
+        if (pooledBullet != null && nuTime > TillFire)
         {
             TillFire = Time.time + Recieve_FiringRate;
             pooledBullet.transform.position = this.gameObject.transform.position;
@@ -238,13 +240,13 @@ public class PC_BulletHell : PlayerController
     void Controls()
     {
 
-        if (gameObject.name == "Player1")
+        if (gameObject.tag == "Player1")
         {
             Runner_vertMovement = Input.GetAxis("Vertical");
             Runner_horiMovement = Input.GetAxis("Horizontal");
 
         }
-        if (gameObject.name == "Player2")
+        if (gameObject.tag == "Player2")
         {
             Runner_vertMovement = Input.GetAxis("Vertical1");
             Runner_horiMovement = Input.GetAxis("Horizontal1");
@@ -255,7 +257,9 @@ public class PC_BulletHell : PlayerController
 
     public void ShieldCreation()
     {
-        shieldAppearance.SetActive(true);
+        shieldAppearance = transform.GetChild(1);
+
+        shieldAppearance.gameObject.SetActive(true);
         Shielded = true;
 
         //Add other animation such as appear over time, or growing in size when powerup collected.
@@ -263,7 +267,7 @@ public class PC_BulletHell : PlayerController
 
    public void ShieldDestroy()
     {
-        shieldAppearance.SetActive(false);
+        shieldAppearance.gameObject.SetActive(false);
         Shielded = false;
     }
 

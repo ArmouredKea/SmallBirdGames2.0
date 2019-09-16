@@ -5,15 +5,26 @@ using UnityEngine;
 public class Pause_Overcooked : Pause
 {
     public GameObject PauseMenuRef;
+    public GameObject countDownref;
+    public GameObject canvaspausebutton;
+    public GameObject countdown;
+    public GameObject tutorial;
 
     // Start is called before the first frame update
-    void Start() {
-        
+    public void Start() {
+        canvaspausebutton.SetActive(false);
+        Time.timeScale = 0;
     }
 
     // Update is called once per frame
     void Update() {
-        
+
+    }
+
+    public void closeTutorial() {
+        tutorial.SetActive(false);
+        countdown.SetActive(true);
+        StartCoroutine(Countdown());
     }
 
     //pause and unpause for Overcooked.
@@ -38,12 +49,12 @@ public class Pause_Overcooked : Pause
                 }
             }
 
-            Component[] childrenDispenserScripts;
-            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
+            Component[] childrenItemControllerScripts;
+            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
 
-            if (childrenDispenserScripts != null) {
-                foreach (Dispenser dispenser in childrenDispenserScripts) {
-                    dispenser.paused = true;
+            if (childrenItemControllerScripts != null) {
+                foreach (ItemController itemController in childrenItemControllerScripts) {
+                    itemController.paused = true;
                 }
             }
 
@@ -52,8 +63,7 @@ public class Pause_Overcooked : Pause
             PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             //------------
 
-        }
-        else {
+        } else {
             Component[] childrenCharacterScripts;
             childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
 
@@ -72,12 +82,12 @@ public class Pause_Overcooked : Pause
                 }
             }
 
-            Component[] childrenDispenserScripts;
-            childrenDispenserScripts = GetComponentsInChildren(typeof(Dispenser));
+            Component[] childrenItemControllerScripts;
+            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
 
-            if (childrenDispenserScripts != null) {
-                foreach (Dispenser dispenser in childrenDispenserScripts) {
-                    dispenser.paused = false;
+            if (childrenItemControllerScripts != null) {
+                foreach (ItemController itemController in childrenItemControllerScripts) {
+                    itemController.paused = false;
                 }
             }
 
@@ -85,5 +95,22 @@ public class Pause_Overcooked : Pause
 
         }
 
+    }
+
+    //countdown before game begins
+    private IEnumerator Countdown() {
+
+        Time.timeScale = 0;
+        float pauseTime = Time.realtimeSinceStartup + 4f;
+
+        while (Time.realtimeSinceStartup < pauseTime)
+        {
+            yield return 0;
+        }
+
+        Time.timeScale = 1;
+        countDownref.SetActive(false);
+        paused = false;
+        canvaspausebutton.SetActive(true);
     }
 }

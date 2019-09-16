@@ -49,7 +49,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 1.25
+  m_Radius: 0.4
 --- !u!50 &2434137335491959293
 Rigidbody2D:
   serializedVersion: 4
@@ -83,15 +83,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41824a3bce389894fb9fad469317a9d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balloonName: EmptyBalloon
+  balloonName: 
+  paused: 0
   lastPlayer1: 0
   lastPlayer2: 0
   lastPlayerObj: {fileID: 0}
   held: 0
   filling: 0
-  overfill: 0
+  overfilling: 0
   pointValue: 0
   balloonSprite: {fileID: 0}
+  startColor: {x: 0, y: 0, z: 0, w: 0}
+  dInRange: 0
+  dispensing: 0
+  dispenseTime: 0
+  filled: 0
+  currentDispenser: {fileID: 0}
 --- !u!1001 &8468069584819316392
 PrefabInstance:
   m_ObjectHideFlags: 0
