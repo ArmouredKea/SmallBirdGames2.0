@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Tutorial : MonoBehaviour
 {
@@ -10,7 +12,6 @@ public class Tutorial : MonoBehaviour
     public GameObject minigameSchtuff;
     public GameObject countdown;
     public GameObject countdownTimer;
-    public GameObject bumperCarsPause;
 
     // Start is called before the first frame update
     void Start() {
@@ -30,14 +31,19 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator MinigameUIDelay (float waitTime) {
         Debug.Log("Hello");
-        //bumperCarsPause.GetComponent<Pause_BumperCars>().PauseButton();
         Time.timeScale = 1;        
         yield return new WaitForSeconds(waitTime);
-        //bumperCarsPause.GetComponent<Pause_BumperCars>().PauseButton();
         minigameUI.SetActive(true);
         minigameSchtuff.SetActive(true);
         gameObject.GetComponent<Animator>().SetBool("ZoomIn", false);
         countdownTimer.SetActive(true);
-        StartCoroutine(countdown.GetComponent<CountdownTimer>().Countdown());        
+
+        Scene scene = SceneManager.GetActiveScene();
+        if (scene.name == "BumperCarsMG" || scene.name == "BulletHell") {
+            StartCoroutine(countdown.GetComponent<CountdownTimer>().Countdown());
+        } else if (scene.name == "OvercookedMG") {
+            StartCoroutine(countdown.GetComponent<Pause_Overcooked>().Countdown());
+        }
+               
     }
 }

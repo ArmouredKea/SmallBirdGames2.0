@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 public class CountdownTimer : MonoBehaviour {
 
     public float currentTime = 60f;
-    public GameObject endText;
-    public GameObject overallScore;
-    public GameObject minigameChanger;
     private bool gameEnded =  true;
     private bool timeswap = true;
     public bool paused;
@@ -19,7 +16,7 @@ public class CountdownTimer : MonoBehaviour {
     public GameObject canvaspausebutton;
     public GameObject tutorialRefrence;
 
-    public GameObject minigameBackground;
+    //public GameObject minigameBackground;
 
     public Image ProgressBar;
     public Image ProgressBar2;

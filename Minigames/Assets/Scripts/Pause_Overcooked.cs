@@ -101,7 +101,7 @@ public class Pause_Overcooked : Pause
     }
 
     //countdown before game begins
-    private IEnumerator Countdown() {
+    public IEnumerator Countdown() {
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 4f;
