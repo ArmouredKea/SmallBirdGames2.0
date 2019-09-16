@@ -27,7 +27,6 @@ public class GameController : MonoBehaviour {
 
     public bool gameEnd;
     public bool paused;
-    public bool correctHandIn;
 
     public GameObject orderTiles;
 
@@ -97,30 +96,26 @@ public class GameController : MonoBehaviour {
       Debug.Log("Hand in Obj" + handInItem.GetComponent<ItemController>().balloonName);
         for (int i = 0; i < orderList.Count; i++)
         {
-
+          Debug.Log("balloon Name in Array" + orderList[i].GetComponent<ItemController>().balloonName);
             if (orderList[i] != null)
             {
                 Debug.Log("Made it to point 1");
                 if (handInItem.GetComponent<ItemController>().balloonName == orderList[i].GetComponent<ItemController>().balloonName)
                 {
                     Debug.Log("Made it to point 2");
-                    Debug.Log("balloon Name in Array" + orderList[i].GetComponent<ItemController>().balloonName);
                         orderList.Remove(orderList[i]);
-                        correctHandIn = true;
+                        points += (pIncrease * 2);
+                        Debug.Log("Ordered Points: " + points);
 
-
+                    break;
+                } else {
+                    points += pIncrease;
+                    Debug.Log("Non-Ordered Points: " + points);
                     break;
                 }
             }
         }
-        if (correctHandIn) {
-          points += (pIncrease * 2);
-          Debug.Log("Ordered Points: " + points);
-          correctHandIn = false;
-        } else {
-          points += pIncrease;
-          Debug.Log("Non-Ordered Points: " + points);
-        }
+
         Destroy(handInItem.gameObject);
         audiotest.Play(0);
         if (playerScript.pickedUpObj == handInItem.gameObject)
