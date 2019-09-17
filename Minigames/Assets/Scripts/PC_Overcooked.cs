@@ -113,6 +113,7 @@ public class PC_Overcooked : PlayerController {
         }
     }
     public void PickUpObj2() {
+      Debug.Log("This Player pressed Button : " + gameObject.name);
         if (inRange) {
           Debug.Log("This Player tried to pick up : " + gameObject.name);
             if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
@@ -125,7 +126,7 @@ public class PC_Overcooked : PlayerController {
     }
 
     //Referencing gameObject (PickUp) that you are near
-    void OnTriggerStay2D(Collider2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
 
         if (other.gameObject.tag == "PickUp") {
             if (objCarry == false) {

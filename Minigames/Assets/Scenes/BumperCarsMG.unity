@@ -1863,6 +1863,7 @@ MonoBehaviour:
   countDownref: {fileID: 359770833}
   canvaspausebutton: {fileID: 571297}
   tutorialRefrence: {fileID: 105676183855610448}
+  hellManage: {fileID: 0}
   ProgressBar: {fileID: 175318629}
   ProgressBar2: {fileID: 578186164}
 --- !u!1 &606999692
@@ -2990,7 +2991,7 @@ PrefabInstance:
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
@@ -3680,7 +3681,7 @@ PrefabInstance:
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
@@ -6096,7 +6097,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b47a9198926204045a03584f796241ff, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aaccd5cf4cd1c8042aa31165f629ad95, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -6694,7 +6695,7 @@ PrefabInstance:
     - target: {fileID: 3042127257213617820, guid: e0f35f1bc2d78bd4baa32390ecbf0381,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3042127257213617820, guid: e0f35f1bc2d78bd4baa32390ecbf0381,
         type: 3}
@@ -6990,7 +6991,7 @@ PrefabInstance:
     - target: {fileID: 7103543210737610449, guid: ee0848349192c3741b0d906648094418,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7103543210737610449, guid: ee0848349192c3741b0d906648094418,
         type: 3}

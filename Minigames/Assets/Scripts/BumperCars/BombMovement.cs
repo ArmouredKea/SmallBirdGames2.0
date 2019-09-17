@@ -6,7 +6,7 @@ public class BombMovement : MonoBehaviour
 {
 
     private float speed = 3.0f;
-    
+
     private bool p1Invulnerable;
     private bool p2Invulnerable;
 
@@ -18,6 +18,8 @@ public class BombMovement : MonoBehaviour
     void Start() {
         //gives bomb a random velocity.
         GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;
+        p1Invulnerable = true;
+        p2Invulnerable = true;
     }
 
     // Update is called once per frame
@@ -58,7 +60,7 @@ public class BombMovement : MonoBehaviour
     }
 
     //bomb explosion and replacement.
-    private IEnumerator BombDelay(float waitTime) {        
+    private IEnumerator BombDelay(float waitTime) {
         gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         float l = 0;

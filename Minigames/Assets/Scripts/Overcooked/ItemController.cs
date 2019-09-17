@@ -144,7 +144,7 @@ public class ItemController : PickUpParent
             } else {
                 l += Time.deltaTime;
                 //changes size of the balloon when overfilling
-                gameObject.transform.localScale += new Vector3 (l/200, l/200, l/200);
+                gameObject.transform.localScale += new Vector3 (l/300, l/300, l/300);
                 yield return null;
             }
         }
