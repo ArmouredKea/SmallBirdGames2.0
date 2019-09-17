@@ -138,7 +138,7 @@ public class ItemController : PickUpParent
     //checks if the balloon is being overfilled, and then makes it explode
     IEnumerator Overfill () {
         float l = 0;
-        while (l < 2.5f && dispensing) {
+        while (l < 3.5f && dispensing) {
             if (paused) {
                 yield return null;
             } else {

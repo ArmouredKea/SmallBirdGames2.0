@@ -114,6 +114,7 @@ public class PC_Overcooked : PlayerController {
     }
     public void PickUpObj2() {
         if (inRange) {
+          Debug.Log("This Player tried to pick up : " + gameObject.name);
             if (pickedUpObj.GetComponent<ItemController>().lastPlayerObj == null || pickedUpObj.GetComponent<ItemController>().lastPlayerObj == this.gameObject && objCarry == false && pickedUpObj.GetComponent<ItemController>().filling == false) {
                 objCarry = true;
             } else if (objCarry == true) {
