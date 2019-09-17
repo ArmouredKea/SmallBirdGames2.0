@@ -29,6 +29,8 @@ public class Pause_BumperCars : Pause
                 bomb.p2Invulnerable = false;
             }
         }
+        Physics2D.IgnoreLayerCollision(8, 10, false);
+        Physics2D.IgnoreLayerCollision(8, 9, false);
     }
 
     //pause and unpause for BumperCars.

@@ -18,6 +18,7 @@ public class Score_BumperCars : Score
     protected override void Update() {
         if (!paused) {
             currentTime -= Time.deltaTime;
+            gameCanEnd = true;
         }
 
         //checks number of lives for each player or when the timer reaches 0 to display score

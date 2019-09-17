@@ -16,6 +16,7 @@ public class Score_BulletHell : Score
     protected override void Update() {
         if (!paused) {
             currentTime -= Time.deltaTime;
+            gameCanEnd = true;
         }
 
         if (currentTime <= 0f && gameCanEnd) {
