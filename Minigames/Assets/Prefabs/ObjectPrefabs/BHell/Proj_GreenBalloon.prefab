@@ -145,7 +145,7 @@ MonoBehaviour:
   Speed: 5
   firingRate: 0.6
   damageScore: 1
-  growBy: 12
+  growBy: 3
   growRate: 1
   frequencySine: 0
   base_magnitudeSine: 0

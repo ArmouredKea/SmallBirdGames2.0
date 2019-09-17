@@ -15,6 +15,7 @@ public class CountdownTimer : MonoBehaviour {
     public GameObject countDownref;
     public GameObject canvaspausebutton;
     public GameObject tutorialRefrence;
+    public BulletHellManage hellManage;
 
     //public GameObject minigameBackground;
 
@@ -47,20 +48,21 @@ public class CountdownTimer : MonoBehaviour {
 
         if(scene.name == "BulletHell")
         {
-            BulletHellManage hellManage = GetComponent<BulletHellManage>();
+            hellManage = GetComponent<BulletHellManage>();
 
-            if(currentTime <= 33 && timeswap == true)
+            if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
             {
                 countDownref.SetActive(true);
             }
 
             if(currentTime <= 30 && timeswap == true)
             {
+                countDownref.SetActive(false);
                 hellManage.Bhell_Swap();
                 //StartCoroutine(Countdown());
                 timeswap = false;
                 //This is where the 123 thing goes.
-                countDownref.SetActive(false);
+               
 
             }
         }

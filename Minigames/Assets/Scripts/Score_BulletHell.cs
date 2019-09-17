@@ -21,7 +21,7 @@ public class Score_BulletHell : Score
         if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);
 
-            if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player1 == "Bo") {
                     winBo.SetActive(true);
                     p1Bo.SetActive(true);
@@ -43,7 +43,7 @@ public class Score_BulletHell : Score
 
                 PlayerController.p1Score++;
 
-            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
                     winBo.SetActive(true);
                     p2Bo.SetActive(true);
