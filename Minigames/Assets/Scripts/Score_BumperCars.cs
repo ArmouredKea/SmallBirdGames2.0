@@ -122,6 +122,7 @@ public class Score_BumperCars : Score
             pauseButton.SetActive(false);
             pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;
             pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
+            pauseBumperCars.GetComponent<Pause_BumperCars>().ResetVariables();
 
             gameCanEnd = false;
 

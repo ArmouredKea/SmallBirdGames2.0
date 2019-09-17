@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9125017245350031381}
   - component: {fileID: 2434137335491959293}
   - component: {fileID: -5566476215544795840}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DrinkP1W
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: New Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 803385372271144307, guid: 1eb26fe5e4218b9478c3393930d00681,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 803385372271144306, guid: 1eb26fe5e4218b9478c3393930d00681,
         type: 3}

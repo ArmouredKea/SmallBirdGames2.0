@@ -19,6 +19,18 @@ public class Pause_BumperCars : Pause
 
     }
 
+    public void ResetVariables() {
+        Component[] childrenBombScripts;
+        childrenBombScripts = GetComponentsInChildren(typeof(BombMovement));
+
+        if (childrenBombScripts != null) {
+            foreach (BombMovement bomb in childrenBombScripts) {
+                bomb.p1Invulnerable = false;
+                bomb.p2Invulnerable = false;
+            }
+        }
+    }
+
     //pause and unpause for BumperCars.
     public override void PauseButton() {
 

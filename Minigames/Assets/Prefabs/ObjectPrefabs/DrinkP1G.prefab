@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9125017245350031381}
   - component: {fileID: 2434137335491959293}
   - component: {fileID: 6858020514969758984}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DrinkP1G
   m_TagString: PickUp
   m_Icon: {fileID: 0}
@@ -99,6 +99,8 @@ MonoBehaviour:
   dispensing: 0
   dispenseTime: 0
   filled: 0
+  canD: 0
+  handInInRange: 0
   currentDispenser: {fileID: 0}
 --- !u!1001 &2646903222338468520
 PrefabInstance:
@@ -116,6 +118,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6492258418384220531, guid: 29b1e0d6cb8419f459ac662676d4dba6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6492258418384220530, guid: 29b1e0d6cb8419f459ac662676d4dba6,
         type: 3}

@@ -9,10 +9,11 @@ public class Score_Overcooked : Score
     public GameObject player1;
     public GameObject player2;
     public GameObject pauseOvercooked;
+    public GameObject characterManagement;
 
     // Start is called before the first frame update
     protected override void Start() {
-        
+
     }
 
     // Update is called once per frame
@@ -123,6 +124,12 @@ public class Score_Overcooked : Score
             pauseButton.SetActive(false);
             pauseOvercooked.GetComponent<Pause_Overcooked>().paused = false;
             pauseOvercooked.GetComponent<Pause_Overcooked>().PauseButton();
+            characterManagement.GetComponent<CharacterManagement>().p1BoB.SetActive(false);
+            characterManagement.GetComponent<CharacterManagement>().p1HiroB.SetActive(false);
+            characterManagement.GetComponent<CharacterManagement>().p1MikaB.SetActive(false);
+            characterManagement.GetComponent<CharacterManagement>().p2BoB.SetActive(false);
+            characterManagement.GetComponent<CharacterManagement>().p2HiroB.SetActive(false);
+            characterManagement.GetComponent<CharacterManagement>().p2MikaB.SetActive(false);
 
             gameCanEnd = false;
 

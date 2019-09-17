@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9125017245350031381}
   - component: {fileID: 2434137335491959293}
   - component: {fileID: -3132477253460704532}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: DrinkP1Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -99,6 +99,8 @@ MonoBehaviour:
   dispensing: 0
   dispenseTime: 0
   filled: 0
+  canD: 0
+  handInInRange: 0
   currentDispenser: {fileID: 0}
 --- !u!1001 &3881933281770401801
 PrefabInstance:
@@ -111,6 +113,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: New Sprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 5439775599838526418, guid: ceb5fb6b3bb86c641ab00a75fd9212e9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5439775599838526419, guid: ceb5fb6b3bb86c641ab00a75fd9212e9,
         type: 3}

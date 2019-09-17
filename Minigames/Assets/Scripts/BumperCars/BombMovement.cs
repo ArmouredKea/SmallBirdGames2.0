@@ -7,8 +7,8 @@ public class BombMovement : MonoBehaviour
 
     private float speed = 3.0f;
 
-    private bool p1Invulnerable;
-    private bool p2Invulnerable;
+    public bool p1Invulnerable;
+    public bool p2Invulnerable;
 
     public Vector2 pauseVelocity;
     public bool paused;
@@ -18,8 +18,8 @@ public class BombMovement : MonoBehaviour
     void Start() {
         //gives bomb a random velocity.
         GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;
-        p1Invulnerable = true;
-        p2Invulnerable = true;
+        p1Invulnerable = false;
+        p2Invulnerable = false;
     }
 
     // Update is called once per frame
