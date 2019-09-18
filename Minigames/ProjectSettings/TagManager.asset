@@ -15,6 +15,7 @@ TagManager:
   - SPP2
   - Dispenser
   - Crate
+  - HandIn
   layers:
   - Default
   - TransparentFX

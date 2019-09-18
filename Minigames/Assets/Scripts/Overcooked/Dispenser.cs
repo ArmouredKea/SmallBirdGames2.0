@@ -6,6 +6,6 @@ public class Dispenser : MonoBehaviour
 {
     //variables to be apoplied to balloon on fill
     public Color dColor;
-    public string dBalloonName;
+    public int dBalloonEnumInt;
 
 }

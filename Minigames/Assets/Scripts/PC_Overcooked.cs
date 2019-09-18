@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PC_Overcooked : PlayerController {
 
@@ -16,8 +17,11 @@ public class PC_Overcooked : PlayerController {
     //obj picked up bool
     public bool inRange;
     public bool objCarry;
+    public float castTime;
+    private float endCastTime = 0.5f;
 
-    public string balloonName;
+    public int balloonEnumInt;
+    public Image pickUpImg;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -32,9 +36,17 @@ public class PC_Overcooked : PlayerController {
         if (!touched && !paused) {
             animator.SetBool("Moving", false);
             GetComponent<Animator>().speed = 0;
+            castTime = castTime;
         } else {
             animator.SetBool("Moving", true);
             GetComponent<Animator>().speed = 1;
+        }
+        if (inRange && objCarry == false) {
+          castTime += Time.deltaTime;
+          pickUpImg.fillAmount = (castTime/endCastTime);
+          if (castTime >= endCastTime) {
+              objCarry = true;
+          }
         }
 
     }
@@ -90,16 +102,36 @@ public class PC_Overcooked : PlayerController {
         if (other.gameObject.tag == "Crate") {
             if (objCarry == false) {
                 inRange = true;
-                balloonName = other.gameObject.GetComponent<Dispenser>().dBalloonName;
-                objCarry = true;
+                castTime = 0f;
+                pickUpImg.color = other.gameObject.GetComponent<Dispenser>().dColor;
+                balloonEnumInt = other.gameObject.GetComponent<Dispenser>().dBalloonEnumInt;
             }
         }
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+      if (other.gameObject.tag == "Crate") {
+        inRange = false;
+        if (objCarry == false) {
+          Debug.Log("Reset Fill Amount");
+          pickUpImg.fillAmount = 0;
+          balloonEnumInt = 0;
+        }
+      }
+
     }
 
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Bin") {
           objCarry = false;
-          balloonName = "";
+          balloonEnumInt = 0;
+        }
+        if (other.gameObject.tag == "HandIn") {
+          Debug.Log("Try to hand in" + other.gameObject.name + "|| Parent = " + other.gameObject.transform.parent.gameObject.name);
+          other.gameObject.transform.parent.gameObject.GetComponent<GameController>().HandleHandIn(balloonEnumInt, );
+          objCarry = false;
+          pickUpImg.fillAmount = 0;
+          balloonEnumInt = 0;
         }
     }
 }
