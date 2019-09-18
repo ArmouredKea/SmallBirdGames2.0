@@ -17,6 +17,11 @@ public class GameController : MonoBehaviour {
 
     public int points;
 
+    enum RGBValue {Red, Green, Blue};
+    public Sprite baseBalloonSprite;
+    public Dictionary <RGBValue, Vector3, string> balloonDic = new Dictionary<string, Vector3, string>();
+    public Dictionary <int, RGBValue, GameObject> orderDic = new Dictionary <int, string, GameObject>();
+
     List<GameObject> pickUps = new List<GameObject>();
     public List<GameObject> orderList = new List<GameObject>();
     List<GameObject> orderVisuals = new List<GameObject>();
@@ -44,6 +49,9 @@ public class GameController : MonoBehaviour {
         else if (gameObject.name == "HandInP2") {
           player = GameObject.FindGameObjectWithTag("Player2");
         }
+        balloonDic.Add(2, (0, 0, 255), "BlueBalloon");
+        balloonDic.Add(0, (255, 0, 0), "RedBalloon");
+        balloonDic.Add(1, (0, 255, 0), "GreenBalloon");
         playerScript = player.GetComponent<PC_Overcooked>();
         OrderList();
         orderLength = 4;
@@ -81,6 +89,7 @@ public class GameController : MonoBehaviour {
     }
 
     //to spawn only one item on each spawn location
+    /*
     void OnTriggerStay2D(Collider2D other) {
         if (other.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().balloonName != "") {
            if (other.gameObject.GetComponent<ItemController>().lastPlayer1 && gameObject.name == "HandInP1" || other.gameObject.GetComponent<ItemController>().lastPlayer2 && gameObject.name == "HandInP2") {
@@ -90,6 +99,8 @@ public class GameController : MonoBehaviour {
           }
         }
     }
+    */
+
     //handles the handin proccess, checking if the item is in the order
     void HandleHandIn(GameObject handInItem, int pIncrease)
     {

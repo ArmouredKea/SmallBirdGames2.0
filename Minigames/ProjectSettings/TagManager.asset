@@ -14,6 +14,7 @@ TagManager:
   - ExclamationMark
   - SPP2
   - Dispenser
+  - Crate
   layers:
   - Default
   - TransparentFX
