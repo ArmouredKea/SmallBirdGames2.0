@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour {
     public bool allClosed;
     public bool frenzyActive;
     private float frenzyTime = 15f;
+    public GameObject thisFrenzyCanvas;
 
 
     //public GameObject orderTiles;
@@ -90,13 +91,25 @@ public class GameController : MonoBehaviour {
         if (frenzyActive) {
           frenzyTime -= Time.deltaTime;
         }
+        if (frenzyTime <= 0) {
+          frenzyActive = false;
+          thisFrenzyCanvas.SetActive(false);
+          player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
+          player.GetComponent<PC_Overcooked>().frenzy = false;
+        }
 
         if (ordersComplete == 4) {
           if (tempPoints == 4 && frenzyActive == false) {
             frenzyActive = true;
+            thisFrenzyCanvas.SetActive(true);
             frenzyTime = 15f;
-          } else if (tempPoints <= 3 || frenzyTime <= 0) {
+            player.GetComponent<PC_Overcooked>().speed = 10;
+            player.GetComponent<PC_Overcooked>().frenzy = true;
+          } else if (tempPoints <= 3) {
             frenzyActive = false;
+            thisFrenzyCanvas.SetActive(false);
+            player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
+            player.GetComponent<PC_Overcooked>().frenzy = false;
           }
           points += tempPoints;
           tempPoints = 0;

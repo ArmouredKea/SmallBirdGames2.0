@@ -14,6 +14,8 @@ public class PC_Overcooked : PlayerController {
     public bool puAxisInUse;
     public bool oButtonPressed;
 
+    public float baseSpeedOC;
+
     //obj picked up bool
     public bool inRange;
     public bool objCarry;
@@ -22,6 +24,8 @@ public class PC_Overcooked : PlayerController {
 
     public int balloonEnumInt;
     public Image pickUpImg;
+
+    public bool frenzy;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -93,7 +97,7 @@ public class PC_Overcooked : PlayerController {
         if (gameObject.tag == "Player2") {
             vertMovement = Input.GetAxis("Vertical1");
             horiMovement = Input.GetAxis("Horizontal1");
-        }
+        }+7
     }
 
     //Referencing gameObject (PickUp) that you are near
@@ -127,13 +131,21 @@ public class PC_Overcooked : PlayerController {
           pickUpImg.fillAmount = 0;
           balloonEnumInt = 0;
         }
-        if (other.gameObject.tag == "HandIn") {
-            if (other.gameObject.GetComponent<HandInScript>().closed == false || other.gameObject.GetComponent<HandInScript>().closing == false) {
-                other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
-                objCarry = false;
-                pickUpImg.fillAmount = 0;
-                balloonEnumInt = 0;
+        if (other.gameObject.tag == "HandIn" && other.gameObject.transform.parent.GetComponent<GameController>().player == this.gameObject) {
+            if (other.gameObject.GetComponent<HandInScript>().closed == false) {
+                if (other.gameObject.GetComponent<HandInScript>().closing == false) {
+                    other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
+                    Debug.Log("it wasnt closed or closing apparently");
+                    objCarry = false;
+                    pickUpImg.fillAmount = 0;
+                    balloonEnumInt = 0;
+                }
             }
+        }
+        if (other.gameObject.tag == "Player2" && frenzy || other.gameObject.tag == "Player1" && frenzy) {
+          float angle;
+          angle = Vector2.Angle(this.gameObject.transform.position, other.gameObject.transform.position);
+          other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((Mathf.Sin(angle)),(Mathf.Cos(angle))) * 8, ForceMode2D.Impulse);
         }
     }
 }
