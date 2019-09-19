@@ -124,14 +124,16 @@ public class PC_Overcooked : PlayerController {
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Bin") {
           objCarry = false;
+          pickUpImg.fillAmount = 0;
           balloonEnumInt = 0;
         }
         if (other.gameObject.tag == "HandIn") {
-          Debug.Log("Try to hand in" + other.gameObject.name + "|| Parent = " + other.gameObject.transform.parent.gameObject.name);
-          other.gameObject.transform.parent.gameObject.GetComponent<GameController>().HandleHandIn(balloonEnumInt, );
-          objCarry = false;
-          pickUpImg.fillAmount = 0;
-          balloonEnumInt = 0;
+            if (other.gameObject.GetComponent<HandInScript>().closed == false || other.gameObject.GetComponent<HandInScript>().closing == false) {
+                other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
+                objCarry = false;
+                pickUpImg.fillAmount = 0;
+                balloonEnumInt = 0;
+            }
         }
     }
 }

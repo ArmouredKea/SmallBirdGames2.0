@@ -16,6 +16,7 @@ TagManager:
   - Dispenser
   - Crate
   - HandIn
+  - Bin
   layers:
   - Default
   - TransparentFX
