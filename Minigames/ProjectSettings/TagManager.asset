@@ -17,6 +17,7 @@ TagManager:
   - Crate
   - HandIn
   - Bin
+  - Blast
   layers:
   - Default
   - TransparentFX
