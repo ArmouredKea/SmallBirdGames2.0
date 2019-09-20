@@ -7,6 +7,8 @@ public class PC_Overcooked : PlayerController {
 
     public GameObject pickedUpObj;
 
+    public GameObject frenzyI;
+
     //controls axis
     public float vertMovement;
     public float horiMovement;

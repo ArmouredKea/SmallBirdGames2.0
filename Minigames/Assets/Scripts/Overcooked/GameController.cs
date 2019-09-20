@@ -38,9 +38,11 @@ public class GameController : MonoBehaviour {
     public bool allClosed;
     public bool frenzyActive;
     private float frenzyTime = 15f;
-    public GameObject thisFrenzyCanvas;
+    private float timer = 0;
 
     public GameObject txtObject;
+
+    private bool up;
 
     // Start is called before the first frame update
     void Start() {
@@ -71,16 +73,28 @@ public class GameController : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
-        if (!paused && player.tag == "player1") {
+        if (!paused) {
             if (frenzyActive) {
-              frenzyTime -= Time.deltaTime;
+                frenzyTime -= Time.deltaTime;
+                if (timer <= 0) {
+                    up = true;
+                }
+                if (timer >= 1) {
+                    up = false;
+                }
+                if (up) {
+                    timer += Time.deltaTime;
+                } else {
+                    timer -= Time.deltaTime;
+                }
+              player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().color = Color.Lerp(Color.red, Color.blue, timer);
+              player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = (frenzyTime/15);
             }
         }
 
 
         if (frenzyTime <= 0) {
           frenzyActive = false;
-          thisFrenzyCanvas.SetActive(false);
           player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
           player.GetComponent<PC_Overcooked>().frenzy = false;
           player.GetComponent<Rigidbody2D>().mass = 1;
@@ -89,14 +103,13 @@ public class GameController : MonoBehaviour {
         if (ordersComplete == 4) {
           if (tempPoints == 4 && frenzyActive == false) {
             frenzyActive = true;
-            thisFrenzyCanvas.SetActive(true);
             frenzyTime = 15f;
             player.GetComponent<PC_Overcooked>().speed = 8f;
             player.GetComponent<PC_Overcooked>().frenzy = true;
             player.GetComponent<Rigidbody2D>().mass = 10;
+            player.GetComponent<PC_Overcooked>().frenzyI.SetActive(true);
           } else if (tempPoints <= 3) {
             frenzyActive = false;
-            thisFrenzyCanvas.SetActive(false);
             player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
             player.GetComponent<PC_Overcooked>().frenzy = false;
             player.GetComponent<Rigidbody2D>().mass = 1;
