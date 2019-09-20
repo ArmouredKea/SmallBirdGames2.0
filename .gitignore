@@ -24,7 +24,7 @@ ExportedObj/
 *.pdb
 *.opendb
 
-
+*.meta
 *.psd.meta
 *.cs.meta
 *.unity.meta
