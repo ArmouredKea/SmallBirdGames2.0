@@ -7,11 +7,6 @@ public class GameController : MonoBehaviour {
     public GameObject player;
     //public GameObject spawn;
 
-    public GameObject timerBar;
-
-    //needed an item that was null
-    private GameObject nullItem;
-
     private PC_Overcooked playerScript;
     //public ItemScript itemScript;
 
@@ -31,9 +26,7 @@ public class GameController : MonoBehaviour {
     public GameObject handIn3;
     public GameObject handIn4;
 
-    //List<GameObject> pickUps = new List<GameObject>();
     public List<int> orderList = new List<int>();
-    //public List<GameObject> orderVisuals = new List<GameObject>();
     public int orderLength;
     public int ordered;
     public int ordersComplete;
@@ -47,11 +40,6 @@ public class GameController : MonoBehaviour {
     private float frenzyTime = 15f;
     public GameObject thisFrenzyCanvas;
 
-    //public GameObject orderTiles;
-
-    //Timer Variable
-    private float endTimer = 60f;
-
     public GameObject txtObject;
 
     // Start is called before the first frame update
@@ -59,10 +47,10 @@ public class GameController : MonoBehaviour {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
         txtObject.GetComponent<Text>().text = ("Points : " + points);
         if (gameObject.name == "HandInP1") {
-          player = GameObject.FindGameObjectWithTag("Player1");
+            player = GameObject.FindGameObjectWithTag("Player1");
         }
         else if (gameObject.name == "HandInP2") {
-          player = GameObject.FindGameObjectWithTag("Player2");
+            player = GameObject.FindGameObjectWithTag("Player2");
         }
 
         balloonColorDic.Add(1, new Vector4(255, 0, 0, 255));
@@ -84,17 +72,18 @@ public class GameController : MonoBehaviour {
     // Update is called once per frame
     void Update() {
         if (!paused && player.tag == "player1") {
-            GameTimer();
+            if (frenzyActive) {
+              frenzyTime -= Time.deltaTime;
+            }
         }
 
-        if (frenzyActive) {
-          frenzyTime -= Time.deltaTime;
-        }
+
         if (frenzyTime <= 0) {
           frenzyActive = false;
           thisFrenzyCanvas.SetActive(false);
           player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
           player.GetComponent<PC_Overcooked>().frenzy = false;
+          player.GetComponent<Rigidbody2D>().mass = 1;
         }
 
         if (ordersComplete == 4) {
@@ -102,15 +91,18 @@ public class GameController : MonoBehaviour {
             frenzyActive = true;
             thisFrenzyCanvas.SetActive(true);
             frenzyTime = 15f;
-            player.GetComponent<PC_Overcooked>().speed = 10;
+            player.GetComponent<PC_Overcooked>().speed = 8f;
             player.GetComponent<PC_Overcooked>().frenzy = true;
+            player.GetComponent<Rigidbody2D>().mass = 10;
           } else if (tempPoints <= 3) {
             frenzyActive = false;
             thisFrenzyCanvas.SetActive(false);
             player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
             player.GetComponent<PC_Overcooked>().frenzy = false;
+            player.GetComponent<Rigidbody2D>().mass = 1;
           }
           points += tempPoints;
+          txtObject.GetComponent<Text>().text = ("Points : " + points);
           tempPoints = 0;
           Debug.Log("Points : " + points + " : " + player.name);
             if (allClosed) {
@@ -129,32 +121,20 @@ public class GameController : MonoBehaviour {
         for (int j = 0; j <= orderLength; j++) {
             rI = Random.Range(1, 4);
             if (orderList[j] == 0) {
-              orderList[j] = rI;
+                orderList[j] = rI;
             } else {
-              orderList.Add(rI);
+                orderList.Add(rI);
             }
             if (handInDic.TryGetValue(j, out tempGO)) {
-              if (balloonColorDic.TryGetValue(rI, out temp)) {
-              tempGO.GetComponent<HandInScript>().balloon.GetComponent<Image>().color = temp;
-              tempGO.GetComponent<HandInScript>().balloon.SetActive(true);
-              tempGO.GetComponent<HandInScript>().tick.SetActive(false);
-              tempGO.GetComponent<HandInScript>().cross.SetActive(false);
-              tempGO.GetComponent<HandInScript>().closed = false;
-              tempGO.GetComponent<HandInScript>().openLid = true;
-            }
+                if (balloonColorDic.TryGetValue(rI, out temp)) {
+                    tempGO.GetComponent<HandInScript>().balloon.GetComponent<Image>().color = temp;
+                    tempGO.GetComponent<HandInScript>().tick.SetActive(false);
+                    tempGO.GetComponent<HandInScript>().cross.SetActive(false);
+                    tempGO.GetComponent<HandInScript>().closed = false;
+                    tempGO.GetComponent<HandInScript>().openLid = true;
+                }
                 tempGO.GetComponent<HandInScript>().orderID = rI;
             }
-        }
-    }
-
-    void GameTimer() {
-        endTimer -= Time.deltaTime;
-        if (endTimer <= 0) {
-            gameEnd = true;
-            Debug.Log("Game Finished");
-        }
-        if (timerBar != null) {
-          timerBar.GetComponentInChildren<Image>().fillAmount = (endTimer / 60);
         }
     }
 }
