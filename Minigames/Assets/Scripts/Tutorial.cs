@@ -15,12 +15,12 @@ public class Tutorial : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        
+
     }
 
     // Update is called once per frame
     void Update() {
-        
+
     }
 
     public void Continue() {
@@ -31,7 +31,7 @@ public class Tutorial : MonoBehaviour
 
     private IEnumerator MinigameUIDelay (float waitTime) {
         Debug.Log("Hello");
-        Time.timeScale = 1;        
+        Time.timeScale = 1;
         yield return new WaitForSeconds(waitTime);
         minigameUI.SetActive(true);
         minigameSchtuff.SetActive(true);
@@ -44,6 +44,6 @@ public class Tutorial : MonoBehaviour
         } else if (scene.name == "OvercookedMG") {
             StartCoroutine(countdown.GetComponent<Pause_Overcooked>().Countdown());
         }
-               
+
     }
 }

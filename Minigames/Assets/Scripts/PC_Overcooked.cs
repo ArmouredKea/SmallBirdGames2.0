@@ -32,6 +32,7 @@ public class PC_Overcooked : PlayerController {
         base.Start();
         speed = 7.5f;
         rotationSpeed = 100.0f;
+        baseSpeedOC = speed;
     }
 
     // Update is called once per frame
@@ -97,7 +98,7 @@ public class PC_Overcooked : PlayerController {
         if (gameObject.tag == "Player2") {
             vertMovement = Input.GetAxis("Vertical1");
             horiMovement = Input.GetAxis("Horizontal1");
-        }+7
+        }
     }
 
     //Referencing gameObject (PickUp) that you are near

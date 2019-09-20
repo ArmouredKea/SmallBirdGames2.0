@@ -1,23 +1,60 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Score_BulletHell : Score
 {
-    public GameObject bulletHellManage;
+    public BulletHellManage bulletHellManage;
     public GameObject pauseBulletHell;
+
+    public Image ProgressBar;
+    public Image ProgressBar2;
+    private bool timeswap = true;
+    public float TimeRatio;
+    public float TotalTime;
+    public GameObject countDownref;
 
     // Start is called before the first frame update
     protected override void Start() {
-        
+        currentTime = 64;
+        TotalTime = currentTime;
     }
 
     // Update is called once per frame
     protected override void Update() {
+
         if (!paused) {
             currentTime -= Time.deltaTime;
-            gameCanEnd = true;
+
+            TimeRatio = currentTime / TotalTime;
+            ProgressBar.fillAmount = TimeRatio;
+            ProgressBar2.fillAmount = TimeRatio;
         }
+
+        bulletHellManage = GameObject.FindObjectOfType<BulletHellManage>();
+
+        if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
+        {
+            countDownref.SetActive(true);
+        }
+
+        if(currentTime <= 30 && timeswap == true)
+        {
+            countDownref.SetActive(false);
+            bulletHellManage.Bhell_Swap();
+            //StartCoroutine(Countdown());
+            timeswap = false;
+            //This is where the 123 thing goes.
+
+
+        }
+
+
+
+
+
+
 
         if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);

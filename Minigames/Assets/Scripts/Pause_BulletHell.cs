@@ -25,6 +25,8 @@ public class Pause_BulletHell : Pause
 
     }
 
+
+
     public override void PauseButton()
     {
 
@@ -77,4 +79,5 @@ public class Pause_BulletHell : Pause
         }
 
     }
+
 }

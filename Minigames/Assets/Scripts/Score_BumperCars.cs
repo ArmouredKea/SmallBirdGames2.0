@@ -16,10 +16,7 @@ public class Score_BumperCars : Score
 
     // Update is called once per frame
     protected override void Update() {
-        if (!paused) {
-            currentTime -= Time.deltaTime;
-            gameCanEnd = true;
-        }
+        base.Update();
 
         //checks number of lives for each player or when the timer reaches 0 to display score
         if ((currentTime <= 0f || bombSchtuff.GetComponent<BombSchtuff>().p1Lives == 0 || bombSchtuff.GetComponent<BombSchtuff>().p2Lives == 0) && gameCanEnd) {
@@ -121,12 +118,16 @@ public class Score_BumperCars : Score
             Debug.Log(PlayerController.p2Score);
 
             pauseButton.SetActive(false);
-            pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;
+            //pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;
             pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
-            pauseBumperCars.GetComponent<Pause_BumperCars>().ResetVariables();
 
             gameCanEnd = false;
 
         }
     }
+
+    protected override void FixedUpdate() {
+
+    }
+
 }

@@ -18,10 +18,7 @@ public class Score_Overcooked : Score
 
     // Update is called once per frame
     protected override void Update() {
-        if (!paused) {
-            currentTime -= Time.deltaTime;
-            gameCanEnd = true;
-        }
+        base.Update();
 
         //checks number of lives for each player or when the timer reaches 0 to display score
         if (currentTime <= 0f && gameCanEnd) {
@@ -123,17 +120,15 @@ public class Score_Overcooked : Score
             Debug.Log(PlayerController.p2Score);
 
             pauseButton.SetActive(false);
-            pauseOvercooked.GetComponent<Pause_Overcooked>().paused = false;
+            //pauseOvercooked.GetComponent<Pause_Overcooked>().paused = false;
             pauseOvercooked.GetComponent<Pause_Overcooked>().PauseButton();
-            characterManagement.GetComponent<CharacterManagement>().p1BoB.SetActive(false);
-            characterManagement.GetComponent<CharacterManagement>().p1HiroB.SetActive(false);
-            characterManagement.GetComponent<CharacterManagement>().p1MikaB.SetActive(false);
-            characterManagement.GetComponent<CharacterManagement>().p2BoB.SetActive(false);
-            characterManagement.GetComponent<CharacterManagement>().p2HiroB.SetActive(false);
-            characterManagement.GetComponent<CharacterManagement>().p2MikaB.SetActive(false);
 
             gameCanEnd = false;
 
         }
+    }
+
+    protected override void FixedUpdate() {
+
     }
 }

@@ -1471,7 +1471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &504129546
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1635,7 +1635,7 @@ PrefabInstance:
     - target: {fileID: 517335970, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
       propertyPath: bulletHellManage
       value: 
-      objectReference: {fileID: 2046366693}
+      objectReference: {fileID: 0}
     - target: {fileID: 517335970, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
       propertyPath: pauseBulletHell
       value: 
@@ -1644,6 +1644,18 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 517335970, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
+      propertyPath: ProgressBar
+      value: 
+      objectReference: {fileID: 116391188}
+    - target: {fileID: 517335970, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
+      propertyPath: ProgressBar2
+      value: 
+      objectReference: {fileID: 1278311892}
+    - target: {fileID: 517335970, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
+      propertyPath: countDownref
+      value: 
+      objectReference: {fileID: 684499763}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
 --- !u!224 &517335944 stripped
@@ -6004,7 +6016,7 @@ PrefabInstance:
     - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311648, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}

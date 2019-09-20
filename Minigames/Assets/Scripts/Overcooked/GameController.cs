@@ -47,7 +47,6 @@ public class GameController : MonoBehaviour {
     private float frenzyTime = 15f;
     public GameObject thisFrenzyCanvas;
 
-
     //public GameObject orderTiles;
 
     //Timer Variable

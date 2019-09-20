@@ -20,6 +20,8 @@ public class BombMovement : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;
         p1Invulnerable = false;
         p2Invulnerable = false;
+        Physics2D.IgnoreLayerCollision(8, 9, false);
+        Physics2D.IgnoreLayerCollision(8, 10, false);
     }
 
     // Update is called once per frame
