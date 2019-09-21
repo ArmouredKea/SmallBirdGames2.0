@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2933366339075770989
 Transform:
   m_ObjectHideFlags: 0
@@ -176,32 +176,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
-      propertyPath: CollisionModule.type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
       propertyPath: CollisionModule.collisionMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
-      propertyPath: CollisionModule.collidesWith.m_Bits
-      value: 1536
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
-      propertyPath: CollisionModule.collisionMessages
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
-      propertyPath: TriggerModule.outside
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1937378236, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
       propertyPath: TriggerModule.enter
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1937378235, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b5f3d85183834246b9e666088b7327d, type: 3}

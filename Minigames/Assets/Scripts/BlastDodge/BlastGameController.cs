@@ -72,6 +72,13 @@ public class BlastGameController : MonoBehaviour
         Instantiate(pickUp, new Vector3(Random.Range(nw.x, se.x), Random.Range(nw.y, se.y), -5), Quaternion.identity);
     }
 
+    //Spawn V balloon -4.9 Y
+    //Spawn H balloon -7 Y
+    //land V balloon 8.05 X
+    //land H balloon 5.89 X
+
+    //per splat, 0.2s between each
+
     void BlastEm() {
         int randomInt;
         int randomNSInt;

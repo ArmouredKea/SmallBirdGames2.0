@@ -102,9 +102,4 @@ public class PC_BlastDodge : PlayerController
         //     HandleHit(4);
         // }
     }
-    void OnParticleCollision(GameObject other) {
-        Debug.Log(other);
-        //HandlePoints(4, other.gameObject);
-        HandleHit(4);
-    }
 }
