@@ -20,6 +20,8 @@ public class BlastGameController : MonoBehaviour
     private float timer;
     private float spawnTime = 5;
 
+    public GameObject thrown;
+
     /*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
     //Blast object list setting
     public GameObject northCones;
@@ -55,6 +57,11 @@ public class BlastGameController : MonoBehaviour
         }
         foreach (Transform transform in westLines.transform) {
             spawnsWestLines.Add(transform.gameObject);
+        }
+        GameObject tempGO;
+        for (int i = 0; i <= 55; i++) {
+            tempGO = Instantiate (thrown, new Vector3(0, 0, 0), Quaternion.identity);
+            tempGO.SetActive(false);
         }
         PickUpSpawn();
     }
