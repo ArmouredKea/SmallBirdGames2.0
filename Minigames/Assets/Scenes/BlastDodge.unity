@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickUp: {fileID: 41877031114326089, guid: 104705385f7043b42be24f5721ddabbe, type: 3}
+  thrown: {fileID: 4016277974307794509, guid: 7527489aff5b7a346a30fb8a0115eaa3, type: 3}
   northCones: {fileID: 2102852151}
   southCones: {fileID: 1017489648}
   northLines: {fileID: 264111929}
