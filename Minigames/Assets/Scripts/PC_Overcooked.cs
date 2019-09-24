@@ -7,6 +7,8 @@ public class PC_Overcooked : PlayerController {
 
     public GameObject pickedUpObj;
 
+    public GameObject frenzyI;
+
     //controls axis
     public float vertMovement;
     public float horiMovement;
@@ -30,7 +32,7 @@ public class PC_Overcooked : PlayerController {
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
-        speed = 7.5f;
+        speed = 6f;
         rotationSpeed = 100.0f;
         baseSpeedOC = speed;
     }
@@ -144,9 +146,10 @@ public class PC_Overcooked : PlayerController {
             }
         }
         if (other.gameObject.tag == "Player2" && frenzy || other.gameObject.tag == "Player1" && frenzy) {
-          float angle;
+          //Force push on Frenzy
+          /*float angle;
           angle = Vector2.Angle(this.gameObject.transform.position, other.gameObject.transform.position);
-          other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((Mathf.Sin(angle)),(Mathf.Cos(angle))) * 8, ForceMode2D.Impulse);
+          other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((Mathf.Sin(angle)),(Mathf.Cos(angle))) * 8, ForceMode2D.Impulse); */
         }
     }
 }
