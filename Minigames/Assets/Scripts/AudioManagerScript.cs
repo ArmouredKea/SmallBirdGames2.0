@@ -16,6 +16,8 @@ public class AudioManagerScript : MonoBehaviour
     public AudioSource audioSource3;
     public AudioSource audioSource4;
     public AudioSource audioSource5;
+
+    public bool isMuted;
     // Start is called before the first frame update
     void Awake() {
       foreach (AudioClip ac in Resources.LoadAll("", typeof(AudioClip))) {
@@ -46,6 +48,17 @@ public class AudioManagerScript : MonoBehaviour
             audioSource5.clip = temp;
             audioSource5.Play(0);
         }
+      }
+    }
+
+    public void MuteAudio() {
+        foreach (Transform child in transform) {
+            child.GetComponent<AudioSource>().mute = true;
+        }
+    }
+    public void UnMuteAudio() {
+      foreach (Transform child in transform) {
+          child.GetComponent<AudioSource>().mute = false;
       }
     }
 }
