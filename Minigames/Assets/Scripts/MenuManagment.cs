@@ -15,8 +15,8 @@ public class MenuManagment : MonoBehaviour
     public GameObject MenuButtons;
     public GameObject MuteBTN;
     public GameObject UnMuteBTN;
-    public Image MoveTo;
-    public Image TopSplash;
+    public GameObject settingsButton;
+    public GameObject credits;
 
     //Quits the Game
     public void QuitGame()
@@ -79,7 +79,19 @@ public class MenuManagment : MonoBehaviour
     }
 
     public void Unmute(){
-      MuteBTN.SetActive(true);
-      UnMuteBTN.SetActive(false);
+        MuteBTN.SetActive(true);
+        UnMuteBTN.SetActive(false);
+    }
+
+    public void Credits() {
+        MenuButtons.SetActive(false);
+        settingsButton.SetActive(false);
+        credits.SetActive(true);
+    }
+
+    public void closeCredits() {
+        MenuButtons.SetActive(true);
+        settingsButton.SetActive(true);
+        credits.SetActive(false);
     }
 }
