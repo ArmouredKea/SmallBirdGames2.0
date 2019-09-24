@@ -7,21 +7,21 @@ public class ItemController : PickUpParent
 
     //public AudioSource audiotestI;
 
-    public bool paused;
+    //public bool paused;
 
-    public bool lastPlayer1;
-    public bool lastPlayer2;
-    public GameObject lastPlayerObj;
+    //public bool lastPlayer1;
+    //public bool lastPlayer2;
+    //public GameObject lastPlayerObj;
 
-    public bool held = false;
-    public bool filling = false;
-    public bool overfilling = false;
+  //  public bool held = false;
+    //public bool filling = false;
+    //public bool overfilling = false;
 
-    public int pointValue;
-    public GameObject balloonSprite;
+  //  public int pointValue;
+    //public GameObject balloonSprite;
 
-    public Vector4 startColor;
-
+    //public Vector4 startColor;
+/*
     private void Awake() {
       startColor = gameObject.GetComponentInChildren<SpriteRenderer>().color;
     }
@@ -40,7 +40,7 @@ public class ItemController : PickUpParent
         }
 
     }
-
+ */
     public bool dInRange;
     public bool dispensing;
     public int dispenseTime;
@@ -50,7 +50,7 @@ public class ItemController : PickUpParent
     public bool handInInRange;
 
     public GameObject currentDispenser;
-
+ /*
     void OnTriggerEnter2D(Collider2D other) {
       //checks if a despenser is in range
       if (other.tag == "Dispenser") {
@@ -173,4 +173,6 @@ public class ItemController : PickUpParent
           handInInRange = false;
         }
     }
+
+    */
 }

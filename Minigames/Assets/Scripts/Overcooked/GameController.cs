@@ -15,19 +15,39 @@ public class GameController : MonoBehaviour {
     private PC_Overcooked playerScript;
     //public ItemScript itemScript;
 
+    public GameObject otherPlayerGC;
+
+    public int tempPoints;
     public int points;
 
-    List<GameObject> pickUps = new List<GameObject>();
-    public List<GameObject> orderList = new List<GameObject>();
-    List<GameObject> orderVisuals = new List<GameObject>();
+    //public GameObject baseBalloonObj;
+    //holds an enum value as a key, holds a Vector4 for colour
+    Dictionary <int, Vector4> balloonColorDic = new Dictionary<int, Vector4>();
+    //holds an int as key for hand in, holds a GameObject as handin
+    public Dictionary <int, GameObject> handInDic = new Dictionary <int, GameObject>();
+
+    public GameObject handIn1;
+    public GameObject handIn2;
+    public GameObject handIn3;
+    public GameObject handIn4;
+
+    //List<GameObject> pickUps = new List<GameObject>();
+    public List<int> orderList = new List<int>();
+    //public List<GameObject> orderVisuals = new List<GameObject>();
     public int orderLength;
     public int ordered;
+    public int ordersComplete;
 
     public bool gameEnd;
     public bool paused;
     public bool correctHandIn;
 
-    public GameObject orderTiles;
+    public bool allClosed;
+    public bool frenzyActive;
+    private float frenzyTime = 15f;
+    public GameObject thisFrenzyCanvas;
+
+    //public GameObject orderTiles;
 
     //Timer Variable
     private float endTimer = 60f;
@@ -44,107 +64,86 @@ public class GameController : MonoBehaviour {
         else if (gameObject.name == "HandInP2") {
           player = GameObject.FindGameObjectWithTag("Player2");
         }
+
+        balloonColorDic.Add(1, new Vector4(255, 0, 0, 255));
+        balloonColorDic.Add(2, new Vector4(0, 255, 0, 255));
+        balloonColorDic.Add(3, new Vector4(0, 188, 255, 255));
+
+        handInDic.Add(0, handIn1);
+        handInDic.Add(1, handIn2);
+        handInDic.Add(2, handIn3);
+        handInDic.Add(3, handIn4);
+
         playerScript = player.GetComponent<PC_Overcooked>();
-        OrderList();
-        orderLength = 4;
-        ListPickUps();
+        //OrderList();
+        orderLength = 3;
+        //ListPickUps();
         OrderUp();
     }
 
     // Update is called once per frame
     void Update() {
-        if (!paused) {
+        if (!paused && player.tag == "player1") {
             GameTimer();
         }
 
-        if (orderList.Count <= (orderLength - 1)) {
-            OrderUp();
+        if (frenzyActive) {
+          frenzyTime -= Time.deltaTime;
+        }
+        if (frenzyTime <= 0) {
+          frenzyActive = false;
+          thisFrenzyCanvas.SetActive(false);
+          player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
+          player.GetComponent<PC_Overcooked>().frenzy = false;
+        }
+
+        if (ordersComplete == 4) {
+          if (tempPoints == 4 && frenzyActive == false) {
+            frenzyActive = true;
+            thisFrenzyCanvas.SetActive(true);
+            frenzyTime = 15f;
+            player.GetComponent<PC_Overcooked>().speed = 10;
+            player.GetComponent<PC_Overcooked>().frenzy = true;
+          } else if (tempPoints <= 3) {
+            frenzyActive = false;
+            thisFrenzyCanvas.SetActive(false);
+            player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
+            player.GetComponent<PC_Overcooked>().frenzy = false;
+          }
+          points += tempPoints;
+          tempPoints = 0;
+          Debug.Log("Points : " + points + " : " + player.name);
+            if (allClosed) {
+                OrderUp();
+            }
         }
     }
 
     void OrderUp() {
-        while (orderList.Count < orderLength) {
-
-            int rI = Random.Range(0, pickUps.Count);
-            orderList.Add(pickUps[rI]);
-        }
-        Debug.Log(orderList.Count);
-
-        //setting the visuals on the floor in relation to the order
-        for (int j = 0; j <= 3; j++) {
-            GameObject orderSprite;
-            orderSprite = Instantiate(orderList[j].GetComponent<ItemController>().balloonSprite, orderVisuals[j].gameObject.transform.position, Quaternion.identity);
-            orderSprite.transform.parent = orderVisuals[j].gameObject.transform;
-            orderSprite.transform.rotation = orderVisuals[j].gameObject.transform.rotation;
-            orderSprite.transform.localScale = new Vector3(1, 1, 1);
-        }
-    }
-
-    //to spawn only one item on each spawn location
-    void OnTriggerStay2D(Collider2D other) {
-        if (other.tag == "PickUp" && other.gameObject.GetComponent<ItemController>().balloonName != "") {
-           if (other.gameObject.GetComponent<ItemController>().lastPlayer1 && gameObject.name == "HandInP1" || other.gameObject.GetComponent<ItemController>().lastPlayer2 && gameObject.name == "HandInP2") {
-              if (playerScript.objCarry == false) {
-                  HandleHandIn(other.gameObject, other.gameObject.GetComponent<ItemController>().pointValue);
-              }
-          }
-        }
-    }
-    //handles the handin proccess, checking if the item is in the order
-    void HandleHandIn(GameObject handInItem, int pIncrease)
-    {
-      Debug.Log("Hand in Obj" + handInItem.GetComponent<ItemController>().balloonName);
-        for (int i = 0; i < orderList.Count; i++)
-        {
-
-            if (orderList[i] != null)
-            {
-                //Debug.Log("Made it to point 1");
-                if (handInItem.GetComponent<ItemController>().balloonName == orderList[i].GetComponent<ItemController>().balloonName)
-                {
-                    //Debug.Log("Made it to point 2");
-                    //Debug.Log("balloon Name in Array" + orderList[i].GetComponent<ItemController>().balloonName);
-                        orderList.Remove(orderList[i]);
-                        correctHandIn = true;
-
-
-                    break;
-                }
+        int rI;
+        Vector4 temp;
+        GameObject tempGO;
+        ordersComplete = 0;
+        Debug.Log(ordersComplete);
+        //setting the visuals on the Boxes in relation to the order
+        for (int j = 0; j <= orderLength; j++) {
+            rI = Random.Range(1, 4);
+            if (orderList[j] == 0) {
+              orderList[j] = rI;
+            } else {
+              orderList.Add(rI);
             }
-        }
-        if (correctHandIn) {
-          points += (pIncrease * 2);
-          Debug.Log("Ordered Points: " + points);
-          correctHandIn = false;
-        } else {
-          points += pIncrease;
-          Debug.Log("Non-Ordered Points: " + points);
-        }
-        Destroy(handInItem.gameObject);
-        if (playerScript.pickedUpObj == handInItem.gameObject)
-        {
-            playerScript.pickedUpObj = null;
-            playerScript.inRange = false;
-        }
-        txtObject.GetComponent<Text>().text = ("Points : " + points);
-    }
-    //Listing all possible pick ups
-    void ListPickUps() {
-        if (player.tag == "Player1") {
-            foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
-                pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
+            if (handInDic.TryGetValue(j, out tempGO)) {
+              if (balloonColorDic.TryGetValue(rI, out temp)) {
+              tempGO.GetComponent<HandInScript>().balloon.GetComponent<Image>().color = temp;
+              tempGO.GetComponent<HandInScript>().balloon.SetActive(true);
+              tempGO.GetComponent<HandInScript>().tick.SetActive(false);
+              tempGO.GetComponent<HandInScript>().cross.SetActive(false);
+              tempGO.GetComponent<HandInScript>().closed = false;
+              tempGO.GetComponent<HandInScript>().openLid = true;
             }
-        } else if (player.tag == "Player2") {
-            foreach (GameObject pUP in GameObject.FindGameObjectsWithTag("SPP2")) {
-                pickUps.Add(pUP.GetComponent<SpawnFoderScript>().balloonType);
+                tempGO.GetComponent<HandInScript>().orderID = rI;
             }
-        }
-    }
-
-    //adding the order visual tiles to a list
-    void OrderList() {
-        foreach (Transform child in orderTiles.transform) {
-            orderVisuals.Add(child.gameObject);
         }
     }
 

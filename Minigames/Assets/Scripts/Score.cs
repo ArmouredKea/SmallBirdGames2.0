@@ -43,6 +43,12 @@ public class Score : MonoBehaviour
 
     // Update is called once per frame
     protected virtual void Update() {
+        if (!paused) {
+            currentTime -= Time.deltaTime;
+        }
+    }
+
+    protected virtual void FixedUpdate() {
 
     }
 }
