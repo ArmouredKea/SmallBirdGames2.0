@@ -11,6 +11,7 @@ public class HandInScript : MonoBehaviour
     public GameObject balloon;
     public GameObject tick;
     public GameObject cross;
+    public GameObject plusOne;
     public Vector3 lidStartV;
     public Vector3 lidEndV;
     public bool closed;
@@ -34,9 +35,11 @@ public class HandInScript : MonoBehaviour
     }
 
     void HandleLid() {
-      if (openLid && lid.transform.position != lidStartV) {
-        moveTime += Time.deltaTime;
-        lid.transform.position = Vector3.Lerp(lidEndV, lidStartV, moveTime/0.6f);
+      if (openLid) {
+        if (lid.transform.position != lidStartV) {
+            moveTime += Time.deltaTime;
+            lid.transform.position = Vector3.Lerp(lidEndV, lidStartV, moveTime/0.6f);
+        }
       }
       if (closing) {
           moveTime += Time.deltaTime;
@@ -57,6 +60,12 @@ public class HandInScript : MonoBehaviour
       if (lid.transform.position == lidStartV) {
         moveTime = 0;
         openLid = false;
+        balloon.SetActive(true);
+      }
+      if (openLid && correctHandIn) {
+            plusOne.SetActive(true);
+      } else {
+            plusOne.SetActive(false);
       }
     }
 
