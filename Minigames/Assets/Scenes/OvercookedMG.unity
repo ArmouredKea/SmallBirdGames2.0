@@ -2047,12 +2047,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 3042127257213617821, guid: e0f35f1bc2d78bd4baa32390ecbf0381,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 6994d5f8bc2f6204584b50a364cfce70,
-        type: 3}
     - target: {fileID: 3042127255834319140, guid: e0f35f1bc2d78bd4baa32390ecbf0381,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2063,6 +2057,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Continue
       objectReference: {fileID: 0}
+    - target: {fileID: 3042127257213617821, guid: e0f35f1bc2d78bd4baa32390ecbf0381,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6994d5f8bc2f6204584b50a364cfce70,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0f35f1bc2d78bd4baa32390ecbf0381, type: 3}
 --- !u!224 &284348943 stripped
@@ -4907,7 +4907,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: a8a0b616100582d4e95079fd7532bb0e, type: 3}
-  m_Color: {r: 0.6680775, g: 0.5896226, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -7715,7 +7715,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 66472804250125643bf7ae4faacd01cc, type: 3}
-  m_Color: {r: 0.6680775, g: 0.5896226, b: 1, a: 0.29411766}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8022,7 +8022,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 66472804250125643bf7ae4faacd01cc, type: 3}
-  m_Color: {r: 0.6680775, g: 0.5896226, b: 1, a: 0.29411766}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -8319,7 +8319,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 25
   m_Sprite: {fileID: 21300000, guid: a8a0b616100582d4e95079fd7532bb0e, type: 3}
-  m_Color: {r: 0.6680775, g: 0.5896226, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -9962,6 +9962,26 @@ PrefabInstance:
       propertyPath: p2MikaB
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p1JoystickInner
+      value: 
+      objectReference: {fileID: 1387699735}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p1JoystickOuter
+      value: 
+      objectReference: {fileID: 1348717931}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p2JoystickInner
+      value: 
+      objectReference: {fileID: 779622418}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p2JoystickOuter
+      value: 
+      objectReference: {fileID: 1273693827}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f1c375ea5f66040827c7f128384e45, type: 3}
 --- !u!4 &1755500522 stripped
@@ -11141,6 +11161,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: FillingFrenzyBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 1729196323}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: minigameUI
+      value: 
+      objectReference: {fileID: 1908203704}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: minigameSchtuff
+      value: 
+      objectReference: {fileID: 1063829436}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: countdownTimer
+      value: 
+      objectReference: {fileID: 389940248}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: countdown
+      value: 
+      objectReference: {fileID: 1087209185}
     - target: {fileID: 1908155621922956134, guid: bd03d7ed00957874dba0648efe730ead,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11212,31 +11257,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 71f4c78cc1cdd8249a52a50ca26037b1,
         type: 3}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: tutorial
-      value: 
-      objectReference: {fileID: 1729196323}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: minigameUI
-      value: 
-      objectReference: {fileID: 1908203704}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: minigameSchtuff
-      value: 
-      objectReference: {fileID: 1063829436}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: countdownTimer
-      value: 
-      objectReference: {fileID: 389940248}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: countdown
-      value: 
-      objectReference: {fileID: 1087209185}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd03d7ed00957874dba0648efe730ead, type: 3}
 --- !u!114 &1902017058 stripped

@@ -78,6 +78,7 @@ public class HandInScript : MonoBehaviour
                           if (gameControllerScript.frenzyActive) {
                             FrenzyMode(handInID);
                           }
+                          correctHandIn = false;
                           if (balloonID == orderID) {
                               Debug.Log("Made it to point 2");
                               correctHandIn = true;
