@@ -47,10 +47,7 @@ public class ProjectileParent : MonoBehaviour
 
 
 
-    // TO ADD: CollisionVisual Effect, ShotValue,
-
-    //B i g red balloon
-    // low fire rate. 1dmgv. Make it stop and grow at a random point in time since firing? Create a seperate part to deal with difference?
+    // TO ADD: Make a generic function to take the general 'activation time' and turn it into an overhead display.
 
     virtual public void Start()
     {
