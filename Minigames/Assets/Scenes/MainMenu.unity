@@ -1631,6 +1631,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1692736550}
+        m_MethodName: ShortGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &899925632
@@ -2557,6 +2568,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1200991497}
   m_CullTransparentMesh: 0
+--- !u!1001 &1207805663
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5848772505792011818, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.1767836
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.79787326
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -13.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6260838045033809393, guid: d85afd7374994864dbd268dbabb2ccc2,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d85afd7374994864dbd268dbabb2ccc2, type: 3}
 --- !u!1 &1233934560
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,6 +2851,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1439988694}
         m_MethodName: CharaScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1692736550}
+        m_MethodName: MediumGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3424,6 +3515,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1692736550}
+        m_MethodName: LongGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1675330572
@@ -3475,6 +3577,7 @@ GameObject:
   - component: {fileID: 1692736553}
   - component: {fileID: 1692736552}
   - component: {fileID: 1692736551}
+  - component: {fileID: 1692736550}
   m_Layer: 5
   m_Name: Game Length
   m_TagString: Untagged
@@ -3482,6 +3585,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &1692736550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692736549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
 --- !u!114 &1692736551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4204,6 +4320,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1702717604064615741, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
+        type: 3}
+      propertyPath: m_Name
+      value: mute button
       objectReference: {fileID: 0}
     - target: {fileID: 1702717603674681631, guid: 0ebc6f3105c1cce48859d7ff83d54a4a,
         type: 3}
