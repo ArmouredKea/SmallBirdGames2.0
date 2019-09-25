@@ -113,8 +113,9 @@ public class Score_BumperCars : Score
             } else if (PlayerController.p2Score == 3) {
                 p2Score3.SetActive(true);
             }
-            
 
+            Debug.Log(PlayerController.p1Score);
+            Debug.Log(PlayerController.p2Score);
 
             pauseButton.SetActive(false);
             //pauseBumperCars.GetComponent<Pause_BumperCars>().paused = false;

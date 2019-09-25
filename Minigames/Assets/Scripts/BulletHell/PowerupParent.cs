@@ -98,7 +98,7 @@ public class PowerupParent : MonoBehaviour
 
 
 
-        else if (Random.value <= YellowPowerupChance && YellowPowerup.activeInHierarchy == false)
+        else if (Random.value <= YellowPowerupChance && YellowPowerup.activeInHierarchy == false )
         {
             if (!Spawn_SpawnedObj.Contains(Spawn_ToPoint))
             {

@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-
-    public GameObject audioManager;
-
     public GameObject PausedMenu;
     public GameObject PauseManagerRef;
     public GameObject AreYouSure;
@@ -23,7 +20,6 @@ public class PauseMenu : MonoBehaviour
 
     // Start is called before the first frame update
     void Start() {
-        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
         Scene scene = SceneManager.GetActiveScene();
         if (scene.name == "BumperCarsMG") {
             CurrentScene = "BumperCars";
@@ -38,13 +34,7 @@ public class PauseMenu : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-      if (audioManager.GetComponent<AudioManagerScript>().isMuted) {
-          mutebutton.SetActive(false);
-          unmutebutton.SetActive(true);
-      } else if (audioManager.GetComponent<AudioManagerScript>().isMuted == false) {
-        mutebutton.SetActive(true);
-        unmutebutton.SetActive(false);
-      }
+
     }
 
     public void togglePauseMenu() {
@@ -75,17 +65,13 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void MuteSound() {
-            mutebutton.SetActive(false);
-            unmutebutton.SetActive(true);
-            audioManager.GetComponent<AudioManagerScript>().isMuted = true;
-            audioManager.GetComponent<AudioManagerScript>().MuteAudio();
+        mutebutton.SetActive(false);
+        unmutebutton.SetActive(true);
     }
 
     public void unMuteSound() {
-            unmutebutton.SetActive(false);
-            mutebutton.SetActive(true);
-            audioManager.GetComponent<AudioManagerScript>().isMuted = false;
-            audioManager.GetComponent<AudioManagerScript>().UnMuteAudio();
+        unmutebutton.SetActive(false);
+        mutebutton.SetActive(true);
     }
 
     public void UnPause() {
