@@ -10,7 +10,7 @@ public class AudioManagerScript : MonoBehaviour
     public class StringAudioClipDictionary : SerializableDictionary<string, AudioClip> {}
 
     public StringAudioClipDictionary soundsDicitonary;
-    //test
+
     public AudioSource audioSource1;
     public AudioSource audioSource2;
     public AudioSource audioSource3;
