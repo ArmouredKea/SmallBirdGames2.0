@@ -27,6 +27,9 @@ public class PowerupCheck : MonoBehaviour
 
     public Transform Position_current;
 
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +39,7 @@ public class PowerupCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
     }
 
     public void OnEnable()

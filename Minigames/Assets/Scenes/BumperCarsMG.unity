@@ -446,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 363137883, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5591340752118366947, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -465,10 +469,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 363137883, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 12240394, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
       propertyPath: joystickOuter
@@ -1448,7 +1448,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 839095691, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
+    - target: {fileID: 5591340752118366956, guid: 710d067c2a7213f4281ff729e859b7fa,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839095692, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -1462,19 +1467,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5591340752118366956, guid: 710d067c2a7213f4281ff729e859b7fa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421558, guid: 710d067c2a7213f4281ff729e859b7fa,
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 839095692, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 457109366, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
       propertyPath: joystickOuter
@@ -1495,6 +1491,10 @@ PrefabInstance:
     - target: {fileID: 457109366, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 839095691, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
@@ -2103,7 +2103,7 @@ GameObject:
   - component: {fileID: 733760036}
   - component: {fileID: 733760035}
   m_Layer: 0
-  m_Name: JoystickRight
+  m_Name: JoystickP2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2185,7 +2185,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797782205}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &771637952
 GameObject:
@@ -2852,7 +2852,7 @@ GameObject:
   - component: {fileID: 1046177576}
   - component: {fileID: 1046177575}
   m_Layer: 0
-  m_Name: JoystickLeftInner
+  m_Name: JoystickP1Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2934,7 +2934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797782205}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1062377908
 PrefabInstance:
@@ -3979,6 +3979,15 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 0.125
       objectReference: {fileID: 0}
+    - target: {fileID: 5591340752118366956, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 284998237, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3993,19 +4002,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5591340752118366956, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421558, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 284998237, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1295211073, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: joystickOuter
@@ -4117,6 +4117,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: 72787442e2e76fc428af900930582486,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690662641, guid: 72787442e2e76fc428af900930582486, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735800766714102, guid: 72787442e2e76fc428af900930582486,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4127,19 +4136,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735800766714103, guid: 72787442e2e76fc428af900930582486,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169507, guid: 72787442e2e76fc428af900930582486,
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1690662641, guid: 72787442e2e76fc428af900930582486, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1309667824, guid: 72787442e2e76fc428af900930582486, type: 3}
       propertyPath: joystickOuter
@@ -4477,7 +4477,7 @@ GameObject:
   - component: {fileID: 1407316435}
   - component: {fileID: 1407316434}
   m_Layer: 0
-  m_Name: JoystickRightInner
+  m_Name: JoystickP2Inner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4559,7 +4559,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797782205}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1455034351
 PrefabInstance:
@@ -4637,6 +4637,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: 92e0411ac32bfff49985e5343913bee1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 342009484, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735800766714102, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -4647,19 +4656,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735800766714103, guid: 92e0411ac32bfff49985e5343913bee1,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169507, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 342009484, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1455034354, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
       propertyPath: joystickOuter
@@ -5325,6 +5325,15 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735800766714103, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250061077, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735800766714102, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -5335,19 +5344,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 3.5
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735800766714103, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169507, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_Radius
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1250061077, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1599114546, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
       propertyPath: joystickOuter
@@ -5740,10 +5740,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 485851923}
-  - {fileID: 733760037}
-  - {fileID: 1407316436}
   - {fileID: 1819179686}
   - {fileID: 1046177577}
+  - {fileID: 733760037}
+  - {fileID: 1407316436}
   - {fileID: 30972028}
   - {fileID: 1144503038}
   m_Father: {fileID: 0}
@@ -5761,7 +5761,7 @@ GameObject:
   - component: {fileID: 1819179685}
   - component: {fileID: 1819179684}
   m_Layer: 0
-  m_Name: JoystickLeft
+  m_Name: JoystickP1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5843,7 +5843,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1797782205}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1921482806
 GameObject:
@@ -6544,6 +6544,26 @@ PrefabInstance:
       propertyPath: p2Mika
       value: 
       objectReference: {fileID: 1455034353}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p1JoystickOuter
+      value: 
+      objectReference: {fileID: 1819179683}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p1JoystickInner
+      value: 
+      objectReference: {fileID: 1046177573}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p2JoystickInner
+      value: 
+      objectReference: {fileID: 1407316433}
+    - target: {fileID: 850708636775587060, guid: 98f1c375ea5f66040827c7f128384e45,
+        type: 3}
+      propertyPath: p2JoystickOuter
+      value: 
+      objectReference: {fileID: 733760034}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98f1c375ea5f66040827c7f128384e45, type: 3}
 --- !u!1001 &1908155622229694601
@@ -6558,6 +6578,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterWarsBackground
       objectReference: {fileID: 0}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: tutorial
+      value: 
+      objectReference: {fileID: 105676183855610448}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: minigameUI
+      value: 
+      objectReference: {fileID: 2144326234}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: minigameSchtuff
+      value: 
+      objectReference: {fileID: 1797782204}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: countdown
+      value: 
+      objectReference: {fileID: 590999996}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: countdownTimer
+      value: 
+      objectReference: {fileID: 359770833}
+    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
+        type: 3}
+      propertyPath: bumperCarsPause
+      value: 
+      objectReference: {fileID: 485851921}
     - target: {fileID: 1908155621922956134, guid: bd03d7ed00957874dba0648efe730ead,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6613,36 +6663,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: tutorial
-      value: 
-      objectReference: {fileID: 105676183855610448}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: minigameUI
-      value: 
-      objectReference: {fileID: 2144326234}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: minigameSchtuff
-      value: 
-      objectReference: {fileID: 1797782204}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: countdown
-      value: 
-      objectReference: {fileID: 590999996}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: countdownTimer
-      value: 
-      objectReference: {fileID: 359770833}
-    - target: {fileID: 1908155621922956152, guid: bd03d7ed00957874dba0648efe730ead,
-        type: 3}
-      propertyPath: bumperCarsPause
-      value: 
-      objectReference: {fileID: 485851921}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd03d7ed00957874dba0648efe730ead, type: 3}
 --- !u!1001 &3116668456228814031

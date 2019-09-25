@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class GunnerPowerups : PowerupParent
 {
-
-    public PC_BulletHell GunnerRefP1;
-    public PC_BulletHell GunnerRefP2;
-    private PC_BulletHell currentShooter;
-
     // Start is called before the first frame update
     void Start()
     {
         base.Spawn_Control();
-        ConnectReference();
     }
 
     // Update is called once per frame
@@ -24,16 +18,7 @@ public class GunnerPowerups : PowerupParent
     private void FixedUpdate()
     {
         base.Spawn_Timer();
-
-
     }
-
-    void ConnectReference()
-    {
-        GunnerRefP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
-        GunnerRefP2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
-    }
-
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
     {
         if (red == true) { RedFiring();}
@@ -69,19 +54,8 @@ public class GunnerPowerups : PowerupParent
     {
         base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
 
-        if (GunnerRefP1.bHell_isShoot == true)
-        {
-            GunnerRefP1.AimingCreation();
-        }
-        else if (GunnerRefP2.bHell_isShoot == true)
-        {
-            GunnerRefP2.AimingCreation();
-        }
         ObjectPool.pool_Instance.pool_WhiteProjTime = true;
-         
-
-
-
+            
 
     }
     public void Deactivate()
@@ -92,8 +66,6 @@ public class GunnerPowerups : PowerupParent
         ObjectPool.pool_Instance.pool_GreenProjTime = false;
         ObjectPool.pool_Instance.pool_WhiteProjTime = false;
             ExecutePowerup(false, false, false, false);
-            GunnerRefP1.AimingDestroy();
-            GunnerRefP2.AimingDestroy();
         }
     }
 }

@@ -37,18 +37,17 @@ public class Score_BulletHell : Score
         if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
         {
             countDownref.SetActive(true);
-            bulletHellManage.Bhell_Swap();
         }
 
         if(currentTime <= 30 && timeswap == true)
         {
             countDownref.SetActive(false);
-             //Lerp movement from here
-            
+            bulletHellManage.Bhell_Swap();
+            //StartCoroutine(Countdown());
             timeswap = false;
             //This is where the 123 thing goes.
 
-        
+
         }
 
 
