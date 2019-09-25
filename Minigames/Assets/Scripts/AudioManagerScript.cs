@@ -18,12 +18,15 @@ public class AudioManagerScript : MonoBehaviour
     public AudioSource audioSource5;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public AudioSource audioSource1;
     public AudioSource audioSource2;
     public AudioSource audioSource3;
     public AudioSource audioSource4;
     public AudioSource audioSource5;
 
+=======
+>>>>>>> parent of 55ff118... Merge pull request #8 from ArmouredKea/NuBhellBranch
 =======
 >>>>>>> parent of 55ff118... Merge pull request #8 from ArmouredKea/NuBhellBranch
     public bool isMuted;
