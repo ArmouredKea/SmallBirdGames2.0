@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerupParent : MonoBehaviour
 {//This is actually a Manager not a parent'
@@ -37,6 +38,10 @@ public class PowerupParent : MonoBehaviour
 
 
     public int Powerup_Duration;
+    public float TimeRatio;
+    public GameObject getPlayer;
+    public Image powerupProg;
+
 
     /// <summary>
     /// Requirements:
@@ -158,16 +163,26 @@ public class PowerupParent : MonoBehaviour
     }
 
 
-    public virtual IEnumerator PowerupTimer(float seconds)
+    public virtual IEnumerator PowerupTimer(float seconds, PC_BulletHell player, Color color)
     {
+        powerupProg = player.transform.Find("Feedback").GetComponentInChildren<Canvas>().transform.Find("ProjTimer").GetComponentInChildren<Image>();
+
+        powerupProg.gameObject.SetActive(true);
         float counter = seconds;
+
+        powerupProg.color = color;
         Powerup_Activated = true;
+        
+
+
         while (counter > 0.0f)
         {
-
+            TimeRatio = counter / seconds;
+            powerupProg.fillAmount = TimeRatio;
             counter -= Time.deltaTime;
             yield return null;
         }
+        powerupProg.gameObject.SetActive(false);
         Powerup_Activated = false;
     }
 

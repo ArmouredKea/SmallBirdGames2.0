@@ -15,7 +15,7 @@ public class MoveDamage : MonoBehaviour
 
     void Start()
     {
-     
+
         start = transform.position;
         end = start + new Vector3(Random.Range(-xOffset, xOffset), distance, 0.5f);
         StartCoroutine(Animate(start, end));

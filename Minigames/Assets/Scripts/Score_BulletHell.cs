@@ -14,11 +14,13 @@ public class Score_BulletHell : Score
     public float TimeRatio;
     public float TotalTime;
     public GameObject countDownref;
+    public bool SwapOnce;
 
     // Start is called before the first frame update
     protected override void Start() {
         currentTime = 64;
         TotalTime = currentTime;
+        SwapOnce = true;
     }
 
     // Update is called once per frame
@@ -34,10 +36,12 @@ public class Score_BulletHell : Score
 
         bulletHellManage = GameObject.FindObjectOfType<BulletHellManage>();
 
-        if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
+        if(currentTime <= 33 && currentTime >= 30 && SwapOnce == true)
         {
             countDownref.SetActive(true);
             bulletHellManage.Bhell_Swap();
+            SwapOnce = false;
+
         }
 
         if(currentTime <= 30 && timeswap == true)

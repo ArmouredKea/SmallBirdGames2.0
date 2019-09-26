@@ -15,6 +15,8 @@ public class PowerupCheck : MonoBehaviour
     private bool forRunner;
 
     public PC_BulletHell getRunner;
+    public PC_BulletHell gunner;
+
 
     [SerializeField]
     private bool r;
@@ -54,10 +56,18 @@ public class PowerupCheck : MonoBehaviour
             {
                 //"Use" effect here.
                 if (gunnerSpawn.Powerup_Activated == false)
-                { 
+                {
+                    gunner = collision.gameObject.GetComponent<BlueProjectile>().firedFrom.GetComponent<PC_BulletHell>();
+
+                    gunnerSpawn.GetGunner(gunner);
+
+
+
                     gunnerSpawn.Deactivate();
                     gunnerSpawn.ExecutePowerup(r, y, g, w);
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+
+
                     gameObject.SetActive(false);
                     }
                 else

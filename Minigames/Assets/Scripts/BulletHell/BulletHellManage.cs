@@ -59,6 +59,9 @@ public class BulletHellManage : MonoBehaviour
 
     public Text P1hits;
     public Text P2hits;
+    public Text P1Tag;
+    public Text P2Tag;
+
     public Canvas P1feedback;
     public Canvas P2feedback;
 
@@ -93,7 +96,10 @@ public class BulletHellManage : MonoBehaviour
         BHell_Determine_Mode();
 
 
-        if(firingPlayer == 1)
+        //DetectCharacter1(); Overhead player tag code
+        //DetectCharacter2();
+
+        if (firingPlayer == 1)
         {
             P1_isLerpGun = true;
         }
@@ -149,7 +155,10 @@ public class BulletHellManage : MonoBehaviour
 
         ObjectPool.pool_Instance.StopAll();
         BHell_Determine_Mode();
+        //DetectCharacter1();
+        //DetectCharacter2();
         gunnerPowerups.Deactivate();
+        
 
         if (firingPlayer == 2)
         {
@@ -199,12 +208,69 @@ public class BulletHellManage : MonoBehaviour
 
 
 
+    public void DetectCharacter1()
+    {
+        if (P1.gameObject.name == "P1_Bo")
+        {
+            P1Tag.text = "Bo";
+            Instantiate(P1Tag, P1feedback.transform);
+            P1Tag.transform.position = P1feedback.transform.position;
+           
+
+            P1Tag.color = Color.blue; //Update for specific character colouring later on.
+        }
+        else if (P1.gameObject.name == "P1_Hiro")
+        {
+            P1Tag.text = "Hiro";
+            Instantiate(P1Tag, P1feedback.transform);
+            P1Tag.transform.position = P1feedback.transform.position;
+            
+            P1Tag.color = Color.black;
+        }
+        else if (P1.gameObject.name == "P1_Mika")
+        {
+            P1Tag.text = "Mika";
+            Instantiate(P1Tag, P1feedback.transform);
+            P1Tag.transform.position = P1feedback.transform.position;
+            
+            P1Tag.color = Color.red;
+        }
+      
+    }
+
+    public void DetectCharacter2()
+    {
+        //P2 tags
+        if (P2.gameObject.name == "P2_Bo")
+        {
+            P2Tag.text = "Bo";
+            Instantiate(P2Tag, P2feedback.transform);
+            P2Tag.transform.position = P2feedback.transform.position;
+           
+            P2Tag.color = Color.yellow; //Update for specific character colouring later on.
+        }
+        else if (P2.gameObject.name == "P2_Hiro")
+        {
+            P2Tag.text = "Hiro";
+            Instantiate(P2Tag, P2feedback.transform);
+            P2Tag.transform.position = P2feedback.transform.position;
+            
+            P2Tag.color = Color.black;
+        }
+        else if (P2.gameObject.name == "P2_Mika")
+        {
+            P2Tag.text = "Mika";
+            Instantiate(P2Tag, P2feedback.transform);
+            P2Tag.transform.position = P2feedback.transform.position;
+            
+            P2Tag.color = Color.red;
+        }
+    }
 
 
 
 
-
-void ValueCheck()
+    void ValueCheck()
     {
 
         //Checks to see if the value has changed since last hit. If so, send the player text box to the coroutine along with value.

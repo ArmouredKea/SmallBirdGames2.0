@@ -17,6 +17,9 @@ TagManager:
   - Crate
   - HandIn
   - Bin
+  - Boundary
+  - P1Tag
+  - P2Tag
   layers:
   - Default
   - TransparentFX

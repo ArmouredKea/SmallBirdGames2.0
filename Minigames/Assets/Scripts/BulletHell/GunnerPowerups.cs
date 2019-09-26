@@ -1,13 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GunnerPowerups : PowerupParent
 {
 
     public PC_BulletHell GunnerRefP1;
     public PC_BulletHell GunnerRefP2;
+
+    public Image P1PowerTimer;
+
+    public Image P2PowerTimer;
+
     private PC_BulletHell currentShooter;
+
+    public PC_BulletHell declareGunner;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +40,9 @@ public class GunnerPowerups : PowerupParent
     {
         GunnerRefP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
         GunnerRefP2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
+
+        
+
     }
 
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
@@ -45,14 +56,14 @@ public class GunnerPowerups : PowerupParent
 
      public void RedFiring()
     {
-        base.StartCoroutine(PowerupTimer(seconds:base.Powerup_Duration));
+        base.StartCoroutine(PowerupTimer(seconds:base.Powerup_Duration, declareGunner, Color.red));
         ObjectPool.pool_Instance.pool_RedProjTime = true;
             
        
     }
     public void YellowFiring()
     {
-        base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
+        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.yellow));
         ObjectPool.pool_Instance.pool_YellowProjTime = true;
             
    
@@ -60,14 +71,14 @@ public class GunnerPowerups : PowerupParent
     }
     public void GreenFiring()
     {
-        base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
+        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.green));
         ObjectPool.pool_Instance.pool_GreenProjTime = true;
            
       
     }
     public void WhiteFiring()
     {
-        base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
+        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.white));
 
         if (GunnerRefP1.bHell_isShoot == true)
         {
@@ -84,6 +95,16 @@ public class GunnerPowerups : PowerupParent
 
 
     }
+
+    public void GetGunner(PC_BulletHell Gunner)
+    {
+        //pass touched player here.
+
+        declareGunner = Gunner;
+
+    }
+
+
     public void Deactivate()
     {   
         if(Powerup_Activated == false) { 

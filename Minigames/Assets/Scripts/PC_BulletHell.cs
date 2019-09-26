@@ -230,39 +230,42 @@ public class PC_BulletHell : PlayerController
 
     public void Movement()
     {
+        if (ControlRemoved == false)
+        {
+            Controls();
 
-        Controls();
+            float moveY = 0f;
+            float moveX = 0f;
 
-        float moveY = 0f;
-        float moveX = 0f;
+            moveY = Runner_vertMovement * speed;
+            moveX = Runner_horiMovement * speed;
 
-        moveY = Runner_vertMovement * speed;
-        moveX = Runner_horiMovement * speed;
+            moveX *= Time.deltaTime;
+            moveY *= Time.deltaTime;
 
-        moveX *= Time.deltaTime;
-        moveY *= Time.deltaTime;
-
-        transform.Translate(0, moveY, 0);
-        transform.Translate(moveX, 0, 0);
+            transform.Translate(0, moveY, 0);
+            transform.Translate(moveX, 0, 0);
+        }
 
     }
 
     void Controls()
     {
-
-        if (gameObject.tag == "Player1")
+        if (ControlRemoved == false)
         {
-            Runner_vertMovement = Input.GetAxis("Vertical");
-            Runner_horiMovement = Input.GetAxis("Horizontal");
+            if (gameObject.tag == "Player1")
+            {
+                Runner_vertMovement = Input.GetAxis("Vertical");
+                Runner_horiMovement = Input.GetAxis("Horizontal");
 
+            }
+            if (gameObject.tag == "Player2")
+            {
+                Runner_vertMovement = Input.GetAxis("Vertical1");
+                Runner_horiMovement = Input.GetAxis("Horizontal1");
+
+            }
         }
-        if (gameObject.tag == "Player2")
-        {
-            Runner_vertMovement = Input.GetAxis("Vertical1");
-            Runner_horiMovement = Input.GetAxis("Horizontal1");
-
-        }
-
     }
 
     public void ShieldCreation()
@@ -304,4 +307,7 @@ public class PC_BulletHell : PlayerController
         gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
         paused = false;
     }
+
+
+
 }
