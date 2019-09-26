@@ -8,6 +8,7 @@ public class MenuManagment : MonoBehaviour
 {
 
     public GameObject audioManager;
+    private GameObject musicSource;
 
     public GameObject SettingMen;
     public GameObject SplashScreen;
@@ -22,15 +23,18 @@ public class MenuManagment : MonoBehaviour
 
     void Start() {
       audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+      musicSource = GameObject.FindGameObjectWithTag("Music");
     }
 
     void Update() {
       if (audioManager.GetComponent<AudioManagerScript>().isMuted) {
           MuteBTN.SetActive(false);
           UnMuteBTN.SetActive(true);
+          musicSource.GetComponent<AudioSource>().mute = true;
       } else if (audioManager.GetComponent<AudioManagerScript>().isMuted == false) {
           MuteBTN.SetActive(true);
           UnMuteBTN.SetActive(false);
+          musicSource.GetComponent<AudioSource>().mute = false;
       }
     }
 
