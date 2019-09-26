@@ -6,139 +6,124 @@ using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour
 {
-
-    private static int playerClicks;
-    public GameObject boP1;
-    public GameObject boP2;
-    public GameObject hiroP1;
-    public GameObject hiroP2;
-    public GameObject mikaP1;
-    public GameObject mikaP2;
-    public GameObject confirmButton;
-    public GameObject headingP1;
-    public GameObject headingP2;
-    public GameObject headingReady;
+    
+    public GameObject bo;
+    public GameObject hiro;
+    public GameObject mika;
+    public GameObject otherBo;
+    public GameObject otherHiro;
+    public GameObject otherMika;
+    public GameObject tagBo;
+    public GameObject tagHiro;
+    public GameObject tagMika;
+    public GameObject readyButton;
+    public GameObject unreadyButton;
+    public GameObject otherPlayer;
+    public GameObject sceneManagementScript;
 
     private bool boPicked;
     private bool hiroPicked;
     private bool mikaPicked;
-
+    private Color blackenedColor = new Color(0.5f, 0.5f, 0.5f, 1);
+    public bool ready;
+        
 
     // Start is called before the first frame update
     void Start() {
-        playerClicks = 0;
+        
     }
 
     // Update is called once per frame
     void Update() {
-        //checks whose turn it is to pick a character, and whether both players have already picked
-        if (playerClicks == 2) {
-            headingReady.SetActive(true);
-            headingP1.SetActive(false);
-            headingP2.SetActive(false);
-            confirmButton.SetActive(true);
-        } else if (playerClicks == 1) {
-            headingReady.SetActive(false);
-            headingP1.SetActive(false);
-            headingP2.SetActive(true);
-            confirmButton.SetActive(false);
-        } else {
-            headingReady.SetActive(false);
-            headingP1.SetActive(true);
-            headingP2.SetActive(false);
-            confirmButton.SetActive(false);
-        }
+
     }
 
     //selecting and deselecting Bo
     public void BoSelected() {
-        if (playerClicks == 0) {
-            boP1.SetActive(true);
-            boPicked = true;
-            playerClicks++;
-        } else if (playerClicks == 1) {
-            if (boPicked) {
-                boP1.SetActive(false);
-                boPicked = false;
-                playerClicks--;
-            } else if (!boPicked) {
-                boP2.SetActive(true);
+        if (bo.GetComponent<Image>().color != blackenedColor && !ready && !hiroPicked && !mikaPicked) {
+            if (!boPicked) {
                 boPicked = true;
-                playerClicks++;
+                tagBo.SetActive(true);
+                otherBo.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                readyButton.SetActive(true);
+            } else if (boPicked) {
+                boPicked = false;
+                tagBo.SetActive(false);
+                otherBo.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
+                readyButton.SetActive(false);
             }
-        } else if (playerClicks == 2 && boPicked && boP2.activeSelf == true) {
-            boP2.SetActive(false);
-            boPicked = false;
-            playerClicks--;
-        }
+        }        
     }
 
     //selecting and deselecting Hiro
     public void HiroSelected() {
-        if (playerClicks == 0) {
-            hiroP1.SetActive(true);
-            hiroPicked = true;
-            playerClicks++;
-        } else if (playerClicks == 1) {
-            if (hiroPicked) {
-                hiroP1.SetActive(false);
-                hiroPicked = false;
-                playerClicks--;
-            } else if (!hiroPicked) {
-                hiroP2.SetActive(true);
+        if (hiro.GetComponent<Image>().color != blackenedColor && !ready && !boPicked && !mikaPicked) {
+            if (!hiroPicked) {
                 hiroPicked = true;
-                playerClicks++;
+                tagHiro.SetActive(true);
+                otherHiro.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                readyButton.SetActive(true);
+            } else if (hiroPicked) {
+                hiroPicked = false;
+                tagHiro.SetActive(false);
+                otherHiro.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
+                readyButton.SetActive(false);
             }
-        } else if (playerClicks == 2 && hiroPicked && hiroP2.activeSelf == true) {
-            hiroP2.SetActive(false);
-            hiroPicked = false;
-            playerClicks--;
         }
     }
 
     //selecting and deselecting Mika
     public void MikaSelected() {
-        if (playerClicks == 0) {
-            mikaP1.SetActive(true);
-            mikaPicked = true;
-            playerClicks++;
-        } else if (playerClicks == 1) {
-            if (mikaPicked) {
-                mikaP1.SetActive(false);
-                mikaPicked = false;
-                playerClicks--;
-            } else if (!mikaPicked) {
-                mikaP2.SetActive(true);
+        if (mika.GetComponent<Image>().color != blackenedColor && !ready && !boPicked && !hiroPicked) {
+            if (!mikaPicked) {
                 mikaPicked = true;
-                playerClicks++;
+                tagMika.SetActive(true);
+                otherMika.GetComponent<Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+                readyButton.SetActive(true);
+            } else if (mikaPicked) {
+                mikaPicked = false;
+                tagMika.SetActive(false);
+                otherMika.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
+                readyButton.SetActive(false);
             }
-        } else if (playerClicks == 2 && mikaPicked && mikaP2.activeSelf == true) {
-            mikaP2.SetActive(false);
-            mikaPicked = false;
-            playerClicks--;
         }
     }
 
     //confirms the characters selected and carries it over to the minigames
     public void ConfirmCharacters() {
-        if (boP1.activeSelf == true) {
-            CharacterCarryOver.player1 = "Bo";
-        } else if (hiroP1.activeSelf == true) {
-            CharacterCarryOver.player1 = "Hiro";
-        } else if (mikaP1.activeSelf == true) {
-            CharacterCarryOver.player1 = "Mika";
-        }
+        if (!ready) {
+            ready = true;
+            readyButton.SetActive(false);
+            unreadyButton.SetActive(true);
+            if (boPicked) {
+                if (gameObject.tag == "Player1") {
+                    CharacterCarryOver.player1 = "Bo";
+                } else {
+                    CharacterCarryOver.player2 = "Bo";
+                }
+            } else if (hiroPicked) {
+                if (gameObject.tag == "Player1") {
+                    CharacterCarryOver.player1 = "Hiro";
+                } else {
+                    CharacterCarryOver.player2 = "Hiro";
+                }
+            } else if (mikaPicked) {
+                if (gameObject.tag == "Player1") {
+                    CharacterCarryOver.player1 = "Mika";
+                } else {
+                    CharacterCarryOver.player2 = "Mika";
+                }
+            }
+        } else {
+            ready = false;
+            readyButton.SetActive(true);
+            unreadyButton.SetActive(false);
+        }        
 
-        if (boP2.activeSelf == true) {
-            CharacterCarryOver.player2 = "Bo";
-        } else if (hiroP2.activeSelf == true) {
-            CharacterCarryOver.player2 = "Hiro";
-        } else if (mikaP2.activeSelf == true) {
-            CharacterCarryOver.player2 = "Mika";
+        if (ready && otherPlayer.GetComponent<CharacterSelect>().ready == true) {
+            PlayerController.p1Score = 0;
+            PlayerController.p2Score = 0;
+            sceneManagementScript.GetComponent<SceneManagement>().NextMinigame();
         }
-
-        PlayerController.p1Score = 0;
-        PlayerController.p2Score = 0;
-        gameObject.GetComponent<SceneManagement>().NextMinigame();
     }
 }
