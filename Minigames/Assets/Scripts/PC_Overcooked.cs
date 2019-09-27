@@ -44,18 +44,17 @@ public class PC_Overcooked : PlayerController {
             animator.SetBool("Moving", false);
             GetComponent<Animator>().speed = 0;
             castTime = castTime;
+            if (inRange && objCarry == false) {
+              castTime += Time.deltaTime;
+              pickUpImg.fillAmount = (castTime/endCastTime);
+              if (castTime >= endCastTime) {
+                  objCarry = true;
+              }
+            }
         } else {
             animator.SetBool("Moving", true);
             GetComponent<Animator>().speed = 1;
         }
-        if (inRange && objCarry == false) {
-          castTime += Time.deltaTime;
-          pickUpImg.fillAmount = (castTime/endCastTime);
-          if (castTime >= endCastTime) {
-              objCarry = true;
-          }
-        }
-
     }
 
 

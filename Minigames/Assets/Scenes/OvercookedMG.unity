@@ -347,6 +347,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &65638709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1270,6 +1271,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &211426288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1584,6 +1586,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Hiro
       objectReference: {fileID: 0}
+    - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1844,6 +1851,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &265626767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1925,6 +1933,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1001 &284348942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4777,6 +4786,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &755352876
 GameObject:
   m_ObjectHideFlags: 0
@@ -6089,7 +6099,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
@@ -6811,6 +6821,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &1152199738
 GameObject:
   m_ObjectHideFlags: 0
@@ -11163,6 +11174,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1001 &1902017057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12606,6 +12618,7 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
+  paused: 0
 --- !u!1 &2124715484
 GameObject:
   m_ObjectHideFlags: 0
