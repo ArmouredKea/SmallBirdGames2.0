@@ -13,20 +13,35 @@ public class PC_BumperCars : PlayerController {
     public Slider boostBar;
     public GameObject boostText;
 
+    public GameObject lives;
+    public List <GameObject> livesList = new List <GameObject>();
+    public int lifeCounter;
+    public GameObject boostBoi;
+
     public Vector3 pauseVelocity;
 
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
+        lifeCounter = 0;
         speed = 7f;
         rotationSpeed = 100.0f;
         totalDistance = 0f;
         currentPosition = gameObject.transform.position;
         boostBar.value = totalDistance / 50;
-
+        foreach (Transform li in lives.transform) {
+            livesList.Add(li.gameObject);
+            Debug.Log(li.gameObject);
+        }
+        Debug.Log(livesList[0]);
         /*GetComponent<Animator>().SetLayerWeight(0, 1);
         GetComponent<Animator>().SetLayerWeight(1, 0);
         GetComponent<Animator>().SetLayerWeight(2, 0);*/
+    }
+
+    public void TakeHit() {
+        livesList[lifeCounter].SetActive(false);
+        lifeCounter++;
     }
 
     // Update is called once per frame
@@ -53,6 +68,7 @@ public class PC_BumperCars : PlayerController {
             boostBar.value = 0;
         } else if (!boosted) {
             boostBar.value = totalDistance / 50;
+            boostBoi.GetComponent<Image>().fillAmount = totalDistance / 50;
         }
 
         //checks whether the character is moving or not to activate idle animation.
@@ -87,7 +103,7 @@ public class PC_BumperCars : PlayerController {
         //Player forward/backward movement and rotation.
         if (paused) {
             return;
-        } else {            
+        } else {
             if (gameObject.tag == "Player1") {
                 GetComponent<Rigidbody2D>().AddForce(transform.up * Input.GetAxis("VerticalP1") * speed);
                 transform.Rotate(0f, 0f, Input.GetAxis("HorizontalP1") * rotationSpeed * Time.deltaTime * -1);
@@ -115,6 +131,7 @@ public class PC_BumperCars : PlayerController {
             } else {
                 l += Time.deltaTime;
                 boostBar.value = (5 - l) / 5;
+                boostBoi.GetComponent<Image>().fillAmount = (5 - 1) / 5;
                 yield return null;
             }
         }
@@ -152,7 +169,7 @@ public class PC_BumperCars : PlayerController {
     }
 
     //this is before I found out that you cannot alter the SpriteRenderer if you have animations for the sprite...
-    /*private IEnumerator TakeDamage(float startAlpha, float endAlpha, float duration) {        
+    /*private IEnumerator TakeDamage(float startAlpha, float endAlpha, float duration) {
         float t = 0;
         yield return null;
         while (t < duration) {
