@@ -24,6 +24,7 @@ public class PC_BumperCars : PlayerController {
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
+        canvas.SetActive(true);
         lifeCounter = 0;
         speed = 7f;
         rotationSpeed = 100.0f;
@@ -32,9 +33,7 @@ public class PC_BumperCars : PlayerController {
         boostBar.value = totalDistance / 50;
         foreach (Transform li in lives.transform) {
             livesList.Add(li.gameObject);
-            Debug.Log(li.gameObject);
         }
-        Debug.Log(livesList[0]);
         /*GetComponent<Animator>().SetLayerWeight(0, 1);
         GetComponent<Animator>().SetLayerWeight(1, 0);
         GetComponent<Animator>().SetLayerWeight(2, 0);*/
@@ -53,7 +52,7 @@ public class PC_BumperCars : PlayerController {
         float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
         totalDistance += distance;
         currentPosition = gameObject.transform.position;
-        //canvas.GetComponent<RectTransform>().localPosition = gameObject.transform.position;
+        canvas.GetComponent<RectTransform>().localPosition = gameObject.transform.position;
 
         //player boost.
         if (totalDistance >= 50f) {
