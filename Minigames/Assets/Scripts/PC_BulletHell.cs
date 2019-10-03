@@ -46,6 +46,7 @@ public class PC_BulletHell : PlayerController
     public float moistRate;
 
     public bool ControlRemoved;
+    public bool Anchoured;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -212,6 +213,10 @@ public class PC_BulletHell : PlayerController
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
             //transform.position = bHell_Manage.GunnerPos.transform.position;
             speed = 0;
+            if(Anchoured = true){
+              gameObject.transform.position = gameObject.transform.position;
+            }
+
 
 
             BHell_Fire();
@@ -224,6 +229,7 @@ public class PC_BulletHell : PlayerController
                 {
             animator.SetBool("Tank", false);
             speed = baseSpeed;
+
 
             Movement();
                 }

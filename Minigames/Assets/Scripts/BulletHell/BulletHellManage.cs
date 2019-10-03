@@ -90,7 +90,7 @@ public class BulletHellManage : MonoBehaviour
 
     public void BHell_Init()
     {
-        //bHell specific initialization for code sanitiation. Need to refactor how 
+        //bHell specific initialization for code sanitiation. Need to refactor how
         firingPlayer = Random.Range(1, 3); //Decide starting P randomly. R.R's MAX is not inclusive, it is exclusive. So it will only ever generate below 3, not 3.
 
         BHell_Determine_Mode();
@@ -109,7 +109,7 @@ public class BulletHellManage : MonoBehaviour
             P2_isLerpGun = true;
         }
 
-       
+
 
         //Send P to shooting location, if shooter.
 
@@ -123,8 +123,8 @@ public class BulletHellManage : MonoBehaviour
 
             P1.bHell_isShoot = true;
             P1.bHell_PosData = "HorizontalP1";
-            
-            
+
+
 
 
 
@@ -134,10 +134,10 @@ public class BulletHellManage : MonoBehaviour
         else if (firingPlayer == 2 & P2.tag == "Player2")
         {
 
-            
+
             P2.bHell_isShoot = true;
             P2.bHell_PosData = "HorizontalP2";
-         
+
 
             //Work out a way to use the Time.delta properly here as well.
 
@@ -158,26 +158,26 @@ public class BulletHellManage : MonoBehaviour
         //DetectCharacter1();
         //DetectCharacter2();
         gunnerPowerups.Deactivate();
-        
+
 
         if (firingPlayer == 2)
         {
 
             Debug.Log("p2 move to spawn");
-           
+
             P1.bHell_isShoot = true;
             P2.bHell_isShoot = false;
             P1.ShieldDestroy();
             firingPlayer = 1;
             P2_isLerpHome = true;
             P1_isLerpGun = true;
-            
+
 
         }
 
         else if (firingPlayer == 1)
         {
-          
+
 
             Debug.Log("p1 move to spawn");
             P2.bHell_isShoot = true;
@@ -189,8 +189,8 @@ public class BulletHellManage : MonoBehaviour
             P2_isLerpGun = true;
 
         }
-      
-        
+
+
     }
     public void BHell_Determine_Mode()
     {
@@ -215,7 +215,7 @@ public class BulletHellManage : MonoBehaviour
             P1Tag.text = "Bo";
             Instantiate(P1Tag, P1feedback.transform);
             P1Tag.transform.position = P1feedback.transform.position;
-           
+
 
             P1Tag.color = Color.blue; //Update for specific character colouring later on.
         }
@@ -224,7 +224,7 @@ public class BulletHellManage : MonoBehaviour
             P1Tag.text = "Hiro";
             Instantiate(P1Tag, P1feedback.transform);
             P1Tag.transform.position = P1feedback.transform.position;
-            
+
             P1Tag.color = Color.black;
         }
         else if (P1.gameObject.name == "P1_Mika")
@@ -232,10 +232,10 @@ public class BulletHellManage : MonoBehaviour
             P1Tag.text = "Mika";
             Instantiate(P1Tag, P1feedback.transform);
             P1Tag.transform.position = P1feedback.transform.position;
-            
+
             P1Tag.color = Color.red;
         }
-      
+
     }
 
     public void DetectCharacter2()
@@ -246,7 +246,7 @@ public class BulletHellManage : MonoBehaviour
             P2Tag.text = "Bo";
             Instantiate(P2Tag, P2feedback.transform);
             P2Tag.transform.position = P2feedback.transform.position;
-           
+
             P2Tag.color = Color.yellow; //Update for specific character colouring later on.
         }
         else if (P2.gameObject.name == "P2_Hiro")
@@ -254,7 +254,7 @@ public class BulletHellManage : MonoBehaviour
             P2Tag.text = "Hiro";
             Instantiate(P2Tag, P2feedback.transform);
             P2Tag.transform.position = P2feedback.transform.position;
-            
+
             P2Tag.color = Color.black;
         }
         else if (P2.gameObject.name == "P2_Mika")
@@ -262,7 +262,7 @@ public class BulletHellManage : MonoBehaviour
             P2Tag.text = "Mika";
             Instantiate(P2Tag, P2feedback.transform);
             P2Tag.transform.position = P2feedback.transform.position;
-            
+
             P2Tag.color = Color.red;
         }
     }
@@ -276,7 +276,7 @@ public class BulletHellManage : MonoBehaviour
         //Checks to see if the value has changed since last hit. If so, send the player text box to the coroutine along with value.
 
 
-       
+
 
         if(p1TimesHit > P1TempScore)
         {
@@ -287,7 +287,7 @@ public class BulletHellManage : MonoBehaviour
             P1TempScore = p1TimesHit;
         }
 
-        
+
         else if (p2TimesHit > P2TempScore)
         {
 
@@ -298,7 +298,7 @@ public class BulletHellManage : MonoBehaviour
 
 
             P2TempScore = p2TimesHit;
-        } 
+        }
     }
 
 
@@ -320,6 +320,7 @@ public class BulletHellManage : MonoBehaviour
                 P1.gameObject.transform.position = P1Spawn.transform.position;
                 P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
                 P1.ControlRemoved = false;
+                P2.Anchoured = false;
                 P1_isLerpHome = false;
             }
         }
@@ -338,6 +339,7 @@ public class BulletHellManage : MonoBehaviour
             {
                 P1.gameObject.transform.position = GunnerPos.transform.position;
                 P1.ControlRemoved = false;
+                P2.Anchoured = true;
                 P1_isLerpGun = false;
             }
         }
@@ -351,6 +353,7 @@ public class BulletHellManage : MonoBehaviour
 
             if (Vector3.Distance(P2.transform.position, P2Spawn.transform.position) > minDistance)
             {
+
                 P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, P2Spawn.transform.position, Time.deltaTime * LerpRate);
             }
             else
@@ -358,6 +361,8 @@ public class BulletHellManage : MonoBehaviour
                 P2.gameObject.transform.position = P2Spawn.transform.position;
                 P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
                 P2.ControlRemoved = false;
+
+                P2.Anchoured = false;
                 P2_isLerpHome = false;
                 P2_isLerpGun = false;
             }
@@ -378,6 +383,7 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.ControlRemoved = false;
+                  P2.Anchoured = true;
                 P2_isLerpGun = false;
                 P2_isLerpHome = false;
             }
@@ -388,7 +394,6 @@ public class BulletHellManage : MonoBehaviour
     //Make a value to hold the destination for said player
     //Change player and destimation via if statements in swapping
 
-    
-    
-}
 
+
+}

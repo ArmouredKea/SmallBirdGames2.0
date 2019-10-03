@@ -402,6 +402,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!224 &54440557 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3340173507481796546, guid: 9d0e54a0d8cd5a143aa22ff738c72857,
@@ -3427,6 +3428,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!1 &821509943
 GameObject:
   m_ObjectHideFlags: 0
@@ -4217,6 +4219,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!1 &940176558
 GameObject:
   m_ObjectHideFlags: 0
@@ -4528,7 +4531,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
@@ -6050,6 +6053,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!1 &1449884992
 GameObject:
   m_ObjectHideFlags: 0
@@ -6208,6 +6212,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!1 &1546319451
 GameObject:
   m_ObjectHideFlags: 0
@@ -6905,6 +6910,7 @@ MonoBehaviour:
   moistMin: {r: 0.35686275, g: 0.35686275, b: 0.9647059, a: 1}
   moistRate: 0.02
   ControlRemoved: 0
+  Anchoured: 0
 --- !u!1 &1696262132
 GameObject:
   m_ObjectHideFlags: 0
@@ -7653,7 +7659,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
