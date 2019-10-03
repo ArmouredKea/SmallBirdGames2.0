@@ -57,6 +57,7 @@ public class BombMovement : MonoBehaviour
             //Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
             StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives--;
         }
