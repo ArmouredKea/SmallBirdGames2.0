@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4028,22 +4028,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6706057175488438470, guid: 98ab5064dece1ea48a99aa578b582128,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 055c03f42128d1d4d9fec4071b81f9e7,
-        type: 3}
-    - target: {fileID: 6706057176454779798, guid: 98ab5064dece1ea48a99aa578b582128,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 620576129}
-    - target: {fileID: 6706057176454779798, guid: 98ab5064dece1ea48a99aa578b582128,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: NextMinigame
-      objectReference: {fileID: 0}
     - target: {fileID: 620576154, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
       propertyPath: pauseButton
       value: 
@@ -4061,10 +4045,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 600194407}
     - target: {fileID: 620576154, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 620576154, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
       propertyPath: characterManagement
       value: 
       objectReference: {fileID: 890049141}
@@ -4076,18 +4056,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 620576127}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &620576129 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6706057176454779797, guid: 98ab5064dece1ea48a99aa578b582128,
-    type: 3}
-  m_PrefabInstance: {fileID: 620576127}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &620576130 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6706057176470659358, guid: 98ab5064dece1ea48a99aa578b582128,
@@ -11244,12 +11212,12 @@ PrefabInstance:
     - target: {fileID: 1908155621922956134, guid: bd03d7ed00957874dba0648efe730ead,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.33
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1908155621922956134, guid: bd03d7ed00957874dba0648efe730ead,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.33
+      value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 1908155621922956135, guid: bd03d7ed00957874dba0648efe730ead,
         type: 3}

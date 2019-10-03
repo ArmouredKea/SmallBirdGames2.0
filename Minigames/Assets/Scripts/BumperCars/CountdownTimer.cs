@@ -42,8 +42,8 @@ public class CountdownTimer : MonoBehaviour {
             currentTime -= Time.deltaTime;
 
             TimeRatio = currentTime / TotalTime;
-            ProgressBar.fillAmount = TimeRatio;
-            ProgressBar2.fillAmount = TimeRatio;
+            //ProgressBar.fillAmount = TimeRatio;
+            //ProgressBar2.fillAmount = TimeRatio;
         }
 
         if(scene.name == "BulletHell")

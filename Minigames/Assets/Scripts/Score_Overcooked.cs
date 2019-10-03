@@ -26,14 +26,11 @@ public class Score_Overcooked : Score
 
             if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
                 if (CharacterCarryOver.player1 == "Bo") {
-                    winBo.SetActive(true);
-                    p1Bo.SetActive(true);
+                    p1WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Hiro") {
-                    winHiro.SetActive(true);
-                    p1Hiro.SetActive(true);
+                    p1WinHiro.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Mika") {
-                    winMika.SetActive(true);
-                    p1Mika.SetActive(true);
+                    p1WinMika.SetActive(true);
                 }
 
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -45,17 +42,15 @@ public class Score_Overcooked : Score
                 }
 
                 PlayerController.p1Score++;
+                p1Wins[PlayerController.p1Score - 1] = "FillingFrenzy";
 
             } else if (player1.GetComponent<GameController>().points < player2.GetComponent<GameController>().points) {
                 if (CharacterCarryOver.player2 == "Bo") {
-                    winBo.SetActive(true);
-                    p2Bo.SetActive(true);
+                    p2WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Hiro") {
-                    winHiro.SetActive(true);
-                    p2Hiro.SetActive(true);
+                    p2WinHiro.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Mika") {
-                    winMika.SetActive(true);
-                    p2Mika.SetActive(true);
+                    p2WinMika.SetActive(true);
                 }
 
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -67,60 +62,62 @@ public class Score_Overcooked : Score
                 }
 
                 PlayerController.p2Score++;
+                p2Wins[PlayerController.p2Score - 1] = "FillingFrenzy";
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
-                    drawP1Bo.SetActive(true);
-                    p1Bo.SetActive(true);
+                    p1WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Hiro") {
-                    drawP1Hiro.SetActive(true);
-                    p1Hiro.SetActive(true);
+                    p1WinHiro.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Mika") {
-                    drawP1Mika.SetActive(true);
-                    p1Mika.SetActive(true);
+                    p1WinMika.SetActive(true);
                 }
 
                 if (CharacterCarryOver.player2 == "Bo") {
-                    drawP2Bo.SetActive(true);
-                    p2Bo.SetActive(true);
+                    p2WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Hiro") {
-                    drawP2Hiro.SetActive(true);
-                    p2Hiro.SetActive(true);
+                    p2WinHiro.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Mika") {
-                    drawP2Mika.SetActive(true);
-                    p2Mika.SetActive(true);
+                    p2WinMika.SetActive(true);
                 }
 
                 PlayerController.p1Score++;
                 PlayerController.p2Score++;
+                p1Wins[PlayerController.p1Score - 1] = "FillingFrenzy";
+                p2Wins[PlayerController.p2Score - 1] = "FillingFrenzy";
 
             }
 
-            if (PlayerController.p1Score == 0) {
-                p1Score0.SetActive(true);
-            } else if (PlayerController.p1Score == 1) {
-                p1Score1.SetActive(true);
-            } else if (PlayerController.p1Score == 2) {
-                p1Score2.SetActive(true);
-            } else if (PlayerController.p1Score == 3) {
-                p1Score3.SetActive(true);
+            for (int i = 0; i < PlayerController.p1Score; i++) {
+                if (p1Wins[i] == "WaterWars") {
+                    p1Tokens[i].SetActive(true);
+                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
+                } else if (p1Wins[i] == "FillingFrenzy") {
+                    p1Tokens[i].SetActive(true);
+                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/FillingFrenzyToken");
+                } else if (p1Wins[i] == "BalloonBattle") {
+                    p1Tokens[i].SetActive(true);
+                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/BalloonBattleToken");
+                }
             }
 
-            if (PlayerController.p2Score == 0) {
-                p2Score0.SetActive(true);
-            } else if (PlayerController.p2Score == 1) {
-                p2Score1.SetActive(true);
-            } else if (PlayerController.p2Score == 2) {
-                p2Score2.SetActive(true);
-            } else if (PlayerController.p2Score == 3) {
-                p2Score3.SetActive(true);
+            for (int i = 0; i < PlayerController.p2Score; i++) {
+                if (p2Wins[i] == "WaterWars") {
+                    p2Tokens[i].SetActive(true);
+                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
+                } else if (p2Wins[i] == "FillingFrenzy") {
+                    p2Tokens[i].SetActive(true);
+                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/FillingFrenzyToken");
+                } else if (p2Wins[i] == "BalloonBattle") {
+                    p2Tokens[i].SetActive(true);
+                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/BalloonBattleToken");
+                }
             }
 
-            Debug.Log(PlayerController.p1Score);
-            Debug.Log(PlayerController.p2Score);
+            p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
+            p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
 
             pauseButton.SetActive(false);
-            //pauseOvercooked.GetComponent<Pause_Overcooked>().paused = false;
             pauseOvercooked.GetComponent<Pause_Overcooked>().PauseButton();
 
             gameCanEnd = false;
