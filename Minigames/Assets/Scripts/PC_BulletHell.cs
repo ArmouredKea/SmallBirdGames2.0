@@ -33,6 +33,10 @@ public class PC_BulletHell : PlayerController
     public bool Shielded;
     [SerializeField]
     private Transform shieldAppearance;
+
+    [SerializeField]
+    private Transform AimingLaser;
+
     public Vector3 pauseVelocity;
 
     public float moistMeter;
@@ -40,6 +44,8 @@ public class PC_BulletHell : PlayerController
     public float moistMax;
     public Color moistMin;
     public float moistRate;
+
+    public bool ControlRemoved;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -137,6 +143,7 @@ public class PC_BulletHell : PlayerController
             if (gameObject.tag == "Player1" && bHell_isShoot == false)
             {
                 bHell_Manage.p1TimesHit += shotvalue;
+                
                 ApplyMoisture();
 
 
@@ -197,22 +204,25 @@ public class PC_BulletHell : PlayerController
 
     public void BHell_Control()
     {
-        if (bHell_isShoot == true && paused == false)
-        {
+         if(ControlRemoved == false)
+        {  
+             if (bHell_isShoot == true && paused == false)
+                {
             animator.SetBool("Tank", true);
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
-            transform.position = bHell_Manage.GunnerPos.transform.position;
+            //transform.position = bHell_Manage.GunnerPos.transform.position;
 
 
             BHell_Fire();
 
 
 
-        }
-        else if (paused == false)
-        {
+             }
+              else if (paused == false)
+                {
             animator.SetBool("Tank", false);
             Movement();
+                }
         }
     }
 
@@ -220,39 +230,42 @@ public class PC_BulletHell : PlayerController
 
     public void Movement()
     {
+        if (ControlRemoved == false)
+        {
+            Controls();
 
-        Controls();
+            float moveY = 0f;
+            float moveX = 0f;
 
-        float moveY = 0f;
-        float moveX = 0f;
+            moveY = Runner_vertMovement * speed;
+            moveX = Runner_horiMovement * speed;
 
-        moveY = Runner_vertMovement * speed;
-        moveX = Runner_horiMovement * speed;
+            moveX *= Time.deltaTime;
+            moveY *= Time.deltaTime;
 
-        moveX *= Time.deltaTime;
-        moveY *= Time.deltaTime;
-
-        transform.Translate(0, moveY, 0);
-        transform.Translate(moveX, 0, 0);
+            transform.Translate(0, moveY, 0);
+            transform.Translate(moveX, 0, 0);
+        }
 
     }
 
     void Controls()
     {
-
-        if (gameObject.tag == "Player1")
+        if (ControlRemoved == false)
         {
-            Runner_vertMovement = Input.GetAxis("Vertical");
-            Runner_horiMovement = Input.GetAxis("Horizontal");
+            if (gameObject.tag == "Player1")
+            {
+                Runner_vertMovement = Input.GetAxis("Vertical");
+                Runner_horiMovement = Input.GetAxis("Horizontal");
 
+            }
+            if (gameObject.tag == "Player2")
+            {
+                Runner_vertMovement = Input.GetAxis("Vertical1");
+                Runner_horiMovement = Input.GetAxis("Horizontal1");
+
+            }
         }
-        if (gameObject.tag == "Player2")
-        {
-            Runner_vertMovement = Input.GetAxis("Vertical1");
-            Runner_horiMovement = Input.GetAxis("Horizontal1");
-
-        }
-
     }
 
     public void ShieldCreation()
@@ -271,6 +284,16 @@ public class PC_BulletHell : PlayerController
         Shielded = false;
     }
 
+    public void AimingCreation()
+    {
+        AimingLaser = transform.GetChild(2);
+        AimingLaser.gameObject.SetActive(true);
+    }
+    public void AimingDestroy()
+    {
+        AimingLaser.gameObject.SetActive(false);
+    }
+
     public void PauseCharacter()
     {
         //pauseForce = gameObject.GetComponent<Rigidbody2D>().velocity.magnitude;
@@ -284,4 +307,7 @@ public class PC_BulletHell : PlayerController
         gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
         paused = false;
     }
+
+
+
 }

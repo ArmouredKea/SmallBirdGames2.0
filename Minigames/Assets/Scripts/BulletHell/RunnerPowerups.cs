@@ -47,7 +47,7 @@ public class RunnerPowerups : PowerupParent
 
     public void RedPowerup()
     {
-        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration));
+        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareRunner, Color.red));
         declareRunner.speed = powerupSpeed;
 
 
@@ -66,21 +66,7 @@ public class RunnerPowerups : PowerupParent
 
 
     }
-    public void GreenPowerup()
-    {
-        base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
-        ObjectPool.pool_Instance.pool_GreenProjTime = true;
-
-
-    }
-    public void WhitePowerup()
-    {
-        base.StartCoroutine(PowerupTimer(base.Powerup_Duration));
-
-        ObjectPool.pool_Instance.pool_WhiteProjTime = true;
-
-
-    }
+    
     public void Deactivate()
     {
         if (Powerup_Activated == false)
