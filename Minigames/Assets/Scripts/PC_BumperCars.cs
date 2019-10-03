@@ -17,6 +17,7 @@ public class PC_BumperCars : PlayerController {
     public List <GameObject> livesList = new List <GameObject>();
     public int lifeCounter;
     public GameObject boostBoi;
+    public GameObject canvas;
 
     public Vector3 pauseVelocity;
 
@@ -52,6 +53,7 @@ public class PC_BumperCars : PlayerController {
         float distance = Vector2.Distance(currentPosition, gameObject.transform.position);
         totalDistance += distance;
         currentPosition = gameObject.transform.position;
+        //canvas.GetComponent<RectTransform>().localPosition = gameObject.transform.position;
 
         //player boost.
         if (totalDistance >= 50f) {
