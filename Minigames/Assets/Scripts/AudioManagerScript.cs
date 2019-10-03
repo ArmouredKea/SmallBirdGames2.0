@@ -17,8 +17,6 @@ public class AudioManagerScript : MonoBehaviour
     public AudioSource audioSource4;
     public AudioSource audioSource5;
 
-    public GameObject musicSource;
-
     public bool isMuted;
     // Start is called before the first frame update
     void Awake() {
@@ -28,14 +26,6 @@ public class AudioManagerScript : MonoBehaviour
       }
 
       DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Update() {
-        if (isMuted && !musicSource.GetComponent<AudioSource>().mute) {
-            MuteAudio();
-        } else if (!isMuted && musicSource.GetComponent<AudioSource>().mute) {
-            UnMuteAudio();
-        }
     }
 
     public void PlayAudio(string clipName) {
@@ -65,13 +55,10 @@ public class AudioManagerScript : MonoBehaviour
         foreach (Transform child in transform) {
             child.GetComponent<AudioSource>().mute = true;
         }
-        musicSource.GetComponent<AudioSource>().mute = true;
-
     }
     public void UnMuteAudio() {
       foreach (Transform child in transform) {
           child.GetComponent<AudioSource>().mute = false;
       }
-      musicSource.GetComponent<AudioSource>().mute = false;
     }
 }

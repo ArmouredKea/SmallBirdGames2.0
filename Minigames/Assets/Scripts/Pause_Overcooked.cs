@@ -50,14 +50,14 @@ public class Pause_Overcooked : Pause
                 }
             }
 
-           Component[] childrenHandInScript;
-            childrenHandInScript = GetComponentsInChildren(typeof(HandInScript));
+          /*  Component[] childrenItemControllerScripts;
+            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
 
-            if (childrenHandInScript != null) {
-                foreach (HandInScript handInScript in childrenHandInScript) {
-                    handInScript.paused = true;
+            if (childrenItemControllerScripts != null) {
+                foreach (ItemController itemController in childrenItemControllerScripts) {
+                    itemController.paused = true;
                 }
-            }
+            } */
 
             paused = true;
             timer.GetComponent<Score_Overcooked>().paused = true;
@@ -83,15 +83,6 @@ public class Pause_Overcooked : Pause
                     timer.paused = false;
                 }
             }
-
-            Component[] childrenHandInScript;
-             childrenHandInScript = GetComponentsInChildren(typeof(HandInScript));
-
-             if (childrenHandInScript != null) {
-                 foreach (HandInScript handInScript in childrenHandInScript) {
-                     handInScript.paused = false;
-                 }
-             }
 
             /* Component[] childrenItemControllerScripts;
             childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));

@@ -14,6 +14,7 @@ public class BombMovement : MonoBehaviour
     public bool paused;
     public bool bombExplosion;
 
+
     // Use this for initialization
     void Start() {
         //gives bomb a random velocity.
@@ -46,6 +47,7 @@ public class BombMovement : MonoBehaviour
             //Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
             StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives--;
         } else if ((collision.gameObject.tag == "Player2")  && (p2Invulnerable == false)) {
@@ -55,6 +57,7 @@ public class BombMovement : MonoBehaviour
             //Destroy(gameObject);
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
             StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives--;
         }

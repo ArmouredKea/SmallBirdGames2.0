@@ -20,7 +20,6 @@ public class HandInScript : MonoBehaviour
     public int orderID;
     public float moveTime = 0;
     public bool openLid;
-    public bool paused = false;
 
 
     private GameController gameControllerScript;
@@ -32,9 +31,7 @@ public class HandInScript : MonoBehaviour
     }
 
     void Update() {
-      if (!paused) {
-          HandleLid();
-      }
+      HandleLid();
     }
 
     void HandleLid() {

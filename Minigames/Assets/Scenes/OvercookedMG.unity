@@ -347,7 +347,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &65638709
 GameObject:
   m_ObjectHideFlags: 0
@@ -1271,7 +1270,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &211426288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1586,11 +1584,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2_Hiro
       objectReference: {fileID: 0}
-    - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1851,7 +1844,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &265626767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1933,7 +1925,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1001 &284348942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3363,7 +3354,6 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
-  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3379,19 +3369,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
---- !u!114 &519420030
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 331643c3cc4e8fd4f864ae400dec7bf5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioManager: {fileID: 0}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -4786,7 +4763,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &755352876
 GameObject:
   m_ObjectHideFlags: 0
@@ -6061,7 +6037,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1063829437
 Transform:
   m_ObjectHideFlags: 0
@@ -6099,7 +6075,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
         type: 3}
@@ -6821,7 +6797,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &1152199738
 GameObject:
   m_ObjectHideFlags: 0
@@ -8085,11 +8060,11 @@ GameObject:
   - component: {fileID: 1365057652}
   m_Layer: 0
   m_Name: Audio Source
-  m_TagString: Music
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &1365057652
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11174,7 +11149,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1001 &1902017057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12618,7 +12592,6 @@ MonoBehaviour:
   orderID: 0
   moveTime: 0
   openLid: 0
-  paused: 0
 --- !u!1 &2124715484
 GameObject:
   m_ObjectHideFlags: 0
