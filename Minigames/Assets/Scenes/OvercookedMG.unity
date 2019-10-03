@@ -643,7 +643,7 @@ PrefabInstance:
         type: 3}
       propertyPath: scoreTextbox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1115399338}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
 --- !u!1 &84395271 stripped
@@ -3886,7 +3886,7 @@ MonoBehaviour:
   canvaspausebutton: {fileID: 1846355527}
   countdown: {fileID: 389940248}
   tutorial: {fileID: 1729196323}
-  timer: {fileID: 0}
+  timer: {fileID: 1115399337}
 --- !u!4 &600194409
 Transform:
   m_ObjectHideFlags: 0
@@ -6015,7 +6015,7 @@ MonoBehaviour:
   canvaspausebutton: {fileID: 1846355527}
   countdown: {fileID: 389940248}
   tutorial: {fileID: 1729196323}
-  timer: {fileID: 0}
+  timer: {fileID: 1115399337}
 --- !u!4 &1087209187
 Transform:
   m_ObjectHideFlags: 0
@@ -6544,31 +6544,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7460783474737183809, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
         type: 3}
       propertyPath: pauseButton
       value: 
       objectReference: {fileID: 1846355527}
-    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: pauseOvercooked
-      value: 
-      objectReference: {fileID: 600194407}
-    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: characterManagement
-      value: 
-      objectReference: {fileID: 890049141}
     - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
         type: 3}
       propertyPath: player1
@@ -6579,11 +6559,33 @@ PrefabInstance:
       propertyPath: player2
       value: 
       objectReference: {fileID: 436584782}
+    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: pauseOvercooked
+      value: 
+      objectReference: {fileID: 600194407}
+    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: characterManagement
+      value: 
+      objectReference: {fileID: 890049141}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
 --- !u!224 &1115399336 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7460783474737183814, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1115399335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115399337 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460783474737183815, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 1115399335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1115399338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460783475354965727, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
     type: 3}
   m_PrefabInstance: {fileID: 1115399335}
   m_PrefabAsset: {fileID: 0}

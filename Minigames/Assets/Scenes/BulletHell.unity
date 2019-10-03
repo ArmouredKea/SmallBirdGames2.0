@@ -1664,7 +1664,7 @@ PrefabInstance:
     - target: {fileID: 5347735802049169511, guid: 72787442e2e76fc428af900930582486,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 72787442e2e76fc428af900930582486,
         type: 3}
@@ -1912,7 +1912,7 @@ PrefabInstance:
         type: 3}
       propertyPath: scoreTextbox
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 534121538}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
 --- !u!1 &476091782
@@ -2264,6 +2264,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4222886004342874307, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4222886003640874747, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
         type: 3}
       propertyPath: m_Enabled
@@ -2294,11 +2299,28 @@ PrefabInstance:
       propertyPath: countDownref
       value: 
       objectReference: {fileID: 684499763}
+    - target: {fileID: 4222886003640874747, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: pauseButton
+      value: 
+      objectReference: {fileID: 2057849231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
 --- !u!224 &534121536 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7460783474737183814, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 534121535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &534121537 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460783474737183815, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+    type: 3}
+  m_PrefabInstance: {fileID: 534121535}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &534121538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7460783475354965727, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
     type: 3}
   m_PrefabInstance: {fileID: 534121535}
   m_PrefabAsset: {fileID: 0}
@@ -2621,7 +2643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 663315025}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2, y: 0, z: -1}
+  m_LocalPosition: {x: 5.25, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 835894459}
@@ -3663,7 +3685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841691785}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 0, z: -1}
+  m_LocalPosition: {x: -5.25, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 835894459}
@@ -4531,7 +4553,7 @@ PrefabInstance:
     - target: {fileID: 9156412022220421555, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9156412022220421557, guid: fbb3a5b153636014cbb853bf700235d8,
         type: 3}
@@ -5622,7 +5644,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1341663313}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 0, z: 0}
+  m_LocalPosition: {x: -5.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 835894459}
@@ -5958,7 +5980,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420426651}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.2, y: 0, z: 0}
+  m_LocalPosition: {x: 5.25, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 835894459}
@@ -7223,7 +7245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paused: 0
   countTimer: {fileID: 2046366693}
-  timer: {fileID: 0}
+  timer: {fileID: 534121537}
   poolManage: {fileID: 2046366695}
   gPowerup: {fileID: 293852717}
   rPowerup: {fileID: 293852718}
