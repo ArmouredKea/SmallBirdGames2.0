@@ -143,7 +143,7 @@ public class PC_BulletHell : PlayerController
             if (gameObject.tag == "Player1" && bHell_isShoot == false)
             {
                 bHell_Manage.p1TimesHit += shotvalue;
-                
+
                 ApplyMoisture();
 
 
@@ -205,12 +205,13 @@ public class PC_BulletHell : PlayerController
     public void BHell_Control()
     {
          if(ControlRemoved == false)
-        {  
+        {
              if (bHell_isShoot == true && paused == false)
                 {
             animator.SetBool("Tank", true);
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
             //transform.position = bHell_Manage.GunnerPos.transform.position;
+            speed = 0;
 
 
             BHell_Fire();
@@ -218,9 +219,12 @@ public class PC_BulletHell : PlayerController
 
 
              }
-              else if (paused == false)
+
+              else if (paused == false & bHell_isShoot == false)
                 {
             animator.SetBool("Tank", false);
+            speed = baseSpeed;
+
             Movement();
                 }
         }
