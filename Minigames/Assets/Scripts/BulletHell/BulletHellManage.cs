@@ -307,7 +307,7 @@ public class BulletHellManage : MonoBehaviour
         if (P1_isLerpHome == true)
         {
             P1.ControlRemoved = true;
-
+            P1_isLerpGun = false;
             TimeToMove2 += Time.deltaTime;
 
             if (Vector3.Distance(P1.transform.position, P1Spawn.transform.position) > minDistance)
@@ -320,8 +320,9 @@ public class BulletHellManage : MonoBehaviour
                 P1.gameObject.transform.position = P1Spawn.transform.position;
                 P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
                 P1.ControlRemoved = false;
-                P2.Anchoured = false;
+                
                 P1_isLerpHome = false;
+
             }
         }
 
@@ -339,8 +340,8 @@ public class BulletHellManage : MonoBehaviour
             {
                 P1.gameObject.transform.position = GunnerPos.transform.position;
                 P1.ControlRemoved = false;
-                P2.Anchoured = true;
-                P1_isLerpGun = false;
+                
+                //P1_isLerpGun = false;
             }
         }
 
@@ -348,7 +349,7 @@ public class BulletHellManage : MonoBehaviour
         if (P2_isLerpHome == true)
         {
             P2.ControlRemoved = true;
-
+            P2_isLerpGun = false;
             TimeToMove2 += Time.deltaTime;
 
             if (Vector3.Distance(P2.transform.position, P2Spawn.transform.position) > minDistance)
@@ -362,9 +363,9 @@ public class BulletHellManage : MonoBehaviour
                 P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
                 P2.ControlRemoved = false;
 
-                P2.Anchoured = false;
+               
                 P2_isLerpHome = false;
-                P2_isLerpGun = false;
+                //P2_isLerpGun = false;
             }
         }
 
@@ -383,8 +384,8 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.ControlRemoved = false;
-                  P2.Anchoured = true;
-                P2_isLerpGun = false;
+                
+                
                 P2_isLerpHome = false;
             }
         }

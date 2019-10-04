@@ -75,14 +75,15 @@ public class PowerupCheck : MonoBehaviour
                     //do nothing there is already a powerup.
                 }
             }
-            else if (collision.tag == "Player1" || collision.tag == "Player2")
+           /* else if (collision.tag == "Player1" || collision.tag == "Player2")
             {
                 //"Pop" effect here.
                 gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
                 gameObject.SetActive(false);
                 
-            }
+            }*/
         }
+
         else if (forRunner == true)
         {
             if (collision.tag == "Projectile")
