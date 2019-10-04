@@ -46,6 +46,7 @@ public class PC_BulletHell : PlayerController
     public float moistRate;
 
     public bool ControlRemoved;
+    public GameObject Turret;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -59,6 +60,7 @@ public class PC_BulletHell : PlayerController
         bHell_isShoot = false;
         BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
         ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
+        
 
         moistTinting = GetComponent<SpriteRenderer>().material.color;
 
@@ -212,6 +214,8 @@ public class PC_BulletHell : PlayerController
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
             //transform.position = bHell_Manage.GunnerPos.transform.position;
             speed = 0;
+                gameObject.GetComponent<Rigidbody2D>().mass = 900000;
+                Turret.GetComponent<Transform>().transform.rotation = gameObject.transform.rotation;
 
 
             BHell_Fire();
@@ -223,10 +227,10 @@ public class PC_BulletHell : PlayerController
               else if (paused == false & bHell_isShoot == false)
                 {
             animator.SetBool("Tank", false);
-            speed = baseSpeed;
+           
+            gameObject.GetComponent<Rigidbody2D>().mass = 2;
 
-
-            Movement();
+                Movement();
                 }
         }
     }

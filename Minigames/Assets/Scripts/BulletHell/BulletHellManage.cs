@@ -65,6 +65,11 @@ public class BulletHellManage : MonoBehaviour
     public Canvas P1feedback;
     public Canvas P2feedback;
 
+    public GameObject Speechbubble;
+
+
+    private string P1Character;
+    private string P2Character;
 
 
     // Start is called before the first frame update
@@ -96,8 +101,8 @@ public class BulletHellManage : MonoBehaviour
         BHell_Determine_Mode();
 
 
-        //DetectCharacter1(); Overhead player tag code
-        //DetectCharacter2();
+        DetectCharacter1(); //Assigns correct character portrait to speechbubble.
+        DetectCharacter2();
 
         if (firingPlayer == 1)
         {
@@ -167,6 +172,11 @@ public class BulletHellManage : MonoBehaviour
 
             P1.bHell_isShoot = true;
             P2.bHell_isShoot = false;
+            P1.speed = P1.baseSpeed;
+            P2.speed = 0;
+
+
+
             P1.ShieldDestroy();
             firingPlayer = 1;
             P2_isLerpHome = true;
@@ -182,6 +192,10 @@ public class BulletHellManage : MonoBehaviour
             Debug.Log("p1 move to spawn");
             P2.bHell_isShoot = true;
             P1.bHell_isShoot = false;
+
+            P2.speed = P2.baseSpeed;
+            P1.speed = 0;
+
             P2.ShieldDestroy();
 
             firingPlayer = 2;
@@ -212,28 +226,28 @@ public class BulletHellManage : MonoBehaviour
     {
         if (P1.gameObject.name == "P1_Bo")
         {
-            P1Tag.text = "Bo";
-            Instantiate(P1Tag, P1feedback.transform);
-            P1Tag.transform.position = P1feedback.transform.position;
+           P1Character = "Bo";
+           // Instantiate(P1Tag, P1feedback.transform);
+           // P1Tag.transform.position = P1feedback.transform.position;
 
 
-            P1Tag.color = Color.blue; //Update for specific character colouring later on.
+          //  P1Tag.color = Color.blue; //Update for specific character colouring later on.
         }
         else if (P1.gameObject.name == "P1_Hiro")
         {
-            P1Tag.text = "Hiro";
-            Instantiate(P1Tag, P1feedback.transform);
-            P1Tag.transform.position = P1feedback.transform.position;
+            P1Character = "Hiro";
+           // Instantiate(P1Tag, P1feedback.transform);
+        //    P1Tag.transform.position = P1feedback.transform.position;
 
-            P1Tag.color = Color.black;
+          //  P1Tag.color = Color.black;
         }
         else if (P1.gameObject.name == "P1_Mika")
         {
-            P1Tag.text = "Mika";
-            Instantiate(P1Tag, P1feedback.transform);
-            P1Tag.transform.position = P1feedback.transform.position;
+            P1Character = "Mika";
+          //  Instantiate(P1Tag, P1feedback.transform);
+           // P1Tag.transform.position = P1feedback.transform.position;
 
-            P1Tag.color = Color.red;
+           // P1Tag.color = Color.red;
         }
 
     }
@@ -243,27 +257,27 @@ public class BulletHellManage : MonoBehaviour
         //P2 tags
         if (P2.gameObject.name == "P2_Bo")
         {
-            P2Tag.text = "Bo";
-            Instantiate(P2Tag, P2feedback.transform);
-            P2Tag.transform.position = P2feedback.transform.position;
+            P2Character = "Bo";
+           // Instantiate(P2Tag, P2feedback.transform);
+           // P2Tag.transform.position = P2feedback.transform.position;
 
-            P2Tag.color = Color.yellow; //Update for specific character colouring later on.
+          //  P2Tag.color = Color.yellow; //Update for specific character colouring later on.
         }
         else if (P2.gameObject.name == "P2_Hiro")
         {
-            P2Tag.text = "Hiro";
-            Instantiate(P2Tag, P2feedback.transform);
-            P2Tag.transform.position = P2feedback.transform.position;
+            P2Character = "Hiro";
+            //Instantiate(P2Tag, P2feedback.transform);
+            //P2Tag.transform.position = P2feedback.transform.position;
 
-            P2Tag.color = Color.black;
+            //P2Tag.color = Color.black;
         }
         else if (P2.gameObject.name == "P2_Mika")
         {
-            P2Tag.text = "Mika";
-            Instantiate(P2Tag, P2feedback.transform);
-            P2Tag.transform.position = P2feedback.transform.position;
+            P2Character = "Mika";
+            //Instantiate(P2Tag, P2feedback.transform);
+            //P2Tag.transform.position = P2feedback.transform.position;
 
-            P2Tag.color = Color.red;
+            //P2Tag.color = Color.red;
         }
     }
 
@@ -340,8 +354,10 @@ public class BulletHellManage : MonoBehaviour
             {
                 P1.gameObject.transform.position = GunnerPos.transform.position;
                 P1.ControlRemoved = false;
-                
-                //P1_isLerpGun = false;
+
+
+                SpeechBubbleGenerator(P1feedback, P1Character);
+                P1_isLerpGun = false;
             }
         }
 
@@ -384,13 +400,22 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.ControlRemoved = false;
-                
-                
+
+
+                SpeechBubbleGenerator(P2feedback, P2Character);
+                P2_isLerpGun = false; 
                 P2_isLerpHome = false;
             }
         }
     }
 
+
+    public void SpeechBubbleGenerator(Canvas pos, string character)
+    {
+        Speechbubble.GetComponent<MoveDamage>().ChangeSprite(character);
+        Instantiate(Speechbubble, pos.transform);
+
+    }
     //Make a value to hold the current player being moved
     //Make a value to hold the destination for said player
     //Change player and destimation via if statements in swapping

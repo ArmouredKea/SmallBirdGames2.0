@@ -45,7 +45,7 @@ public class Pause_BulletHell : Pause
 
             poolManage.PausePool(true); //This calls the ObjectPool, which already has access to all active proj.
             timer.GetComponent<Score_BulletHell>().paused = true;
-            countTimer.GetComponent<CountdownTimer>().paused = true;
+            //countTimer.GetComponent<CountdownTimer>().paused = true;
             gPowerup.paused = true;
             //rPowerup.paused = true;
             rPowerup.paused = true;

@@ -13,15 +13,52 @@ public class MoveDamage : MonoBehaviour
     public float distance = 2.0f;
     public float xOffset = 0.5f;
 
+    [SerializeField]
+    private Sprite Mika;
+
+    [SerializeField]
+    private Sprite Bo;
+
+    [SerializeField]
+    private Sprite Hiro;
+
+    [SerializeField]
+    private bool isSpeechBubble;
+
+
+
+
     void Start()
     {
 
         start = transform.position;
         end = start + new Vector3(Random.Range(-xOffset, xOffset), distance, 0.5f);
-        StartCoroutine(Animate(start, end));
+
+
+        if(isSpeechBubble == true)
+        {
+            StartCoroutine(AnimateImage(start, end));
+        }
+
+        else
+        {
+         StartCoroutine(AnimateText(start, end));
+
+        }
+           
     }
 
-    IEnumerator Animate(Vector3 pos1, Vector3 pos2)
+    private void Update()
+    {
+        
+        if (isSpeechBubble == true)
+        {
+            transform.rotation = Quaternion.identity;
+        }
+
+    }
+
+    IEnumerator AnimateText(Vector3 pos1, Vector3 pos2)
     {
         //start our timer
         float timer = 0.0f;
@@ -52,5 +89,56 @@ public class MoveDamage : MonoBehaviour
             yield return null;
         }
         Destroy(gameObject);
+    }
+
+    IEnumerator AnimateImage(Vector3 pos1, Vector3 pos2)
+    {
+        //start our timer
+        float timer = 0.0f;
+        //stores the values of our animation curve evaluation
+        float evalMove = 0.0f;
+        float evalAlpha = 0.0f;
+
+        
+        Image imageCol = GetComponent<Image>();
+
+        //while we haven't hit our timeout
+        while (timer <= time)
+        {
+            //get the next values from the animation curve
+            evalMove = acMove.Evaluate(timer / time);
+            evalAlpha = 1f - acAlpha.Evaluate(timer / time);
+
+            //lerp along our path from start to end position
+            transform.position = Vector3.Lerp(pos1, pos2, evalMove);
+
+            //get the current color of the text
+            Color color = imageCol.color;
+            //set the alpha value for fade out
+            color.a = evalAlpha;
+            imageCol.color = color;
+
+            timer += Time.deltaTime;
+            yield return null;
+        }
+        Destroy(gameObject);
+    }
+
+
+    public void ChangeSprite(string character)
+    {
+        if(character == "Bo")
+        {
+            gameObject.GetComponent<Image>().sprite = Bo;
+        }
+
+        else if(character == "Hiro")
+        {
+            gameObject.GetComponent<Image>().sprite = Hiro;
+        }
+        else if (character == "Mika")
+        {
+            gameObject.GetComponent<Image>().sprite = Mika;
+        }
     }
 }
