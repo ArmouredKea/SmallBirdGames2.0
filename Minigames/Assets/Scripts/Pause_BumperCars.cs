@@ -64,7 +64,9 @@ public class Pause_BumperCars : Pause
             bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
             //line Luke added to show the pause menu
-            PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            if (gameStarted) {
+                PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            }            
             //------------
         } else {
             Component[] childrenCharacterScripts;
@@ -93,7 +95,8 @@ public class Pause_BumperCars : Pause
             timer.GetComponent<Score_BumperCars>().paused = false;
             bombSchtuff.GetComponent<BombSchtuff>().paused = false;
             paused = false;
-        }
+            gameStarted = true;
+        }        
 
     }
 }

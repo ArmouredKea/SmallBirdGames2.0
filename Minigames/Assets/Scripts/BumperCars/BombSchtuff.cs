@@ -37,7 +37,7 @@ public class BombSchtuff : MonoBehaviour {
     // Use this for initialization
     void Start () {
         pauseParent = GameObject.Find("Pause");
-        StartCoroutine(SpawnBomb(1.5f));
+        //StartCoroutine(SpawnBomb(1.5f));
         //spawningBomb = true;
 
         if (CharacterCarryOver.player1 == "Bo") {

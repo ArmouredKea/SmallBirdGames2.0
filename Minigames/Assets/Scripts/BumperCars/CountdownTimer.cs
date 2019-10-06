@@ -24,7 +24,7 @@ public class CountdownTimer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         canvaspausebutton.SetActive(false);
     }
 

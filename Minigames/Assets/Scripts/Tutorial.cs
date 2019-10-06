@@ -30,7 +30,6 @@ public class Tutorial : MonoBehaviour
     }
 
     private IEnumerator MinigameUIDelay (float waitTime) {
-        Debug.Log("Hello");
         Time.timeScale = 1;
         yield return new WaitForSeconds(waitTime);
         minigameUI.SetActive(true);

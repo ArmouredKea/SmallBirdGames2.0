@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -394,6 +394,28 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5943197587170658045, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4610186569526001920, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -165
+      objectReference: {fileID: 0}
+    - target: {fileID: 4055497922437518359, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 1263bcb423620d14b864b64ddd4d096a,
+        type: 3}
+    - target: {fileID: 8213352915046048729, guid: 98ab5064dece1ea48a99aa578b582128,
+        type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 1263bcb423620d14b864b64ddd4d096a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98ab5064dece1ea48a99aa578b582128, type: 3}
 --- !u!224 &890169343 stripped
@@ -601,7 +623,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 1263bcb423620d14b864b64ddd4d096a, type: 3}
     m_FontSize: 100
     m_FontStyle: 0
     m_BestFit: 0

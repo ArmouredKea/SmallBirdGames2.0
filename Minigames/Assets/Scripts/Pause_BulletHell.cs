@@ -51,7 +51,9 @@ public class Pause_BulletHell : Pause
             rPowerup.paused = true;
             paused = true;
             //line Luke added to show the pause menu
-            PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            if (gameStarted) {
+                PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
+            }
             //------------
         }
         else
@@ -76,7 +78,8 @@ public class Pause_BulletHell : Pause
             gPowerup.paused = false;
             rPowerup.paused = false;
             poolManage.PausePool(false);
-        }
+            gameStarted = true;
+        }        
 
     }
 

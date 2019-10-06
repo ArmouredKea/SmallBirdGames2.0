@@ -6,6 +6,7 @@ public class Pause : MonoBehaviour
 {
 
     public bool paused;
+    public bool gameStarted;
     
     // Start is called before the first frame update
     void Start() {

@@ -48,8 +48,8 @@ public class BombMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
-            StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
-            GameObject.Find("Background").GetComponent<BombSchtuff>().p1Lives--;
+            StartCoroutine(GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
+            GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().p1Lives--;
         } else if ((collision.gameObject.tag == "Player2")  && (p2Invulnerable == false)) {
             p2Invulnerable = true;
             Physics2D.IgnoreLayerCollision(8, 10, true);
@@ -58,8 +58,8 @@ public class BombMovement : MonoBehaviour
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
-            StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
-            GameObject.Find("Background").GetComponent<BombSchtuff>().p2Lives--;
+            StartCoroutine(GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
+            GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().p2Lives--;
         }
 
     }
@@ -81,7 +81,7 @@ public class BombMovement : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         bombExplosion = false;
-        StartCoroutine(GameObject.Find("Background").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
+        StartCoroutine(GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
     }
 
     //vulnerability delay for player 1.
