@@ -107,7 +107,8 @@ public class PauseMenu : MonoBehaviour
             PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
             countdownRef.SetActive(true);
             Pausebuttonref.SetActive(false);
-            threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
+            threeSecPause.GetComponent<Score_BulletHell>().closeTutorial();
+
             togglePauseMenu();
         }
 

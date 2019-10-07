@@ -47,6 +47,8 @@ public class PC_BulletHell : PlayerController
 
     public bool ControlRemoved;
     public GameObject Turret;
+    public bool CorrectSpeed;
+
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -60,7 +62,7 @@ public class PC_BulletHell : PlayerController
         bHell_isShoot = false;
         BulletHellManage bHell_Manage = GetComponent(typeof(BulletHellManage)) as BulletHellManage;
         ProjectileParent Proj_Manage = GetComponent(typeof(ProjectileParent)) as ProjectileParent;
-        
+
 
         moistTinting = GetComponent<SpriteRenderer>().material.color;
 
@@ -227,10 +229,17 @@ public class PC_BulletHell : PlayerController
               else if (paused == false & bHell_isShoot == false)
                 {
             animator.SetBool("Tank", false);
-           
+
+
+
             gameObject.GetComponent<Rigidbody2D>().mass = 2;
 
+
+
+
+
                 Movement();
+
                 }
         }
     }
@@ -254,6 +263,9 @@ public class PC_BulletHell : PlayerController
 
             transform.Translate(0, moveY, 0);
             transform.Translate(moveX, 0, 0);
+
+
+
         }
 
     }
@@ -315,6 +327,7 @@ public class PC_BulletHell : PlayerController
     {
         gameObject.GetComponent<Rigidbody2D>().velocity = pauseVelocity;
         paused = false;
+
     }
 
 

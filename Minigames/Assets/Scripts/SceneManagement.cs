@@ -10,7 +10,7 @@ public class SceneManagement : MonoBehaviour
 
     [SerializeField]
     private string nextScene = "";
-    private static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
+    public static List<int> scenes = new List<int>(Enumerable.Range(1, 3));
     private static int gameLength;
 
     // Start is called before the first frame update

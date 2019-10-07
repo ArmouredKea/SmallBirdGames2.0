@@ -1,7 +1,19 @@
 fileFormatVersion: 2
-guid: e03b653de15c4064d9908068070d0483
+guid: 6dbd1d0dc201b1d4889d6ea9f97ac490
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -4779051486102033445
+    second: whiteballons_0
+  - first:
+      213: 1573900599381941979
+    second: whiteballons_1
+  - first:
+      213: -8985590174879776497
+    second: whiteballons_2
+  - first:
+      213: -1604679092901396131
+    second: whiteballons_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,11 +127,95 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: whiteballons_0
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 6
+        width: 81
+        height: 111
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f58de33afd60a0c4a94f1f0144b762b9
+      internalID: -4779051486102033445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteballons_1
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 1
+        width: 72
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b21e728169665de48883de479373052b
+      internalID: 1573900599381941979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteballons_2
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 5
+        width: 88
+        height: 112
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ac845db38292704c80c38620cc5f7b7
+      internalID: -8985590174879776497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: whiteballons_3
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1
+        width: 79
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab6bbd4a43a19b8488486e66161a9c95
+      internalID: -1604679092901396131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 7cdb5df3dc868e6449ac4fb2c6ac7c91
     internalID: 0
     vertices: []
     indices: 

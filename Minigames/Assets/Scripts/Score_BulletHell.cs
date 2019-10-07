@@ -14,11 +14,35 @@ public class Score_BulletHell : Score
     public float TimeRatio;
     public float TotalTime;
     public GameObject countDownref;
+    public GameObject canvaspausebutton;
+
 
     // Start is called before the first frame update
     protected override void Start() {
         currentTime = 64;
         TotalTime = currentTime;
+    }
+
+    public void closeTutorial () {
+
+        countDownref.SetActive(true);
+        StartCoroutine(Countdown());
+    }
+
+    public IEnumerator Countdown() {
+
+        Time.timeScale = 0;
+        float pauseTime = Time.realtimeSinceStartup + 4f;
+
+        while (Time.realtimeSinceStartup < pauseTime)
+        {
+            yield return 0;
+        }
+
+        Time.timeScale = 1;
+        countDownref.SetActive(false);
+        paused = false;
+        canvaspausebutton.SetActive(true);
     }
 
     // Update is called once per frame
@@ -152,7 +176,7 @@ public class Score_BulletHell : Score
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
             p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
 
-            pauseButton.SetActive(false);
+            canvaspausebutton.SetActive(false);
             pauseBulletHell.GetComponent<Pause_BulletHell>().paused = false;
             pauseBulletHell.GetComponent<Pause_BulletHell>().PauseButton();
 
@@ -160,4 +184,5 @@ public class Score_BulletHell : Score
 
         }
     }
+
 }

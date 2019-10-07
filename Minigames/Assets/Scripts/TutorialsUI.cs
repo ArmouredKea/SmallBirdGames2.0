@@ -22,21 +22,21 @@ public class TutorialsUI : MonoBehaviour
     public bool ready;
     public int i = 0;
 
-    // Start is called before the first frame updatepublic 
+    // Start is called before the first frame updatepublic
     void Start() {
-        
+
     }
 
     // Update is called once per frame
     void Update() {
-        
+
     }
 
     public void NextTutorial() {
         tutorials[i].SetActive(false);
         i++;
         tutorials[i].SetActive(true);
-        
+
         if (i == (tutorials.Length - 1)) {
             next.SetActive(false);
             readyButton.SetActive(true);
@@ -78,7 +78,7 @@ public class TutorialsUI : MonoBehaviour
             } else if (scene.name == "OvercookedMG") {
                 StartCoroutine(countdownScript.GetComponent<Pause_Overcooked>().Countdown());
             } else if (scene.name == "BulletHell") {
-                StartCoroutine(countdownScript.GetComponent<CountdownTimer>().Countdown());
+                StartCoroutine(countdownScript.GetComponent<Score_BulletHell>().Countdown());
             }
             pauseScript.GetComponent<Pause>().PauseButton();
         }

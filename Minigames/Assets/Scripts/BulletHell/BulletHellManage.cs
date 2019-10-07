@@ -67,9 +67,14 @@ public class BulletHellManage : MonoBehaviour
 
     public GameObject Speechbubble;
 
+    public GameObject P1_TutorialGun;
+    public GameObject P2_TutorialGun;
+    public GameObject P1_TutorialRun;
+    public GameObject P2_TutorialRun;
 
     private string P1Character;
     private string P2Character;
+    public bool paused;
 
 
     // Start is called before the first frame update
@@ -107,11 +112,16 @@ public class BulletHellManage : MonoBehaviour
         if (firingPlayer == 1)
         {
             P1_isLerpGun = true;
+            P1_TutorialGun.SetActive(true);
+            P2_TutorialRun.SetActive(true);
+
         }
 
         else if (firingPlayer == 2)
         {
             P2_isLerpGun = true;
+            P2_TutorialGun.SetActive(true);
+            P1_TutorialRun.SetActive(true);
         }
 
 
@@ -173,7 +183,7 @@ public class BulletHellManage : MonoBehaviour
             P1.bHell_isShoot = true;
             P2.bHell_isShoot = false;
             P1.speed = P1.baseSpeed;
-            P2.speed = 0;
+
 
 
 
@@ -181,6 +191,7 @@ public class BulletHellManage : MonoBehaviour
             firingPlayer = 1;
             P2_isLerpHome = true;
             P1_isLerpGun = true;
+            P2.CorrectSpeed = true;
 
 
         }
@@ -194,13 +205,14 @@ public class BulletHellManage : MonoBehaviour
             P1.bHell_isShoot = false;
 
             P2.speed = P2.baseSpeed;
-            P1.speed = 0;
+
 
             P2.ShieldDestroy();
 
             firingPlayer = 2;
             P1_isLerpHome = true;
             P2_isLerpGun = true;
+            P2.CorrectSpeed = true;
 
         }
 
@@ -318,72 +330,70 @@ public class BulletHellManage : MonoBehaviour
 
     public void PositionChecker()
     {
-        if (P1_isLerpHome == true)
-        {
-            P1.ControlRemoved = true;
-            P1_isLerpGun = false;
-            TimeToMove2 += Time.deltaTime;
+      if(paused == false){
 
-            if (Vector3.Distance(P1.transform.position, P1Spawn.transform.position) > minDistance)
-            {
-                P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, P1Spawn.transform.position, Time.deltaTime * LerpRate);
+                      if (P1_isLerpHome == true)
+                      {
+                          P1.ControlRemoved = true;
+                          P1_isLerpGun = false;
+                          TimeToMove2 += Time.deltaTime;
 
-            }
-            else
-            {
-                P1.gameObject.transform.position = P1Spawn.transform.position;
-                P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
-                P1.ControlRemoved = false;
-                
-                P1_isLerpHome = false;
+                          if (Vector3.Distance(P1.transform.position, P1Spawn.transform.position) > minDistance)
+                          {
+                              P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, P1Spawn.transform.position, Time.deltaTime * LerpRate);
 
-            }
-        }
+                          }
+                          else
+                          {
+                              P1.gameObject.transform.position = P1Spawn.transform.position;
+                              P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
+                              P1.ControlRemoved = false;
+                              P1_isLerpHome = false;
+                              P1.speed = P1.baseSpeed;
+                          }
+                      }
 
-        else if (P1_isLerpGun == true)
-        {
-            P1.ControlRemoved = true;
+                      else if (P1_isLerpGun == true)
+                      {
+                          P1.ControlRemoved = true;
 
-            TimeToMove1 += Time.deltaTime;
+                          TimeToMove1 += Time.deltaTime;
 
-            if (Vector3.Distance(P1.transform.position, GunnerPos.transform.position) > minDistance)
-            {
-                P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
-            }
-            else
-            {
-                P1.gameObject.transform.position = GunnerPos.transform.position;
-                P1.ControlRemoved = false;
-
-
-                SpeechBubbleGenerator(P1feedback, P1Character);
-                P1_isLerpGun = false;
-            }
-        }
+                          if (Vector3.Distance(P1.transform.position, GunnerPos.transform.position) > minDistance)
+                          {
+                              P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
+                          }
+                          else
+                          {
+                              P1.gameObject.transform.position = GunnerPos.transform.position;
+                              P1.ControlRemoved = false;
+                              SpeechBubbleGenerator(P1feedback, P1Character);
+                              P1_isLerpGun = false;
+                          }
+                      }
 
 
-        if (P2_isLerpHome == true)
-        {
-            P2.ControlRemoved = true;
-            P2_isLerpGun = false;
-            TimeToMove2 += Time.deltaTime;
+                      if (P2_isLerpHome == true)
+                      {
+                          P2.ControlRemoved = true;
+                          P2_isLerpGun = false;
+                          TimeToMove2 += Time.deltaTime;
+                          if (Vector3.Distance(P2.transform.position, P2Spawn.transform.position) > minDistance)
+                          {
 
-            if (Vector3.Distance(P2.transform.position, P2Spawn.transform.position) > minDistance)
-            {
+                              P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, P2Spawn.transform.position, Time.deltaTime * LerpRate);
+                          }
+                          else
+                          {
+                              P2.gameObject.transform.position = P2Spawn.transform.position;
+                              P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
+                              P2.ControlRemoved = false;
+                              P2.speed = P2.baseSpeed;
+                              P2_isLerpHome = false;
+                              //P2_isLerpGun = false;
+                          }
+              }
 
-                P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, P2Spawn.transform.position, Time.deltaTime * LerpRate);
-            }
-            else
-            {
-                P2.gameObject.transform.position = P2Spawn.transform.position;
-                P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
-                P2.ControlRemoved = false;
-
-               
-                P2_isLerpHome = false;
-                //P2_isLerpGun = false;
-            }
-        }
 
 
         else if (P2_isLerpGun == true)
@@ -402,12 +412,16 @@ public class BulletHellManage : MonoBehaviour
                 P2.ControlRemoved = false;
 
 
-                SpeechBubbleGenerator(P2feedback, P2Character);
-                P2_isLerpGun = false; 
-                P2_isLerpHome = false;
+                  SpeechBubbleGenerator(P2feedback, P2Character);
+                  P2_isLerpGun = false;
+                  P2_isLerpHome = false;
             }
         }
+
+      }
+
     }
+
 
 
     public void SpeechBubbleGenerator(Canvas pos, string character)

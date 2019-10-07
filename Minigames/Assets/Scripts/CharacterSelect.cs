@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class CharacterSelect : MonoBehaviour
 {
-    
+
     public GameObject bo;
     public GameObject hiro;
     public GameObject mika;
@@ -26,11 +27,11 @@ public class CharacterSelect : MonoBehaviour
     private bool mikaPicked;
     private Color blackenedColor = new Color(0.5f, 0.5f, 0.5f, 1);
     public bool ready;
-        
+
 
     // Start is called before the first frame update
     void Start() {
-        
+
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class CharacterSelect : MonoBehaviour
                 otherBo.GetComponent<Image>().color = new Color(1f, 1f, 1f, 1);
                 readyButton.SetActive(false);
             }
-        }        
+        }
     }
 
     //selecting and deselecting Hiro
@@ -118,11 +119,12 @@ public class CharacterSelect : MonoBehaviour
             ready = false;
             readyButton.SetActive(true);
             unreadyButton.SetActive(false);
-        }        
+        }
 
         if (ready && otherPlayer.GetComponent<CharacterSelect>().ready == true) {
             PlayerController.p1Score = 0;
             PlayerController.p2Score = 0;
+            SceneManagement.scenes = new List<int>(Enumerable.Range(1, 3));
             sceneManagementScript.GetComponent<SceneManagement>().NextMinigame();
         }
     }

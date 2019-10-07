@@ -11,6 +11,7 @@ public class Pause_BulletHell : Pause
     public GunnerPowerups gPowerup;
     public RunnerPowerups rPowerup;
     public GameObject PauseMenuRef;
+    public BulletHellManage BhellManage;
 
 
     // Start is called before the first frame update
@@ -50,6 +51,7 @@ public class Pause_BulletHell : Pause
             //rPowerup.paused = true;
             rPowerup.paused = true;
             paused = true;
+            BhellManage.paused = true;
             //line Luke added to show the pause menu
             if (gameStarted) {
                 PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
@@ -71,7 +73,7 @@ public class Pause_BulletHell : Pause
 
 
             timer.GetComponent<Score_BulletHell>().paused = false;
-            countTimer.GetComponent<CountdownTimer>().paused = false;
+            
             //projManage_B.GetComponent<BombSchtuff>().paused = false;
 
             paused = false;
@@ -79,8 +81,10 @@ public class Pause_BulletHell : Pause
             rPowerup.paused = false;
             poolManage.PausePool(false);
             gameStarted = true;
-        }        
+            BhellManage.paused = false;
+        }
 
     }
+
 
 }

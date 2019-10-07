@@ -98,7 +98,7 @@ public class Pause_Overcooked : Pause
             timer.GetComponent<Score_Overcooked>().paused = false;
             gameStarted = true;
 
-        }        
+        }
 
     }
 
