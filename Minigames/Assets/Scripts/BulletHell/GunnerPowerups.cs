@@ -47,20 +47,20 @@ public class GunnerPowerups : PowerupParent
 
     public override void ExecutePowerup(bool red, bool yellow, bool green, bool white)
     {
-        if (red == true) { RedFiring();}
-        else if (yellow == true) { YellowFiring();}
+       // if (red == true) { RedFiring();}
+         if (yellow == true) { YellowFiring();}
         else if (green == true) { GreenFiring(); }
         else if (white == true) { WhiteFiring(); }
        
     }
 
-     public void RedFiring()
+     /*public void RedFiring()
     {
         base.StartCoroutine(PowerupTimer(seconds:base.Powerup_Duration, declareGunner, Color.red));
         ObjectPool.pool_Instance.pool_RedProjTime = true;
             
        
-    }
+    } */
     public void YellowFiring()
     {
         base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.yellow));
@@ -108,7 +108,7 @@ public class GunnerPowerups : PowerupParent
     public void Deactivate()
     {   
         if(Powerup_Activated == false) { 
-        ObjectPool.pool_Instance.pool_RedProjTime = false;
+        //ObjectPool.pool_Instance.pool_RedProjTime = false;
         ObjectPool.pool_Instance.pool_YellowProjTime = false;
         ObjectPool.pool_Instance.pool_GreenProjTime = false;
         ObjectPool.pool_Instance.pool_WhiteProjTime = false;

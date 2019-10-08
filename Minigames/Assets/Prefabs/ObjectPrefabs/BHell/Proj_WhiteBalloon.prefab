@@ -71,8 +71,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 693f0e0e705412b4e9e713bc5d57b8d6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1573900599381941979, guid: 6dbd1d0dc201b1d4889d6ea9f97ac490,
+    type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -144,7 +145,7 @@ MonoBehaviour:
   KnockBackMag: 0
   Speed: 30
   firingRate: 0.9
-  damageScore: 10
+  damageScore: 4
   growBy: 0
   growRate: 0
   frequencySine: 0
