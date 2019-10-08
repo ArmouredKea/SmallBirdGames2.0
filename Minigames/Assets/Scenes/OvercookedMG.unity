@@ -14940,17 +14940,17 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 675686501780154637, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: a763d69698d97aa42b0a8aeb2fd0d456,
-        type: 3}
     - target: {fileID: 675686503172083615, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: bc846c211b6ebef45a71bcd8cd9e264c,
+        type: 3}
+    - target: {fileID: 675686501780154637, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a763d69698d97aa42b0a8aeb2fd0d456,
         type: 3}
     - target: {fileID: 675686502896439655, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
