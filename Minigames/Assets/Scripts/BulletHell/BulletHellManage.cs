@@ -82,8 +82,6 @@ public class BulletHellManage : MonoBehaviour
     {
         P1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
         P2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
-        P1feedback = P1.GetComponentInChildren<Canvas>();
-        P2feedback = P2.GetComponentInChildren<Canvas>();
         BHell_Init();
 
     }
@@ -309,7 +307,10 @@ public class BulletHellManage : MonoBehaviour
 
             P1hits.text = p1TimesHit.ToString();
 
+
+
             Instantiate(P1hits, P1feedback.transform);
+            P1hits.transform.rotation = P1hits.transform.rotation;
             P1TempScore = p1TimesHit;
         }
 
@@ -320,9 +321,11 @@ public class BulletHellManage : MonoBehaviour
 
             P2hits.text = p2TimesHit.ToString();
 
-            Instantiate(P2hits, P2feedback.transform);
+            
 
+            Instantiate(P2hits, P2feedback.transform );
 
+            P2hits.transform.rotation = P2hits.transform.rotation;
             P2TempScore = p2TimesHit;
         }
     }
@@ -366,6 +369,7 @@ public class BulletHellManage : MonoBehaviour
                           else
                           {
                               P1.gameObject.transform.position = GunnerPos.transform.position;
+                              P1.gameObject.transform.rotation = GunnerPos.transform.rotation;
                               P1.ControlRemoved = false;
                               SpeechBubbleGenerator(P1feedback, P1Character);
                               P1_isLerpGun = false;
@@ -409,6 +413,7 @@ public class BulletHellManage : MonoBehaviour
             else
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
+                P2.gameObject.transform.rotation = GunnerPos.transform.rotation;
                 P2.ControlRemoved = false;
 
 
