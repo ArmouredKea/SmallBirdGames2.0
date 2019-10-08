@@ -45,9 +45,6 @@ public class BombMovement : MonoBehaviour
             StartCoroutine(BombDelay(0.6f));
             Physics2D.IgnoreLayerCollision(8, 9, true);
             StartCoroutine(Vulnerability1(2));
-            //Destroy(gameObject);
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
             StartCoroutine(GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().p1Lives--;
@@ -56,9 +53,6 @@ public class BombMovement : MonoBehaviour
             StartCoroutine(BombDelay(0.6f));
             Physics2D.IgnoreLayerCollision(8, 10, true);
             StartCoroutine(Vulnerability2(2));
-            //Destroy(gameObject);
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             collision.gameObject.GetComponent<PC_BumperCars>().TakeHit();
             StartCoroutine(GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().SpawnBomb(1.5f));
             GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().p2Lives--;
@@ -68,7 +62,7 @@ public class BombMovement : MonoBehaviour
 
     //bomb explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {
-        gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        //gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         gameObject.GetComponent<Animator>().SetBool("Explode", true);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
