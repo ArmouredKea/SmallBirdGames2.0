@@ -1,7 +1,136 @@
 fileFormatVersion: 2
 guid: ab977a875a32dfb4498b2812fa5e5d81
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -8661642929113610427
+    second: splash_animation_sprite3_0
+  - first:
+      213: -1853739126859071610
+    second: splash_animation_sprite3_1
+  - first:
+      213: -1744782960499213453
+    second: splash_animation_sprite3_2
+  - first:
+      213: -8234540678381108435
+    second: splash_animation_sprite3_3
+  - first:
+      213: -4838107663540166695
+    second: splash_animation_sprite3_4
+  - first:
+      213: -7495293424436200124
+    second: splash_animation_sprite3_5
+  - first:
+      213: 2127682881551135777
+    second: splash_animation_sprite3_6
+  - first:
+      213: 4926577049793397625
+    second: splash_animation_sprite3_7
+  - first:
+      213: -3624565736170139285
+    second: splash_animation_sprite3_8
+  - first:
+      213: -3884630509831886036
+    second: splash_animation_sprite3_9
+  - first:
+      213: 5581033385041467476
+    second: splash_animation_sprite3_10
+  - first:
+      213: 5095630835313562633
+    second: splash_animation_sprite3_11
+  - first:
+      213: -4727802139364512002
+    second: splash_animation_sprite3_12
+  - first:
+      213: 5929506296173206857
+    second: splash_animation_sprite3_13
+  - first:
+      213: 5546057892906081626
+    second: splash_animation_sprite3_14
+  - first:
+      213: -1124626679282331678
+    second: splash_animation_sprite3_15
+  - first:
+      213: -78567634207648442
+    second: splash_animation_sprite3_16
+  - first:
+      213: -1448960001774906277
+    second: splash_animation_sprite3_17
+  - first:
+      213: 1409929017192662150
+    second: splash_animation_sprite3_18
+  - first:
+      213: -2177127698565458520
+    second: splash_animation_sprite3_19
+  - first:
+      213: 5257025543535280039
+    second: splash_animation_sprite3_20
+  - first:
+      213: -541554306732109862
+    second: splash_animation_sprite3_21
+  - first:
+      213: 1066894794624281779
+    second: splash_animation_sprite3_22
+  - first:
+      213: -9186928131329631846
+    second: splash_animation_sprite3_23
+  - first:
+      213: 5084746057017686852
+    second: splash_animation_sprite3_24
+  - first:
+      213: -5607699999013083145
+    second: splash_animation_sprite3_25
+  - first:
+      213: 725484198141425094
+    second: splash_animation_sprite3_26
+  - first:
+      213: 5894740571497153446
+    second: splash_animation_sprite3_27
+  - first:
+      213: -6015415771856631535
+    second: splash_animation_sprite3_28
+  - first:
+      213: 3640973646111698586
+    second: splash_animation_sprite3_29
+  - first:
+      213: 8282999199213087787
+    second: splash_animation_sprite3_30
+  - first:
+      213: 7270186203879127385
+    second: splash_animation_sprite3_31
+  - first:
+      213: 727762837494231147
+    second: splash_animation_sprite3_32
+  - first:
+      213: 63384606910880697
+    second: splash_animation_sprite3_33
+  - first:
+      213: 4013761839769571290
+    second: splash_animation_sprite3_34
+  - first:
+      213: -1804870291510387824
+    second: splash_animation_sprite3_35
+  - first:
+      213: 7033796317282211857
+    second: splash_animation_sprite3_36
+  - first:
+      213: 3281546665918667657
+    second: splash_animation_sprite3_37
+  - first:
+      213: 6232171448696378181
+    second: splash_animation_sprite3_38
+  - first:
+      213: 6576909034137757379
+    second: splash_animation_sprite3_39
+  - first:
+      213: 1478606669196293381
+    second: splash_animation_sprite3_40
+  - first:
+      213: -5028270356715696744
+    second: splash_animation_sprite3_41
+  - first:
+      213: 5158112982147460820
+    second: splash_animation_sprite3_42
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -40,7 +169,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -115,11 +244,95 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: splash_animation_sprite3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c04cc12fc9949f045b36b9997cea5204
+      internalID: -8661642929113610427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splash_animation_sprite3_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a21347570f01deb4bbae22f514c892ae
+      internalID: -1853739126859071610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splash_animation_sprite3_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa54cb964611ccf49bbc01e935ef5437
+      internalID: -1744782960499213453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: splash_animation_sprite3_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68e023ddd18284342b87b127c9630082
+      internalID: -8234540678381108435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c1b65f49f5e34c2429a9a0dffa60a80e
     internalID: 0
     vertices: []
     indices: 

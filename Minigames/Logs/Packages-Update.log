@@ -79,3 +79,11 @@ The following packages were removed:
   com.unity.scriptablebuildpipeline@1.5.2
   com.unity.shadergraph@5.7.2
   com.unity.xr.legacyinputhelpers@2.0.2
+
+=== Tue Oct  8 20:48:17 2019
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.textmeshpro from version 2.0.0 to 2.0.1
