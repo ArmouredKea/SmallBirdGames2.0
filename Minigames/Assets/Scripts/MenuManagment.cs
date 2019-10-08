@@ -90,10 +90,10 @@ public class MenuManagment : MonoBehaviour
     }
 
     public void mute(){
-            MuteBTN.SetActive(false);
-            UnMuteBTN.SetActive(true);
-            audioManager.GetComponent<AudioManagerScript>().isMuted = true;
-            audioManager.GetComponent<AudioManagerScript>().MuteAudio();
+        MuteBTN.SetActive(false);
+        UnMuteBTN.SetActive(true);
+        audioManager.GetComponent<AudioManagerScript>().isMuted = true;
+        audioManager.GetComponent<AudioManagerScript>().MuteAudio();
     }
 
     public void Unmute(){

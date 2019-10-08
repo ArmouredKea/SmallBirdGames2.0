@@ -72,6 +72,7 @@ public class PauseMenu : MonoBehaviour
     public void BackToMenu() {
         AreYouSure.SetActive(false);
         SceneManager.LoadScene("MainMenu");
+        Destroy(audioManager);
     }
 
     public void MuteSound() {
