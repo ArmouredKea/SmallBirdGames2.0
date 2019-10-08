@@ -60,9 +60,6 @@ public class PowerupCheck : MonoBehaviour
                     gunner = collision.gameObject.GetComponent<BlueProjectile>().firedFrom.GetComponent<PC_BulletHell>();
 
                     gunnerSpawn.GetGunner(gunner);
-
-
-
                     gunnerSpawn.Deactivate();
                     gunnerSpawn.ExecutePowerup(r, y, g, w);
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);

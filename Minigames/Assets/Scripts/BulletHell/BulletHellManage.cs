@@ -91,7 +91,14 @@ public class BulletHellManage : MonoBehaviour
     {
         PositionChecker();
         ValueCheck();
-
+        if(P1.bHell_isShoot == true)
+        {
+            P1.speed = 0;
+        }
+        else if (P2.bHell_isShoot == true)
+        {
+            P2.speed = 0;
+        }
 
 
     }
@@ -342,17 +349,18 @@ public class BulletHellManage : MonoBehaviour
                           TimeToMove2 += Time.deltaTime;
 
                           if (Vector3.Distance(P1.transform.position, P1Spawn.transform.position) > minDistance)
-                          {
-                              P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, P1Spawn.transform.position, Time.deltaTime * LerpRate);
-
+                {
+                    P1.speed = 0;
+                    P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, P1Spawn.transform.position, Time.deltaTime * LerpRate);
+                   
                           }
                           else
                           {
                               P1.gameObject.transform.position = P1Spawn.transform.position;
                               P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
                               P1.ControlRemoved = false;
-                    P2.gameObject.GetComponent<Rigidbody2D>().mass = 2;
-                    P1.speed = P1.baseSpeed;
+                             P1.gameObject.GetComponent<Rigidbody2D>().mass = 2;
+                             P1.speed = P1.baseSpeed;
                     P1_isLerpHome = false;
                               
                           }
@@ -369,7 +377,8 @@ public class BulletHellManage : MonoBehaviour
 
                           if (Vector3.Distance(P1.transform.position, GunnerPos.transform.position) > minDistance)
                           {
-                              P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
+                    P1.speed = 0;
+                    P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
                           }
                           else
                           {
@@ -393,8 +402,8 @@ public class BulletHellManage : MonoBehaviour
                           TimeToMove2 += Time.deltaTime;
                           if (Vector3.Distance(P2.transform.position, P2Spawn.transform.position) > minDistance)
                           {
-
-                              P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, P2Spawn.transform.position, Time.deltaTime * LerpRate);
+                    P2.speed = 0;
+                    P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, P2Spawn.transform.position, Time.deltaTime * LerpRate);
                           }
                           else
                           {
@@ -417,8 +426,9 @@ public class BulletHellManage : MonoBehaviour
             TimeToMove1 += Time.deltaTime;
 
             if (Vector3.Distance(P2.transform.position, GunnerPos.transform.position) > minDistance)
-            {
-                P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
+                {
+                    P2.speed = 0;
+                    P2.gameObject.transform.position = Vector3.Lerp(P2.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);
             }
             else
             {

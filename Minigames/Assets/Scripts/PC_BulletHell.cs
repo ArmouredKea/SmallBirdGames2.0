@@ -225,14 +225,14 @@ public class PC_BulletHell : PlayerController
 
              }
 
-              else if (paused == false & bHell_isShoot == false)
+
+            else if (paused == false & bHell_isShoot == false)
                 {
             animator.SetBool("Tank", false);
 
 
 
-            gameObject.GetComponent<Rigidbody2D>().mass = 2;
-
+       
 
 
 
