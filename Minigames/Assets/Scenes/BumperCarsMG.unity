@@ -502,6 +502,12 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 377089757}
+    - target: {fileID: 5591340752118366946, guid: fbb3a5b153636014cbb853bf700235d8,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbb3a5b153636014cbb853bf700235d8, type: 3}
 --- !u!4 &12240392 stripped
@@ -2369,6 +2375,12 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 1938028754}
+    - target: {fileID: 5591340752118366946, guid: 710d067c2a7213f4281ff729e859b7fa,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 710d067c2a7213f4281ff729e859b7fa, type: 3}
 --- !u!4 &457109364 stripped
@@ -6072,6 +6084,12 @@ PrefabInstance:
       propertyPath: canvas
       value: 
       objectReference: {fileID: 386613860}
+    - target: {fileID: 5591340752118366946, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
 --- !u!4 &1295211071 stripped
@@ -6218,6 +6236,12 @@ PrefabInstance:
       propertyPath: boostBoi
       value: 
       objectReference: {fileID: 1437604482}
+    - target: {fileID: 5347735800766714097, guid: 72787442e2e76fc428af900930582486,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72787442e2e76fc428af900930582486, type: 3}
 --- !u!4 &1309667822 stripped
@@ -7051,6 +7075,12 @@ PrefabInstance:
       propertyPath: boostBoi
       value: 
       objectReference: {fileID: 821899390}
+    - target: {fileID: 5347735800766714097, guid: 92e0411ac32bfff49985e5343913bee1,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92e0411ac32bfff49985e5343913bee1, type: 3}
 --- !u!4 &1455034352 stripped
@@ -7826,6 +7856,12 @@ PrefabInstance:
       propertyPath: boostBoi
       value: 
       objectReference: {fileID: 28429314}
+    - target: {fileID: 5347735800766714097, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 720cdd30ac2ccf0499e95ff5d231c32a,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef6c18c79876ffc4b95d0ff07ee586ae, type: 3}
 --- !u!4 &1599114544 stripped
