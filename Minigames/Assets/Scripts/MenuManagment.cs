@@ -8,7 +8,6 @@ public class MenuManagment : MonoBehaviour
 {
 
     public GameObject audioManager;
-
     public GameObject SettingMen;
     public GameObject SplashScreen;
     public GameObject MainMenu;
@@ -19,9 +18,20 @@ public class MenuManagment : MonoBehaviour
     public GameObject UnMuteBTN;
     public GameObject settingsButton;
     public GameObject credits;
+    public GameObject BackgroundTop;
+    public GameObject AllMenuButtons;
+    public Transform startMarker;
+    public Transform endMarker;
+    public float speed = 5.0f;
+    private float startTime;
+    private float journeyLength;
+    public bool Started = false;
+
 
     void Start() {
       audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+      startTime = Time.time;
+      journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
     }
 
     void Update() {
@@ -32,59 +42,66 @@ public class MenuManagment : MonoBehaviour
           MuteBTN.SetActive(true);
           UnMuteBTN.SetActive(false);
       }
+      MoveBackground();
+    }
+
+    void MoveBackground()
+    {
+        if (Started == true)
+        {
+            float distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            BackgroundTop.transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+        }
+        else {
+            Started = false;
+        }
     }
 
     //Quits the Game
-    public void QuitGame()
-    {
+    public void QuitGame() {
         Application.Quit();
     }
 
     //Activates the settings canvas
-    public void OpenSettings()
-    {
+    public void OpenSettings() {
         SettingMen.SetActive(true);
         MenuButtons.SetActive(false);
     }
 
     //Deactivates the settings Canvas
-    public void CloseSettings()
-    {
+    public void CloseSettings() {
         SettingMen.SetActive(false);
         MenuButtons.SetActive(true);
     }
 
     //Changes you to the game length screen
-    public void Play()
-    {
+    public void Play() {
         MainMenu.SetActive(false);
         GameLeng.SetActive(true);
     }
 
     //Transitions the tap to start screen
-    public void ScreenFade()
-    {
-      SplashScreen.SetActive(false);
-
+    public void ScreenFade() {
+        SplashScreen.SetActive(false);
+        Started = true;
+        AllMenuButtons.SetActive(true);
     }
 
     //loads the character select screen
-    public void CharaScreen()
-    {
+    public void CharaScreen() {
         CharSelect.SetActive(true);
         GameLeng.SetActive(false);
     }
 
     //takes you back to the main menu from the game length screen
-    public void BackToMenu()
-    {
+    public void BackToMenu() {
         MainMenu.SetActive(true);
         GameLeng.SetActive(false);
     }
 
     //takes you back to the game length screen
-    public void BackToleng()
-    {
+    public void BackToleng() {
         GameLeng.SetActive(true);
         CharSelect.SetActive(false);
     }
