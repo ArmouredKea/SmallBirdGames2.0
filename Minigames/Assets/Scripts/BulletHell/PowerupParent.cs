@@ -165,7 +165,7 @@ public class PowerupParent : MonoBehaviour
 
     public virtual IEnumerator PowerupTimer(float seconds, PC_BulletHell player, Color color)
     {
-        powerupProg = player.transform.Find("Feedback").GetComponentInChildren<Canvas>().transform.Find("ProjTimer").GetComponentInChildren<Image>();
+        powerupProg = player.transform.Find("PowerupTimeZone").GetComponentInChildren<Canvas>().transform.Find("ProjTimer").GetComponentInChildren<Image>();
 
         powerupProg.gameObject.SetActive(true);
         float counter = seconds;

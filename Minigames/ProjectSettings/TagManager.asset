@@ -21,6 +21,7 @@ TagManager:
   - AudioManager
   - P1Tag
   - Turret
+  - P2Tag
   layers:
   - Default
   - TransparentFX
