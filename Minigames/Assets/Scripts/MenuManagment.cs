@@ -30,8 +30,6 @@ public class MenuManagment : MonoBehaviour
 
     void Start() {
       audioManager = GameObject.FindGameObjectWithTag("AudioManager");
-      startTime = Time.time;
-      journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
     }
 
     void Update() {
@@ -83,8 +81,16 @@ public class MenuManagment : MonoBehaviour
 
     //Transitions the tap to start screen
     public void ScreenFade() {
+        startTime = Time.time;
+        journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
         SplashScreen.SetActive(false);
         Started = true;
+        StartCoroutine(buttonsShowUp());
+    }
+
+    IEnumerator buttonsShowUp()
+    {
+        yield return new WaitForSeconds(3);
         AllMenuButtons.SetActive(true);
     }
 
