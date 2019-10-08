@@ -52,6 +52,9 @@ public class BulletHellManage : MonoBehaviour
     [SerializeField]
     private GunnerPowerups gunnerPowerups;
 
+    [SerializeField]
+    private RunnerPowerups runnerPowerups;
+
     public float FadeTime;
 
     public int P1TempScore;
@@ -171,6 +174,7 @@ public class BulletHellManage : MonoBehaviour
         //DetectCharacter1();
         //DetectCharacter2();
         gunnerPowerups.Deactivate();
+        runnerPowerups.Deactivate();
 
 
         if (firingPlayer == 2)
@@ -373,7 +377,9 @@ public class BulletHellManage : MonoBehaviour
                           {
                               P1.gameObject.transform.position = GunnerPos.transform.position;
                               P1.gameObject.transform.rotation = GunnerPos.transform.rotation;
-                              P1.ControlRemoved = false;
+                    P1.speed = 0;
+                    P1.GetComponent<Rigidbody2D>().mass = 900000;
+                    P1.ControlRemoved = false;
                               SpeechBubbleGenerator(P1feedback, P1Character);
                               P1_isLerpGun = false;
                           }
@@ -417,11 +423,15 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.gameObject.transform.rotation = GunnerPos.transform.rotation;
-                P2.ControlRemoved = false;
-
+               
 
                   SpeechBubbleGenerator(P2feedback, P2Character);
-                  P2_isLerpGun = false;
+                  P2.ControlRemoved = false;
+
+                    P2.speed = 0;
+                  P2.GetComponent<Rigidbody2D>().mass = 900000;
+
+                    P2_isLerpGun = false;
                   P2_isLerpHome = false;
             }
         }

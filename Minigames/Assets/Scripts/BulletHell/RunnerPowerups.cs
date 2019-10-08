@@ -73,9 +73,6 @@ public class RunnerPowerups : PowerupParent
         {
            //stop powerup.
             ExecutePowerup(false, false, false, false);
-            if(declareRunner != null)
-                declareRunner.speed = declareRunner.baseSpeed;
-            
 
 
         }
