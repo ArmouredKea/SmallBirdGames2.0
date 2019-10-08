@@ -20,11 +20,12 @@ public class SceneManagement : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-
+        muted = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().isMuted;
     }
 
     public void NextScene() {
         SceneManager.LoadScene(nextScene);
+        Destroy(GameObject.FindGameObjectWithTag("AudioManager"));
     }
 
     //randomly picks a minigame from the list.
@@ -36,20 +37,16 @@ public class SceneManagement : MonoBehaviour
             int minigame = scenes[randomIndex] + 1;
             scenes.RemoveAt(randomIndex);
             SceneManager.LoadScene(minigame);
-            muted = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().isMuted;
         } else if (scenes.Count == 0 && gameLength == 0) {
             gameLength--;
             scenes = new List<int>(Enumerable.Range(1, 3));
             SceneManager.LoadScene("End");
-            Destroy(GameObject.FindGameObjectWithTag("AudioManager"));
-            muted = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().isMuted;
         } else {
             gameLength--;
             int randomIndex = Random.Range(0, scenes.Count);
             int minigame = scenes[randomIndex] + 1;
             scenes.RemoveAt(randomIndex);
             SceneManager.LoadScene(minigame);
-            muted = GameObject.FindGameObjectWithTag("AudioManager").GetComponent<AudioManagerScript>().isMuted;
         }
     }
 
