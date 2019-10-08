@@ -28,6 +28,14 @@ public class AudioManagerScript : MonoBehaviour
       DontDestroyOnLoad(this.gameObject);
     }
 
+    void Update () {
+        if (isMuted && !GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute) {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute = true;
+        } else if (!isMuted && GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute) {
+            GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute = false;
+        }
+    }
+
     public void PlayAudio(string clipName) {
 
       AudioClip temp = null;

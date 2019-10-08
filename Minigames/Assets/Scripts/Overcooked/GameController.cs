@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public GameObject player;
+    public string playerName;
+
+    public GameObject bP1;
+    public GameObject hP1;
+    public GameObject mP1;
+    public GameObject bP2;
+    public GameObject hP2;
+    public GameObject mP2;
     //public GameObject spawn;
 
     private PC_Overcooked playerScript;
@@ -13,7 +21,7 @@ public class GameController : MonoBehaviour {
     public GameObject otherPlayerGC;
 
     public int tempPoints;
-    public int points;
+    public int points = 0;
 
     //public GameObject baseBalloonObj;
     //holds an enum value as a key, holds a Vector4 for colour
@@ -47,14 +55,38 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
-        txtObject.GetComponent<Text>().text = ("Points : " + points);
+        points = 0;
+
+        txtObject.GetComponent<Text>().text = (points.ToString());
         if (gameObject.name == "HandInP1") {
             player = GameObject.FindGameObjectWithTag("Player1");
         }
         else if (gameObject.name == "HandInP2") {
             player = GameObject.FindGameObjectWithTag("Player2");
         }
-
+        playerName = player.GetComponent<PC_Overcooked>().pName;
+        if (player.tag == "Player1") {
+            if (playerName == "Bo") {
+                bP1.SetActive(true);
+            }
+            if (playerName == "Hiro") {
+                hP1.SetActive(true);
+            }
+            if (playerName == "Mika") {
+                mP1.SetActive(true);
+            }
+        }
+        if (player.tag == "Player2") {
+            if (playerName == "Bo") {
+                bP2.SetActive(true);
+            }
+            if (playerName == "Hiro") {
+                hP2.SetActive(true);
+            }
+            if (playerName == "Mika") {
+                mP2.SetActive(true);
+            }
+        }
         balloonColorDic.Add(1, new Vector4(255, 0, 0, 255));
         balloonColorDic.Add(2, new Vector4(0, 255, 0, 255));
         balloonColorDic.Add(3, new Vector4(0, 188, 255, 255));
@@ -115,7 +147,7 @@ public class GameController : MonoBehaviour {
             player.GetComponent<Rigidbody2D>().mass = 1;
           }
           points += tempPoints;
-          txtObject.GetComponent<Text>().text = ("Points : " + points);
+          txtObject.GetComponent<Text>().text = (points.ToString());
           tempPoints = 0;
           Debug.Log("Points : " + points + " : " + player.name);
             if (allClosed) {

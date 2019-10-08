@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PC_Overcooked : PlayerController {
 
     public GameObject pickedUpObj;
+    public string pName;
 
     public GameObject frenzyI;
 
@@ -21,11 +22,14 @@ public class PC_Overcooked : PlayerController {
     //obj picked up bool
     public bool inRange;
     public bool objCarry;
+    public bool handInPlease;
     public float castTime;
+    public float hCastTime;
     private float endCastTime = 0.5f;
 
     public int balloonEnumInt;
     public Image pickUpImg;
+    public GameObject puPanel;
 
     public bool frenzy;
 
@@ -55,6 +59,10 @@ public class PC_Overcooked : PlayerController {
               objCarry = true;
           }
         }
+
+        // if (handInPlease) {
+        //     hCastTime += Time.deltaTime;
+        // }
 
     }
 
@@ -112,6 +120,7 @@ public class PC_Overcooked : PlayerController {
                 castTime = 0f;
                 pickUpImg.color = other.gameObject.GetComponent<Dispenser>().dColor;
                 balloonEnumInt = other.gameObject.GetComponent<Dispenser>().dBalloonEnumInt;
+                puPanel.SetActive(true);
             }
         }
     }
@@ -123,6 +132,7 @@ public class PC_Overcooked : PlayerController {
           Debug.Log("Reset Fill Amount");
           pickUpImg.fillAmount = 0;
           balloonEnumInt = 0;
+          puPanel.SetActive(false);
         }
       }
 
@@ -130,18 +140,30 @@ public class PC_Overcooked : PlayerController {
 
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Bin") {
-          objCarry = false;
-          pickUpImg.fillAmount = 0;
-          balloonEnumInt = 0;
+            handInPlease = true;
+            // if (hCastTime >= endCastTime) {
+                objCarry = false;
+                pickUpImg.fillAmount = 0;
+                balloonEnumInt = 0;
+                puPanel.SetActive(false);
+                // handInPlease = false;
+                // hCastTime = 0;
+            // }
         }
         if (other.gameObject.tag == "HandIn" && other.gameObject.transform.parent.GetComponent<GameController>().player == this.gameObject) {
+            // handInPlease = true;
             if (other.gameObject.GetComponent<HandInScript>().closed == false) {
                 if (other.gameObject.GetComponent<HandInScript>().closing == false) {
-                    other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
-                    Debug.Log("it wasnt closed or closing apparently");
-                    objCarry = false;
-                    pickUpImg.fillAmount = 0;
-                    balloonEnumInt = 0;
+                    // if (hCastTime >= endCastTime) {
+                        other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
+                        Debug.Log("it wasnt closed or closing apparently");
+                        objCarry = false;
+                        pickUpImg.fillAmount = 0;
+                        balloonEnumInt = 0;
+                        puPanel.SetActive(false);
+                        // handInPlease = false;
+                        // hCastTime = 0;
+                    // }
                 }
             }
         }
