@@ -35,13 +35,14 @@ public class BombMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "Bombs") {
             if (bombExplosion == false) {
-                StartCoroutine(BombDelay(1f));
+                StartCoroutine(BombDelay(0.6f));
             }
             bombExplosion = true;
         }
 
         if ((collision.gameObject.tag == "Player1") && (p1Invulnerable == false)) {
             p1Invulnerable = true;
+            StartCoroutine(BombDelay(0.6f));
             Physics2D.IgnoreLayerCollision(8, 9, true);
             StartCoroutine(Vulnerability1(2));
             //Destroy(gameObject);
@@ -52,6 +53,7 @@ public class BombMovement : MonoBehaviour
             GameObject.Find("BombSchtuff").GetComponent<BombSchtuff>().p1Lives--;
         } else if ((collision.gameObject.tag == "Player2")  && (p2Invulnerable == false)) {
             p2Invulnerable = true;
+            StartCoroutine(BombDelay(0.6f));
             Physics2D.IgnoreLayerCollision(8, 10, true);
             StartCoroutine(Vulnerability2(2));
             //Destroy(gameObject);
@@ -67,6 +69,8 @@ public class BombMovement : MonoBehaviour
     //bomb explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {
         gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+        gameObject.GetComponent<Animator>().SetBool("Explode", true);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         float l = 0;
         while (l < waitTime) {

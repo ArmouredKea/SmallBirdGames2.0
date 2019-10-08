@@ -184,11 +184,11 @@ public class PC_BulletHell : PlayerController
     public void BHell_FireMode()
     {
 
-        if (ObjectPool.pool_Instance.pool_RedProjTime == true)
+        /*if (ObjectPool.pool_Instance.pool_RedProjTime == true)
         {
             Recieve_FiringRate = Red_FiringRate;
-        }
-        else if (ObjectPool.pool_Instance.pool_YellowProjTime == true)
+        } */
+         if (ObjectPool.pool_Instance.pool_YellowProjTime == true)
         {
             Recieve_FiringRate = Yellow_FiringRate;
         }

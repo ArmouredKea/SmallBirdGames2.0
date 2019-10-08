@@ -362,6 +362,9 @@ public class BulletHellManage : MonoBehaviour
 
                           TimeToMove1 += Time.deltaTime;
 
+
+
+
                           if (Vector3.Distance(P1.transform.position, GunnerPos.transform.position) > minDistance)
                           {
                               P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, GunnerPos.transform.position, Time.deltaTime * LerpRate);

@@ -121,6 +121,8 @@ public class GameController : MonoBehaviour {
                 }
               player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().color = Color.Lerp(Color.red, Color.blue, timer);
               player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = (frenzyTime/15);
+            } else if (!frenzyActive) {
+                player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = 0;
             }
         }
 
