@@ -19,11 +19,13 @@ public class MenuManagment : MonoBehaviour
     public GameObject settingsButton;
     public GameObject credits;
     public GameObject BackgroundTop;
+    public GameObject AllMenuButtons;
     public Transform startMarker;
     public Transform endMarker;
     public float speed = 5.0f;
     private float startTime;
     private float journeyLength;
+    public bool Started = false;
 
 
     void Start() {
@@ -40,9 +42,20 @@ public class MenuManagment : MonoBehaviour
           MuteBTN.SetActive(true);
           UnMuteBTN.SetActive(false);
       }
-      float distCovered = (Time.time - startTime) * speed;
-      float fractionOfJourney = distCovered / journeyLength;
-      BackgroundTop.transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+      MoveBackground();
+    }
+
+    void MoveBackground()
+    {
+        if (Started == true)
+        {
+            float distCovered = (Time.time - startTime) * speed;
+            float fractionOfJourney = distCovered / journeyLength;
+            BackgroundTop.transform.position = Vector3.Lerp(startMarker.position, endMarker.position, fractionOfJourney);
+        }
+        else {
+            Started = false;
+        }
     }
 
     //Quits the Game
@@ -70,7 +83,9 @@ public class MenuManagment : MonoBehaviour
 
     //Transitions the tap to start screen
     public void ScreenFade() {
-        //SplashScreen.SetActive(false);
+        SplashScreen.SetActive(false);
+        Started = true;
+        AllMenuButtons.SetActive(true);
     }
 
     //loads the character select screen
