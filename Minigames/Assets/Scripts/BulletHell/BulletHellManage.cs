@@ -180,7 +180,7 @@ public class BulletHellManage : MonoBehaviour
 
             P1.bHell_isShoot = true;
             P2.bHell_isShoot = false;
-            P1.speed = P1.baseSpeed;
+            
 
 
 
@@ -202,7 +202,7 @@ public class BulletHellManage : MonoBehaviour
             P2.bHell_isShoot = true;
             P1.bHell_isShoot = false;
 
-            P2.speed = P2.baseSpeed;
+           
 
 
             P2.ShieldDestroy();
@@ -351,8 +351,10 @@ public class BulletHellManage : MonoBehaviour
                               P1.gameObject.transform.position = P1Spawn.transform.position;
                               P1.gameObject.transform.rotation = P1Spawn.transform.rotation;
                               P1.ControlRemoved = false;
-                              P1_isLerpHome = false;
-                              P1.speed = P1.baseSpeed;
+                    P2.gameObject.GetComponent<Rigidbody2D>().mass = 2;
+                    P1.speed = P1.baseSpeed;
+                    P1_isLerpHome = false;
+                              
                           }
                       }
 
@@ -373,10 +375,14 @@ public class BulletHellManage : MonoBehaviour
                           {
                               P1.gameObject.transform.position = GunnerPos.transform.position;
                               P1.gameObject.transform.rotation = GunnerPos.transform.rotation;
-                              P1.ControlRemoved = false;
-                              SpeechBubbleGenerator(P1feedback, P1Character);
-                              P1_isLerpGun = false;
-                          }
+                    P1.speed = 0;
+                    P1.gameObject.GetComponent<Rigidbody2D>().mass = 900000;
+
+                    SpeechBubbleGenerator(P1feedback, P1Character);
+                    P1.ControlRemoved = false;
+                    P1_isLerpGun = false;
+                    
+                }
                       }
 
 
@@ -394,9 +400,10 @@ public class BulletHellManage : MonoBehaviour
                           {
                               P2.gameObject.transform.position = P2Spawn.transform.position;
                               P2.gameObject.transform.rotation = P2Spawn.transform.rotation;
-                              P2.ControlRemoved = false;
-                              P2.speed = P2.baseSpeed;
-                              P2_isLerpHome = false;
+                    P2.gameObject.GetComponent<Rigidbody2D>().mass = 2;
+                    P2.speed = P2.baseSpeed;
+                    P2.ControlRemoved = false;
+                    P2_isLerpHome = false;
                               //P2_isLerpGun = false;
                           }
               }
@@ -417,12 +424,15 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.gameObject.transform.rotation = GunnerPos.transform.rotation;
-                P2.ControlRemoved = false;
+                
+                    P2.speed = 0;
+                    P2.gameObject.GetComponent<Rigidbody2D>().mass = 900000;
 
-
-                  SpeechBubbleGenerator(P2feedback, P2Character);
-                  P2_isLerpGun = false;
+                    SpeechBubbleGenerator(P2feedback, P2Character);
+                    P2.ControlRemoved = false;
+                    P2_isLerpGun = false;
                   P2_isLerpHome = false;
+
             }
         }
 

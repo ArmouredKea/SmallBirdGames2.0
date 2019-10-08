@@ -215,8 +215,7 @@ public class PC_BulletHell : PlayerController
             animator.SetBool("Tank", true);
             transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
             //transform.position = bHell_Manage.GunnerPos.transform.position;
-            speed = 0;
-                gameObject.GetComponent<Rigidbody2D>().mass = 900000;
+
                 Turret.GetComponent<Transform>().transform.rotation = gameObject.transform.rotation;
 
 
