@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1751547008333312976
 Transform:
   m_ObjectHideFlags: 0
@@ -131,8 +131,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b643fe5ec4bc0644b8d93b6210d6d60f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupSpawn: {fileID: 0}
+  gunnerSpawn: {fileID: 0}
+  runnerSpawn: {fileID: 0}
+  forShooter: 0
+  forRunner: 0
+  getRunner: {fileID: 0}
+  gunner: {fileID: 0}
   r: 0
   y: 0
   g: 1
   w: 0
+  Position_current: {fileID: 0}
