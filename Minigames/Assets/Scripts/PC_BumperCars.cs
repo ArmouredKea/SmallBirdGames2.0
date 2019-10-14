@@ -59,7 +59,7 @@ public class PC_BumperCars : PlayerController {
             totalDistance = 50f;
             boosted = true;
             boostText.SetActive(true);
-            speed = 15f;
+            speed = 12f;
             floatie.GetComponent<Animator>().SetBool("Boosted", true);
             StartCoroutine(BoostDuration(5f));
         }
