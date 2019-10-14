@@ -29,7 +29,6 @@ public class PC_Overcooked : PlayerController {
 
     public int balloonEnumInt;
     public Image pickUpImg;
-    public GameObject puPanel;
 
     public bool frenzy;
 
@@ -120,7 +119,6 @@ public class PC_Overcooked : PlayerController {
                 castTime = 0f;
                 pickUpImg.color = other.gameObject.GetComponent<Dispenser>().dColor;
                 balloonEnumInt = other.gameObject.GetComponent<Dispenser>().dBalloonEnumInt;
-                puPanel.SetActive(true);
             }
         }
     }
@@ -132,7 +130,6 @@ public class PC_Overcooked : PlayerController {
           Debug.Log("Reset Fill Amount");
           pickUpImg.fillAmount = 0;
           balloonEnumInt = 0;
-          puPanel.SetActive(false);
         }
       }
 
@@ -145,7 +142,6 @@ public class PC_Overcooked : PlayerController {
                 objCarry = false;
                 pickUpImg.fillAmount = 0;
                 balloonEnumInt = 0;
-                puPanel.SetActive(false);
                 // handInPlease = false;
                 // hCastTime = 0;
             // }
@@ -160,7 +156,6 @@ public class PC_Overcooked : PlayerController {
                         objCarry = false;
                         pickUpImg.fillAmount = 0;
                         balloonEnumInt = 0;
-                        puPanel.SetActive(false);
                         // handInPlease = false;
                         // hCastTime = 0;
                     // }

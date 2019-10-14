@@ -31,7 +31,11 @@ public class HandInScript : MonoBehaviour
     }
 
     void Update() {
-      HandleLid();
+        if (openLid) {
+            closing = false;
+            closed = false;
+        }
+        HandleLid();
     }
 
     void HandleLid() {
