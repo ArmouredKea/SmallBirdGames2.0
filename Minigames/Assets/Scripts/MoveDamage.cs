@@ -24,7 +24,16 @@ public class MoveDamage : MonoBehaviour
 
     [SerializeField]
     private bool isSpeechBubble;
+    [SerializeField]
+    private bool isP1;
+    [SerializeField]
+    private bool isP2;
 
+    [SerializeField]
+    private Canvas rotationP1;
+
+    [SerializeField]
+    private Canvas rotationP2;
 
 
 
@@ -51,11 +60,6 @@ public class MoveDamage : MonoBehaviour
     private void Update()
     {
         
-        if (isSpeechBubble == true)
-        {
-            transform.rotation = Quaternion.identity;
-        }
-
     }
 
     IEnumerator AnimateText(Vector3 pos1, Vector3 pos2)
@@ -88,6 +92,7 @@ public class MoveDamage : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
+       
         Destroy(gameObject);
     }
 
@@ -125,8 +130,9 @@ public class MoveDamage : MonoBehaviour
     }
 
 
-    public void ChangeSprite(string character)
+    public void ChangeSprite(string character, int player)
     {
+
         if(character == "Bo")
         {
             gameObject.GetComponent<Image>().sprite = Bo;
@@ -140,5 +146,10 @@ public class MoveDamage : MonoBehaviour
         {
             gameObject.GetComponent<Image>().sprite = Mika;
         }
+    }
+    public void OnDestroy()
+    {
+        isP1 = false;
+        isP2 = false;
     }
 }

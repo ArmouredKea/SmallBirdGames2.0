@@ -15,13 +15,13 @@ public class YellowProjectile : ProjectileParent
         /// Figure out what kind of projectile is worth making
         /// Split? Use Red random stop, but instead have the projectile create child projectiles at random rotations. aka transform.forward
         /// Decrease speed for awhile when hit by yellow?
-        /// </summary> 
+        /// </summary>
 
 
     public override void Start()
     {
         base.Initialize();
-        
+
     }
 
     public override void OnEnable()
@@ -35,15 +35,15 @@ public class YellowProjectile : ProjectileParent
 
     public override void Awake()
     {
-       
-       
-        
+
+
+
 
     }
     // Update is called once per frame
     public override void Update()
     {
-       
+
 
     }
 
@@ -53,7 +53,7 @@ public class YellowProjectile : ProjectileParent
 
         if (paused == true)
         {
-           
+
             Debug.Log("STOP");
         }
 
@@ -64,7 +64,7 @@ public class YellowProjectile : ProjectileParent
         pauseVelocity = GetComponent<Rigidbody2D>().velocity;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
         paused = true;
-        
+
     }
 
     public void UnpauseProj()
@@ -72,7 +72,7 @@ public class YellowProjectile : ProjectileParent
         GetComponent<Rigidbody2D>().velocity = pauseVelocity;
         paused = false;
 
-       
+
     }
 
     public virtual void ChanceToSplit()
@@ -91,13 +91,15 @@ public class YellowProjectile : ProjectileParent
 
     public void Split()
     {
-        if(ObjectPool.pool_Instance.pool_YellowProjTime == true) { 
+        if(ObjectPool.pool_Instance.pool_YellowProjTime == true) {
         GameObject YellowSplit1 = ObjectPool.pool_Instance.GetPooledObject();
 
-            if(YellowSplit1 != null) { 
+
+            if(YellowSplit1 != null) {
             YellowSplit1.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward) * transform.rotation;
             YellowSplit1.transform.position = gameObject.transform.position;
             YellowSplit1.SetActive(true);
+            YellowSplit1.GetComponent<YellowProjectile>().firedFrom = firedFrom;
             gameObject.transform.rotation = Quaternion.AngleAxis(Random.Range(0, 360), Vector3.forward) * transform.rotation;
             }
             //this.gameObject.transform.Rotate(0.0, 0.0, Random.Range(0.0, 360.0));

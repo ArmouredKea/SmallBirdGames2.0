@@ -42,6 +42,8 @@ public class PowerupParent : MonoBehaviour
     public GameObject getPlayer;
     public Image powerupProg;
 
+    public bool stopAllPowerup;
+    public bool refreshDuration;
 
     /// <summary>
     /// Requirements:
@@ -53,7 +55,7 @@ public class PowerupParent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -173,6 +175,9 @@ public class PowerupParent : MonoBehaviour
         powerupProg.color = color;
         Powerup_Activated = true;
         
+       
+
+
 
 
         while (counter > 0.0f)
@@ -180,6 +185,20 @@ public class PowerupParent : MonoBehaviour
             TimeRatio = counter / seconds;
             powerupProg.fillAmount = TimeRatio;
             counter -= Time.deltaTime;
+
+            if (refreshDuration == true)
+            {
+                seconds = Powerup_Duration;
+                counter = Powerup_Duration;
+                refreshDuration = false;
+            }
+            if (stopAllPowerup == true)
+            {
+                Powerup_Activated = false;
+                powerupProg.gameObject.SetActive(false);
+                counter = 0f;
+                yield return null;
+            }
             yield return null;
         }
         powerupProg.gameObject.SetActive(false);

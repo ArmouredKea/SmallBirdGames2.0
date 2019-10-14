@@ -15,7 +15,7 @@ public class BlueProjectile : ProjectileParent
     public override void OnEnable()
     {
         base.Movement();
-        
+        base.OnEnable();
     }
     // Update is called once per frame
     public void PauseProj()

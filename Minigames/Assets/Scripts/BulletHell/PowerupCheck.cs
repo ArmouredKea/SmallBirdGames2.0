@@ -51,14 +51,16 @@ public class PowerupCheck : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {   
         if(forShooter == true)
-        { 
+        {
             if (collision.tag == "Projectile")
             {
                 //"Use" effect here.
                 if (gunnerSpawn.Powerup_Activated == false)
                 {
-                    gunner = collision.gameObject.GetComponent<BlueProjectile>().firedFrom.GetComponent<PC_BulletHell>();
-
+                    if (collision != null)
+                    {
+                        gunner = collision.gameObject.GetComponent<ProjectileParent>().firedFrom.GetComponent<PC_BulletHell>();
+                    }
                     gunnerSpawn.GetGunner(gunner);
                     gunnerSpawn.Deactivate();
                     gunnerSpawn.ExecutePowerup(r, y, g, w);
@@ -66,12 +68,37 @@ public class PowerupCheck : MonoBehaviour
 
 
                     gameObject.SetActive(false);
-                    }
-                else
-                {
-                    //do nothing there is already a powerup.
                 }
+
+                if (gunnerSpawn.Powerup_Activated == true && ObjectPool.pool_Instance.pool_WhiteProjTime == true & w == true)
+                {
+                    gunnerSpawn.refreshDuration = true;
+                    gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    gameObject.SetActive(false);
+                }
+
+                else if (gunnerSpawn.Powerup_Activated == true && ObjectPool.pool_Instance.pool_YellowProjTime == true & y == true)
+                {
+                    gunnerSpawn.refreshDuration = true;
+                    gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    gameObject.SetActive(false);
+                }
+
+                else if (gunnerSpawn.Powerup_Activated == true && ObjectPool.pool_Instance.pool_GreenProjTime == true & g == true)
+                {
+                    gunnerSpawn.refreshDuration = true;
+                    gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    gameObject.SetActive(false);
+                }
+                else { }
             }
+            else
+            {
+                //do nothing
+            }
+                   
+                }
+            
            /* else if (collision.tag == "Player1" || collision.tag == "Player2")
             {
                 //"Pop" effect here.
@@ -79,7 +106,7 @@ public class PowerupCheck : MonoBehaviour
                 gameObject.SetActive(false);
                 
             }*/
-        }
+        
 
         else if (forRunner == true)
         {
@@ -98,18 +125,20 @@ public class PowerupCheck : MonoBehaviour
                 runnerSpawn.GetRunner(runner: getRunner);
                 runnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
                 gameObject.SetActive(false);
-
-
-
                 runnerSpawn.ExecutePowerup(r, y, g, w);
+                if (runnerSpawn.Powerup_Activated == true & r == true)
+                {
+                    runnerSpawn.refreshDuration = true;
+                }
+
+                
                 
                 
             }
         }
+
+      
     }
-
-
- 
 
 
 

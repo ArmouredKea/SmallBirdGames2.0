@@ -50,7 +50,6 @@ public class RunnerPowerups : PowerupParent
         base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareRunner, Color.red));
         declareRunner.speed = powerupSpeed;
 
-
     }
     public void YellowPowerup()
     {
@@ -75,7 +74,7 @@ public class RunnerPowerups : PowerupParent
             ExecutePowerup(false, false, false, false);
             if(declareRunner != null)
                 declareRunner.speed = declareRunner.baseSpeed;
-            
+                
 
 
         }

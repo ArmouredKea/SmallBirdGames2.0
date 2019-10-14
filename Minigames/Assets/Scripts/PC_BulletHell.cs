@@ -49,6 +49,8 @@ public class PC_BulletHell : PlayerController
     public GameObject Turret;
     public bool CorrectSpeed;
 
+    [SerializeField]
+    private GameObject barrel;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -66,8 +68,7 @@ public class PC_BulletHell : PlayerController
 
         moistTinting = GetComponent<SpriteRenderer>().material.color;
 
-
-
+       
     }
 
   // Update is called once per frame
@@ -127,8 +128,9 @@ public class PC_BulletHell : PlayerController
         if (pooledBullet != null && nuTime > TillFire)
         {
             TillFire = Time.time + Recieve_FiringRate;
-            pooledBullet.transform.position = this.gameObject.transform.position;
-            pooledBullet.transform.rotation = this.gameObject.transform.rotation;
+            pooledBullet.transform.position = barrel.gameObject.transform.position;
+            pooledBullet.transform.rotation = barrel.gameObject.transform.rotation;
+            
             pooledBullet.SetActive(true);
             pooledBullet.GetComponent<ProjectileParent>().firedFrom = this.gameObject;//Figure out a better way to do this after Feature phase.
         }

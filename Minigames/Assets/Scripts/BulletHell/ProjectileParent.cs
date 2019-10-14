@@ -12,24 +12,30 @@ public class ProjectileParent : MonoBehaviour
     public GameObject firedFrom;
     public bool paused;
     public Vector3 pauseVelocity;
+
     [Header("Visual Variables")]
     public Color isColor;
     public Sprite assignSprite;
     public Sprite collidedSprite;//Not sure how it is planned to handle specific effects. Such as, is it necessary 
+
+
     [Header("Generic Stats")]
     public float KnockBack;
     public float KnockBackMag;
     public float Speed;
     public float firingRate;
     public int damageScore;
+
     [Header("Green Projectile")]
     public int growBy;
     public float growRate;
+
     [Header("Yellow Projectile")]
     public float frequencySine;
     public float base_magnitudeSine;
     public float magnitudeSine;
     public float rateSine;
+
     [Header("Red Projectile")]
     public float explode_Min;
     public float explode_Max;
@@ -68,7 +74,6 @@ public class ProjectileParent : MonoBehaviour
     virtual public void OnEnable()
     {
         //Initialize();
-
 
     }
 
@@ -142,17 +147,6 @@ public class ProjectileParent : MonoBehaviour
     }
 
 
-    public virtual void SineMovement()
-    {
-        if (paused == false)
-        {
-            posSine += currentProj.transform.up * Time.deltaTime * Speed;
-            currentProj.transform.position = posSine + axisSine * Mathf.Sin(Time.deltaTime * frequencySine) * magnitudeSine;
-        }
-
-
-    }
-
     public virtual void GrowReset()
     {
             currentProj.transform.localScale = new Vector3(0, 0, 0);
@@ -170,7 +164,9 @@ public class ProjectileParent : MonoBehaviour
         currentProj.transform.localScale = Vector3.Lerp(currentProj.transform.localScale, new Vector3(growBy, growBy, 0), Time.deltaTime * growRate);
         yield return new WaitForSeconds(0.5f);
     }
-    
+
+
+
     public IEnumerator TempNormalMove()
     {
 
