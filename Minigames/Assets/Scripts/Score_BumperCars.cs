@@ -86,30 +86,16 @@ public class Score_BumperCars : Score
 
             }
 
-            for (int i = 0; i < PlayerController.p1Score; i++) {
-                if (p1Wins[i] == "WaterWars") {
-                    p1Tokens[i].SetActive(true);
-                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
-                } else if (p1Wins[i] == "FillingFrenzy") {
-                    p1Tokens[i].SetActive(true);
-                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/FillingFrenzyToken");
-                } else if (p1Wins[i] == "BalloonBattle") {
-                    p1Tokens[i].SetActive(true);
-                    p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/BalloonBattleToken");
-                }
-            }
+            base.TokensUpdate();
 
-            for (int i = 0; i < PlayerController.p2Score; i++) {
-                if (p2Wins[i] == "WaterWars") {
-                    p2Tokens[i].SetActive(true);
-                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
-                } else if (p2Wins[i] == "FillingFrenzy") {
-                    p2Tokens[i].SetActive(true);
-                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/FillingFrenzyToken");
-                } else if (p2Wins[i] == "BalloonBattle") {
-                    p2Tokens[i].SetActive(true);
-                    p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/BalloonBattleToken");
-                }
+            if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+            } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+            } else {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                Debug.Log("Nani");
             }
 
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();

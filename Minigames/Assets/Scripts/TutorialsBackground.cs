@@ -33,7 +33,7 @@ public class TutorialsBackground : MonoBehaviour
         } else {
             inner.GetComponent<Animator>().SetBool("ZoomIn", true);
         }            
-        StartCoroutine(TutorialUI(2.5f));
+        StartCoroutine(TutorialUI(1.25f));
     }
 
     private IEnumerator TutorialUI(float waitTIme) {
