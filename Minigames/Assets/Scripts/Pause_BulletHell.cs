@@ -53,35 +53,35 @@ public class Pause_BulletHell : Pause
             paused = true;
             BhellManage.paused = true;
             //line Luke added to show the pause menu
-            if (gameStarted) {
+            if (inTutorial) {
                 PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             }
             //------------
+            inTutorial = true;
         }
         else
         {
-            Component[] childrenCharacterScripts;
-            childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BulletHell));
+            if (!inTutorial) {
+                Component[] childrenCharacterScripts;
+                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BulletHell));
 
-            if (childrenCharacterScripts != null)
-            {
-                foreach (PC_BulletHell character in childrenCharacterScripts)
-                {
-                    character.UnpauseCharacter();
+                if (childrenCharacterScripts != null) {
+                    foreach (PC_BulletHell character in childrenCharacterScripts) {
+                        character.UnpauseCharacter();
+                    }
                 }
+
+
+                timer.GetComponent<Score_BulletHell>().paused = false;
+
+                //projManage_B.GetComponent<BombSchtuff>().paused = false;
+
+                paused = false;
+                gPowerup.paused = false;
+                rPowerup.paused = false;
+                poolManage.PausePool(false);
+                BhellManage.paused = false;
             }
-
-
-            timer.GetComponent<Score_BulletHell>().paused = false;
-            
-            //projManage_B.GetComponent<BombSchtuff>().paused = false;
-
-            paused = false;
-            gPowerup.paused = false;
-            rPowerup.paused = false;
-            poolManage.PausePool(false);
-            gameStarted = true;
-            BhellManage.paused = false;
         }
 
     }

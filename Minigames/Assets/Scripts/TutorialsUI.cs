@@ -83,6 +83,7 @@ public class TutorialsUI : MonoBehaviour
                 StartCoroutine(countdownScript.GetComponent<Score_BulletHell>().Countdown());
             }
             pauseScript.GetComponent<Pause>().PauseButton();
+            pauseScript.GetComponent<Pause>().inTutorial = false;
             pauseMenu.GetComponent<PauseMenu>().tutorial = false;
         }
     }

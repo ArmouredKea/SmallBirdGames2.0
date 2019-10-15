@@ -2545,7 +2545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  gameStarted: 0
+  inTutorial: 0
   timer: {fileID: 1129038318}
   bombSchtuff: {fileID: 1144503035}
   PauseMenuRef: {fileID: 1624485327}

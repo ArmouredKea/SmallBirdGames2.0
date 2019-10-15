@@ -64,39 +64,40 @@ public class Pause_BumperCars : Pause
             bombSchtuff.GetComponent<BombSchtuff>().paused = true;
             paused = true;
             //line Luke added to show the pause menu
-            if (gameStarted) {
+            if (inTutorial) {
                 PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             }
             //------------
+            inTutorial = true;
         } else {
-            Component[] childrenCharacterScripts;
-            childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BumperCars));
+            if (!inTutorial) {
+                Component[] childrenCharacterScripts;
+                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BumperCars));
 
-            if (childrenCharacterScripts != null) {
-                foreach (PC_BumperCars character in childrenCharacterScripts) {
-                    character.UnpauseCharacter();
+                if (childrenCharacterScripts != null) {
+                    foreach (PC_BumperCars character in childrenCharacterScripts) {
+                        character.UnpauseCharacter();
+                    }
                 }
-            }
 
-            Component[] childrenBombScripts;
-            childrenBombScripts = GetComponentsInChildren(typeof(BombMovement));
+                Component[] childrenBombScripts;
+                childrenBombScripts = GetComponentsInChildren(typeof(BombMovement));
 
-            if (childrenBombScripts != null) {
-                foreach (BombMovement bomb in childrenBombScripts) {
-                    bomb.UnpauseBomb();
+                if (childrenBombScripts != null) {
+                    foreach (BombMovement bomb in childrenBombScripts) {
+                        bomb.UnpauseBomb();
+                    }
                 }
+
+                foreach (Transform child in transform) {
+                    if (child.tag == "ExclamationMark")
+                        child.gameObject.GetComponent<Animator>().speed = 1;
+                }
+
+                timer.GetComponent<Score_BumperCars>().paused = false;
+                bombSchtuff.GetComponent<BombSchtuff>().paused = false;
+                paused = false;
             }
-
-            foreach (Transform child in transform) {
-                if (child.tag == "ExclamationMark")
-                    child.gameObject.GetComponent<Animator>().speed = 1;
-            }
-
-            timer.GetComponent<Score_BumperCars>().paused = false;
-            bombSchtuff.GetComponent<BombSchtuff>().paused = false;
-            paused = false;
-            gameStarted = true;
-
         }        
 
     }
