@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameController : MonoBehaviour {
     public GameObject player;
     public string playerName;
+    public GameObject audioManager;
 
     public GameObject bP1;
     public GameObject hP1;
@@ -55,6 +56,8 @@ public class GameController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         //Screen.orientation = ScreenOrientation.LandscapeLeft;
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
+
         points = 0;
 
         txtObject.GetComponent<Text>().text = (points.ToString());
@@ -135,6 +138,8 @@ public class GameController : MonoBehaviour {
         }
 
         if (ordersComplete == 4) {
+        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Order");
+        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate3");
           if (tempPoints == 4 && frenzyActive == false) {
             frenzyActive = true;
             frenzyTime = 15f;

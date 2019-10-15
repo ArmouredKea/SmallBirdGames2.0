@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HandInScript : MonoBehaviour
 {
-
     public int handInID;
     public GameObject lid;
     public GameObject balloon;
