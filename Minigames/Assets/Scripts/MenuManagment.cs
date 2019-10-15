@@ -19,7 +19,7 @@ public class MenuManagment : MonoBehaviour
     public GameObject settingsButton;
     public GameObject credits;
     public GameObject BackgroundTop;
-    public GameObject AllMenuButtons;
+    public CanvasGroup AllMenuButtons;
     public Transform startMarker;
     public Transform endMarker;
     public float speed = 5.0f;
@@ -33,6 +33,7 @@ public class MenuManagment : MonoBehaviour
     }
 
     void Update() {
+        //changes the state of the mute button depending on if the music is muted
       if (audioManager.GetComponent<AudioManagerScript>().isMuted) {
           MuteBTN.SetActive(false);
           UnMuteBTN.SetActive(true);
@@ -45,6 +46,7 @@ public class MenuManagment : MonoBehaviour
 
     void MoveBackground()
     {
+        //pans the background image up to the end point object
         if (Started == true)
         {
             float distCovered = (Time.time - startTime) * speed;
@@ -85,13 +87,34 @@ public class MenuManagment : MonoBehaviour
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
         SplashScreen.SetActive(false);
         Started = true;
-        StartCoroutine(buttonsShowUp());
+        StartCoroutine(buttonsShowUp(AllMenuButtons, AllMenuButtons.alpha, 1));
     }
 
-    IEnumerator buttonsShowUp()
+    //this co routine handdles the fadding on of the menu buttons
+    IEnumerator buttonsShowUp(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
     {
-        yield return new WaitForSeconds(3);
-        AllMenuButtons.SetActive(true);
+        //waits before starting to fade
+        yield return new WaitForSeconds(2);
+
+        float timeStartedLerping = Time.time;
+        float timesincestarting = Time.time - timeStartedLerping;
+        float percentageComplete = timesincestarting / lerpTime;
+
+        //figures out how long the fade has been going for and stops it when it gets to full opacity
+        while(true) {
+            timesincestarting = Time.time - timeStartedLerping;
+            percentageComplete = timesincestarting / lerpTime;
+
+            float currentValue = Mathf.Lerp(start, end, percentageComplete);
+
+            cg.alpha = currentValue;
+
+            if (percentageComplete >= 1) break;
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        //print("done");
     }
 
     //loads the character select screen
