@@ -6511,6 +6511,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProjTimer
       objectReference: {fileID: 0}
+    - target: {fileID: 8803334138022376818, guid: 24b88771cddf2d44eae6505d1ab4fd1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8803334138022376829, guid: 24b88771cddf2d44eae6505d1ab4fd1d,
         type: 3}
       propertyPath: m_LocalPosition.x

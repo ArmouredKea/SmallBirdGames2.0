@@ -78,7 +78,7 @@ public class GunnerPowerups : PowerupParent
     }
     public void WhiteFiring()
     {
-        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.white));
+        base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.red));
 
         if (GunnerRefP1.bHell_isShoot == true)
         {
