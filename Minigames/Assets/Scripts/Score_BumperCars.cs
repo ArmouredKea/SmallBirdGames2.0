@@ -89,10 +89,14 @@ public class Score_BumperCars : Score
             base.TokensUpdate();
 
             if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 Debug.Log("Nani");

@@ -150,10 +150,14 @@ public class Score_BulletHell : Score
             base.TokensUpdate();
 
             if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }

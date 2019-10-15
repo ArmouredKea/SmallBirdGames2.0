@@ -61,43 +61,43 @@ public class Pause_Overcooked : Pause
             paused = true;
             timer.GetComponent<Score_Overcooked>().paused = true;
             //line Luke added to show the pause menu
-            if (gameStarted) {
+            if (inTutorial) {
                 PauseMenuRef.GetComponent<PauseMenu>().togglePauseMenu();
             }
             //------------
-
+            inTutorial = true;
         } else {
-            Component[] childrenCharacterScripts;
-            childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
+            if (!inTutorial) {
+                Component[] childrenCharacterScripts;
+                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_Overcooked));
 
-            if (childrenCharacterScripts != null) {
-                foreach (PC_Overcooked character in childrenCharacterScripts) {
-                    character.paused = false;
+                if (childrenCharacterScripts != null) {
+                    foreach (PC_Overcooked character in childrenCharacterScripts) {
+                        character.paused = false;
+                    }
                 }
+
+                Component[] childrenTimerScripts;
+                childrenTimerScripts = GetComponentsInChildren(typeof(GameController));
+
+                if (childrenTimerScripts != null) {
+                    foreach (GameController timer in childrenTimerScripts) {
+                        timer.paused = false;
+                    }
+                }
+
+                /* Component[] childrenItemControllerScripts;
+                childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
+
+                if (childrenItemControllerScripts != null) {
+                    foreach (ItemController itemController in childrenItemControllerScripts) {
+                        itemController.paused = false;
+                    }
+                } */
+
+                paused = false;
+                timer.GetComponent<Score_Overcooked>().paused = false;
             }
-
-            Component[] childrenTimerScripts;
-            childrenTimerScripts = GetComponentsInChildren(typeof(GameController));
-
-            if (childrenTimerScripts != null) {
-                foreach (GameController timer in childrenTimerScripts) {
-                    timer.paused = false;
-                }
-            }
-
-            /* Component[] childrenItemControllerScripts;
-            childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
-
-            if (childrenItemControllerScripts != null) {
-                foreach (ItemController itemController in childrenItemControllerScripts) {
-                    itemController.paused = false;
-                }
-            } */
-
-            paused = false;
-            timer.GetComponent<Score_Overcooked>().paused = false;
-            gameStarted = true;
-
         }
 
     }

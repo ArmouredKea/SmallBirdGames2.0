@@ -669,6 +669,7 @@ MonoBehaviour:
   SubPauseMenu: {fileID: 6135274139071118311}
   Paused: 0
   scoreTextbox: {fileID: 0}
+  tutorial: 1
 --- !u!1 &6135274139071118311
 GameObject:
   m_ObjectHideFlags: 0
@@ -731,7 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.9019608}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
