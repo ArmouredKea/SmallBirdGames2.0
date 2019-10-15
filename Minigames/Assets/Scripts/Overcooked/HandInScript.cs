@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class HandInScript : MonoBehaviour
 {
+    public GameObject audioManager;
+
     public int handInID;
     public GameObject lid;
     public GameObject balloon;
@@ -24,6 +26,7 @@ public class HandInScript : MonoBehaviour
     private GameController gameControllerScript;
 
     void Start() {
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
         gameControllerScript = gameObject.transform.parent.gameObject.GetComponent<GameController>();
         lidStartV = lid.transform.position;
         lidEndV = new Vector3(lidStartV.x, (lidStartV.y - 0.48f), lidStartV.z);
@@ -87,6 +90,7 @@ public class HandInScript : MonoBehaviour
                               correctHandIn = true;
                               balloon.SetActive(false);
                               tick.SetActive(true);
+                              audioManager.GetComponent<AudioManagerScript>().PlayAudio("Order");
                               gameControllerScript.orderList[handInID] = 0;
                               gameControllerScript.tempPoints += 1;
                           } else {
