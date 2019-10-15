@@ -10,11 +10,16 @@ public class BobSprite : MonoBehaviour
 
 
         [SerializeField]
-        private float height;
+        private float bobAmp;
 
         [SerializeField]
-        private float speed;
+        private float bobFreq;
 
+        [SerializeField]
+        private float durationBob;
+
+        Vector2 storePos = new Vector2();
+        Vector2 offset = new Vector2();
 
 
 
@@ -22,17 +27,16 @@ public class BobSprite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Stores the position, this way the object can be anywhere and still bob correctly.
-        Vector3 storePos = transform.localPosition;
+        storePos = offset; //Stores the position, this way the object can be anywhere and still bob correctly.
 
-        float newY = Mathf.Sin(Time.time * speed) * height + storePos.y;
-        transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z) * height;
+        storePos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * bobFreq) * bobAmp;
+        transform.position = storePos;
 
 
         //transform.position = new Vector2(transform.position.x, bobCurve.Evaluate((Time.fixedTime % bobCurve.length))); 

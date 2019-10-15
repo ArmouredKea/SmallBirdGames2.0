@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2762759935314779682
+--- !u!1 &5245255712256930369
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2762759935314779683}
-  m_Layer: 0
-  m_Name: CloudGroup
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2762759935314779683
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762759935314779682}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -503.65622, y: 254, z: -3.307113}
-  m_LocalScale: {x: 1.0711297, y: 1.0711297, z: 1.0711297}
-  m_Children:
-  - {fileID: 2762759935954796437}
-  - {fileID: 2762759936694257997}
-  - {fileID: 7970720162330014590}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2762759935954796436
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2762759935954796437}
+  - component: {fileID: 5245255712256930368}
   m_Layer: 0
   m_Name: SpawnPoint
   m_TagString: Untagged
@@ -49,21 +16,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2762759935954796437
+--- !u!4 &5245255712256930368
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762759935954796436}
+  m_GameObject: {fileID: 5245255712256930369}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -361, y: 7.05, z: 0}
+  m_LocalPosition: {x: -37, y: 7.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2762759935314779683}
+  m_Father: {fileID: 5245255712765105142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2762759936694257999
+--- !u!1 &5245255712765105143
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -71,8 +38,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2762759936694257997}
-  - component: {fileID: 2762759936694257996}
+  - component: {fileID: 5245255712765105142}
+  m_Layer: 0
+  m_Name: CloudGroup
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5245255712765105142
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5245255712765105143}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.7897, y: 0.99517, z: -3.0875}
+  m_LocalScale: {x: 0.65107, y: 0.65107, z: 0.65107}
+  m_Children:
+  - {fileID: 5245255712256930368}
+  - {fileID: 5245255713533068440}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5245255713533068442
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5245255713533068440}
+  - component: {fileID: 5245255713533068441}
   m_Layer: 0
   m_Name: CloudSeeder
   m_TagString: Untagged
@@ -80,69 +79,39 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2762759936694257997
+--- !u!4 &5245255713533068440
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762759936694257999}
+  m_GameObject: {fileID: 5245255713533068442}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -27.43677, y: 4.5001373, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2762759935314779683}
+  m_Father: {fileID: 5245255712765105142}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2762759936694257996
+--- !u!114 &5245255713533068441
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2762759936694257999}
+  m_GameObject: {fileID: 5245255713533068442}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27e3a56c2ea6f3b4f83dbcb09e233e78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cloud1: {fileID: 7879630445293165820, guid: 221073f9e495e674ca252df34153b646, type: 3}
-  Cloud2: {fileID: 2124501611127447749, guid: d051646be61fc714db35cd28a7f975de, type: 3}
-  minTimeTill: 1.5
-  maxTimeTill: 3.5
+  Cloud1: {fileID: 6371932500809803330, guid: 221073f9e495e674ca252df34153b646, type: 3}
+  Cloud2: {fileID: 6371932500809803330, guid: 469c18a4d9e4bee48ad04d3ac1f30986, type: 3}
+  minTimeTill: 2
+  maxTimeTill: 5
   setTime: 0
   timer: 0
   spawnCheck: 0
   whichSpawn: 0
-  cloudSpawnPoint: {fileID: 2762759935954796436}
-  cloudEndPoint: {fileID: 7970720162330014585}
---- !u!1 &7970720162330014585
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7970720162330014590}
-  m_Layer: 0
-  m_Name: End
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7970720162330014590
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7970720162330014585}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1432, y: 7.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2762759935314779683}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  cloudSpawnPoint: {fileID: 5245255712256930369}
+  expireIn: 0

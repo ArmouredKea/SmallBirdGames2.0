@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class MoveCloud : MonoBehaviour
 {
     public float speed;
+
+    [SerializeField]
+    private Rigidbody2D self;
 
     public CloudSeed generator;
 
@@ -34,32 +36,28 @@ public class MoveCloud : MonoBehaviour
 
     public float expireIn;
     private float expireCurrent;
-    public GameObject StartPoint;
-    public GameObject EndPoint;
-    public float minDistance;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        //self = gameObject.GetComponent<Rigidbody2D>();
+        self = gameObject.GetComponent<Rigidbody2D>();
         
         speed = Random.Range(minSpeed, maxSpeed);
 
-        
+
         yPos = Random.Range(minY, maxY); //Set the area that the object can start between.
         zPos = Random.Range(minZ, maxZ);
         Size = Random.Range(minSize, maxSize); //Set the shared size
         Alpha = Random.Range(minAlpha, maxAlpha);
 
-        //Pos = new Vector3(transform.position.x, yPos, zPos);
+        Pos = new Vector3(transform.position.x, yPos, zPos);
         gameObject.transform.localScale = new Vector3(Size, Size, 10);
-        //gameObject.transform.position = Pos;
-        
-        gameObject.GetComponent<Image>().color = new Color(gameObject.GetComponent<Image>().color.r, gameObject.GetComponent<Image>().color.g, gameObject.GetComponent<Image>().color.b, Alpha);
+        self.transform.position = Pos;
+        self.velocity = transform.right * speed;
+        gameObject.GetComponent<SpriteRenderer>().color = new Color(gameObject.GetComponent<SpriteRenderer>().color.r, gameObject.GetComponent<SpriteRenderer>().color.g, gameObject.GetComponent<SpriteRenderer>().color.b, Alpha);
 
-   
         
 
 
@@ -72,33 +70,15 @@ public class MoveCloud : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
-        if (Vector3.Distance(gameObject.transform.position, EndPoint.transform.position) > minDistance)
-        {
-            gameObject.transform.position = Vector3.Lerp(gameObject.transform.position, EndPoint.transform.position, Time.deltaTime * speed);
+        gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
 
-        }
-        else
+        expireCurrent += Time.deltaTime;
+
+        if (expireIn < expireCurrent)
         {
-            gameObject.gameObject.transform.position = EndPoint.transform.position;
-            gameObject.gameObject.transform.rotation = EndPoint.transform.rotation;
             Destroy(gameObject);
         }
-
-
-
-
-
-            //gameObject.transform.position = new Vector3(move.x, 0f, 0f);
-
-            expireCurrent += Time.deltaTime;
-
-            if (expireIn < expireCurrent)
-            {
-                Destroy(gameObject);
-            }
-        }
-    
+    }
 
      void OnEnable()
     {
@@ -107,4 +87,3 @@ public class MoveCloud : MonoBehaviour
     }
 
 }
-

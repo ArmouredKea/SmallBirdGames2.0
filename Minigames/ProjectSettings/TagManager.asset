@@ -22,8 +22,6 @@ TagManager:
   - P1Tag
   - Turret
   - P2Tag
-  - Music
-  - StartPoint
   layers:
   - Default
   - TransparentFX
