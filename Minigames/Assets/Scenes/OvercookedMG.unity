@@ -4269,7 +4269,7 @@ PrefabInstance:
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 317
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
@@ -7852,6 +7852,16 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: joystickOuter
       value: 
@@ -7875,16 +7885,6 @@ PrefabInstance:
     - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: pName
       value: Bo
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
@@ -14237,7 +14237,7 @@ PrefabInstance:
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -317
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
@@ -14711,11 +14711,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 675686503172083609, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 675686503172083615, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
       propertyPath: m_Sprite
@@ -14769,6 +14764,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675686503172083609, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a, type: 3}

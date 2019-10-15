@@ -1139,6 +1139,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerBarTop (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632906, guid: 6ab6cdeb2c117b44c802b63e31e03353,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1202,7 +1207,7 @@ PrefabInstance:
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 317
+      value: 360
       objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: 6ab6cdeb2c117b44c802b63e31e03353,
         type: 3}
@@ -1719,6 +1724,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerBarBottom (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911247, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1782,7 +1792,7 @@ PrefabInstance:
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -317
+      value: -360
       objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: 78bc30bdda70fff4d94cab9fd4d1def6,
         type: 3}
@@ -4896,7 +4906,7 @@ PrefabInstance:
     - target: {fileID: 5347735802049169511, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: 92e0411ac32bfff49985e5343913bee1,
         type: 3}
@@ -7374,7 +7384,7 @@ PrefabInstance:
     - target: {fileID: 5347735802049169511, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5347735802049169505, guid: ef6c18c79876ffc4b95d0ff07ee586ae,
         type: 3}
@@ -12597,7 +12607,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2057849232
 RectTransform:
   m_ObjectHideFlags: 0
