@@ -18,7 +18,7 @@ public class CloudSeed : MonoBehaviour
     public float whichSpawn;
 
     public GameObject cloudSpawnPoint;
-
+    public GameObject cloudEndPoint;
 
 
     // Start is called before the first frame update
@@ -58,12 +58,18 @@ public class CloudSeed : MonoBehaviour
 
             if (whichSpawn >= 0.5f)
             {
+                Cloud1.GetComponent<MoveCloud>().StartPoint = cloudSpawnPoint;
+                Cloud1.GetComponent<MoveCloud>().EndPoint = cloudEndPoint;
                 Instantiate(Cloud1, cloudSpawnPoint.transform);
+                
             }
 
             else
             {
-                Instantiate(Cloud2, cloudSpawnPoint.transform);
+                Cloud2.GetComponent<MoveCloud>().StartPoint = cloudSpawnPoint;
+                Cloud2.GetComponent<MoveCloud>().EndPoint = cloudEndPoint;
+                Instantiate(Cloud2, cloudSpawnPoint.transform.position, cloudSpawnPoint.transform.rotation, cloudEndPoint.transform);
+               
             }
 
 
