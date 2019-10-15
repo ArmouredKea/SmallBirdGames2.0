@@ -16,6 +16,7 @@ public class TutorialsUI : MonoBehaviour
     public GameObject bombSchtuff;
     public GameObject pauseButton;
     public GameObject pauseScript;
+    public GameObject pauseMenu;
 
     public GameObject otherPlayer;
 
@@ -24,7 +25,7 @@ public class TutorialsUI : MonoBehaviour
 
     // Start is called before the first frame updatepublic
     void Start() {
-
+        pauseButton.SetActive(true);
     }
 
     // Update is called once per frame
@@ -42,6 +43,7 @@ public class TutorialsUI : MonoBehaviour
             readyButton.SetActive(true);
         } else if (i >= 1) {
             back.SetActive(true);
+            next.GetComponent<Animator>().SetBool("Pressed", true);
         }
     }
 
@@ -81,6 +83,7 @@ public class TutorialsUI : MonoBehaviour
                 StartCoroutine(countdownScript.GetComponent<Score_BulletHell>().Countdown());
             }
             pauseScript.GetComponent<Pause>().PauseButton();
+            pauseMenu.GetComponent<PauseMenu>().tutorial = false;
         }
     }
 
