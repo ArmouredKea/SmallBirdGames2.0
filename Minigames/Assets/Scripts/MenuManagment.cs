@@ -28,6 +28,7 @@ public class MenuManagment : MonoBehaviour
     private float startTime;
     private float journeyLength;
     public bool Started = false;
+    bool logoFade = true;
 
 
     void Start() {
@@ -87,7 +88,7 @@ public class MenuManagment : MonoBehaviour
     public void ScreenFade() {
         startTime = Time.time;
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
-        StartCoroutine(fadeOutLogo(SplashScreenFade, SplashScreenFade.alpha, 0));
+        StartCoroutine(logoFadeRoutine(SplashScreenFade, SplashScreenFade.alpha, 0));
         Started = true;
         StartCoroutine(buttonsShowUp(AllMenuButtons, AllMenuButtons.alpha, 1));
     }
@@ -96,8 +97,9 @@ public class MenuManagment : MonoBehaviour
     IEnumerator buttonsShowUp(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
     {
         //waits before starting to fade
-        yield return new WaitForSeconds(2);
         AllMenuButtonsRef.SetActive(true);
+        yield return new WaitForSeconds(2);
+
 
         float timeStartedLerping = Time.time;
         float timesincestarting = Time.time - timeStartedLerping;
@@ -118,8 +120,10 @@ public class MenuManagment : MonoBehaviour
         }
     }
 
-    IEnumerator fadeOutLogo(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
+    //this co routine handdles the fadding out of the logo
+    IEnumerator logoFadeRoutine(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
     {
+
         float timeStartedLerping = Time.time;
         float timesincestarting = Time.time - timeStartedLerping;
         float percentageComplete = timesincestarting / lerpTime;
@@ -138,6 +142,7 @@ public class MenuManagment : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+        SplashScreen.SetActive(false);
     }
 
     //loads the character select screen
