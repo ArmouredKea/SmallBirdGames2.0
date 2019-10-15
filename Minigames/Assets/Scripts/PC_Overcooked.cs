@@ -10,6 +10,8 @@ public class PC_Overcooked : PlayerController {
 
     public GameObject frenzyI;
 
+    public GameObject audioManager;
+
     //controls axis
     public float vertMovement;
     public float horiMovement;
@@ -35,6 +37,7 @@ public class PC_Overcooked : PlayerController {
     // Start is called before the first frame update
     protected override void Start() {
         base.Start();
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
         speed = 6f;
         rotationSpeed = 100.0f;
         baseSpeedOC = speed;
@@ -55,14 +58,10 @@ public class PC_Overcooked : PlayerController {
           castTime += Time.deltaTime;
           pickUpImg.fillAmount = (castTime/endCastTime);
           if (castTime >= endCastTime) {
+              audioManager.GetComponent<AudioManagerScript>().PlayAudio("Whoosh");
               objCarry = true;
           }
         }
-
-        // if (handInPlease) {
-        //     hCastTime += Time.deltaTime;
-        // }
-
     }
 
 
@@ -138,27 +137,29 @@ public class PC_Overcooked : PlayerController {
     void OnCollisionEnter2D(Collision2D other) {
         if (other.gameObject.tag == "Bin") {
             handInPlease = true;
-            // if (hCastTime >= endCastTime) {
+            if (objCarry) {
                 objCarry = false;
                 pickUpImg.fillAmount = 0;
                 balloonEnumInt = 0;
-                // handInPlease = false;
-                // hCastTime = 0;
-            // }
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Whoosh");
+            }
         }
         if (other.gameObject.tag == "HandIn" && other.gameObject.transform.parent.GetComponent<GameController>().player == this.gameObject) {
             // handInPlease = true;
             if (other.gameObject.GetComponent<HandInScript>().closed == false) {
                 if (other.gameObject.GetComponent<HandInScript>().closing == false) {
                     // if (hCastTime >= endCastTime) {
+                    if (objCarry) {
                         other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
                         Debug.Log("it wasnt closed or closing apparently");
                         objCarry = false;
                         pickUpImg.fillAmount = 0;
                         balloonEnumInt = 0;
+                        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Whoosh");
+                        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
                         // handInPlease = false;
                         // hCastTime = 0;
-                    // }
+                    }
                 }
             }
         }
