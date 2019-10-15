@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 3
   lid: {fileID: 438926393}
   balloon: {fileID: 1976048102}
@@ -1531,6 +1532,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerName: 
+  audioManager: {fileID: 0}
   bP1: {fileID: 1735818936}
   hP1: {fileID: 564533454}
   mP1: {fileID: 1191302810}
@@ -1665,6 +1667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 1
   lid: {fileID: 212111074}
   balloon: {fileID: 6935579}
@@ -2247,6 +2250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 1
   lid: {fileID: 1875211550}
   balloon: {fileID: 1875088481}
@@ -2328,6 +2332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 0
   lid: {fileID: 2111672465}
   balloon: {fileID: 826620376}
@@ -2814,7 +2819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41429721c7ed51243bd58c6caf103e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dColor: {r: 0, g: 0, b: 1, a: 1}
+  dColor: {r: 0.027450982, g: 0.6862745, b: 0.8470589, a: 1}
   dBalloonEnumInt: 3
 --- !u!1 &293405580
 GameObject:
@@ -3600,6 +3605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   playerName: 
+  audioManager: {fileID: 0}
   bP1: {fileID: 1735818936}
   hP1: {fileID: 564533454}
   mP1: {fileID: 1191302810}
@@ -5956,6 +5962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 0
   lid: {fileID: 543906920}
   balloon: {fileID: 1174153468}
@@ -7624,7 +7631,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1063829437
 Transform:
   m_ObjectHideFlags: 0
@@ -7728,6 +7735,16 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
+        type: 3}
+      propertyPath: m_LinearDrag
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: joystickOuter
       value: 
@@ -7751,16 +7768,6 @@ PrefabInstance:
     - target: {fileID: 284998236, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
       propertyPath: pName
       value: Bo
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 9156412022220421559, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0cfa7f74d30bb134fbc9afcdb1f08b49, type: 3}
@@ -9015,6 +9022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 3
   lid: {fileID: 391296391}
   balloon: {fileID: 1345286664}
@@ -14545,6 +14553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 2
   lid: {fileID: 1779681881}
   balloon: {fileID: 2094385368}
@@ -14981,11 +14990,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 675686503172083609, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 675686503172083615, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
       propertyPath: m_Sprite
@@ -15039,6 +15043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 675686503172083609, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a, type: 3}
@@ -16473,6 +16482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a0557b1b0ccc6243bfcd250da900e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioManager: {fileID: 0}
   handInID: 2
   lid: {fileID: 473683363}
   balloon: {fileID: 1208409867}
