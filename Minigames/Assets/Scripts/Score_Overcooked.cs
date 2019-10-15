@@ -91,10 +91,14 @@ public class Score_Overcooked : Score
             base.TokensUpdate();
 
             if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
             } else {
+                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
