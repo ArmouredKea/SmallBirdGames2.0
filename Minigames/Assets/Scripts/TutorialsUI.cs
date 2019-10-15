@@ -82,8 +82,8 @@ public class TutorialsUI : MonoBehaviour
             } else if (scene.name == "BulletHell") {
                 StartCoroutine(countdownScript.GetComponent<Score_BulletHell>().Countdown());
             }
-            pauseScript.GetComponent<Pause>().PauseButton();
             pauseScript.GetComponent<Pause>().inTutorial = false;
+            pauseScript.GetComponent<Pause>().PauseButton();            
             pauseMenu.GetComponent<PauseMenu>().tutorial = false;
         }
     }

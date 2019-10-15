@@ -97,8 +97,8 @@ public class PauseMenu : MonoBehaviour
                 countdownRef.SetActive(true);
                 Pausebuttonref.SetActive(false);
                 threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
-            }            
-            togglePauseMenu();
+                togglePauseMenu();
+            }
         }
         else if (CurrentScene == "OverCooked") {
             PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
@@ -106,8 +106,8 @@ public class PauseMenu : MonoBehaviour
                 countdownRef.SetActive(true);
                 Pausebuttonref.SetActive(false);
                 threeSecPause.GetComponent<Pause_Overcooked>().closeTutorial();
-            }            
-            togglePauseMenu();
+                togglePauseMenu();
+            }
         }
         else if (CurrentScene == "BulletHell") {
             PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
@@ -115,8 +115,8 @@ public class PauseMenu : MonoBehaviour
                 countdownRef.SetActive(true);
                 Pausebuttonref.SetActive(false);
                 threeSecPause.GetComponent<Score_BulletHell>().closeTutorial();
+                togglePauseMenu();
             }
-            togglePauseMenu();
         }
 
     }
