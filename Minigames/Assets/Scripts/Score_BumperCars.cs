@@ -95,6 +95,7 @@ public class Score_BumperCars : Score
             } else {
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                Debug.Log("Nani");
             }
 
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
