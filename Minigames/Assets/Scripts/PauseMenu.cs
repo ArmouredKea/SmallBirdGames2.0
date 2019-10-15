@@ -20,6 +20,7 @@ public class PauseMenu : MonoBehaviour
     public bool Paused;
     private string CurrentScene;
     public GameObject scoreTextbox;
+    public bool tutorial = true;
 
     // Start is called before the first frame update
     void Start() {
@@ -92,24 +93,29 @@ public class PauseMenu : MonoBehaviour
     public void UnPause() {
         if (CurrentScene == "BumperCars") {
             PauseManagerRef.GetComponent<Pause_BumperCars>().PauseButton();
-            countdownRef.SetActive(true);
-            Pausebuttonref.SetActive(false);
-            threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
+            if (!tutorial) {
+                countdownRef.SetActive(true);
+                Pausebuttonref.SetActive(false);
+                threeSecPause.GetComponent<CountdownTimer>().closeTutorial();
+            }            
             togglePauseMenu();
         }
         else if (CurrentScene == "OverCooked") {
             PauseManagerRef.GetComponent<Pause_Overcooked>().PauseButton();
-            countdownRef.SetActive(true);
-            Pausebuttonref.SetActive(false);
-            threeSecPause.GetComponent<Pause_Overcooked>().closeTutorial();
+            if (!tutorial) {
+                countdownRef.SetActive(true);
+                Pausebuttonref.SetActive(false);
+                threeSecPause.GetComponent<Pause_Overcooked>().closeTutorial();
+            }            
             togglePauseMenu();
         }
         else if (CurrentScene == "BulletHell") {
             PauseManagerRef.GetComponent<Pause_BulletHell>().PauseButton();
-            countdownRef.SetActive(true);
-            Pausebuttonref.SetActive(false);
-            threeSecPause.GetComponent<Score_BulletHell>().closeTutorial();
-
+            if (!tutorial) {
+                countdownRef.SetActive(true);
+                Pausebuttonref.SetActive(false);
+                threeSecPause.GetComponent<Score_BulletHell>().closeTutorial();
+            }
             togglePauseMenu();
         }
 
