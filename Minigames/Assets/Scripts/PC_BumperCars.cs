@@ -57,7 +57,7 @@ public class PC_BumperCars : PlayerController {
         canvas.GetComponent<RectTransform>().localPosition = gameObject.transform.position;
 
         //player boost.
-        if (totalDistance >= 50f) {
+        if (totalDistance >= 50f && !boosted) {
             totalDistance = 50f;
             boosted = true;
             boostText.SetActive(true);
