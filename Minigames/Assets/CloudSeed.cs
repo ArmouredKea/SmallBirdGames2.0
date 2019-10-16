@@ -25,6 +25,7 @@ public class CloudSeed : MonoBehaviour
     void Start()
     {
         spawnCheck = true;
+        timer = 5;
     }
 
      void Awake()

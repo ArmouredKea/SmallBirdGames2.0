@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9202020938729911240}
   - component: {fileID: 9202020938729911241}
   m_Layer: 5
-  m_Name: TimerBarBottom (1)
+  m_Name: TimerBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 9202020939823398070}
   - component: {fileID: 9202020939823398071}
   m_Layer: 5
-  m_Name: TimerBarBottom
+  m_Name: TimerBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
