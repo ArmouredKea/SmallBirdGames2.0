@@ -149,7 +149,7 @@ public class BombSchtuff : MonoBehaviour {
         float m = Random.Range(-3.5f, 3.5f);
 
         if (i < 0.5f) {
-            j = 3.5f;
+            j = 3.75f;
         } else {
             j = -4.1f;
         }
