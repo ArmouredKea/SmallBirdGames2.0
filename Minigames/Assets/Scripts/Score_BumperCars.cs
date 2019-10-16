@@ -7,11 +7,11 @@ public class Score_BumperCars : Score
 {
 
     public GameObject bombSchtuff;
-    public GameObject pauseBumperCars;
+    public GameObject pauseBumperCars;    
 
     // Start is called before the first frame update
     protected override void Start() {
-
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -99,12 +99,12 @@ public class Score_BumperCars : Score
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-                Debug.Log("Nani");
             }
-
+                        
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
             p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
 
+            StartCoroutine(TokenSound(0.9f));
             pauseButton.SetActive(false);
             pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
 
@@ -115,6 +115,6 @@ public class Score_BumperCars : Score
 
     protected override void FixedUpdate() {
 
-    }
+    }    
 
 }
