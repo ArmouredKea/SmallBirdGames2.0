@@ -12,12 +12,14 @@ public class Score_BulletHell : Score
     public float TotalTime;
     public GameObject countDownref;
     public GameObject canvaspausebutton;
+    private bool swapping;
 
 
     // Start is called before the first frame update
     protected override void Start() {
         currentTime = 64;
         TotalTime = currentTime;
+        swapping = true;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
@@ -71,6 +73,10 @@ public class Score_BulletHell : Score
         if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
         {
             countDownref.SetActive(true);
+            if (swapping) {
+                StartCoroutine(CountdownSound());
+                swapping = false;
+            }            
         }
 
         if(currentTime <= 30 && timeswap == true)
@@ -176,6 +182,27 @@ public class Score_BulletHell : Score
 
             gameCanEnd = false;
 
+        }
+    }
+
+    public IEnumerator CountdownSound() {
+        float pauseTime = Time.realtimeSinceStartup + 4f;
+        int i = 0;
+        while (Time.realtimeSinceStartup < pauseTime) {
+            if (i == 0 && (pauseTime - Time.realtimeSinceStartup > 3) && (pauseTime - Time.realtimeSinceStartup < 4)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 1 && (pauseTime - Time.realtimeSinceStartup > 2) && (pauseTime - Time.realtimeSinceStartup < 3)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 2 && (pauseTime - Time.realtimeSinceStartup > 1) && (pauseTime - Time.realtimeSinceStartup < 2)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 3 && (pauseTime - Time.realtimeSinceStartup > 0) && (pauseTime - Time.realtimeSinceStartup < 1)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            }
+            yield return 0;
         }
     }
 
