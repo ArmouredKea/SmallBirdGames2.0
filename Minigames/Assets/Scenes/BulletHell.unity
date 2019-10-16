@@ -405,6 +405,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 1620750444}
+  audioManager: {fileID: 0}
 --- !u!1 &56185735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,7 +1261,7 @@ GameObject:
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!61 &224852651
 BoxCollider2D:
@@ -4914,7 +4915,7 @@ PrefabInstance:
     - target: {fileID: 9202020938729911246, guid: a95696f61e104114d93ec0aedae27669,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -317
+      value: -365
       objectReference: {fileID: 0}
     - target: {fileID: 9202020938729911246, guid: a95696f61e104114d93ec0aedae27669,
         type: 3}
@@ -4955,6 +4956,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911246, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911246, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911241, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911241, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911241, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911241, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.89411765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95696f61e104114d93ec0aedae27669, type: 3}
@@ -5759,6 +5790,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 1608505303}
+  audioManager: {fileID: 0}
 --- !u!1 &821509943
 GameObject:
   m_ObjectHideFlags: 0
@@ -6871,6 +6903,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 959517484}
+  audioManager: {fileID: 0}
 --- !u!1 &940176558
 GameObject:
   m_ObjectHideFlags: 0
@@ -7667,11 +7700,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: TimerTop
       objectReference: {fileID: 0}
-    - target: {fileID: 6694238572111632906, guid: a8bd67a60e2497043b0b18270a88bdcd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: a8bd67a60e2497043b0b18270a88bdcd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7735,7 +7763,7 @@ PrefabInstance:
     - target: {fileID: 6694238572111632907, guid: a8bd67a60e2497043b0b18270a88bdcd,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 317
+      value: 365
       objectReference: {fileID: 0}
     - target: {fileID: 6694238572111632907, guid: a8bd67a60e2497043b0b18270a88bdcd,
         type: 3}
@@ -7776,6 +7804,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632907, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632907, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632908, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632908, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632908, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632908, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.89411765
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8bd67a60e2497043b0b18270a88bdcd, type: 3}
@@ -9605,7 +9663,7 @@ GameObject:
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!61 &1405061824
 BoxCollider2D:
@@ -10081,6 +10139,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 711689622}
+  audioManager: {fileID: 0}
 --- !u!1 &1449884992
 GameObject:
   m_ObjectHideFlags: 0
@@ -10620,6 +10679,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 292617627}
+  audioManager: {fileID: 0}
 --- !u!1 &1546319451
 GameObject:
   m_ObjectHideFlags: 0
@@ -11443,6 +11503,7 @@ MonoBehaviour:
   Turret: {fileID: 1167198766}
   CorrectSpeed: 0
   barrel: {fileID: 345811793}
+  audioManager: {fileID: 0}
 --- !u!1 &1696262132
 GameObject:
   m_ObjectHideFlags: 0
@@ -11459,7 +11520,7 @@ GameObject:
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!61 &1696262133
 BoxCollider2D:
@@ -13587,7 +13648,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2057849232
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13745,7 +13806,7 @@ GameObject:
   m_TagString: Boundary
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!61 &2136672372
 BoxCollider2D:

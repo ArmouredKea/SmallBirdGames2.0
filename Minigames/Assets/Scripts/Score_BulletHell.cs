@@ -8,10 +8,7 @@ public class Score_BulletHell : Score
     public BulletHellManage bulletHellManage;
     public GameObject pauseBulletHell;
 
-    public Image ProgressBar;
-    public Image ProgressBar2;
-    private bool timeswap = true;
-    public float TimeRatio;
+    private bool timeswap = true;    
     public float TotalTime;
     public GameObject countDownref;
     public GameObject canvaspausebutton;

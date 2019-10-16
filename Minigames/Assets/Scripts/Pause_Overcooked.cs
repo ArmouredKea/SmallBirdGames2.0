@@ -14,7 +14,7 @@ public class Pause_Overcooked : Pause
 
     // Start is called before the first frame update
     public void Start() {
-        canvaspausebutton.SetActive(false);
+        //canvaspausebutton.SetActive(false);
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
