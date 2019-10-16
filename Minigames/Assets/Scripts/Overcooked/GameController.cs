@@ -141,6 +141,7 @@ public class GameController : MonoBehaviour {
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Order");
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate3");
           if (tempPoints == 4 && frenzyActive == false) {
+            audioManager.GetComponent<AudioManagerScript>().PlayAudio("PowerUp");
             frenzyActive = true;
             frenzyTime = 15f;
             player.GetComponent<PC_Overcooked>().speed = 8f;
