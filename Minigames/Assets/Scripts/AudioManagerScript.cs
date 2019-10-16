@@ -69,4 +69,5 @@ public class AudioManagerScript : MonoBehaviour
           child.GetComponent<AudioSource>().mute = false;
       }
     }
+    
 }

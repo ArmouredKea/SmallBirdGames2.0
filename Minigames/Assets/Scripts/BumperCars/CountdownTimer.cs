@@ -16,6 +16,7 @@ public class CountdownTimer : MonoBehaviour {
     public GameObject canvaspausebutton;
     public GameObject tutorialRefrence;
     public BulletHellManage hellManage;
+    public GameObject audioManager;
 
     //public GameObject minigameBackground;
 
@@ -26,6 +27,7 @@ public class CountdownTimer : MonoBehaviour {
     void Start () {
         //Time.timeScale = 0;
         canvaspausebutton.SetActive(false);
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     public void closeTutorial () {
@@ -73,8 +75,21 @@ public class CountdownTimer : MonoBehaviour {
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 4f;
-
+        int i = 0;
         while (Time.realtimeSinceStartup < pauseTime) {
+            if (i == 0 && (pauseTime - Time.realtimeSinceStartup > 3) && (pauseTime - Time.realtimeSinceStartup < 4)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 1 && (pauseTime - Time.realtimeSinceStartup > 2) && (pauseTime - Time.realtimeSinceStartup < 3)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 2 && (pauseTime - Time.realtimeSinceStartup > 1) && (pauseTime - Time.realtimeSinceStartup < 2)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 3 && (pauseTime - Time.realtimeSinceStartup > 0) && (pauseTime - Time.realtimeSinceStartup < 1)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            }
             yield return 0;
         }
 

@@ -21,6 +21,7 @@ public class Score_BulletHell : Score
     protected override void Start() {
         currentTime = 64;
         TotalTime = currentTime;
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     public void closeTutorial () {
@@ -33,9 +34,21 @@ public class Score_BulletHell : Score
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 4f;
-
-        while (Time.realtimeSinceStartup < pauseTime)
-        {
+        int i = 0;
+        while (Time.realtimeSinceStartup < pauseTime) {
+            if (i == 0 && (pauseTime - Time.realtimeSinceStartup > 3) && (pauseTime - Time.realtimeSinceStartup < 4)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 1 && (pauseTime - Time.realtimeSinceStartup > 2) && (pauseTime - Time.realtimeSinceStartup < 3)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 2 && (pauseTime - Time.realtimeSinceStartup > 1) && (pauseTime - Time.realtimeSinceStartup < 2)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 3 && (pauseTime - Time.realtimeSinceStartup > 0) && (pauseTime - Time.realtimeSinceStartup < 1)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            }
             yield return 0;
         }
 
@@ -73,12 +86,6 @@ public class Score_BulletHell : Score
 
 
         }
-
-
-
-
-
-
 
         if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);
@@ -161,6 +168,7 @@ public class Score_BulletHell : Score
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
+            StartCoroutine(TokenSound(0.9f));
 
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
             p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();

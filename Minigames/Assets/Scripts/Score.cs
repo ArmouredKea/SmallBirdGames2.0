@@ -32,9 +32,11 @@ public class Score : MonoBehaviour
     public GameObject[] p1Tokens;
     public GameObject[] p2Tokens;
 
+    public GameObject audioManager;
+
     // Start is called before the first frame update
     protected virtual void Start() {
-
+        
     }
 
     // Update is called once per frame
@@ -74,5 +76,10 @@ public class Score : MonoBehaviour
                 p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/BalloonBattleToken");
             }
         }
+    }
+
+    protected virtual IEnumerator TokenSound(float waitTime) {
+        yield return new WaitForSeconds(waitTime);
+        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Coin");
     }
 }

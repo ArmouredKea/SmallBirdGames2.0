@@ -10,10 +10,12 @@ public class Pause_Overcooked : Pause
     public GameObject countdown;
     public GameObject tutorial;
     public GameObject timer;
+    public GameObject audioManager;
 
     // Start is called before the first frame update
     public void Start() {
         canvaspausebutton.SetActive(false);
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -112,9 +114,21 @@ public class Pause_Overcooked : Pause
 
         Time.timeScale = 0;
         float pauseTime = Time.realtimeSinceStartup + 4f;
-
-        while (Time.realtimeSinceStartup < pauseTime)
-        {
+        int i = 0;
+        while (Time.realtimeSinceStartup < pauseTime) {
+            if (i == 0 && (pauseTime - Time.realtimeSinceStartup > 3) && (pauseTime - Time.realtimeSinceStartup < 4)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 1 && (pauseTime - Time.realtimeSinceStartup > 2) && (pauseTime - Time.realtimeSinceStartup < 3)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 2 && (pauseTime - Time.realtimeSinceStartup > 1) && (pauseTime - Time.realtimeSinceStartup < 2)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 3 && (pauseTime - Time.realtimeSinceStartup > 0) && (pauseTime - Time.realtimeSinceStartup < 1)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            }
             yield return 0;
         }
 

@@ -13,7 +13,7 @@ public class BombMovement : MonoBehaviour
     public Vector2 pauseVelocity;
     public bool paused;
     public bool bombExplosion;
-
+    public GameObject audioManager;
 
     // Use this for initialization
     void Start() {
@@ -23,6 +23,7 @@ public class BombMovement : MonoBehaviour
         p2Invulnerable = false;
         Physics2D.IgnoreLayerCollision(8, 9, false);
         Physics2D.IgnoreLayerCollision(8, 10, false);
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -63,6 +64,7 @@ public class BombMovement : MonoBehaviour
     //bomb explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {
         //gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
+        audioManager.GetComponent<AudioManagerScript>().PlayAudio("Splash2");
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
         gameObject.GetComponent<Animator>().SetBool("Explode", true);
         gameObject.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;

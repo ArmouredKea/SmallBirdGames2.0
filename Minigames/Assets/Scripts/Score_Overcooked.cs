@@ -13,7 +13,7 @@ public class Score_Overcooked : Score
 
     // Start is called before the first frame update
     protected override void Start() {
-
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -102,6 +102,7 @@ public class Score_Overcooked : Score
                 p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
+            StartCoroutine(TokenSound(0.9f));
 
             p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
             p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
