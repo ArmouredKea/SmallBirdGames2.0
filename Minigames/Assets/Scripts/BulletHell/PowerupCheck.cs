@@ -28,11 +28,12 @@ public class PowerupCheck : MonoBehaviour
     private bool w;
 
     public Transform Position_current;
+    public GameObject audioManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
     // Update is called once per frame
@@ -66,14 +67,15 @@ public class PowerupCheck : MonoBehaviour
                     gunnerSpawn.ExecutePowerup(r, y, g, w);
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
 
-
+                    audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
                     gameObject.SetActive(false);
                 }
 
-                if (gunnerSpawn.Powerup_Activated == true && ObjectPool.pool_Instance.pool_WhiteProjTime == true & w == true)
+               else if (gunnerSpawn.Powerup_Activated == true && ObjectPool.pool_Instance.pool_WhiteProjTime == true & w == true)
                 {
                     gunnerSpawn.refreshDuration = true;
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
                     gameObject.SetActive(false);
                 }
 
@@ -81,6 +83,7 @@ public class PowerupCheck : MonoBehaviour
                 {
                     gunnerSpawn.refreshDuration = true;
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
                     gameObject.SetActive(false);
                 }
 
@@ -88,6 +91,7 @@ public class PowerupCheck : MonoBehaviour
                 {
                     gunnerSpawn.refreshDuration = true;
                     gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
+                    audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
                     gameObject.SetActive(false);
                 }
                 else { }
@@ -124,12 +128,15 @@ public class PowerupCheck : MonoBehaviour
                 getRunner = collision.gameObject.GetComponent<PC_BulletHell>();
                 runnerSpawn.GetRunner(runner: getRunner);
                 runnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
-                gameObject.SetActive(false);
-                runnerSpawn.ExecutePowerup(r, y, g, w);
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("PowerUp");
                 if (runnerSpawn.Powerup_Activated == true & r == true)
                 {
                     runnerSpawn.refreshDuration = true;
                 }
+                runnerSpawn.ExecutePowerup(r, y, g, w);
+                gameObject.SetActive(false);
+                
+               
 
                 
                 

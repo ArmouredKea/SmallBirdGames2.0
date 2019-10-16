@@ -102,7 +102,7 @@ MonoBehaviour:
   minSpeed: 0.03
   maxSpeed: 0.05
   minY: 0
-  maxY: 0
+  maxY: 400
   yPos: 0
   minZ: -20
   maxZ: -100
