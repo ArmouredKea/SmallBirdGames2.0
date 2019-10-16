@@ -34,6 +34,10 @@ public class Score : MonoBehaviour
 
     public GameObject audioManager;
 
+    public Image ProgressBar;
+    public Image ProgressBar2;
+    public float TimeRatio;
+
     // Start is called before the first frame update
     protected virtual void Start() {
         
@@ -43,6 +47,9 @@ public class Score : MonoBehaviour
     protected virtual void Update() {
         if (!paused) {
             currentTime -= Time.deltaTime;
+            TimeRatio = currentTime / 60;
+            ProgressBar.fillAmount = TimeRatio;
+            ProgressBar2.fillAmount = TimeRatio;
         }
     }
 
