@@ -128,7 +128,7 @@ public class PowerupCheck : MonoBehaviour
                 getRunner = collision.gameObject.GetComponent<PC_BulletHell>();
                 runnerSpawn.GetRunner(runner: getRunner);
                 runnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
-                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Powerup");
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("PowerUp");
                 if (runnerSpawn.Powerup_Activated == true & r == true)
                 {
                     runnerSpawn.refreshDuration = true;
