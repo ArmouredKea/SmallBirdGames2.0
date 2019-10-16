@@ -3028,7 +3028,29 @@ PrefabInstance:
       propertyPath: canvaspausebutton
       value: 
       objectReference: {fileID: 2057849231}
-    m_RemovedComponents: []
+    - target: {fileID: 4222886003235661428, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 951755518}
+    - target: {fileID: 4222886003235661428, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222886003418926526, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 951755518}
+    - target: {fileID: 4222886003418926526, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextMinigame
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4222886003418926527, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
+    - {fileID: 4222886003235661429, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
 --- !u!224 &534121536 stripped
 RectTransform:
@@ -6610,6 +6632,7 @@ GameObject:
   - component: {fileID: 951755517}
   - component: {fileID: 951755516}
   - component: {fileID: 951755515}
+  - component: {fileID: 951755518}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6682,6 +6705,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &951755518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 951755514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
 --- !u!1 &957405841
 GameObject:
   m_ObjectHideFlags: 0
@@ -11460,7 +11496,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  gameStarted: 0
+  inTutorial: 0
+  canPause: 0
   countTimer: {fileID: 2046366693}
   timer: {fileID: 534121537}
   poolManage: {fileID: 2046366695}

@@ -4458,6 +4458,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420030}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4473,6 +4474,19 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_Enabled: 1
+--- !u!114 &519420030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a824916384f77ac4c9975c5d183fdc03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextScene: 
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -5135,7 +5149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   paused: 0
-  gameStarted: 0
+  inTutorial: 0
+  canPause: 0
   PauseMenuRef: {fileID: 402652142}
   countDownref: {fileID: 389940248}
   canvaspausebutton: {fileID: 1846355527}
@@ -8460,6 +8475,16 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4222886002796510948, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222886002844213782, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7460783476281138109, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8525,22 +8550,34 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4222886002796510948, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4222886002844213782, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7460783474693012071, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4222886003235661428, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 4222886003235661428, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextMinigame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4222886003418926526, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 519420030}
+    - target: {fileID: 4222886003418926526, guid: f26bcfde21a1b7a4a9ff945e9e708fa4,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextMinigame
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4222886003418926527, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
+    - {fileID: 4222886003235661429, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f26bcfde21a1b7a4a9ff945e9e708fa4, type: 3}
 --- !u!224 &1115399336 stripped
 RectTransform:
