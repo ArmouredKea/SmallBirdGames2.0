@@ -52,6 +52,9 @@ public class PC_BulletHell : PlayerController
     [SerializeField]
     private GameObject barrel;
 
+    public GameObject audioManager;
+
+
     // Start is called before the first frame update
     protected override void Start() {
       base.Start();
@@ -67,8 +70,8 @@ public class PC_BulletHell : PlayerController
 
 
         moistTinting = GetComponent<SpriteRenderer>().material.color;
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
-       
     }
 
   // Update is called once per frame
@@ -132,6 +135,7 @@ public class PC_BulletHell : PlayerController
             pooledBullet.transform.rotation = barrel.gameObject.transform.rotation;
             
             pooledBullet.SetActive(true);
+            audioManager.GetComponent<AudioManagerScript>().PlayAudio("Cannon3");
             pooledBullet.GetComponent<ProjectileParent>().firedFrom = this.gameObject;//Figure out a better way to do this after Feature phase.
         }
 
