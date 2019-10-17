@@ -122,8 +122,8 @@ public class CharacterSelect : MonoBehaviour
         }
 
         if (ready && otherPlayer.GetComponent<CharacterSelect>().ready == true) {
-            PlayerController.p1Score = 0;
-            PlayerController.p2Score = 0;
+            CharacterCarryOver.p1Score = 0;
+            CharacterCarryOver.p2Score = 0;
             SceneManagement.scenes = new List<int>(Enumerable.Range(1, 3));
             sceneManagementScript.GetComponent<SceneManagement>().NextMinigame();
         }

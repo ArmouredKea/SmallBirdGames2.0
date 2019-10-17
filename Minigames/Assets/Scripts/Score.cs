@@ -58,7 +58,7 @@ public class Score : MonoBehaviour
     }
 
     protected virtual void TokensUpdate() {
-        for (int i = 0; i < PlayerController.p1Score; i++) {
+        for (int i = 0; i < CharacterCarryOver.p1Score; i++) {
             if (p1Wins[i] == "WaterWars") {
                 p1Tokens[i].SetActive(true);
                 p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
@@ -71,7 +71,7 @@ public class Score : MonoBehaviour
             }
         }
 
-        for (int i = 0; i < PlayerController.p2Score; i++) {
+        for (int i = 0; i < CharacterCarryOver.p2Score; i++) {
             if (p2Wins[i] == "WaterWars") {
                 p2Tokens[i].SetActive(true);
                 p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");

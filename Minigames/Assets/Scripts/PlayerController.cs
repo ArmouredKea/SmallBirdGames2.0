@@ -14,10 +14,7 @@ public class PlayerController : MonoBehaviour {
     public Transform joystickOuter;
     public Transform joystickInner;
     public Vector2 direction;
-    public Animator animator;
-
-    static public int p1Score;
-    static public int p2Score;
+    public Animator animator;    
 
     public List<PlayerController> Players = new List<PlayerController>();
     //public PlayerController Controller;

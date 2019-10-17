@@ -39,8 +39,8 @@ public class Score_BumperCars : Score
                     p2Mika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                p1Wins[PlayerController.p1Score - 1] = "WaterWars";
+                CharacterCarryOver.p1Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "WaterWars";
 
             } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -59,8 +59,8 @@ public class Score_BumperCars : Score
                     p1Mika.SetActive(true);
                 }
 
-                PlayerController.p2Score++;
-                p2Wins[PlayerController.p2Score - 1] = "WaterWars";
+                CharacterCarryOver.p2Score++;
+                p2Wins[CharacterCarryOver.p2Score - 1] = "WaterWars";
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -79,30 +79,30 @@ public class Score_BumperCars : Score
                     p2WinMika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                PlayerController.p2Score++;
-                p1Wins[PlayerController.p1Score - 1] = "WaterWars";
-                p2Wins[PlayerController.p2Score - 1] = "WaterWars";
+                CharacterCarryOver.p1Score++;
+                CharacterCarryOver.p2Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "WaterWars";
+                p2Wins[CharacterCarryOver.p2Score - 1] = "WaterWars";
 
             }
 
             base.TokensUpdate();
 
             if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
                         
-            p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
-            p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
+            p1Score.GetComponent<Text>().text = CharacterCarryOver.p1Score.ToString();
+            p2Score.GetComponent<Text>().text = CharacterCarryOver.p2Score.ToString();
 
             StartCoroutine(TokenSound(0.9f));
             pauseButton.SetActive(false);

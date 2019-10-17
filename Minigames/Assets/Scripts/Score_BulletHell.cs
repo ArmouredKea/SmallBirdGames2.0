@@ -110,8 +110,8 @@ public class Score_BulletHell : Score
                     p2Mika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                p1Wins[PlayerController.p1Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p1Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
 
             } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -130,8 +130,8 @@ public class Score_BulletHell : Score
                     p1Mika.SetActive(true);
                 }
 
-                PlayerController.p2Score++;
-                p2Wins[PlayerController.p2Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p2Score++;
+                p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -150,31 +150,31 @@ public class Score_BulletHell : Score
                     p2WinMika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                PlayerController.p2Score++;
-                p1Wins[PlayerController.p1Score - 1] = "BalloonBattle";
-                p2Wins[PlayerController.p2Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p1Score++;
+                CharacterCarryOver.p2Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
+                p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
 
             }
 
             base.TokensUpdate();
 
             if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
             StartCoroutine(TokenSound(0.9f));
 
-            p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
-            p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
+            p1Score.GetComponent<Text>().text = CharacterCarryOver.p1Score.ToString();
+            p2Score.GetComponent<Text>().text = CharacterCarryOver.p2Score.ToString();
 
             canvaspausebutton.SetActive(false);
             pauseBulletHell.GetComponent<Pause_BulletHell>().paused = false;
