@@ -7,7 +7,7 @@ public class Score_BumperCars : Score
 {
 
     public GameObject bombSchtuff;
-    public GameObject pauseBumperCars;    
+    public GameObject pauseBumperCars;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -41,6 +41,8 @@ public class Score_BumperCars : Score
 
                 CharacterCarryOver.p1Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "WaterWars";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives < bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -61,6 +63,8 @@ public class Score_BumperCars : Score
 
                 CharacterCarryOver.p2Score++;
                 p2Wins[CharacterCarryOver.p2Score - 1] = "WaterWars";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -83,6 +87,8 @@ public class Score_BumperCars : Score
                 CharacterCarryOver.p2Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "WaterWars";
                 p2Wins[CharacterCarryOver.p2Score - 1] = "WaterWars";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             }
 
@@ -100,7 +106,7 @@ public class Score_BumperCars : Score
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
-                        
+
             p1Score.GetComponent<Text>().text = CharacterCarryOver.p1Score.ToString();
             p2Score.GetComponent<Text>().text = CharacterCarryOver.p2Score.ToString();
 
@@ -109,14 +115,12 @@ public class Score_BumperCars : Score
             pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
 
             gameCanEnd = false;
-            Debug.Log(CharacterCarryOver.p1Score);
-            Debug.Log(CharacterCarryOver.p2Score);
 
         }
     }
 
     protected override void FixedUpdate() {
 
-    }    
+    }
 
 }

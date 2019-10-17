@@ -8,7 +8,7 @@ public class Score_BulletHell : Score
     public BulletHellManage bulletHellManage;
     public GameObject pauseBulletHell;
 
-    private bool timeswap = true;    
+    private bool timeswap = true;
     public float TotalTime;
     public GameObject countDownref;
     public GameObject canvaspausebutton;
@@ -76,7 +76,7 @@ public class Score_BulletHell : Score
             if (swapping) {
                 StartCoroutine(CountdownSound());
                 swapping = false;
-            }            
+            }
         }
 
         if(currentTime <= 30 && timeswap == true)
@@ -112,6 +112,8 @@ public class Score_BulletHell : Score
 
                 CharacterCarryOver.p1Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -132,6 +134,8 @@ public class Score_BulletHell : Score
 
                 CharacterCarryOver.p2Score++;
                 p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -154,6 +158,8 @@ public class Score_BulletHell : Score
                 CharacterCarryOver.p2Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
                 p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             }
 
@@ -162,7 +168,7 @@ public class Score_BulletHell : Score
             if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
@@ -181,8 +187,7 @@ public class Score_BulletHell : Score
             pauseBulletHell.GetComponent<Pause_BulletHell>().PauseButton();
 
             gameCanEnd = false;
-            Debug.Log(CharacterCarryOver.p1Score);
-            Debug.Log(CharacterCarryOver.p2Score);
+
 
         }
     }

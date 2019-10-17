@@ -43,6 +43,8 @@ public class Score_Overcooked : Score
 
                 CharacterCarryOver.p1Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "FillingFrenzy";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else if (player1.GetComponent<GameController>().points < player2.GetComponent<GameController>().points) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -63,6 +65,8 @@ public class Score_Overcooked : Score
 
                 CharacterCarryOver.p2Score++;
                 p2Wins[CharacterCarryOver.p2Score - 1] = "FillingFrenzy";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -85,6 +89,8 @@ public class Score_Overcooked : Score
                 CharacterCarryOver.p2Score++;
                 p1Wins[CharacterCarryOver.p1Score - 1] = "FillingFrenzy";
                 p2Wins[CharacterCarryOver.p2Score - 1] = "FillingFrenzy";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             }
 
@@ -93,7 +99,7 @@ public class Score_Overcooked : Score
             if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-            } else if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
+            } else if (player1.GetComponent<GameController>().points < player2.GetComponent<GameController>().points) {
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
             } else {
@@ -111,9 +117,6 @@ public class Score_Overcooked : Score
             pauseOvercooked.GetComponent<Pause_Overcooked>().PauseButton();
 
             gameCanEnd = false;
-            Debug.Log(CharacterCarryOver.p1Score);
-            Debug.Log(CharacterCarryOver.p2Score);
-
         }
     }
 
