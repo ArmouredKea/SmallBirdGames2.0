@@ -20,10 +20,7 @@ public class PlayerController : MonoBehaviour {
     //public PlayerController Controller;
     public int? LockedFingerID { get; set; }
 
-    private Vector2 startPos;
-
-    public static int p1Score;
-    public static int p2Score;
+    private Vector2 startPos;    
 
     public bool paused;
     public float angle;
