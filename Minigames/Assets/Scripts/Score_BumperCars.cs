@@ -109,6 +109,8 @@ public class Score_BumperCars : Score
             pauseBumperCars.GetComponent<Pause_BumperCars>().PauseButton();
 
             gameCanEnd = false;
+            Debug.Log(CharacterCarryOver.p1Score);
+            Debug.Log(CharacterCarryOver.p2Score);
 
         }
     }

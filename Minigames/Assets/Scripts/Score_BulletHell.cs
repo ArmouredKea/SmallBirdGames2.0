@@ -181,6 +181,8 @@ public class Score_BulletHell : Score
             pauseBulletHell.GetComponent<Pause_BulletHell>().PauseButton();
 
             gameCanEnd = false;
+            Debug.Log(CharacterCarryOver.p1Score);
+            Debug.Log(CharacterCarryOver.p2Score);
 
         }
     }
