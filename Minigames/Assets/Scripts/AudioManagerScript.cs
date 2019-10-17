@@ -30,9 +30,11 @@ public class AudioManagerScript : MonoBehaviour
 
     void Update () {
         if (isMuted && !GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute) {
+            MuteAudio();
             GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute = true;
         } else if (!isMuted && GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute) {
             GameObject.FindGameObjectWithTag("Music").GetComponent<AudioSource>().mute = false;
+            UnMuteAudio();
         }
     }
 
@@ -69,5 +71,5 @@ public class AudioManagerScript : MonoBehaviour
           child.GetComponent<AudioSource>().mute = false;
       }
     }
-    
+
 }
