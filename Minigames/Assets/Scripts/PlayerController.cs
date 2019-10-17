@@ -16,6 +16,9 @@ public class PlayerController : MonoBehaviour {
     public Vector2 direction;
     public Animator animator;
 
+    static public int p1Score;
+    static public int p2Score;
+
     public List<PlayerController> Players = new List<PlayerController>();
     //public PlayerController Controller;
     public int? LockedFingerID { get; set; }

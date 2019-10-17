@@ -6,9 +6,7 @@ public class CharacterCarryOver : MonoBehaviour
 {
 
     static public string player1 = "";
-    static public string player2 = "";
-    static public int p1Score;
-    static public int p2Score;
+    static public string player2 = "";    
     public GameObject audioManager;
 
     // Start is called before the first frame update
