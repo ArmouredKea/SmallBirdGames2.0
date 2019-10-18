@@ -11,14 +11,12 @@ public class TagScript : MonoBehaviour
     public GameObject pointLight;
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
 
         if (it) {
             tagIcon.SetActive(true);
@@ -36,14 +34,14 @@ public class TagScript : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision) {
 
-        if ((collision.gameObject.name == "Player1" || collision.gameObject.name == "Player2") && it == false) {
+        if ((collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2") && it == false) {
             tagged = true;
             it = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             gameObject.GetComponent<PlayerController>().speed = 0;
-            if (gameObject.name == "Player1") {
+            if (gameObject.tag == "Player1") {
                 GameObject.Find("LeftIJ").GetComponent<PlayerController>().speed = 0;
-            } else if (gameObject.name == "Player2") {
+            } else if (gameObject.tag == "Player2") {
                 GameObject.Find("RightIJ").GetComponent<PlayerController>().speed = 0;
             }
                 StartCoroutine(TagDelay(2f));
