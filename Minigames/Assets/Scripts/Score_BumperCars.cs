@@ -94,6 +94,7 @@ public class Score_BumperCars : Score
 
             base.TokensUpdate();
 
+            //tokens animation
             if (bombSchtuff.GetComponent<BombSchtuff>().p1Lives > bombSchtuff.GetComponent<BombSchtuff>().p2Lives) {
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);

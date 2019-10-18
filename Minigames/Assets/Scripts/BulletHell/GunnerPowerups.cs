@@ -41,7 +41,7 @@ public class GunnerPowerups : PowerupParent
         GunnerRefP1 = GameObject.FindGameObjectWithTag("Player1").GetComponent<PC_BulletHell>();
         GunnerRefP2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
 
-        
+
 
     }
 
@@ -51,30 +51,25 @@ public class GunnerPowerups : PowerupParent
          if (yellow == true) { YellowFiring();}
         else if (green == true) { GreenFiring(); }
         else if (white == true) { WhiteFiring(); }
-       
+
     }
 
-     /*public void RedFiring()
-    {
-        base.StartCoroutine(PowerupTimer(seconds:base.Powerup_Duration, declareGunner, Color.red));
-        ObjectPool.pool_Instance.pool_RedProjTime = true;
-            
-       
-    } */
+
+    //These activate the powerup effects
     public void YellowFiring()
     {
         base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.yellow));
         ObjectPool.pool_Instance.pool_YellowProjTime = true;
-            
-   
+
+
 
     }
     public void GreenFiring()
     {
         base.StartCoroutine(PowerupTimer(seconds: base.Powerup_Duration, declareGunner, Color.green));
         ObjectPool.pool_Instance.pool_GreenProjTime = true;
-           
-      
+
+
     }
     public void WhiteFiring()
     {
@@ -89,7 +84,7 @@ public class GunnerPowerups : PowerupParent
             GunnerRefP2.AimingCreation();
         }
         ObjectPool.pool_Instance.pool_WhiteProjTime = true;
-         
+
 
 
 
@@ -106,8 +101,8 @@ public class GunnerPowerups : PowerupParent
 
 
     public void Deactivate()
-    {   
-        if(Powerup_Activated == false) { 
+    {
+        if(Powerup_Activated == false) {
         //ObjectPool.pool_Instance.pool_RedProjTime = false;
         ObjectPool.pool_Instance.pool_YellowProjTime = false;
         ObjectPool.pool_Instance.pool_GreenProjTime = false;

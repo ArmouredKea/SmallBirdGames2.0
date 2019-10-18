@@ -30,6 +30,7 @@ public class CountdownTimer : MonoBehaviour {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
+    //closes the tutorial canvas
     public void closeTutorial () {
         tutorialRefrence.SetActive(false);
         countDownref.SetActive(true);
@@ -48,6 +49,7 @@ public class CountdownTimer : MonoBehaviour {
             //ProgressBar2.fillAmount = TimeRatio;
         }
 
+        //swap roles
         if(scene.name == "BulletHell")
         {
             hellManage = GetComponent<BulletHellManage>();
@@ -64,7 +66,7 @@ public class CountdownTimer : MonoBehaviour {
                 //StartCoroutine(Countdown());
                 timeswap = false;
                 //This is where the 123 thing goes.
-               
+
 
             }
         }

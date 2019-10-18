@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BHell_Player : MonoBehaviour
-{
+{ //Redundant not used
     #region BhellVariables
     //bullethell specific variables. Will be cleaned once Child/Parent system is working.
     public bool bHell_isShoot;
@@ -27,23 +27,22 @@ public class BHell_Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
 
-    #region BulletHell 
+    #region BulletHell
     //Bullet Hell Shooter code. Will be refactored once Parent/Child is complete.
 
 
 
 
-  
 
 
 
@@ -52,7 +51,8 @@ public class BHell_Player : MonoBehaviour
 
 
 
-  
+
+
 
 
     #endregion

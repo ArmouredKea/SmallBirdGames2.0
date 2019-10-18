@@ -17,7 +17,7 @@ public class BombMovement : MonoBehaviour
 
     // Use this for initialization
     void Start() {
-        //gives bomb a random velocity.
+        //gives water balloon a random velocity.
         GetComponent<Rigidbody2D>().velocity = new Vector2(Random.Range(-1f, 1f), 1) * speed;
         p1Invulnerable = false;
         p2Invulnerable = false;
@@ -31,7 +31,7 @@ public class BombMovement : MonoBehaviour
         speed = Random.Range(1f, 3f);
     }
 
-    //checking what the bomb is colliding with.
+    //checking what the water balloon is colliding with.
     private void OnCollisionEnter2D(Collision2D collision) {
 
         if (collision.gameObject.tag == "Bombs") {
@@ -61,7 +61,7 @@ public class BombMovement : MonoBehaviour
 
     }
 
-    //bomb explosion and replacement.
+    //water balloon explosion and replacement.
     private IEnumerator BombDelay(float waitTime) {
         //gameObject.transform.localScale = new Vector3(1.5f, 1.5f, 1f);
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Splash2");

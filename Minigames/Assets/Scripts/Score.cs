@@ -40,11 +40,12 @@ public class Score : MonoBehaviour
 
     // Start is called before the first frame update
     protected virtual void Start() {
-        
+
     }
 
     // Update is called once per frame
     protected virtual void Update() {
+      //timer for the minigame
         if (!paused) {
             currentTime -= Time.deltaTime;
             TimeRatio = currentTime / 60;
@@ -57,6 +58,7 @@ public class Score : MonoBehaviour
 
     }
 
+    //replaces token sprite dependig on what minigame was won
     protected virtual void TokensUpdate() {
         for (int i = 0; i < CharacterCarryOver.p1Score; i++) {
             if (p1Wins[i] == "WaterWars") {
@@ -85,6 +87,7 @@ public class Score : MonoBehaviour
         }
     }
 
+    //sound effect of token animation
     protected virtual IEnumerator TokenSound(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Coin");

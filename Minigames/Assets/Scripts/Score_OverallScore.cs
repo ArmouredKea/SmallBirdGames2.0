@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Score_OverallScore : Score
 {
-    // Start is called before the first frame update
+    //calculates the overall score
     protected override void Start() {
         if (CharacterCarryOver.p1Score > CharacterCarryOver.p2Score) {
             if (CharacterCarryOver.player1 == "Bo") {
@@ -90,6 +90,6 @@ public class Score_OverallScore : Score
 
     // Update is called once per frame
     protected override void Update() {
-        
+
     }
 }

@@ -96,6 +96,7 @@ public class Score_Overcooked : Score
 
             base.TokensUpdate();
 
+            //tokens animation
             if (player1.GetComponent<GameController>().points > player2.GetComponent<GameController>().points) {
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);

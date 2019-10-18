@@ -20,9 +20,10 @@ public class TutorialsBackground : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-        
+
     }
 
+    //zooms in to the tutorial
     private IEnumerator TutorialAnimation(float waitTime) {
         yield return new WaitForSeconds(waitTime);
         title.SetActive(false);
@@ -32,10 +33,11 @@ public class TutorialsBackground : MonoBehaviour
             inner.GetComponent<Animator>().SetBool("ZoomInBH", true);
         } else {
             inner.GetComponent<Animator>().SetBool("ZoomIn", true);
-        }            
+        }
         StartCoroutine(TutorialUI(1.25f));
     }
 
+    //displays the minigame for the tutorial
     private IEnumerator TutorialUI(float waitTIme) {
         yield return new WaitForSeconds(waitTIme);
         minigameUI.SetActive(true);

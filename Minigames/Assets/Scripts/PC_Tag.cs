@@ -11,7 +11,7 @@ public class PC_Tag : PlayerController
     public bool boosted;
     public bool slowed;
     public GameObject tagIcon;
-    public GameObject pointLight;    
+    public GameObject pointLight;
 
     // Start is called before the first frame update
     protected override void Start() {
@@ -23,14 +23,16 @@ public class PC_Tag : PlayerController
 
     // Update is called once per frame
     protected override void Update() {
-        base.Update();        
+        base.Update();
 
+        //checks which player has the tag icon
         if (it) {
-            tagIcon.SetActive(true);            
+            tagIcon.SetActive(true);
         } else {
             tagIcon.SetActive(false);
         }
 
+        //freezes the tagged character
         if (tagged) {
             gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
@@ -61,6 +63,7 @@ public class PC_Tag : PlayerController
         gameObject.GetComponent<Rigidbody2D>().AddForce(direction * speed * 2);
     }
 
+    //checks when player is tagged to switch roles
     public void OnCollisionEnter2D(Collision2D collision) {
 
         if ((collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2") && it == false) {
@@ -68,7 +71,7 @@ public class PC_Tag : PlayerController
             it = true;
             gameObject.GetComponent<CircleCollider2D>().enabled = false;
             tagIcon.SetActive(true);
-            pointLight.GetComponent<Light>().spotAngle = 60;            
+            pointLight.GetComponent<Light>().spotAngle = 60;
             speed = 0;
             StartCoroutine(TagDelay(2f));
         } else if ((collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2") && it == true) {
@@ -79,6 +82,7 @@ public class PC_Tag : PlayerController
 
     }
 
+    //checks when player collects a trap or powerup
     public void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag == "Powerup") {
             Destroy(collision.gameObject);
@@ -101,8 +105,9 @@ public class PC_Tag : PlayerController
                 Debug.Log("Light Trap");
             }
         }
-    }    
+    }
 
+    //delay for when a player is tagged (freezes position)
     private IEnumerator TagDelay(float waitTime) {
 
         yield return new WaitForSeconds(waitTime);
@@ -112,26 +117,30 @@ public class PC_Tag : PlayerController
 
     }
 
+    //speed boost powerup
     public void SpeedPowerup() {
         speed = 10f;
         boosted = true;
         StartCoroutine(SpeedBoost(4f));
     }
 
+    //trap that slows you down
     public void SpeedTrap() {
         speed = 2f;
         slowed = true;
         StartCoroutine(SpeedSlow(2f));
     }
 
+    //gives additional lighting
     public void LightPowerup() {
         pointLight.GetComponent<Light>().spotAngle += 10;
     }
 
+    //decreases lighting
     public void LightTrap() {
         if (pointLight.GetComponent<Light>().spotAngle >= 10) {
             pointLight.GetComponent<Light>().spotAngle -= 10;
-        }        
+        }
     }
 
     private IEnumerator SpeedBoost(float waitTime) {

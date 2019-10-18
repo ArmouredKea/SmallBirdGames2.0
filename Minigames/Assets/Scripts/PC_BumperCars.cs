@@ -22,7 +22,7 @@ public class PC_BumperCars : PlayerController {
     public Vector3 pauseVelocity;
     public GameObject audioManager;
 
-    // Start is called before the first frame update
+    // sets the initial values
     protected override void Start() {
         base.Start();
         canvas.SetActive(true);
@@ -41,6 +41,7 @@ public class PC_BumperCars : PlayerController {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
+    //overhead lives
     public void TakeHit() {
         livesList[lifeCounter].SetActive(false);
         lifeCounter++;
@@ -127,7 +128,7 @@ public class PC_BumperCars : PlayerController {
     }
 
     //player boost duration.
-    private IEnumerator BoostDuration(float waitTime) {        
+    private IEnumerator BoostDuration(float waitTime) {
         float l = 0;
         while (l < waitTime) {
             if (paused) {

@@ -174,7 +174,7 @@ public class BulletHellManage : MonoBehaviour
         //Need: A method of moving players over time between the gunner roles and their current position.
         //Get curr Player Position, Get Spawn Point Pos, Lerp between current pos and gunner.
         //Lerp gunner from center to inital spawn point.
-        //How does this work with movement animation? Assign movement anim to the movement function of player.
+
 
         ObjectPool.pool_Instance.StopAll();
         BHell_Determine_Mode();
@@ -193,7 +193,7 @@ public class BulletHellManage : MonoBehaviour
 
             P1.bHell_isShoot = true;
             P2.bHell_isShoot = false;
-            
+
 
 
 
@@ -216,7 +216,7 @@ public class BulletHellManage : MonoBehaviour
             P2.bHell_isShoot = true;
             P1.bHell_isShoot = false;
 
-           
+
 
 
             P2.ShieldDestroy();
@@ -247,15 +247,11 @@ public class BulletHellManage : MonoBehaviour
 
 
     public void DetectCharacter1()
-    {
+    { //Unneccesarily detects player
         if (P1.gameObject.name == "P1_Bo")
         {
            P1Character = "Bo";
-           // Instantiate(P1Tag, P1feedback.transform);
-           // P1Tag.transform.position = P1feedback.transform.position;
 
-
-          //  P1Tag.color = Color.blue; //Update for specific character colouring later on.
         }
         else if (P1.gameObject.name == "P1_Hiro")
         {
@@ -335,7 +331,7 @@ public class BulletHellManage : MonoBehaviour
 
             P2hits.text = p2TimesHit.ToString();
 
-            
+
 
             Instantiate(P2hits, P2feedback.transform );
 
@@ -346,7 +342,7 @@ public class BulletHellManage : MonoBehaviour
 
 
     public void PositionChecker()
-    {
+    { //This code is responsible for swapping player positons when it is triggered.
       if(paused == false){
 
                       if (P1_isLerpHome == true)
@@ -357,10 +353,10 @@ public class BulletHellManage : MonoBehaviour
 
                           if (Vector3.Distance(P1.transform.position, P1Spawn.transform.position) > minDistance)
                 {
-                   
+
                             P1.speed = 0;
                             P1.gameObject.transform.position = Vector3.Lerp(P1.gameObject.transform.position, P1Spawn.transform.position, Time.deltaTime * LerpRate);
-                   
+
                           }
                           else
                           {
@@ -399,7 +395,7 @@ public class BulletHellManage : MonoBehaviour
                     SpeechBubbleGenerator(P1feedback, P1Character, 1);
                     P1.ControlRemoved = false;
                     P1_isLerpGun = false;
-                    
+
                 }
                       }
 
@@ -445,7 +441,7 @@ public class BulletHellManage : MonoBehaviour
             {
                 P2.gameObject.transform.position = GunnerPos.transform.position;
                 P2.gameObject.transform.rotation = GunnerPos.transform.rotation;
-                
+
                     P2.speed = 0;
                     P2.gameObject.GetComponent<Rigidbody2D>().mass = 900000;
 
@@ -466,7 +462,7 @@ public class BulletHellManage : MonoBehaviour
     public void SpeechBubbleGenerator(Canvas pos, string character, int playerID)
     {
         Speechbubble.GetComponent<MoveDamage>().ChangeSprite(character, playerID);
-        Instantiate(Speechbubble, pos.transform);
+        Instantiate(Speechbubble, pos.transform); //Adds the character head when swapping occurs.
 
     }
     //Make a value to hold the current player being moved

@@ -12,7 +12,7 @@ public class ObjectPool : MonoBehaviour
     //public GameObject pool_RedProj; //Put different projectiles in their relevant slots. The pool switches and changes depending on current active.
     public GameObject pool_BlueProj; //add rest if this works.
     public GameObject pool_YellowProj;
-    
+
     public GameObject pool_WhiteProj;
     public GameObject pool_GreenProj;
 
@@ -51,7 +51,7 @@ public class ObjectPool : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {   
+    {
 
     }
 
@@ -108,7 +108,7 @@ public class ObjectPool : MonoBehaviour
 
         return null;
 
-        /*if (pool_RedProjTime == true) //Set bool via GunnerPowerup Script. 
+        /*if (pool_RedProjTime == true) //Set bool via GunnerPowerup Script.
             {
                 //iterates through pool_list
                 for (int i = 0; i < pool_ListR.Count; i++)
@@ -125,7 +125,7 @@ public class ObjectPool : MonoBehaviour
     }
 
     public void PoolTime()
-    {
+    { //This function just adds the projectiles to lists.
         //pool_ListR = new List<GameObject>();
         pool_ListB = new List<GameObject>();
         pool_ListY = new List<GameObject>();
@@ -156,13 +156,13 @@ public class ObjectPool : MonoBehaviour
             ObjectPool.pool_Instance.pool_YellowProjTime = false;
             ObjectPool.pool_Instance.pool_GreenProjTime = false;
             ObjectPool.pool_Instance.pool_WhiteProjTime = false;
-          
+
         }
 
 
     public void PausePool(bool isPause)
     {
-        if(isPause == true) { 
+        if(isPause == true) {
                 foreach(GameObject blueStop in pool_ListB)
              {
                 blueStop.GetComponent<BlueProjectile>().PauseProj();
@@ -211,5 +211,3 @@ public class ObjectPool : MonoBehaviour
     }
 
     }
-
-

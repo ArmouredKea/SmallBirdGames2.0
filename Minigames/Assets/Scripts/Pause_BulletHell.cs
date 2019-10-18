@@ -27,7 +27,7 @@ public class Pause_BulletHell : Pause
     }
 
 
-
+    //pauses the childs such as characters
     public override void PauseButton()
     {
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerupCheck : MonoBehaviour
 {
- 
+
     public GunnerPowerups gunnerSpawn;
     public RunnerPowerups runnerSpawn;
 
@@ -50,7 +50,7 @@ public class PowerupCheck : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collision)
-    {   
+    {   //Sees what powerup has been hit and what hit it.
         if(forShooter == true)
         {
             if (collision.tag == "Projectile")
@@ -100,17 +100,17 @@ public class PowerupCheck : MonoBehaviour
             {
                 //do nothing
             }
-                   
+
                 }
-            
+
            /* else if (collision.tag == "Player1" || collision.tag == "Player2")
             {
                 //"Pop" effect here.
                 gunnerSpawn.Spawn_SpawnedObj.Remove(Position_current);
                 gameObject.SetActive(false);
-                
+
             }*/
-        
+
 
         else if (forRunner == true)
         {
@@ -119,7 +119,7 @@ public class PowerupCheck : MonoBehaviour
                 //"Use" effect here.
 
                 //runnerSpawn.Deactivate(); ? Do we want the shooter to be able to hit the powerups?!
-               
+
                 //gameObject.SetActive(false);
             }
             else if (collision.tag == "Player1" || collision.tag == "Player2")
@@ -135,16 +135,16 @@ public class PowerupCheck : MonoBehaviour
                 }
                 runnerSpawn.ExecutePowerup(r, y, g, w);
                 gameObject.SetActive(false);
-                
-               
 
-                
-                
-                
+
+
+
+
+
             }
         }
 
-      
+
     }
 
 

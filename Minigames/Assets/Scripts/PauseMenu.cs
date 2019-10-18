@@ -22,7 +22,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject scoreTextbox;
     public bool tutorial = true;
 
-    // Start is called before the first frame update
+    // sets audiomanager and checks what scene you are in
     void Start() {
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
         Scene scene = SceneManager.GetActiveScene();
@@ -37,7 +37,7 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    // manages muting for audio
     void Update() {
       if (audioManager.GetComponent<AudioManagerScript>().isMuted) {
           mutebutton.SetActive(false);
@@ -48,6 +48,7 @@ public class PauseMenu : MonoBehaviour
       }
     }
 
+    //turning the pause menu on and off
     public void togglePauseMenu() {
         if (Paused == false && scoreTextbox.activeSelf == false) {
             PausedMenu.SetActive(true);

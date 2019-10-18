@@ -33,6 +33,7 @@ public class TutorialsUI : MonoBehaviour
 
     }
 
+    //goes to the next tutorial textbox
     public void NextTutorial() {
         tutorials[i].SetActive(false);
         i++;
@@ -47,6 +48,7 @@ public class TutorialsUI : MonoBehaviour
         }
     }
 
+    //goes to the previous tutorial textbox
     public void PreviousTutorial() {
         tutorials[i].SetActive(false);
         i--;
@@ -60,6 +62,7 @@ public class TutorialsUI : MonoBehaviour
         }
     }
 
+    //when both players are ready, start the minigame
     public void Ready() {
         tutorials[i].SetActive(false);
         ready = true;
@@ -83,7 +86,7 @@ public class TutorialsUI : MonoBehaviour
                 StartCoroutine(countdownScript.GetComponent<Score_BulletHell>().Countdown());
             }
             pauseScript.GetComponent<Pause>().inTutorial = false;
-            pauseScript.GetComponent<Pause>().PauseButton();            
+            pauseScript.GetComponent<Pause>().PauseButton();
             pauseMenu.GetComponent<PauseMenu>().tutorial = false;
         }
     }

@@ -55,7 +55,7 @@ public class PowerupParent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -83,7 +83,7 @@ public class PowerupParent : MonoBehaviour
     }
 
     public virtual void Randomize_Powerup()
-    {
+    {//Randomly spawns powerup based on an list of empty game objects.
 
 
 
@@ -160,13 +160,13 @@ public class PowerupParent : MonoBehaviour
     }
 
     virtual public void ExecutePowerup(bool red, bool yellow, bool green, bool white)
-    {
+    { //This is passed through child scripts, using the r y g w bools to see what powerup has been hit.
 
     }
 
 
     public virtual IEnumerator PowerupTimer(float seconds, PC_BulletHell player, Color color)
-    {
+    {//Gets projtimer, manages the fill and the powerup duration.
         powerupProg = player.transform.Find("PowerupTimeZone").GetComponentInChildren<Canvas>().transform.Find("ProjTimer").GetComponentInChildren<Image>();
 
         powerupProg.gameObject.SetActive(true);
@@ -174,8 +174,8 @@ public class PowerupParent : MonoBehaviour
 
         powerupProg.color = color;
         Powerup_Activated = true;
-        
-       
+
+
 
 
 

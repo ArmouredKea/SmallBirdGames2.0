@@ -18,7 +18,7 @@ public class CharacterManagement : MonoBehaviour
     public GameObject p2JoystickOuter;
 
 
-    // Start is called before the first frame update
+    // provides the correct joystick for the respective character
     void Awake() {
         if (CharacterCarryOver.player1 == "Bo") {
             p1Bo.SetActive(true);

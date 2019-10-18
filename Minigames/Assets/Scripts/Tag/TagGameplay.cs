@@ -23,6 +23,7 @@ public class TagGameplay : MonoBehaviour
     void Start() {
         float i = Random.Range(0f, 0.9f);
 
+        //setting the specific spotlight radius for each player depending on role
         if (i < 0.45f) {
             GameObject.FindWithTag("Player1").GetComponent<PC_Tag>().it = true;
             p1Light.GetComponent<Light>().spotAngle = 60;
@@ -31,6 +32,7 @@ public class TagGameplay : MonoBehaviour
             p2Light.GetComponent<Light>().spotAngle = 60;
         }
 
+        //loads a random map from three selections
         if (i < 0.3f) {
             walls1.SetActive(true);
         } else if (i < 0.6f) {
@@ -45,6 +47,7 @@ public class TagGameplay : MonoBehaviour
         timer -= Time.deltaTime;
         spawnTimer -= Time.deltaTime;
 
+        //calls the spawn function every 8 seconds
         if (spawnTimer <= 0f) {
             SpawnPickup();
             spawnTimer = 8f;
@@ -63,7 +66,7 @@ public class TagGameplay : MonoBehaviour
 
     //spawns a pickup at a random position
     public void SpawnPickup() {
-        float l = Random.Range(0f, 0.8f);        
+        float l = Random.Range(0f, 0.8f);
 
         if (l < 0.1f) {
             m = -4.5f;
@@ -97,7 +100,7 @@ public class TagGameplay : MonoBehaviour
         } else if (k <= 1f) {
             Instantiate(trap, new Vector2(m, j), Quaternion.identity);
         }
-        
+
 
     }
 

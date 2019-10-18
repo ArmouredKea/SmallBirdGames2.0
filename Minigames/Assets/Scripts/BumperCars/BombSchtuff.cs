@@ -30,7 +30,7 @@ public class BombSchtuff : MonoBehaviour {
     public GameObject p2H1Mika;
     public GameObject p2H2Mika;
     public GameObject p2H3Mika;
-    
+
     public bool paused;
     private GameObject pauseParent;
 
@@ -40,6 +40,7 @@ public class BombSchtuff : MonoBehaviour {
         //StartCoroutine(SpawnBomb(1.5f));
         //spawningBomb = true;
 
+        //Lives facial portraits display relative to number of lives
         if (CharacterCarryOver.player1 == "Bo") {
             p1H1Bo.SetActive(true);
             p1H2Bo.SetActive(true);
@@ -73,7 +74,7 @@ public class BombSchtuff : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        //timer countdown for spawning bombs.
+        //timer countdown for spawning water balloons.
         if (paused == false) {
             timer -= Time.deltaTime;
         }
@@ -142,7 +143,7 @@ public class BombSchtuff : MonoBehaviour {
         }
     }
 
-    //spawns a bomb at a random position either at the top or bottom of the arena.
+    //spawns a water balloon at a random position either at the top or bottom of the arena.
     public IEnumerator SpawnBomb(float waitTime) {
         float i = Random.Range(0f, 0.9f);
         float j;

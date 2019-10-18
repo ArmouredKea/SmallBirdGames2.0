@@ -121,6 +121,7 @@ public class CharacterSelect : MonoBehaviour
             unreadyButton.SetActive(false);
         }
 
+        //confirms and resets scores and miniagems
         if (ready && otherPlayer.GetComponent<CharacterSelect>().ready == true) {
             CharacterCarryOver.p1Score = 0;
             CharacterCarryOver.p2Score = 0;
