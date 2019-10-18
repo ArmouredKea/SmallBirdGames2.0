@@ -25,7 +25,7 @@ public class OCScoreControls : MonoBehaviour
             endText.SetActive(true);
             overallScore.SetActive(true);
             minigameChanger.SetActive(true);
-
+            //adds score to overall score
             if (player1Control.gameObject.GetComponent<GameController>().points > player2Control.gameObject.GetComponent<GameController>().points) {
                 CharacterCarryOver.p1Score++;
                 endText.GetComponent<Text>().text = "Player 1 Wins!";

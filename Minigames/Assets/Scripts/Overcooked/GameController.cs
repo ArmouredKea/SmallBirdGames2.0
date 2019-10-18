@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour {
     public string playerName;
     public GameObject audioManager;
 
+    //Player icons for score
     public GameObject bP1;
     public GameObject hP1;
     public GameObject mP1;
@@ -60,6 +61,7 @@ public class GameController : MonoBehaviour {
 
         points = 0;
 
+        //sets player variable
         txtObject.GetComponent<Text>().text = (points.ToString());
         if (gameObject.name == "HandInP1") {
             player = GameObject.FindGameObjectWithTag("Player1");
@@ -67,6 +69,8 @@ public class GameController : MonoBehaviour {
         else if (gameObject.name == "HandInP2") {
             player = GameObject.FindGameObjectWithTag("Player2");
         }
+
+        //activates icon corrosponding to character
         playerName = player.GetComponent<PC_Overcooked>().pName;
         if (player.tag == "Player1") {
             if (playerName == "Bo") {
@@ -90,25 +94,27 @@ public class GameController : MonoBehaviour {
                 mP2.SetActive(true);
             }
         }
+
+        //adds colour to dictionary
         balloonColorDic.Add(1, new Vector4(255, 0, 0, 255));
         balloonColorDic.Add(2, new Vector4(0, 255, 0, 255));
         balloonColorDic.Add(3, new Vector4(0, 188, 255, 255));
 
+        //adds handin gameobjects to dictionary
         handInDic.Add(0, handIn1);
         handInDic.Add(1, handIn2);
         handInDic.Add(2, handIn3);
         handInDic.Add(3, handIn4);
 
         playerScript = player.GetComponent<PC_Overcooked>();
-        //OrderList();
         orderLength = 3;
-        //ListPickUps();
         OrderUp();
     }
 
     // Update is called once per frame
     void Update() {
         if (!paused) {
+            //Frenzy timer
             if (frenzyActive) {
                 frenzyTime -= Time.deltaTime;
                 if (timer <= 0) {
@@ -122,14 +128,15 @@ public class GameController : MonoBehaviour {
                 } else {
                     timer -= Time.deltaTime;
                 }
-              player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().color = Color.Lerp(Color.red, Color.blue, timer);
-              player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = (frenzyTime/15);
+                //frenzy visuals on player
+                player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().color = Color.Lerp(Color.red, Color.blue, timer);
+                player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = (frenzyTime/15);
             } else if (!frenzyActive) {
                 player.GetComponent<PC_Overcooked>().frenzyI.GetComponent<Image>().fillAmount = 0;
             }
         }
 
-
+        //checks if frenzy ends and resets variables to normal
         if (frenzyTime <= 0) {
           frenzyActive = false;
           player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
@@ -137,9 +144,11 @@ public class GameController : MonoBehaviour {
           player.GetComponent<Rigidbody2D>().mass = 1;
         }
 
+        //checks if all orders are complete
         if (ordersComplete == 4) {
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Order");
         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate3");
+          //if you get all 4 orders correct activates frenzy
           if (tempPoints == 4 && frenzyActive == false) {
             audioManager.GetComponent<AudioManagerScript>().PlayAudio("PowerUp");
             frenzyActive = true;
@@ -148,12 +157,14 @@ public class GameController : MonoBehaviour {
             player.GetComponent<PC_Overcooked>().frenzy = true;
             player.GetComponent<Rigidbody2D>().mass = 10;
             player.GetComponent<PC_Overcooked>().frenzyI.SetActive(true);
+            //checks if you get 1 or more orders wrong and disbales frenzy
           } else if (tempPoints <= 3) {
             frenzyActive = false;
             player.GetComponent<PC_Overcooked>().speed = player.GetComponent<PC_Overcooked>().baseSpeedOC;
             player.GetComponent<PC_Overcooked>().frenzy = false;
             player.GetComponent<Rigidbody2D>().mass = 1;
           }
+          //adds Filling Frenzy game points
           points += tempPoints;
           txtObject.GetComponent<Text>().text = (points.ToString());
           tempPoints = 0;
@@ -164,6 +175,7 @@ public class GameController : MonoBehaviour {
         }
     }
 
+    //resets box variables and assigns new orders
     void OrderUp() {
         int rI;
         Vector4 temp;
