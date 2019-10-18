@@ -22,6 +22,9 @@ TagManager:
   - P1Tag
   - Turret
   - P2Tag
+  - Music
+  - Powerup
+  - Trap
   layers:
   - Default
   - TransparentFX
