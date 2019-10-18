@@ -67,6 +67,7 @@ public class HandInScript : MonoBehaviour
         moveTime = 0;
         openLid = false;
         balloon.SetActive(true);
+        correctHandIn = false;
       }
       if (openLid && correctHandIn) {
             plusOne.SetActive(true);
@@ -114,6 +115,7 @@ public class HandInScript : MonoBehaviour
           } else {
             temp.GetComponent<HandInScript>().closing = true;
             temp.GetComponent<HandInScript>().balloon.SetActive(false);
+            temp.GetComponent<HandInScript>().correctHandIn = false;
 
           }
         }
