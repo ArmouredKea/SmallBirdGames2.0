@@ -52,15 +52,6 @@ public class Pause_Overcooked : Pause
                     }
                 }
 
-                /*  Component[] childrenItemControllerScripts;
-                  childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
-
-                  if (childrenItemControllerScripts != null) {
-                      foreach (ItemController itemController in childrenItemControllerScripts) {
-                          itemController.paused = true;
-                      }
-                  } */
-
                 paused = true;
                 timer.GetComponent<Score_Overcooked>().paused = true;
                 //line Luke added to show the pause menu
@@ -90,16 +81,6 @@ public class Pause_Overcooked : Pause
                         timer.paused = false;
                     }
                 }
-
-                /* Component[] childrenItemControllerScripts;
-                childrenItemControllerScripts = GetComponentsInChildren(typeof(ItemController));
-
-                if (childrenItemControllerScripts != null) {
-                    foreach (ItemController itemController in childrenItemControllerScripts) {
-                        itemController.paused = false;
-                    }
-                } */
-
                 paused = false;
                 timer.GetComponent<Score_Overcooked>().paused = false;
             }
