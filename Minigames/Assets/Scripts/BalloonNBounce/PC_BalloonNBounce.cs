@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PC_BulletHell : PlayerController
+public class PC_BalloonNBounce : PlayerController
 {
   public Vector2 currentPosition;
   public float totalDistance;
@@ -13,7 +13,7 @@ public class PC_BulletHell : PlayerController
     public string bHell_PosData;
     private float bHell_rotationSpeed = 300.0f;
     [SerializeField]
-    private BulletHellManage bHell_Manage;
+    private BalloonBounceManage Balloon_Manage;
     [SerializeField]
     private ProjectileParent Proj_Manage;
 
@@ -46,14 +46,9 @@ public class PC_BulletHell : PlayerController
     public Color moistMin;
     public float moistRate;
 
-    public bool ControlRemoved;
-    public GameObject Turret;
-    public bool CorrectSpeed;
-
-    [SerializeField]
-    private GameObject barrel;
-
     public GameObject audioManager;
+    public float vertMovement;
+    public float horiMovement;
 
 
     // Start is called before the first frame update
@@ -71,6 +66,41 @@ public class PC_BulletHell : PlayerController
 
         Scene currentScene = SceneManager.GetActiveScene();
         string sceneName = currentScene.name;
+
+
+
+
+   
+            if (gameObject.tag == "Player1")
+            {
+
+                bHell_isShoot = true;
+                bHell_PosData = "HorizontalP1";
+
+
+
+
+
+
+            }
+
+            else if (gameObject.tag == "Player2")
+            {
+
+
+                bHell_isShoot = true;
+                bHell_PosData = "HorizontalP2";
+
+
+                //Work out a way to use the Time.delta properly here as well.
+
+
+
+            }
+        }
+
+    public void Awake()
+    {
 
     }
 
@@ -97,10 +127,45 @@ public class PC_BulletHell : PlayerController
 
   }
 
+    //Movement Function
+    public void Movement()
+    {
+
+        Controls();
+
+        float moveY = 0f;
+        float moveX = 0f;
+
+        moveY = vertMovement * speed;
+        moveX = horiMovement * speed;
+
+        moveX *= Time.deltaTime;
+        moveY *= Time.deltaTime;
+
+        transform.Translate(0, moveY, 0);
+        transform.Translate(moveX, 0, 0);
+
+    }
+
+    void Controls()
+    {
+
+        if (gameObject.tag == "Player1")
+        {
+            vertMovement = Input.GetAxis("Vertical");
+            horiMovement = Input.GetAxis("Horizontal");
+        }
+        if (gameObject.tag == "Player2")
+        {
+            vertMovement = Input.GetAxis("Vertical1");
+            horiMovement = Input.GetAxis("Horizontal1");
+        }
+    }
 
 
-  //player boost duration.
-  private IEnumerator BoostDuration(float waitTime) {
+
+    //player boost duration.
+    private IEnumerator BoostDuration(float waitTime) {
       yield return new WaitForSeconds(waitTime);
 
       if (gameObject.tag == "Player1") {
@@ -117,25 +182,27 @@ public class PC_BulletHell : PlayerController
 
     public void BHell_Main()
     {
-        BHell_Control();
+        Movement();
+        BHell_Fire();
 
-        bHell_Manage.BHell_Determine_Mode();
+       
     }
 
     public void BHell_Fire()
     {
        nuTime = Time.time;
-        GameObject pooledBullet = ObjectPool.pool_Instance.GetPooledObject();
+
+       
+        GameObject pooledBullet = ObjectPool2.pool_Instance1.GetPooledObject(); 
 
         BHell_FireMode();
         if (pooledBullet != null && nuTime > TillFire)
         {
             TillFire = Time.time + Recieve_FiringRate;
-            pooledBullet.transform.position = barrel.gameObject.transform.position;
-            pooledBullet.transform.rotation = barrel.gameObject.transform.rotation;
+
             
             pooledBullet.SetActive(true);
-            //audioManager.GetComponent<AudioManagerScript>().PlayAudio("Cannon3");
+            audioManager.GetComponent<AudioManagerScript>().PlayAudio("Cannon3");
             pooledBullet.GetComponent<ProjectileParent>().firedFrom = this.gameObject;//Figure out a better way to do this after Feature phase.
         }
 
@@ -152,7 +219,7 @@ public class PC_BulletHell : PlayerController
             moistMeter = shotvalue * moistRate;
             if (gameObject.tag == "Player1" && bHell_isShoot == false)
             {
-                bHell_Manage.p1TimesHit += shotvalue;
+                Balloon_Manage.p1TimesHit += shotvalue;
 
                 ApplyMoisture();
 
@@ -161,7 +228,7 @@ public class PC_BulletHell : PlayerController
             }
             if (gameObject.tag == "Player2" && bHell_isShoot == false)
             {
-                bHell_Manage.p2TimesHit += shotvalue;
+                Balloon_Manage.p2TimesHit += shotvalue;
                 ApplyMoisture();
 
             }
@@ -212,93 +279,13 @@ public class PC_BulletHell : PlayerController
         }
     }
 
-    public void BHell_Control()
-    {
-
-        if (ControlRemoved == false)
-        {
-             if (bHell_isShoot == true && paused == false)
-                {
-            animator.SetBool("Tank", true);
-            transform.Rotate(0f, 0f, Input.GetAxis(bHell_PosData) * bHell_rotationSpeed * Time.deltaTime * -1);
-            //transform.position = bHell_Manage.GunnerPos.transform.position;
-
-                Turret.GetComponent<Transform>().transform.rotation = gameObject.transform.rotation;
-
-
-            BHell_Fire();
 
 
 
-             }
-
-
-            else if (paused == false & bHell_isShoot == false)
-                {
-            animator.SetBool("Tank", false);
-
-
-
-       
-
-
-
-
-                Movement();
-
-                }
-        }
-      
-    }
-
-
-
-    public void Movement()
-    {
-        if (ControlRemoved == false)
-        {
-            Controls();
-
-            float moveY = 0f;
-            float moveX = 0f;
-
-            moveY = Runner_vertMovement * speed;
-            moveX = Runner_horiMovement * speed;
-
-            moveX *= Time.deltaTime;
-            moveY *= Time.deltaTime;
-
-            transform.Translate(0, moveY, 0);
-            transform.Translate(moveX, 0, 0);
-
-
-
-        }
-
-    }
-
-    void Controls()
-    {
-        if (ControlRemoved == false)
-        {
-            if (gameObject.tag == "Player1")
-            {
-                Runner_vertMovement = Input.GetAxis("Vertical");
-                Runner_horiMovement = Input.GetAxis("Horizontal");
-
-            }
-            if (gameObject.tag == "Player2")
-            {
-                Runner_vertMovement = Input.GetAxis("Vertical1");
-                Runner_horiMovement = Input.GetAxis("Horizontal1");
-
-            }
-        }
-    }
 
     public void ShieldCreation()
     {
-        shieldAppearance = transform.GetChild(1);
+        shieldAppearance = gameObject.transform.GetChild(1);
 
         shieldAppearance.gameObject.SetActive(true);
         Shielded = true;
@@ -314,7 +301,7 @@ public class PC_BulletHell : PlayerController
 
     public void AimingCreation()
     {
-        AimingLaser = transform.GetChild(2);
+        AimingLaser = gameObject.transform.GetChild(2);
         AimingLaser.gameObject.SetActive(true);
     }
     public void AimingDestroy()

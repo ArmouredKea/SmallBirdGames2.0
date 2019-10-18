@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class Score_BulletHell : Score
+public class Score_BalloonNBounce : Score
 {
-    public BulletHellManage bulletHellManage;
+    public BalloonBounceManage bulletHellManage;
     public GameObject pauseBulletHell;
 
     private bool timeswap = true;
@@ -22,14 +21,6 @@ public class Score_BulletHell : Score
         TotalTime = currentTime;
         swapping = true;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
-        Scene currentScene = SceneManager.GetActiveScene();
-        string sceneName = currentScene.name;
-
-        if (sceneName == "RunBalloon")
-        {
-            swapping = false;
-            timeswap = false;
-        }
     }
 
     public void closeTutorial () {
@@ -77,32 +68,12 @@ public class Score_BulletHell : Score
             ProgressBar2.fillAmount = TimeRatio;
         }
 
-        bulletHellManage = GameObject.FindObjectOfType<BulletHellManage>();
+        bulletHellManage = GameObject.FindObjectOfType<BalloonBounceManage>();
 
-        if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
-        {
-            countDownref.SetActive(true);
-            if (swapping) {
-                StartCoroutine(CountdownSound());
-                swapping = false;
-            }
-        }
-
-        if(currentTime <= 30 && timeswap == true)
-        {
-            countDownref.SetActive(false);
-            bulletHellManage.Bhell_Swap();
-            //StartCoroutine(Countdown());
-            timeswap = false;
-            //This is where the 123 thing goes.
-
-
-        }
-
-        if (currentTime <= 0f && gameCanEnd ) {
+        if (currentTime <= 0f && gameCanEnd) {
             scoreTextbox.SetActive(true);
 
-            if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            if (bulletHellManage.GetComponent<BalloonBounceManage>().p1TimesHit < bulletHellManage.GetComponent<BalloonBounceManage>().p2TimesHit) {
                 if (CharacterCarryOver.player1 == "Bo") {
                     p1WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player1 == "Hiro") {
@@ -124,7 +95,7 @@ public class Score_BulletHell : Score
                 Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
                 Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
-            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            } else if (bulletHellManage.GetComponent<BalloonBounceManage>().p1TimesHit > bulletHellManage.GetComponent<BalloonBounceManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
                     p2WinBo.SetActive(true);
                 } else if (CharacterCarryOver.player2 == "Hiro") {
@@ -174,10 +145,10 @@ public class Score_BulletHell : Score
 
             base.TokensUpdate();
 
-            if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            if (bulletHellManage.GetComponent<BalloonBounceManage>().p1TimesHit < bulletHellManage.GetComponent<BalloonBounceManage>().p2TimesHit) {
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
                 p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+            } else if (bulletHellManage.GetComponent<BalloonBounceManage>().p1TimesHit > bulletHellManage.GetComponent<BalloonBounceManage>().p2TimesHit) {
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
                 p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {

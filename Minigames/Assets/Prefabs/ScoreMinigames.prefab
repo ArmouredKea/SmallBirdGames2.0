@@ -2075,6 +2075,7 @@ GameObject:
   - component: {fileID: 7460783474737183809}
   - component: {fileID: 4222886004342874307}
   - component: {fileID: 4222886003640874747}
+  - component: {fileID: 3206098837526367532}
   - component: {fileID: 4222886004045952320}
   m_Layer: 5
   m_Name: ScoreMinigames
@@ -2154,6 +2155,10 @@ MonoBehaviour:
   - {fileID: 4222886002333180454}
   - {fileID: 4222886002868591753}
   - {fileID: 4222886003805267338}
+  audioManager: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  ProgressBar2: {fileID: 0}
+  TimeRatio: 0
   bombSchtuff: {fileID: 0}
   pauseBumperCars: {fileID: 0}
 --- !u!114 &4222886004342874307
@@ -2207,6 +2212,10 @@ MonoBehaviour:
   - {fileID: 4222886002333180454}
   - {fileID: 4222886002868591753}
   - {fileID: 4222886003805267338}
+  audioManager: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  ProgressBar2: {fileID: 0}
+  TimeRatio: 0
   player1: {fileID: 0}
   player2: {fileID: 0}
   pauseOvercooked: {fileID: 0}
@@ -2262,13 +2271,57 @@ MonoBehaviour:
   - {fileID: 4222886002333180454}
   - {fileID: 4222886002868591753}
   - {fileID: 4222886003805267338}
-  bulletHellManage: {fileID: 0}
-  pauseBulletHell: {fileID: 0}
+  audioManager: {fileID: 0}
   ProgressBar: {fileID: 0}
   ProgressBar2: {fileID: 0}
   TimeRatio: 0
+  bulletHellManage: {fileID: 0}
+  pauseBulletHell: {fileID: 0}
   TotalTime: 0
   countDownref: {fileID: 0}
+  canvaspausebutton: {fileID: 0}
+--- !u!114 &3206098837526367532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7460783474737183815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b829e665de33847840a887c25a6259, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  p1Bo: {fileID: 0}
+  p1Hiro: {fileID: 0}
+  p1Mika: {fileID: 0}
+  p2Bo: {fileID: 0}
+  p2Hiro: {fileID: 0}
+  p2Mika: {fileID: 0}
+  p1WinBo: {fileID: 0}
+  p1WinHiro: {fileID: 0}
+  p1WinMika: {fileID: 0}
+  p2WinBo: {fileID: 0}
+  p2WinHiro: {fileID: 0}
+  p2WinMika: {fileID: 0}
+  p1Score: {fileID: 0}
+  p2Score: {fileID: 0}
+  scoreTextbox: {fileID: 0}
+  pauseButton: {fileID: 0}
+  currentTime: 60
+  paused: 0
+  gameCanEnd: 1
+  p1Tokens: []
+  p2Tokens: []
+  audioManager: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  ProgressBar2: {fileID: 0}
+  TimeRatio: 0
+  bulletHellManage: {fileID: 0}
+  pauseBulletHell: {fileID: 0}
+  TotalTime: 0
+  countDownref: {fileID: 0}
+  canvaspausebutton: {fileID: 0}
 --- !u!114 &4222886004045952320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2320,6 +2373,10 @@ MonoBehaviour:
   - {fileID: 4222886002333180454}
   - {fileID: 4222886002868591753}
   - {fileID: 4222886003805267338}
+  audioManager: {fileID: 0}
+  ProgressBar: {fileID: 0}
+  ProgressBar2: {fileID: 0}
+  TimeRatio: 0
 --- !u!1 &7460783475277376836
 GameObject:
   m_ObjectHideFlags: 0

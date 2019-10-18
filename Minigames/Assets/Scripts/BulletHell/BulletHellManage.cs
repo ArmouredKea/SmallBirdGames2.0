@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class BulletHellManage : MonoBehaviour
@@ -10,6 +11,9 @@ public class BulletHellManage : MonoBehaviour
     public bool FixedSwap;
     public bool DeathSwap;
     public bool TimedSwap;
+
+
+
     public GameObject GunnerPos;
     public int firingPlayer;
     public ProjectileParent ProjScript;
@@ -87,27 +91,37 @@ public class BulletHellManage : MonoBehaviour
         P2 = GameObject.FindGameObjectWithTag("Player2").GetComponent<PC_BulletHell>();
         BHell_Init();
 
+        Scene currentScene = SceneManager.GetActiveScene();
+        string sceneName = currentScene.name;
+
+
     }
 
     // Update is called once per frame
      void Update()
     {
-        PositionChecker();
+       
         ValueCheck();
-        if(P1.bHell_isShoot == true)
-        {
-            P1.speed = 0;
-        }
-        else if (P2.bHell_isShoot == true)
-        {
-            P2.speed = 0;
-        }
 
+      
+            PositionChecker();
+            if (P1.bHell_isShoot == true)
+            {
+                P1.speed = 0;
+            }
+            else if (P2.bHell_isShoot == true)
+            {
+                P2.speed = 0;
+            }
+   
 
+     
+       
     }
 
     public void BHell_Init()
     {
+
         //bHell specific initialization for code sanitiation. Need to refactor how
         firingPlayer = Random.Range(1, 3); //Decide starting P randomly. R.R's MAX is not inclusive, it is exclusive. So it will only ever generate below 3, not 3.
 
@@ -167,6 +181,8 @@ public class BulletHellManage : MonoBehaviour
 
 
         }
+
+
     }
 
     public void Bhell_Swap()

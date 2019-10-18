@@ -35,6 +35,10 @@ public class PauseMenu : MonoBehaviour
         else if (scene.name == "BulletHell") {
             CurrentScene = "BulletHell";
         }
+        else if (scene.name == "RunBalloon")
+        {
+            CurrentScene = "RunBalloon";
+        }
     }
 
     // Update is called once per frame
@@ -117,6 +121,19 @@ public class PauseMenu : MonoBehaviour
                 threeSecPause.GetComponent<Score_BulletHell>().closeTutorial();
                 togglePauseMenu();
             }
+
+        }
+        else if (CurrentScene == "RunBalloon")
+        {
+            PauseManagerRef.GetComponent<Pause_BalloonNBounce>().PauseButton();
+            if (!tutorial)
+            {
+                countdownRef.SetActive(true);
+                Pausebuttonref.SetActive(false);
+                threeSecPause.GetComponent<Score_BalloonNBounce>().closeTutorial();
+                togglePauseMenu();
+            }
+
         }
 
     }

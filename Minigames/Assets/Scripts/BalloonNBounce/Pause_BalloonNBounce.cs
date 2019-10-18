@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pause_BulletHell : Pause
+public class Pause_BalloonNBounce : Pause
 {
 
     public GameObject countTimer;
     public GameObject timer;
-    public ObjectPool poolManage;
+    public ObjectPool2 poolManage;
     public GunnerPowerupsBalloon gPowerup;
     public RunnerPowerupsBalloon rPowerup;
     public GameObject PauseMenuRef;
-    public BulletHellManage BhellManage;
+    public BalloonBounceManage BhellManage;
 
 
     // Start is called before the first frame update
@@ -34,20 +34,20 @@ public class Pause_BulletHell : Pause
         if (!inTutorial) {
             if (!paused) {
                 Component[] childrenCharacterScripts;
-                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BulletHell));
+                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BalloonNBounce));
 
                 if (childrenCharacterScripts != null) {
-                    foreach (PC_BulletHell character in childrenCharacterScripts) {
+                    foreach (PC_BalloonNBounce character in childrenCharacterScripts) {
                         character.PauseCharacter();
                     }
                 }
 
                 poolManage.PausePool(true); //This calls the ObjectPool, which already has access to all active proj.
-                timer.GetComponent<Score_BulletHell>().paused = true;
+                timer.GetComponent<Score_BalloonNBounce>().paused = true;
                 //countTimer.GetComponent<CountdownTimer>().paused = true;
-                gPowerup.paused = true;
+               // gPowerup.paused = true;
                 //rPowerup.paused = true;
-                rPowerup.paused = true;
+               // rPowerup.paused = true;
                 paused = true;
                 BhellManage.paused = true;
                 //line Luke added to show the pause menu
@@ -61,16 +61,16 @@ public class Pause_BulletHell : Pause
                 }
             } else {
                 Component[] childrenCharacterScripts;
-                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BulletHell));
+                childrenCharacterScripts = GetComponentsInChildren(typeof(PC_BalloonNBounce));
 
                 if (childrenCharacterScripts != null) {
-                    foreach (PC_BulletHell character in childrenCharacterScripts) {
+                    foreach (PC_BalloonNBounce character in childrenCharacterScripts) {
                         character.UnpauseCharacter();
                     }
                 }
 
 
-                timer.GetComponent<Score_BulletHell>().paused = false;
+                timer.GetComponent<Score_BalloonNBounce>().paused = false;
 
                 //projManage_B.GetComponent<BombSchtuff>().paused = false;
 
