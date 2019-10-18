@@ -7,7 +7,7 @@ public class Score_OverallScore : Score
 {
     // Start is called before the first frame update
     protected override void Start() {
-        if (PlayerController.p1Score > PlayerController.p2Score) {
+        if (CharacterCarryOver.p1Score > CharacterCarryOver.p2Score) {
             if (CharacterCarryOver.player1 == "Bo") {
                 p1WinBo.SetActive(true);
             } else if (CharacterCarryOver.player1 == "Hiro") {
@@ -23,7 +23,7 @@ public class Score_OverallScore : Score
             } else if (CharacterCarryOver.player2 == "Mika") {
                 p2Mika.SetActive(true);
             }
-        } else if (PlayerController.p1Score < PlayerController.p2Score) {
+        } else if (CharacterCarryOver.p1Score < CharacterCarryOver.p2Score) {
             if (CharacterCarryOver.player2 == "Bo") {
                 p2WinBo.SetActive(true);
             } else if (CharacterCarryOver.player2 == "Hiro") {
@@ -57,7 +57,7 @@ public class Score_OverallScore : Score
             }
         }
 
-        for (int i = 0; i < PlayerController.p1Score; i++) {
+        for (int i = 0; i < CharacterCarryOver.p1Score; i++) {
             if (p1Wins[i] == "WaterWars") {
                 p1Tokens[i].SetActive(true);
                 p1Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
@@ -70,7 +70,7 @@ public class Score_OverallScore : Score
             }
         }
 
-        for (int i = 0; i < PlayerController.p2Score; i++) {
+        for (int i = 0; i < CharacterCarryOver.p2Score; i++) {
             if (p2Wins[i] == "WaterWars") {
                 p2Tokens[i].SetActive(true);
                 p2Tokens[i].GetComponent<Image>().sprite = Resources.Load<Sprite>("Tokens/WaterWarsToken");
@@ -83,8 +83,8 @@ public class Score_OverallScore : Score
             }
         }
 
-        p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
-        p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
+        p1Score.GetComponent<Text>().text = CharacterCarryOver.p1Score.ToString();
+        p2Score.GetComponent<Text>().text = CharacterCarryOver.p2Score.ToString();
 
     }
 

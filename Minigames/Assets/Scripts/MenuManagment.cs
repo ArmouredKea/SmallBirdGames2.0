@@ -22,6 +22,7 @@ public class MenuManagment : MonoBehaviour
     public GameObject BackgroundTop;
     public CanvasGroup AllMenuButtons;
     public GameObject AllMenuButtonsRef;
+    public GameObject MenuBlocker;
     public Transform startMarker;
     public Transform endMarker;
     public float speed = 5.0f;
@@ -86,9 +87,11 @@ public class MenuManagment : MonoBehaviour
 
     //Transitions the tap to start screen
     public void ScreenFade() {
+        MenuBlocker.SetActive(true);
         startTime = Time.time;
         journeyLength = Vector3.Distance(startMarker.position, endMarker.position);
         StartCoroutine(logoFadeRoutine(SplashScreenFade, SplashScreenFade.alpha, 0));
+        SplashScreen.SetActive(false);
         Started = true;
         StartCoroutine(buttonsShowUp(AllMenuButtons, AllMenuButtons.alpha, 1));
     }
@@ -97,8 +100,8 @@ public class MenuManagment : MonoBehaviour
     IEnumerator buttonsShowUp(CanvasGroup cg, float start, float end, float lerpTime = 0.5f)
     {
         //waits before starting to fade
-        AllMenuButtonsRef.SetActive(true);
         yield return new WaitForSeconds(2);
+        AllMenuButtonsRef.SetActive(true);
 
 
         float timeStartedLerping = Time.time;
@@ -118,6 +121,8 @@ public class MenuManagment : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
+        
+        MenuBlocker.SetActive(false);
     }
 
     //this co routine handdles the fadding out of the logo
@@ -142,7 +147,6 @@ public class MenuManagment : MonoBehaviour
 
             yield return new WaitForEndOfFrame();
         }
-        SplashScreen.SetActive(false);
     }
 
     //loads the character select screen

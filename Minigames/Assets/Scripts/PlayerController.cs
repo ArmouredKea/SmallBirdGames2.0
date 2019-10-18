@@ -14,16 +14,13 @@ public class PlayerController : MonoBehaviour {
     public Transform joystickOuter;
     public Transform joystickInner;
     public Vector2 direction;
-    public Animator animator;
+    public Animator animator;    
 
     public List<PlayerController> Players = new List<PlayerController>();
     //public PlayerController Controller;
     public int? LockedFingerID { get; set; }
 
-    private Vector2 startPos;
-
-    public static int p1Score;
-    public static int p2Score;
+    private Vector2 startPos;    
 
     public bool paused;
     public float angle;

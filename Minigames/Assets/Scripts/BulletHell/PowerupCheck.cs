@@ -44,7 +44,7 @@ public class PowerupCheck : MonoBehaviour
     public void OnEnable()
     {
         //Powerup Spawn Effect here.
-        
+        audioManager = GameObject.FindGameObjectWithTag("AudioManager");
 
 
     }

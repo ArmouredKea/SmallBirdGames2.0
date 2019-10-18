@@ -54,6 +54,7 @@ public class PC_Overcooked : PlayerController {
             animator.SetBool("Moving", true);
             GetComponent<Animator>().speed = 1;
         }
+        //pick up cast time timer and logic
         if (inRange && objCarry == false) {
           castTime += Time.deltaTime;
           pickUpImg.fillAmount = (castTime/endCastTime);
@@ -112,6 +113,7 @@ public class PC_Overcooked : PlayerController {
     //Referencing gameObject (PickUp) that you are near
     void OnTriggerEnter2D(Collider2D other) {
 
+        //checks if you are near a crate and starts pick up timer
         if (other.gameObject.tag == "Crate") {
             if (objCarry == false) {
                 inRange = true;
@@ -122,6 +124,7 @@ public class PC_Overcooked : PlayerController {
         }
     }
 
+    //checks if you exit a crate area
     void OnTriggerExit2D(Collider2D other) {
       if (other.gameObject.tag == "Crate") {
         inRange = false;
@@ -135,6 +138,7 @@ public class PC_Overcooked : PlayerController {
     }
 
     void OnCollisionEnter2D(Collision2D other) {
+        //checks if you collide with a bin and "throws away" the balloon if you are holding one
         if (other.gameObject.tag == "Bin") {
             handInPlease = true;
             if (objCarry) {
@@ -144,11 +148,12 @@ public class PC_Overcooked : PlayerController {
                 audioManager.GetComponent<AudioManagerScript>().PlayAudio("Whoosh");
             }
         }
+        //checks if you collide with a hand in and starts the logic for handing in the object
         if (other.gameObject.tag == "HandIn" && other.gameObject.transform.parent.GetComponent<GameController>().player == this.gameObject) {
-            // handInPlease = true;
+            //checks if box is closed or closing
             if (other.gameObject.GetComponent<HandInScript>().closed == false) {
                 if (other.gameObject.GetComponent<HandInScript>().closing == false) {
-                    // if (hCastTime >= endCastTime) {
+                    //checks if you are carrying a balloon
                     if (objCarry) {
                         other.gameObject.GetComponent<HandInScript>().HandleHandIn(balloonEnumInt);
                         Debug.Log("it wasnt closed or closing apparently");
@@ -157,17 +162,9 @@ public class PC_Overcooked : PlayerController {
                         balloonEnumInt = 0;
                         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Whoosh");
                         audioManager.GetComponent<AudioManagerScript>().PlayAudio("Crate2");
-                        // handInPlease = false;
-                        // hCastTime = 0;
                     }
                 }
             }
-        }
-        if (other.gameObject.tag == "Player2" && frenzy || other.gameObject.tag == "Player1" && frenzy) {
-          //Force push on Frenzy
-          /*float angle;
-          angle = Vector2.Angle(this.gameObject.transform.position, other.gameObject.transform.position);
-          other.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2((Mathf.Sin(angle)),(Mathf.Cos(angle))) * 8, ForceMode2D.Impulse); */
         }
     }
 }

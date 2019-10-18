@@ -32,7 +32,7 @@ public class BobSprite : MonoBehaviour
         Vector3 storePos = transform.localPosition;
 
         float newY = Mathf.Sin(Time.time * speed) * height + storePos.y;
-        transform.localPosition = new Vector3(transform.localPosition.x, newY, transform.localPosition.z) * height;
+        transform.localPosition = new Vector3(storePos.x, newY, storePos.z) * height;
 
 
         //transform.position = new Vector2(transform.position.x, bobCurve.Evaluate((Time.fixedTime % bobCurve.length))); 

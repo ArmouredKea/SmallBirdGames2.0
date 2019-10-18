@@ -8,16 +8,18 @@ public class Score_BulletHell : Score
     public BulletHellManage bulletHellManage;
     public GameObject pauseBulletHell;
 
-    private bool timeswap = true;    
+    private bool timeswap = true;
     public float TotalTime;
     public GameObject countDownref;
     public GameObject canvaspausebutton;
+    private bool swapping;
 
 
     // Start is called before the first frame update
     protected override void Start() {
         currentTime = 64;
         TotalTime = currentTime;
+        swapping = true;
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
     }
 
@@ -71,6 +73,10 @@ public class Score_BulletHell : Score
         if(currentTime <= 33 && currentTime >= 30 && timeswap == true)
         {
             countDownref.SetActive(true);
+            if (swapping) {
+                StartCoroutine(CountdownSound());
+                swapping = false;
+            }
         }
 
         if(currentTime <= 30 && timeswap == true)
@@ -104,8 +110,10 @@ public class Score_BulletHell : Score
                     p2Mika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                p1Wins[PlayerController.p1Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p1Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
                 if (CharacterCarryOver.player2 == "Bo") {
@@ -124,8 +132,10 @@ public class Score_BulletHell : Score
                     p1Mika.SetActive(true);
                 }
 
-                PlayerController.p2Score++;
-                p2Wins[PlayerController.p2Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p2Score++;
+                p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             } else {
                 if (CharacterCarryOver.player1 == "Bo") {
@@ -144,31 +154,33 @@ public class Score_BulletHell : Score
                     p2WinMika.SetActive(true);
                 }
 
-                PlayerController.p1Score++;
-                PlayerController.p2Score++;
-                p1Wins[PlayerController.p1Score - 1] = "BalloonBattle";
-                p2Wins[PlayerController.p2Score - 1] = "BalloonBattle";
+                CharacterCarryOver.p1Score++;
+                CharacterCarryOver.p2Score++;
+                p1Wins[CharacterCarryOver.p1Score - 1] = "BalloonBattle";
+                p2Wins[CharacterCarryOver.p2Score - 1] = "BalloonBattle";
+                Debug.Log("Player 1: " + CharacterCarryOver.p1Score);
+                Debug.Log("Player 2: " + CharacterCarryOver.p2Score);
 
             }
 
             base.TokensUpdate();
 
             if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit < bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+            } else if (bulletHellManage.GetComponent<BulletHellManage>().p1TimesHit > bulletHellManage.GetComponent<BulletHellManage>().p2TimesHit) {
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             } else {
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().enabled = true;
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().enabled = true;
-                p1Tokens[PlayerController.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
-                p2Tokens[PlayerController.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().enabled = true;
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().enabled = true;
+                p1Tokens[CharacterCarryOver.p1Score - 1].GetComponent<Animator>().SetBool("Spin", true);
+                p2Tokens[CharacterCarryOver.p2Score - 1].GetComponent<Animator>().SetBool("Spin", true);
             }
             StartCoroutine(TokenSound(0.9f));
 
-            p1Score.GetComponent<Text>().text = PlayerController.p1Score.ToString();
-            p2Score.GetComponent<Text>().text = PlayerController.p2Score.ToString();
+            p1Score.GetComponent<Text>().text = CharacterCarryOver.p1Score.ToString();
+            p2Score.GetComponent<Text>().text = CharacterCarryOver.p2Score.ToString();
 
             canvaspausebutton.SetActive(false);
             pauseBulletHell.GetComponent<Pause_BulletHell>().paused = false;
@@ -176,6 +188,28 @@ public class Score_BulletHell : Score
 
             gameCanEnd = false;
 
+
+        }
+    }
+
+    public IEnumerator CountdownSound() {
+        float pauseTime = Time.realtimeSinceStartup + 4f;
+        int i = 0;
+        while (Time.realtimeSinceStartup < pauseTime) {
+            if (i == 0 && (pauseTime - Time.realtimeSinceStartup > 3) && (pauseTime - Time.realtimeSinceStartup < 4)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 1 && (pauseTime - Time.realtimeSinceStartup > 2) && (pauseTime - Time.realtimeSinceStartup < 3)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 2 && (pauseTime - Time.realtimeSinceStartup > 1) && (pauseTime - Time.realtimeSinceStartup < 2)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            } else if (i == 3 && (pauseTime - Time.realtimeSinceStartup > 0) && (pauseTime - Time.realtimeSinceStartup < 1)) {
+                audioManager.GetComponent<AudioManagerScript>().PlayAudio("Button");
+                i++;
+            }
+            yield return 0;
         }
     }
 

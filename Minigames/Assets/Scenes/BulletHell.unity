@@ -709,7 +709,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 0e1046bc8acc98e4293fd00b877f899c, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.908
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2510,6 +2510,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5072004128381829905, guid: ade4fb76ea3cb964ebd72bf0f591d209,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ade4fb76ea3cb964ebd72bf0f591d209, type: 3}
@@ -4987,6 +4992,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.89411765
       objectReference: {fileID: 0}
+    - target: {fileID: 9202020938729911241, guid: a95696f61e104114d93ec0aedae27669,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19824d4eb2217fa4a92ef4d29c81dce6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a95696f61e104114d93ec0aedae27669, type: 3}
 --- !u!224 &705607470 stripped
@@ -7835,6 +7846,12 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0.89411765
       objectReference: {fileID: 0}
+    - target: {fileID: 6694238572111632908, guid: a8bd67a60e2497043b0b18270a88bdcd,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 19824d4eb2217fa4a92ef4d29c81dce6,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8bd67a60e2497043b0b18270a88bdcd, type: 3}
 --- !u!224 &1024017042 stripped
@@ -8763,6 +8780,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: d3ce8b077b742a2478c003e2d1a5cf77,
         type: 3}
+    - target: {fileID: 675686503172083614, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 675686503172083614, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.66
+      objectReference: {fileID: 0}
     - target: {fileID: 675686501780154637, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
       propertyPath: m_Sprite
@@ -8787,16 +8814,6 @@ PrefabInstance:
       value: 0.66
       objectReference: {fileID: 0}
     - target: {fileID: 675686501780154636, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 675686503172083614, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 675686503172083614, guid: 96453cc6b83206d4aaf4a6f7faaa4a4a,
         type: 3}
       propertyPath: m_LocalScale.y
       value: 0.66
@@ -14873,7 +14890,7 @@ PrefabInstance:
     - target: {fileID: 8767444331286311650, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}
       propertyPath: Spawn_maxTime
-      value: 4
+      value: 5.2
       objectReference: {fileID: 0}
     - target: {fileID: 8767444331286311650, guid: 12a8c36e3a310514d8bac976815fb96e,
         type: 3}

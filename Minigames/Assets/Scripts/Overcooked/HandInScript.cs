@@ -41,12 +41,14 @@ public class HandInScript : MonoBehaviour
     }
 
     void HandleLid() {
+      //Opens Lid of box
       if (openLid) {
         if (lid.transform.position != lidStartV) {
             moveTime += Time.deltaTime;
             lid.transform.position = Vector3.Lerp(lidEndV, lidStartV, moveTime/0.6f);
         }
       }
+      //Close lid of box
       if (closing) {
           moveTime += Time.deltaTime;
           lid.transform.position = Vector3.Lerp(lidStartV, lidEndV, moveTime/0.6f);
@@ -57,16 +59,19 @@ public class HandInScript : MonoBehaviour
             closed = true;
           }
       }
+      //checks if all boxs is closed
       if (closed) {
         moveTime = 0;
         if (gameControllerScript.ordersComplete == 4) {
           gameControllerScript.allClosed = true;
         }
       }
+      //checks if lid is closed and resets variabls
       if (lid.transform.position == lidStartV) {
         moveTime = 0;
         openLid = false;
         balloon.SetActive(true);
+        correctHandIn = false;
       }
       if (openLid && correctHandIn) {
             plusOne.SetActive(true);
@@ -76,15 +81,19 @@ public class HandInScript : MonoBehaviour
     }
 
     public void HandleHandIn (int balloonID) {
-      //Debug.Log("Hand in ID" + balloonID);
+            //Debug.Log("Hand in ID" + balloonID);
+            //Checks if balloon exists and balloon has a colour
             if (gameControllerScript.orderList[handInID] != 0 && balloonID != 0 || gameControllerScript.frenzyActive) {
                 Debug.Log("Made it to point 1");
+                    //checks if box is closed
                     if (closed == false && balloonID != 0) {
                       if (closing == false && balloonID != 0) {
+                          //checks if in frenzy then runs frenzy function
                           if (gameControllerScript.frenzyActive) {
                             FrenzyMode(handInID);
                           }
                           correctHandIn = false;
+                          //checks if balloonID is the same as the BoxID then sets all correct hand in variables
                           if (balloonID == orderID) {
                               Debug.Log("Made it to point 2");
                               correctHandIn = true;
@@ -94,6 +103,7 @@ public class HandInScript : MonoBehaviour
                               gameControllerScript.orderList[handInID] = 0;
                               gameControllerScript.tempPoints += 1;
                           } else {
+                              //runs logic on incorrect hand in.=
                               gameControllerScript.orderList[handInID] = 0;
                               correctHandIn = false;
                               balloon.SetActive(false);
@@ -106,6 +116,8 @@ public class HandInScript : MonoBehaviour
           }
     }
 
+    //Frenzy Buff function
+    //Closes corresponding players hand in box while in frenzy mode
     void FrenzyMode(int boxID) {
       GameObject temp;
         if (gameControllerScript.otherPlayerGC.GetComponent<GameController>().handInDic.TryGetValue(boxID, out temp)) {
@@ -114,6 +126,7 @@ public class HandInScript : MonoBehaviour
           } else {
             temp.GetComponent<HandInScript>().closing = true;
             temp.GetComponent<HandInScript>().balloon.SetActive(false);
+            temp.GetComponent<HandInScript>().correctHandIn = false;
 
           }
         }
