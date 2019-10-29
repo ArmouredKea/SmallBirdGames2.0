@@ -21,6 +21,7 @@ public class CharacterSelect : MonoBehaviour
     public GameObject unreadyButton;
     public GameObject otherPlayer;
     public GameObject sceneManagementScript;
+    public GameObject idleScript;
 
     private bool boPicked;
     private bool hiroPicked;
@@ -96,6 +97,7 @@ public class CharacterSelect : MonoBehaviour
             ready = true;
             readyButton.SetActive(false);
             unreadyButton.SetActive(true);
+            idleScript.SetActive(true);
             if (boPicked) {
                 if (gameObject.tag == "Player1") {
                     CharacterCarryOver.player1 = "Bo";
